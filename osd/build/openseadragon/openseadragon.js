@@ -1,6 +1,6 @@
 //! openseadragon 2.1.0
-//! Built on 2015-12-13
-//! Git commit: v2.1.0-31-b9d0443
+//! Built on 2016-01-09
+//! Git commit: v2.1.0-59-d4e8db0
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -4396,6 +4396,14 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                 eventParams = getCaptureEventParams( tracker, $.MouseTracker.havePointerEvents ? 'pointerevent' : pointerType );
                 // We emulate mouse capture by hanging listeners on the document object.
                 //    (Note we listen on the capture phase so the captured handlers will get called first)
+                if (isInIframe && canAccessEvents(window.top)) {
+                    $.addEvent(
+                        window.top,
+                        eventParams.upName,
+                        eventParams.upHandler,
+                        true
+                    );
+                }
                 $.addEvent(
                     $.MouseTracker.captureElement,
                     eventParams.upName,
@@ -4431,6 +4439,14 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                 eventParams = getCaptureEventParams( tracker, $.MouseTracker.havePointerEvents ? 'pointerevent' : pointerType );
                 // We emulate mouse capture by hanging listeners on the document object.
                 //    (Note we listen on the capture phase so the captured handlers will get called first)
+                if (isInIframe && canAccessEvents(window.top)) {
+                    $.removeEvent(
+                        window.top,
+                        eventParams.upName,
+                        eventParams.upHandler,
+                        true
+                    );
+                }
                 $.removeEvent(
                     $.MouseTracker.captureElement,
                     eventParams.moveName,
@@ -6275,6 +6291,30 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                 preventDefaultAction: false,
                 userData:             tracker.userData
             } );
+        }
+    }
+    
+    // True if inside an iframe, otherwise false.
+    // @member {Boolean} isInIframe
+    // @private
+    // @inner
+    var isInIframe = (function() {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    })();
+ 
+    // @function
+    // @private
+    // @inner
+    // @returns {Boolean} True if the target has access rights to events, otherwise false.
+    function canAccessEvents (target) {
+        try {
+            return target.addEventListener && target.removeEventListener;
+        } catch (e) {
+            return false;
         }
     }
 
@@ -10152,12 +10192,6 @@ $.Navigator = function( options ){
         }
     });
 
-    this.addHandler("reset-size", function() {
-        if (_this.viewport) {
-            _this.viewport.goHome(true);
-        }
-    });
-
     viewer.world.addHandler("item-index-change", function(event) {
         var item = _this.world.getItemAt(event.previousIndex);
         _this.world.setItemIndex(item, event.newIndex);
@@ -10236,8 +10270,8 @@ $.extend( $.Navigator.prototype, $.EventSource.prototype, $.Viewer.prototype, /*
 
         if( viewport && this.viewport ) {
             bounds      = viewport.getBounds( true );
-            topleft     = this.viewport.pixelFromPoint( bounds.getTopLeft(), false );
-            bottomright = this.viewport.pixelFromPoint( bounds.getBottomRight(), false )
+            topleft     = this.viewport.pixelFromPointNoRotate(bounds.getTopLeft(), false);
+            bottomright = this.viewport.pixelFromPointNoRotate(bounds.getBottomRight(), false)
                 .minus( this.totalBorderWidths );
 
             //update style for navigator-box
@@ -10307,7 +10341,7 @@ $.extend( $.Navigator.prototype, $.EventSource.prototype, $.Viewer.prototype, /*
  */
 function onCanvasClick( event ) {
     if ( event.quick && this.viewer.viewport ) {
-        this.viewer.viewport.panTo( this.viewport.pointFromPixel( event.position ).rotate( -this.viewer.viewport.degrees, this.viewer.viewport.getHomeBounds().getCenter() ) );
+        this.viewer.viewport.panTo(this.viewport.pointFromPixel(event.position));
         this.viewer.viewport.applyConstraints();
     }
 }
@@ -10697,14 +10731,46 @@ $.Point.prototype = /** @lends OpenSeadragon.Point.prototype */{
      * From http://stackoverflow.com/questions/4465931/rotate-rectangle-around-a-point
      * @function
      * @param {Number} degress to rotate around the pivot.
-     * @param {OpenSeadragon.Point} pivot Point about which to rotate.
+     * @param {OpenSeadragon.Point} [pivot=(0,0)] Point around which to rotate.
+     * Defaults to the origin.
      * @returns {OpenSeadragon.Point}. A new point representing the point rotated around the specified pivot
      */
-    rotate: function ( degrees, pivot ) {
-        var angle = degrees * Math.PI / 180.0,
-            x = Math.cos( angle ) * ( this.x - pivot.x ) - Math.sin( angle ) * ( this.y - pivot.y ) + pivot.x,
-            y = Math.sin( angle ) * ( this.x - pivot.x ) + Math.cos( angle ) * ( this.y - pivot.y ) + pivot.y;
-        return new $.Point( x, y );
+    rotate: function (degrees, pivot) {
+        pivot = pivot || new $.Point(0, 0);
+        var cos;
+        var sin;
+        // Avoid float computations when possible
+        if (degrees % 90 === 0) {
+            var d = degrees % 360;
+            if (d < 0) {
+                d += 360;
+            }
+            switch (d) {
+                case 0:
+                    cos = 1;
+                    sin = 0;
+                    break;
+                case 90:
+                    cos = 0;
+                    sin = 1;
+                    break;
+                case 180:
+                    cos = -1;
+                    sin = 0;
+                    break;
+                case 270:
+                    cos = 0;
+                    sin = -1;
+                    break;
+            }
+        } else {
+            var angle = degrees * Math.PI / 180.0;
+            cos = Math.cos(angle);
+            sin = Math.sin(angle);
+        }
+        var x = cos * (this.x - pivot.x) - sin * (this.y - pivot.y) + pivot.x;
+        var y = sin * (this.x - pivot.x) + cos * (this.y - pivot.y) + pivot.y;
+        return new $.Point(x, y);
     },
 
     /**
@@ -11778,8 +11844,8 @@ function configureFromObject( tileSource, configuration ){
 
 /**
  * @class IIIFTileSource
- * @classdesc A client implementation of the International Image Interoperability
- * Format: Image API 1.0 - 2.0
+ * @classdesc A client implementation of the International Image Interoperability Framework
+ * Format: Image API 1.0 - 2.1
  *
  * @memberof OpenSeadragon
  * @extends OpenSeadragon.TileSource
@@ -11825,7 +11891,7 @@ $.IIIFTileSource = function( options ){
                 }
             }
         }
-    } else if ( canBeTiled(this) ) {
+    } else if ( canBeTiled(options.profile) ) {
         // use the largest of tileOptions that is smaller than the short dimension
         var shortDim = Math.min( this.height, this.width ),
             tileOptions = [256,512,1024],
@@ -11843,11 +11909,14 @@ $.IIIFTileSource = function( options ){
             // If we're smaller than 256, just use the short side.
             options.tileSize = shortDim;
         }
-    } else if (this.sizes && this.sizes.length > 0){
-        // This info.json can't be tiled, but we can still construct a legacy pyramid form the sizes array
+    } else if (this.sizes && this.sizes.length > 0) {
+        // This info.json can't be tiled, but we can still construct a legacy pyramid from the sizes array. 
+        // In this mode, IIIFTileSource will call functions from the abstract baseTileSource or the 
+        // LegacyTileSource instead of performing IIIF tiling.      
         this.emulateLegacyImagePyramid = true;
+        
         options.levels = constructLevels( this );
-
+        // use the largest available size to define tiles
         $.extend( true, options, {
             width: options.levels[ options.levels.length - 1 ].width,
             height: options.levels[ options.levels.length - 1 ].height,
@@ -12036,7 +12105,7 @@ $.extend( $.IIIFTileSource.prototype, $.TileSource.prototype, /** @lends OpenSea
 
 
     /**
-     * Responsible for retreiving the url which will return an image for the
+     * Responsible for retrieving the url which will return an image for the
      * region specified by the given x, y, and level components.
      * @function
      * @param {Number} level - z index
@@ -12108,10 +12177,28 @@ $.extend( $.IIIFTileSource.prototype, $.TileSource.prototype, /** @lends OpenSea
 
   });
 
-    function canBeTiled (options ) {
-        return !(options.profile[0] === "http://iiif.io/api/image/2/level0.json" && options.profile.indexOf("sizeByW") == -1);
+    /**
+     * Determine whether arbitrary tile requests can be made against a service with the given profile
+     * @function
+     * @param {object} profile - IIIF profile object
+     * @throws {Error}
+     */
+    function canBeTiled (profile ) {
+        var level0Profiles = [
+            "http://library.stanford.edu/iiif/image-api/compliance.html#level0",
+            "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0",
+            "http://iiif.io/api/image/2/level0.json"
+        ];
+        var isLevel0 = (level0Profiles.indexOf(profile[0]) != -1);
+        return !isLevel0 || (profile.indexOf("sizeByW") != -1);
     }
 
+    /**
+     * Build the legacy pyramid URLs (one tile per level)
+     * @function
+     * @param {object} options - infoJson
+     * @throws {Error}
+     */
     function constructLevels(options) {
         var levels = [];
         for(var i=0; i<options.sizes.length; i++) {
@@ -12121,7 +12208,7 @@ $.extend( $.IIIFTileSource.prototype, $.TileSource.prototype, /** @lends OpenSea
                 height: options.sizes[i].height
             });
         }
-        return levels;
+        return levels.sort(function(a,b){return a.width - b.width;});
     }
 
 
@@ -12895,17 +12982,8 @@ function configureFromObject( tileSource, configuration ){
                 _this.maxLevel = _this.levels.length - 1;
 
                 _this.ready = true;
-                /**
-                 * Raised when a TileSource is opened and initialized.
-                 *
-                 * @event ready
-                 * @memberof OpenSeadragon.TileSource
-                 * @type {object}
-                 * @property {OpenSeadragon.TileSource} eventSource - A reference
-                 * to the TileSource which raised the event.
-                 * @property {Object} tileSource
-                 * @property {?Object} userData - Arbitrary subscriber-defined object.
-                 */
+
+                // Note: this event is documented elsewhere, in TileSource
                 _this.raiseEvent('ready', {tileSource: _this});
             });
 
@@ -14097,7 +14175,7 @@ $.Rect.prototype = /** @lends OpenSeadragon.Rect.prototype */{
             (Math.round(this.y * 100) / 100) + "," +
             (Math.round(this.width * 100) / 100) + "x" +
             (Math.round(this.height * 100) / 100) + "," +
-            (Math.round(this.degrees * 100) / 100) + "°" +
+            (Math.round(this.degrees * 100) / 100) + "deg" +
             "]";
     }
 };
@@ -14857,7 +14935,7 @@ $.Spring = function( options ) {
     $.console.assert(typeof options.springStiffness === "number" && options.springStiffness !== 0,
         "[OpenSeadragon.Spring] options.springStiffness must be a non-zero number");
 
-    $.console.assert(typeof options.animationTime === "number" && options.springStiffness !== 0,
+    $.console.assert(typeof options.animationTime === "number" && options.animationTime !== 0,
         "[OpenSeadragon.Spring] options.animationTime must be a non-zero number");
 
     if (options.exponential) {
@@ -16182,13 +16260,14 @@ $.Drawer.prototype = /** @lends OpenSeadragon.Drawer.prototype */{
     },
 
     /**
-     * Translates from OpenSeadragon viewer rectangle to drawer rectangle.
+     * Scale from OpenSeadragon viewer rectangle to drawer rectangle
+     * (ignoring rotation)
      * @param {OpenSeadragon.Rect} rectangle - The rectangle in viewport coordinate system.
      * @return {OpenSeadragon.Rect} Rectangle in drawer coordinate system.
      */
     viewportToDrawerRectangle: function(rectangle) {
-        var topLeft = this.viewport.pixelFromPoint(rectangle.getTopLeft(), true);
-        var size = this.viewport.deltaPixelsFromPoints(rectangle.getSize(), true);
+        var topLeft = this.viewport.pixelFromPointNoRotate(rectangle.getTopLeft(), true);
+        var size = this.viewport.deltaPixelsFromPointsNoRotate(rectangle.getSize(), true);
 
         return new $.Rect(
             topLeft.x * $.pixelDensityRatio,
@@ -16208,22 +16287,14 @@ $.Drawer.prototype = /** @lends OpenSeadragon.Drawer.prototype */{
      * @param {Float} [scale=1] - Apply a scale to tile position and size. Defaults to 1.
      * @param {OpenSeadragon.Point} [translate] A translation vector to offset tile position
      */
-    drawTile: function( tile, drawingHandler, useSketch, scale, translate ) {
+    drawTile: function(tile, drawingHandler, useSketch, scale, translate) {
         $.console.assert(tile, '[Drawer.drawTile] tile is required');
         $.console.assert(drawingHandler, '[Drawer.drawTile] drawingHandler is required');
 
-        if ( this.useCanvas ) {
-            var context = this._getContext( useSketch );
+        if (this.useCanvas) {
+            var context = this._getContext(useSketch);
             scale = scale || 1;
-            // TODO do this in a more performant way
-            // specifically, don't save,rotate,restore every time we draw a tile
-            if( this.viewport.degrees !== 0 ) {
-                this._offsetForRotation( tile, this.viewport.degrees, useSketch );
-                tile.drawCanvas( context, drawingHandler, scale, translate );
-                this._restoreRotationChanges( tile, useSketch );
-            } else {
-                tile.drawCanvas( context, drawingHandler, scale, translate );
-            }
+            tile.drawCanvas(context, drawingHandler, scale, translate);
         } else {
             tile.drawHTML( this.canvas );
         }
@@ -16333,7 +16404,7 @@ $.Drawer.prototype = /** @lends OpenSeadragon.Drawer.prototype */{
         context.fillStyle = this.debugGridColor;
 
         if ( this.viewport.degrees !== 0 ) {
-            this._offsetForRotation( tile, this.viewport.degrees );
+            this._offsetForRotation(this.viewport.degrees);
         }
 
         context.strokeRect(
@@ -16395,7 +16466,7 @@ $.Drawer.prototype = /** @lends OpenSeadragon.Drawer.prototype */{
         );
 
         if ( this.viewport.degrees !== 0 ) {
-            this._restoreRotationChanges( tile );
+            this._restoreRotationChanges();
         }
         context.restore();
     },
@@ -16421,21 +16492,21 @@ $.Drawer.prototype = /** @lends OpenSeadragon.Drawer.prototype */{
     },
 
     // private
-    _offsetForRotation: function( tile, degrees, useSketch ){
-        var cx = this.canvas.width / 2,
-            cy = this.canvas.height / 2;
+    _offsetForRotation: function(degrees, useSketch) {
+        var cx = this.canvas.width / 2;
+        var cy = this.canvas.height / 2;
 
-        var context = this._getContext( useSketch );
+        var context = this._getContext(useSketch);
         context.save();
 
         context.translate(cx, cy);
-        context.rotate( Math.PI / 180 * degrees);
+        context.rotate(Math.PI / 180 * degrees);
         context.translate(-cx, -cy);
     },
 
     // private
-    _restoreRotationChanges: function( tile, useSketch ){
-        var context = this._getContext( useSketch );
+    _restoreRotationChanges: function(useSketch) {
+        var context = this._getContext(useSketch);
         context.restore();
     },
 
@@ -17158,7 +17229,6 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
             this.centerSpringX.target.value,
             this.centerSpringY.target.value
         );
-        delta = delta.rotate( -this.degrees, new $.Point( 0, 0 ) );
         return this.panTo( center.plus( delta ), immediately );
     },
 
@@ -17204,14 +17274,9 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
      * @return {OpenSeadragon.Viewport} Chainable.
      * @fires OpenSeadragon.Viewer.event:zoom
      */
-    zoomBy: function( factor, refPoint, immediately ) {
-        if( refPoint instanceof $.Point && !isNaN( refPoint.x ) && !isNaN( refPoint.y ) ) {
-            refPoint = refPoint.rotate(
-                -this.degrees,
-                new $.Point( this.centerSpringX.target.value, this.centerSpringY.target.value )
-            );
-        }
-        return this.zoomTo( this.zoomSpring.target.value * factor, refPoint, immediately );
+    zoomBy: function(factor, refPoint, immediately) {
+        return this.zoomTo(
+            this.zoomSpring.target.value * factor, refPoint, immediately);
     },
 
     /**
@@ -17390,40 +17455,89 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
         return changed;
     },
 
-
     /**
-     * Convert a delta (translation vector) from pixels coordinates to viewport coordinates
-     * @function
-     * @param {Boolean} current - Pass true for the current location; defaults to false (target location).
+     * Convert a delta (translation vector) from viewport coordinates to pixels
+     * coordinates. This method does not take rotation into account.
+     * Consider using deltaPixelsFromPoints if you need to account for rotation.
+     * @param {OpenSeadragon.Point} deltaPoints - The translation vector to convert.
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
      */
-    deltaPixelsFromPoints: function( deltaPoints, current ) {
+    deltaPixelsFromPointsNoRotate: function(deltaPoints, current) {
         return deltaPoints.times(
-            this._containerInnerSize.x * this.getZoom( current )
+            this._containerInnerSize.x * this.getZoom(current)
         );
     },
 
     /**
-     * Convert a delta (translation vector) from viewport coordinates to pixels coordinates.
-     * @function
-     * @param {Boolean} current - Pass true for the current location; defaults to false (target location).
+     * Convert a delta (translation vector) from viewport coordinates to pixels
+     * coordinates.
+     * @param {OpenSeadragon.Point} deltaPoints - The translation vector to convert.
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
      */
-    deltaPointsFromPixels: function( deltaPixels, current ) {
+    deltaPixelsFromPoints: function(deltaPoints, current) {
+        return this.deltaPixelsFromPointsNoRotate(
+            deltaPoints.rotate(this.getRotation()),
+            current);
+    },
+
+    /**
+     * Convert a delta (translation vector) from pixels coordinates to viewport
+     * coordinates. This method does not take rotation into account.
+     * Consider using deltaPointsFromPixels if you need to account for rotation.
+     * @param {OpenSeadragon.Point} deltaPixels - The translation vector to convert.
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
+     */
+    deltaPointsFromPixelsNoRotate: function(deltaPixels, current) {
         return deltaPixels.divide(
-            this._containerInnerSize.x * this.getZoom( current )
+            this._containerInnerSize.x * this.getZoom(current)
         );
     },
 
     /**
-     * Convert image pixel coordinates to viewport coordinates.
-     * @function
-     * @param {Boolean} current - Pass true for the current location; defaults to false (target location).
+     * Convert a delta (translation vector) from pixels coordinates to viewport
+     * coordinates.
+     * @param {OpenSeadragon.Point} deltaPixels - The translation vector to convert.
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
      */
-    pixelFromPoint: function( point, current ) {
-        return this._pixelFromPoint(point, this.getBounds( current ));
+    deltaPointsFromPixels: function(deltaPixels, current) {
+        return this.deltaPointsFromPixelsNoRotate(deltaPixels, current)
+            .rotate(-this.getRotation());
+    },
+
+    /**
+     * Convert viewport coordinates to pixels coordinates.
+     * This method does not take rotation into account.
+     * Consider using pixelFromPoint if you need to account for rotation.
+     * @param {OpenSeadragon.Point} point the viewport coordinates
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
+     */
+    pixelFromPointNoRotate: function(point, current) {
+        return this._pixelFromPointNoRotate(point, this.getBounds(current));
+    },
+
+    /**
+     * Convert viewport coordinates to pixel coordinates.
+     * @param {OpenSeadragon.Point} point the viewport coordinates
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
+     */
+    pixelFromPoint: function(point, current) {
+        return this._pixelFromPoint(point, this.getBounds(current));
     },
 
     // private
-    _pixelFromPoint: function( point, bounds ) {
+    _pixelFromPointNoRotate: function(point, bounds) {
         return point.minus(
             bounds.getTopLeft()
         ).times(
@@ -17433,12 +17547,23 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
         );
     },
 
+    // private
+    _pixelFromPoint: function(point, bounds) {
+        return this._pixelFromPointNoRotate(
+            point.rotate(this.getRotation(), this.getCenter(true)),
+            bounds);
+    },
+
     /**
-     * Convert viewport coordinates to image pixel coordinates.
-     * @function
-     * @param {Boolean} current - Pass true for the current location; defaults to false (target location).
+     * Convert pixel coordinates to viewport coordinates.
+     * This method does not take rotation into account.
+     * Consider using pointFromPixel if you need to account for rotation.
+     * @param {OpenSeadragon.Point} pixel Pixel coordinates
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
      */
-    pointFromPixel: function( pixel, current ) {
+    pointFromPixelNoRotate: function(pixel, current) {
         var bounds = this.getBounds( current );
         return pixel.minus(
             new $.Point(this._margins.left, this._margins.top)
@@ -17446,6 +17571,20 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
             this._containerInnerSize.x / bounds.width
         ).plus(
             bounds.getTopLeft()
+        );
+    },
+
+    /**
+     * Convert pixel coordinates to viewport coordinates.
+     * @param {OpenSeadragon.Point} pixel Pixel coordinates
+     * @param {Boolean} [current=false] - Pass true for the current location;
+     * defaults to false (target location).
+     * @returns {OpenSeadragon.Point}
+     */
+    pointFromPixel: function(pixel, current) {
+        return this.pointFromPixelNoRotate(pixel, current).rotate(
+            -this.getRotation(),
+            this.getCenter(true)
         );
     },
 
@@ -17529,29 +17668,21 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
      * @param {Number} pixelWidth the width in pixel of the rectangle.
      * @param {Number} pixelHeight the height in pixel of the rectangle.
      */
-    imageToViewportRectangle: function( imageX, imageY, pixelWidth, pixelHeight ) {
-        var coordA,
-            coordB,
-            rect;
-        if( arguments.length == 1 ) {
-            //they passed a rectangle instead of individual components
-            rect = imageX;
-            return this.imageToViewportRectangle(
-                rect.x, rect.y, rect.width, rect.height
-            );
+    imageToViewportRectangle: function(imageX, imageY, pixelWidth, pixelHeight) {
+        var rect = imageX;
+        if (!(rect instanceof $.Rect)) {
+            //they passed individual components instead of a rectangle
+            rect = new $.Rect(imageX, imageY, pixelWidth, pixelHeight);
         }
 
-        coordA = this.imageToViewportCoordinates(
-            imageX, imageY
-        );
-        coordB = this._imageToViewportDelta(
-            pixelWidth, pixelHeight
-        );
+        var coordA = this.imageToViewportCoordinates(rect.x, rect.y);
+        var coordB = this._imageToViewportDelta(rect.width, rect.height);
         return new $.Rect(
             coordA.x,
             coordA.y,
             coordB.x,
-            coordB.y
+            coordB.y,
+            rect.degrees
         );
     },
 
@@ -17570,25 +17701,21 @@ $.Viewport.prototype = /** @lends OpenSeadragon.Viewport.prototype */{
      * @param {Number} pointWidth the width of the rectangle in viewport coordinate system.
      * @param {Number} pointHeight the height of the rectangle in viewport coordinate system.
      */
-    viewportToImageRectangle: function( viewerX, viewerY, pointWidth, pointHeight ) {
-        var coordA,
-            coordB,
-            rect;
-        if ( arguments.length == 1 ) {
-            //they passed a rectangle instead of individual components
-            rect = viewerX;
-            return this.viewportToImageRectangle(
-                rect.x, rect.y, rect.width, rect.height
-            );
+    viewportToImageRectangle: function(viewerX, viewerY, pointWidth, pointHeight) {
+        var rect = viewerX;
+        if (!(rect instanceof $.Rect)) {
+            //they passed individual components instead of a rectangle
+            rect = new $.Rect(viewerX, viewerY, pointWidth, pointHeight);
         }
 
-        coordA = this.viewportToImageCoordinates( viewerX, viewerY );
-        coordB = this._viewportToImageDelta(pointWidth, pointHeight);
+        var coordA = this.viewportToImageCoordinates(rect.x, rect.y);
+        var coordB = this._viewportToImageDelta(rect.width, rect.height);
         return new $.Rect(
             coordA.x,
             coordA.y,
             coordB.x,
-            coordB.y
+            coordB.y,
+            rect.degrees
         );
     },
 
@@ -18092,23 +18219,23 @@ $.extend($.TiledImage.prototype, $.EventSource.prototype, /** @lends OpenSeadrag
      * @return {OpenSeadragon.Rect} A rect representing the coordinates in the viewport.
      */
     imageToViewportRectangle: function( imageX, imageY, pixelWidth, pixelHeight, current ) {
-        if (imageX instanceof $.Rect) {
+        var rect = imageX;
+        if (rect instanceof $.Rect) {
             //they passed a rect instead of individual components
             current = imageY;
-            pixelWidth = imageX.width;
-            pixelHeight = imageX.height;
-            imageY = imageX.y;
-            imageX = imageX.x;
+        } else {
+            rect = new $.Rect(imageX, imageY, pixelWidth, pixelHeight);
         }
 
-        var coordA = this.imageToViewportCoordinates(imageX, imageY, current);
-        var coordB = this._imageToViewportDelta(pixelWidth, pixelHeight, current);
+        var coordA = this.imageToViewportCoordinates(rect.getTopLeft(), current);
+        var coordB = this._imageToViewportDelta(rect.width, rect.height, current);
 
         return new $.Rect(
             coordA.x,
             coordA.y,
             coordB.x,
-            coordB.y
+            coordB.y,
+            rect.degrees
         );
     },
 
@@ -18124,23 +18251,23 @@ $.extend($.TiledImage.prototype, $.EventSource.prototype, /** @lends OpenSeadrag
      * @return {OpenSeadragon.Rect} A rect representing the coordinates in the image.
      */
     viewportToImageRectangle: function( viewerX, viewerY, pointWidth, pointHeight, current ) {
+        var rect = viewerX;
         if (viewerX instanceof $.Rect) {
             //they passed a rect instead of individual components
             current = viewerY;
-            pointWidth = viewerX.width;
-            pointHeight = viewerX.height;
-            viewerY = viewerX.y;
-            viewerX = viewerX.x;
+        } else {
+            rect = new $.Rect(viewerX, viewerY, pointWidth, pointHeight);
         }
 
-        var coordA = this.viewportToImageCoordinates(viewerX, viewerY, current);
-        var coordB = this._viewportToImageDelta(pointWidth, pointHeight, current);
+        var coordA = this.viewportToImageCoordinates(rect.getTopLeft(), current);
+        var coordB = this._viewportToImageDelta(rect.width, rect.height, current);
 
         return new $.Rect(
             coordA.x,
             coordA.y,
             coordB.x,
-            coordB.y
+            coordB.y,
+            rect.degrees
         );
     },
 
@@ -18387,7 +18514,7 @@ function updateViewport( tiledImage ) {
         haveDrawn       = false,
         currentTime     = $.now(),
         viewportBounds  = tiledImage.viewport.getBoundsWithMargins( true ),
-        zeroRatioC      = tiledImage.viewport.deltaPixelsFromPoints(
+        zeroRatioC      = tiledImage.viewport.deltaPixelsFromPointsNoRotate(
             tiledImage.source.getPixelRatio( 0 ),
             true
         ).x * tiledImage._scaleSpring.current.value,
@@ -18468,7 +18595,7 @@ function updateViewport( tiledImage ) {
         drawLevel = false;
 
         //Avoid calculations for draw if we have already drawn this
-        renderPixelRatioC = tiledImage.viewport.deltaPixelsFromPoints(
+        renderPixelRatioC = tiledImage.viewport.deltaPixelsFromPointsNoRotate(
             tiledImage.source.getPixelRatio( level ),
             true
         ).x * tiledImage._scaleSpring.current.value;
@@ -18482,12 +18609,12 @@ function updateViewport( tiledImage ) {
         }
 
         //Perform calculations for draw if we haven't drawn this
-        renderPixelRatioT = tiledImage.viewport.deltaPixelsFromPoints(
+        renderPixelRatioT = tiledImage.viewport.deltaPixelsFromPointsNoRotate(
             tiledImage.source.getPixelRatio( level ),
             false
         ).x * tiledImage._scaleSpring.current.value;
 
-        zeroRatioT      = tiledImage.viewport.deltaPixelsFromPoints(
+        zeroRatioT      = tiledImage.viewport.deltaPixelsFromPointsNoRotate(
             tiledImage.source.getPixelRatio(
                 Math.max(
                     tiledImage.source.getClosestLevel( tiledImage.viewport.containerSize ) - 1,
@@ -18785,12 +18912,12 @@ function onTileLoad( tiledImage, tile, time, image, errorMsg ) {
          * @property {string} message - The error message.
          */
         tiledImage.viewer.raiseEvent("tile-load-failed", {tile: tile, tiledImage: tiledImage, time: time, message: errorMsg});
-        if( !tiledImage.debugMode ){
-            tile.loading = false;
-            tile.exists = false;
-            return;
-        }
-    } else if ( time < tiledImage.lastResetTime ) {
+        tile.loading = false;
+        tile.exists = false;
+        return;
+    }
+
+    if ( time < tiledImage.lastResetTime ) {
         $.console.log( "Ignoring tile %s loaded before reset: %s", tile, tile.url );
         tile.loading = false;
         return;
@@ -18875,10 +19002,10 @@ function positionTile( tile, overlap, viewport, viewportCenter, levelVisibility,
     boundsSize.x *= tiledImage._scaleSpring.current.value;
     boundsSize.y *= tiledImage._scaleSpring.current.value;
 
-    var positionC    = viewport.pixelFromPoint( boundsTL, true ),
-        positionT    = viewport.pixelFromPoint( boundsTL, false ),
-        sizeC        = viewport.deltaPixelsFromPoints( boundsSize, true ),
-        sizeT        = viewport.deltaPixelsFromPoints( boundsSize, false ),
+    var positionC    = viewport.pixelFromPointNoRotate(boundsTL, true),
+        positionT    = viewport.pixelFromPointNoRotate(boundsTL, false),
+        sizeC        = viewport.deltaPixelsFromPointsNoRotate(boundsSize, true),
+        sizeT        = viewport.deltaPixelsFromPointsNoRotate(boundsSize, false),
         tileCenter   = positionT.plus( sizeT.divide( 2 ) ),
         tileDistance = viewportCenter.distanceTo( tileCenter );
 
@@ -19066,6 +19193,10 @@ function drawTiles( tiledImage, lastDrawn ) {
         tiledImage._drawer._clear( true );
     }
 
+    if (tiledImage.viewport.degrees !== 0) {
+        tiledImage._drawer._offsetForRotation(tiledImage.viewport.degrees, useSketch);
+    }
+
     var usedClip = false;
     if ( tiledImage._clip ) {
         tiledImage._drawer.saveContext(useSketch);
@@ -19129,6 +19260,10 @@ function drawTiles( tiledImage, lastDrawn ) {
 
     if ( usedClip ) {
         tiledImage._drawer.restoreContext( useSketch );
+    }
+
+    if (tiledImage.viewport.degrees !== 0) {
+        tiledImage._drawer._restoreRotationChanges(useSketch);
     }
 
     if ( useSketch ) {

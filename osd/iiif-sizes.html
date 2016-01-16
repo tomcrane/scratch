@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OpenSeadragon Basic Demo</title>
+    <title>Tile-less IIIF</title>
     <script type="text/javascript" src='build/openseadragon/openseadragon.js'></script>
     <script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
     <style type="text/css">
 
+        .row {
+            clear:both;
+            margin-bottom: 20px;    
+        }
+        
+        .infojson {
+            font-family: monospace;
+        }
+        
         .openseadragon1 {
             width: 800px;
             height: 600px;
@@ -14,9 +23,7 @@
     </style>
 </head>
 <body>
-<div>
-    Simple demo page to show a default OpenSeadragon viewer.
-</div>
+<h2>Tile-less IIIF from legacy image pyramid</h2>
 <!--
 
 Notes:
@@ -34,14 +41,33 @@ getTileUrl          getTileUrl
 
 -->
 
-<div id="contentDiv" class="openseadragon1"></div>
+<div class="row">
+    <h3>Several sizes</h3>
+    <pre id="ij1" class="infojson"></pre>
+    <div id="osd1" class="openseadragon1"></div>
+<div>
+<div class="row">
+    <h3>1 size only!</h3>
+    <pre id="ij2" class="infojson"></pre>
+    <div id="osd2" class="openseadragon1"></div>
+</div>
+
 <script type="text/javascript">
 
-    var viewer = OpenSeadragon({
-        // debugMode: true,
-        id: "contentDiv",
+    $( "#ij1" ).load( "iiif_2_0_sizes/info.json" );    
+    var viewer1 = OpenSeadragon({
+        id: "osd1",
         prefixUrl: "build/openseadragon/images/",
         tileSources: "iiif_2_0_sizes/info.json",
+        showNavigator:true
+    });
+    
+    
+    $( "#ij2" ).load( "iiif_2_0_sizeonly/info.json" );       
+    var viewer2 = OpenSeadragon({
+        id: "osd2",
+        prefixUrl: "build/openseadragon/images/",
+        tileSources: "iiif_2_0_sizeonly/info.json",
         showNavigator:true
     });
 

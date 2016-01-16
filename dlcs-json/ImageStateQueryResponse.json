@@ -1,0 +1,13 @@
+{
+    "status": "xxx",
+    "images": [
+        {
+            "id": "76677bd1-705e-4599",
+            "state": "ready"
+        },
+        {
+            "id": "0bf94941-2c0f-49fd",
+            "state": "ready"
+        }        
+    ]
+}

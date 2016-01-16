@@ -1,0 +1,11 @@
+{
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "http://tomcrane.github.io/scratch/osd/iiif_2_0_sizes",
+  "protocol": "http://iiif.io/api/image",
+  "width": 3200,
+  "height": 2328,
+  "profile": ["http://iiif.io/api/image/2/level0.json"],
+  "sizes" : [
+    {"width" : 3200, "height": 2328}
+  ]
+}
