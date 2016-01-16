@@ -6,6 +6,12 @@
     <script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
     <style type="text/css">
 
+        body {
+            font-family: sans-serif;
+        }
+        p {            
+            line-height: 1.4em;
+        }
         .row {
             clear:both;
             margin-bottom: 20px;    
@@ -15,6 +21,9 @@
             font-family: monospace;
         }
         
+        .text, .row {
+            max-width: 800px;
+        }
         .openseadragon1 {
             width: 800px;
             height: 600px;
@@ -24,30 +33,42 @@
 </head>
 <body>
 <h2>Tile-less IIIF from legacy image pyramid</h2>
-<!--
 
-Notes:
-
-legacy               iiif
-
-supports
-configure
-                    getTileWidth
-                    getTileHeight
-getLevelScale
-getNumTiles
-getTileAtPoint
-getTileUrl          getTileUrl
-
--->
+<div class="text">
+    <h3>What's the point of this?</h3>
+    <p>Flickr, Wikimedia Commons and many other large repositories of images have several sizes available for a given image - a "legacy image pyramid".
+        If these repostories can:</p>
+        <ul>
+            <li>describe the sizes available for an image in an info.json for that image</li>
+            <li>return the appropriate sized image in response to a request that conforms to the IIIF Image API</li>
+        </ul>
+        <p>...then all their images are opened up to the IIIF Universe. This does not require an image server. 
+            It requires a shim to translate, proxying the IIIF requests on to the existing static images, and generating an info.json
+            from the image metadata.</p>
+        
+        <p>Of course, it would be great if everyone's images were available as Image API level 2 services, so that they could be tiled, cropped, stretched, resized, rotated and so on.
+            This is much better for high performance zooming and panning, and it allows URLs that return the pixels of arbitrary regions. 
+            Tile-less IIIF isn't a good solution for gigapixel images!
+            Wikimedia is in fact implementing tiled IIIF already. But support for legacy image pyramids brings some pretty significant benefits. 
+            The images can be used by anyone in Presentation API Manifests<sup>1</sup>, opening them up to annotation, mashups, and other possibilities. 
+            It means they are usable in Mirador, Universal Viewer, Diva, leaflet and every other IIIF viewer <sup>2</sup>
+        </p>
+                    
+        <p>
+            <sup>1</sup> You can do this already - the image resource that annotates a canvas doesn't HAVE to have an image service. However, many viewers expect it to.<br/>
+            <sup>2</sup> If powered by OpenSeadragon they need <a href="https://github.com/openseadragon/openseadragon/pull/816">this</a>.
+        </p>
+</div>
 
 <div class="row">
     <h3>Several sizes</h3>
+    <p>This image has 5 sizes available:</p>
     <pre id="ij1" class="infojson"></pre>
     <div id="osd1" class="openseadragon1"></div>
 <div>
 <div class="row">
     <h3>1 size only!</h3>
+    <p>and this only has one. Technically an image service is redundant here, but it makes it usable in a Seadragon-powered viewer that expects an Image API service.</p>
     <pre id="ij2" class="infojson"></pre>
     <div id="osd2" class="openseadragon1"></div>
 </div>
