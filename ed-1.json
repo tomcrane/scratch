@@ -1,0 +1,2741 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json", 
+  "sequences": [
+    {
+      "canvases": [
+        {
+          "label": "1", 
+          "width": 6496, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0001.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8624, 
+                "width": 6496, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0001.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-1.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-1.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-1/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0001.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-1/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8624, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0001.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0001.jp2/0,0,6496,8624/240,/0/default.jpg"
+        }, 
+        {
+          "label": "2", 
+          "width": 6744, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0002.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8877, 
+                "width": 6744, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0002.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-2.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-2.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-2/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0002.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-2/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8877, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0002.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0002.jp2/0,0,6744,8877/240,/0/default.jpg"
+        }, 
+        {
+          "label": "3", 
+          "width": 6528, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0003.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8619, 
+                "width": 6528, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0003.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-3.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-3.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-3/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0003.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-3/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8619, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0003.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0003.jp2/0,0,6528,8619/240,/0/default.jpg"
+        }, 
+        {
+          "label": "4", 
+          "width": 6692, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0004.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8870, 
+                "width": 6692, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0004.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-4.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-4.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-4/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0004.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-4/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8870, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0004.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0004.jp2/0,0,6692,8870/240,/0/default.jpg"
+        }, 
+        {
+          "label": "5", 
+          "width": 6500, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0005.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8618, 
+                "width": 6500, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0005.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-5.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-5.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-5/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0005.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-5/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8618, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0005.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0005.jp2/0,0,6500,8618/240,/0/default.jpg"
+        }, 
+        {
+          "label": "6", 
+          "width": 6708, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0006.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8874, 
+                "width": 6708, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0006.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-6.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-6.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-6/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0006.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-6/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8874, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0006.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0006.jp2/0,0,6708,8874/240,/0/default.jpg"
+        }, 
+        {
+          "label": "7", 
+          "width": 6460, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0007.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8619, 
+                "width": 6460, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0007.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-7.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-7.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-7/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0007.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-7/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8619, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0007.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0007.jp2/0,0,6460,8619/240,/0/default.jpg"
+        }, 
+        {
+          "label": "8", 
+          "width": 6704, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0008.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8875, 
+                "width": 6704, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0008.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-8.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-8.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-8/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0008.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-8/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8875, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0008.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0008.jp2/0,0,6704,8875/240,/0/default.jpg"
+        }, 
+        {
+          "label": "9", 
+          "width": 6452, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0009.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8579, 
+                "width": 6452, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0009.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-9.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-9.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-9/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0009.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-9/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8579, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0009.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0009.jp2/0,0,6452,8579/240,/0/default.jpg"
+        }, 
+        {
+          "label": "10", 
+          "width": 6728, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0010.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8889, 
+                "width": 6728, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0010.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-10.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-10.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-10/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0010.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-10/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8889, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0010.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0010.jp2/0,0,6728,8889/240,/0/default.jpg"
+        }, 
+        {
+          "label": "11", 
+          "width": 6452, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0011.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8622, 
+                "width": 6452, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0011.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-11.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-11.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-11/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0011.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-11/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8622, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0011.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0011.jp2/0,0,6452,8622/240,/0/default.jpg"
+        }, 
+        {
+          "label": "12", 
+          "width": 6704, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0012.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8877, 
+                "width": 6704, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0012.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-12.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-12.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-12/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0012.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-12/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8877, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0012.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0012.jp2/0,0,6704,8877/240,/0/default.jpg"
+        }, 
+        {
+          "label": "13", 
+          "width": 6504, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0013.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8618, 
+                "width": 6504, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0013.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-13.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-13.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-13/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0013.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-13/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8618, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0013.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0013.jp2/0,0,6504,8618/240,/0/default.jpg"
+        }, 
+        {
+          "label": "14", 
+          "width": 6764, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0014.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8874, 
+                "width": 6764, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0014.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-14.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-14.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-14/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0014.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-14/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8874, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0014.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0014.jp2/0,0,6764,8874/240,/0/default.jpg"
+        }, 
+        {
+          "label": "15", 
+          "width": 6464, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0015.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8609, 
+                "width": 6464, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0015.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-15.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-15.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-15/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0015.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-15/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8609, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0015.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0015.jp2/0,0,6464,8609/240,/0/default.jpg"
+        }, 
+        {
+          "label": "16", 
+          "width": 6712, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0016.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8873, 
+                "width": 6712, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0016.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-16.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-16.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-16/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0016.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-16/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8873, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0016.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0016.jp2/0,0,6712,8873/240,/0/default.jpg"
+        }, 
+        {
+          "label": "17", 
+          "width": 6464, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0017.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8617, 
+                "width": 6464, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0017.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-17.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-17.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-17/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0017.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-17/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8617, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0017.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0017.jp2/0,0,6464,8617/240,/0/default.jpg"
+        }, 
+        {
+          "label": "18", 
+          "width": 6708, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0018.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8876, 
+                "width": 6708, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0018.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-18.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-18.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-18/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0018.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-18/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8876, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0018.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0018.jp2/0,0,6708,8876/240,/0/default.jpg"
+        }, 
+        {
+          "label": "19", 
+          "width": 6448, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0019.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8609, 
+                "width": 6448, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0019.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-19.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-19.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-19/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0019.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-19/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8609, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0019.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0019.jp2/0,0,6448,8609/240,/0/default.jpg"
+        }, 
+        {
+          "label": "20", 
+          "width": 6700, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0020.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8864, 
+                "width": 6700, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0020.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-20.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-20.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-20/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0020.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-20/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8864, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0020.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0020.jp2/0,0,6700,8864/240,/0/default.jpg"
+        }, 
+        {
+          "label": "21", 
+          "width": 6504, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0021.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8614, 
+                "width": 6504, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0021.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-21.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-21.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-21/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0021.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-21/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8614, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0021.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0021.jp2/0,0,6504,8614/240,/0/default.jpg"
+        }, 
+        {
+          "label": "22", 
+          "width": 6780, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0022.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8876, 
+                "width": 6780, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0022.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-22.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-22.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-22/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0022.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-22/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8876, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0022.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0022.jp2/0,0,6780,8876/240,/0/default.jpg"
+        }, 
+        {
+          "label": "23", 
+          "width": 6512, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0023.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8614, 
+                "width": 6512, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0023.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-23.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-23.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-23/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0023.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-23/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8614, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0023.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0023.jp2/0,0,6512,8614/240,/0/default.jpg"
+        }, 
+        {
+          "label": "24", 
+          "width": 6700, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0024.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8876, 
+                "width": 6700, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0024.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-24.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-24.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-24/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0024.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-24/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8876, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0024.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0024.jp2/0,0,6700,8876/240,/0/default.jpg"
+        }, 
+        {
+          "label": "25", 
+          "width": 6512, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0025.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8613, 
+                "width": 6512, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0025.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-25.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-25.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-25/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0025.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-25/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8613, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0025.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0025.jp2/0,0,6512,8613/240,/0/default.jpg"
+        }, 
+        {
+          "label": "26", 
+          "width": 6736, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0026.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8875, 
+                "width": 6736, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0026.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-26.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-26.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-26/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0026.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-26/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8875, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0026.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0026.jp2/0,0,6736,8875/240,/0/default.jpg"
+        }, 
+        {
+          "label": "27", 
+          "width": 6508, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0027.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8611, 
+                "width": 6508, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0027.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-27.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-27.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-27/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0027.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-27/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8611, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0027.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0027.jp2/0,0,6508,8611/240,/0/default.jpg"
+        }, 
+        {
+          "label": "28", 
+          "width": 6760, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0028.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8887, 
+                "width": 6760, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0028.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-28.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-28.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-28/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0028.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-28/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8887, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0028.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0028.jp2/0,0,6760,8887/240,/0/default.jpg"
+        }, 
+        {
+          "label": "29", 
+          "width": 6504, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0029.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8611, 
+                "width": 6504, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0029.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-29.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-29.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-29/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0029.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-29/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8611, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0029.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0029.jp2/0,0,6504,8611/240,/0/default.jpg"
+        }, 
+        {
+          "label": "30", 
+          "width": 6684, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0030.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8897, 
+                "width": 6684, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0030.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-30.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-30.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-30/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0030.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-30/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8897, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0030.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0030.jp2/0,0,6684,8897/240,/0/default.jpg"
+        }, 
+        {
+          "label": "31", 
+          "width": 6508, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0031.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8609, 
+                "width": 6508, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0031.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-31.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-31.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-31/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0031.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-31/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8609, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0031.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0031.jp2/0,0,6508,8609/240,/0/default.jpg"
+        }, 
+        {
+          "label": "32", 
+          "width": 6756, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0032.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8886, 
+                "width": 6756, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0032.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-32.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-32.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-32/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0032.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-32/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8886, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0032.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0032.jp2/0,0,6756,8886/240,/0/default.jpg"
+        }, 
+        {
+          "label": "33", 
+          "width": 6452, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0033.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8598, 
+                "width": 6452, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0033.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-33.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-33.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-33/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0033.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-33/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8598, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0033.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0033.jp2/0,0,6452,8598/240,/0/default.jpg"
+        }, 
+        {
+          "label": "34", 
+          "width": 6760, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0034.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8909, 
+                "width": 6760, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0034.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-34.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-34.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-34/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0034.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-34/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8909, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0034.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0034.jp2/0,0,6760,8909/240,/0/default.jpg"
+        }, 
+        {
+          "label": "35", 
+          "width": 6500, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0035.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8610, 
+                "width": 6500, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0035.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-35.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-35.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-35/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0035.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-35/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8610, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0035.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0035.jp2/0,0,6500,8610/240,/0/default.jpg"
+        }, 
+        {
+          "label": "36", 
+          "width": 6768, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0036.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8886, 
+                "width": 6768, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0036.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-36.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-36.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-36/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0036.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-36/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8886, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0036.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0036.jp2/0,0,6768,8886/240,/0/default.jpg"
+        }, 
+        {
+          "label": "37", 
+          "width": 6500, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0037.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8608, 
+                "width": 6500, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0037.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-37.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-37.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-37/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0037.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-37/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8608, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0037.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0037.jp2/0,0,6500,8608/240,/0/default.jpg"
+        }, 
+        {
+          "label": "38", 
+          "width": 6772, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0038.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8888, 
+                "width": 6772, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0038.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-38.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-38.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-38/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0038.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-38/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8888, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0038.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0038.jp2/0,0,6772,8888/240,/0/default.jpg"
+        }, 
+        {
+          "label": "39", 
+          "width": 6500, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0039.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8605, 
+                "width": 6500, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0039.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-39.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-39.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-39/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0039.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-39/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8605, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0039.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0039.jp2/0,0,6500,8605/240,/0/default.jpg"
+        }, 
+        {
+          "label": "40", 
+          "width": 6700, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0040.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8899, 
+                "width": 6700, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0040.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-40.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-40.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-40/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0040.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-40/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8899, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0040.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0040.jp2/0,0,6700,8899/240,/0/default.jpg"
+        }, 
+        {
+          "label": "41", 
+          "width": 6472, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0041.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8606, 
+                "width": 6472, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0041.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-41.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-41.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-41/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0041.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-41/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8606, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0041.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0041.jp2/0,0,6472,8606/240,/0/default.jpg"
+        }, 
+        {
+          "label": "42", 
+          "width": 6768, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0042.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8891, 
+                "width": 6768, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0042.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-42.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-42.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-42/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0042.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-42/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8891, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0042.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0042.jp2/0,0,6768,8891/240,/0/default.jpg"
+        }, 
+        {
+          "label": "43", 
+          "width": 6440, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0043.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8598, 
+                "width": 6440, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0043.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-43.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-43.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-43/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0043.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-43/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8598, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0043.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0043.jp2/0,0,6440,8598/240,/0/default.jpg"
+        }, 
+        {
+          "label": "44", 
+          "width": 6768, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0044.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8899, 
+                "width": 6768, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0044.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-44.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-44.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-44/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0044.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-44/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8899, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0044.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0044.jp2/0,0,6768,8899/240,/0/default.jpg"
+        }, 
+        {
+          "label": "45", 
+          "width": 6484, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0045.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8602, 
+                "width": 6484, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0045.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-45.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-45.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-45/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0045.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-45/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8602, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0045.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0045.jp2/0,0,6484,8602/240,/0/default.jpg"
+        }, 
+        {
+          "label": "46", 
+          "width": 6736, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0046.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8892, 
+                "width": 6736, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0046.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-46.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-46.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-46/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0046.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-46/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8892, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0046.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0046.jp2/0,0,6736,8892/240,/0/default.jpg"
+        }, 
+        {
+          "label": "47", 
+          "width": 6464, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0047.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8602, 
+                "width": 6464, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0047.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-47.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-47.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-47/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0047.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-47/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8602, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0047.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0047.jp2/0,0,6464,8602/240,/0/default.jpg"
+        }, 
+        {
+          "label": "48", 
+          "width": 6772, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0048.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8891, 
+                "width": 6772, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0048.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-48.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-48.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-48/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0048.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-48/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8891, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0048.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0048.jp2/0,0,6772,8891/240,/0/default.jpg"
+        }, 
+        {
+          "label": "49", 
+          "width": 6496, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0049.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8618, 
+                "width": 6496, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0049.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-49.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-49.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-49/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0049.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-49/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8618, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0049.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0049.jp2/0,0,6496,8618/240,/0/default.jpg"
+        }, 
+        {
+          "label": "50", 
+          "width": 6776, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0050.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8895, 
+                "width": 6776, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0050.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-50.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-50.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-50/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0050.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-50/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8895, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0050.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0050.jp2/0,0,6776,8895/240,/0/default.jpg"
+        }, 
+        {
+          "label": "51", 
+          "width": 6496, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0051.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8617, 
+                "width": 6496, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0051.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-51.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-51.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-51/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0051.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-51/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8617, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0051.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0051.jp2/0,0,6496,8617/240,/0/default.jpg"
+        }, 
+        {
+          "label": "52", 
+          "width": 6752, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0052.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8892, 
+                "width": 6752, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0052.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-52.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-52.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-52/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0052.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-52/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8892, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0052.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0052.jp2/0,0,6752,8892/240,/0/default.jpg"
+        }, 
+        {
+          "label": "53", 
+          "width": 6496, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0053.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8616, 
+                "width": 6496, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0053.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-53.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-53.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-53/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0053.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-53/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8616, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0053.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0053.jp2/0,0,6496,8616/240,/0/default.jpg"
+        }, 
+        {
+          "label": "54", 
+          "width": 6788, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0054.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8896, 
+                "width": 6788, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0054.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-54.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-54.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-54/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0054.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-54/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8896, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0054.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0054.jp2/0,0,6788,8896/240,/0/default.jpg"
+        }, 
+        {
+          "label": "55", 
+          "width": 6496, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0055.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8616, 
+                "width": 6496, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0055.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-55.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-55.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-55/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0055.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-55/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8616, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0055.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0055.jp2/0,0,6496,8616/240,/0/default.jpg"
+        }, 
+        {
+          "label": "56", 
+          "width": 6776, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0056.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8896, 
+                "width": 6776, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0056.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-56.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-56.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-56/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0056.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-56/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8896, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0056.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0056.jp2/0,0,6776,8896/240,/0/default.jpg"
+        }, 
+        {
+          "label": "57", 
+          "width": 6492, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0057.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8615, 
+                "width": 6492, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0057.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-57.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-57.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-57/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0057.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-57/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8615, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0057.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0057.jp2/0,0,6492,8615/240,/0/default.jpg"
+        }, 
+        {
+          "label": "58", 
+          "width": 6784, 
+          "@type": "sc:Canvas", 
+          "images": [
+            {
+              "motivation": "sc:painting", 
+              "resource": {
+                "service": {
+                  "profile": "http://iiif.io/api/image/2/level0.json", 
+                  "@context": "http://iiif.io/api/image/2/context.json", 
+                  "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0058.jp2"
+                }, 
+                "format": "image/jpeg", 
+                "height": 8904, 
+                "width": 6784, 
+                "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0058.jp2", 
+                "@type": "dctypes:Image"
+              }, 
+              "rendering": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-58.pdf", 
+                  "format": "application/pdf"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-58.jp2", 
+                  "format": "image/jp2"
+                }, 
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-58/", 
+                  "format": "text/html"
+                }
+              ], 
+              "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0058.jp2", 
+              "@type": "oa:Annotation", 
+              "seeAlso": [
+                {
+                  "@id": "/lccn/sn83045396/1912-03-17/ed-1/seq-58/ocr.xml", 
+                  "format": "text/xml"
+                }
+              ]
+            }
+          ], 
+          "height": 8904, 
+          "@id": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0058.jp2", 
+          "thumbnail": "http://ec2-54-86-95-76.compute-1.amazonaws.com/images/iiif/batch_uuml_thys_ver01%2Fdata%2Fsn83045396%2Fprint%2F1912031701%2F0058.jp2/0,0,6784,8904/240,/0/default.jpg"
+        }
+      ], 
+      "@id": "normal", 
+      "@type": "sc:Sequence", 
+      "label": "issue order"
+    }
+  ], 
+  "@id": "http://tomcrane.github.io/scratch/ed-1.json", 
+  "@type": "sc:Manifest", 
+  "label": "The Salt Lake tribune. [1912-03-17]"
+}
