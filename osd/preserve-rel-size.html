@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tile-less IIIF</title>
+    <script type="text/javascript" src='build/openseadragon/openseadragon.js'></script>
+    <script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
+    <style type="text/css">
+
+        body {
+            font-family: sans-serif;
+        }
+        p {            
+            line-height: 1.4em;
+        }
+        sup { 
+            vertical-align: top; 
+            font-size: 0.9em; 
+        }
+        .row {
+            clear:both;
+            margin-bottom: 20px;    
+        }
+        
+        .infojson {
+            font-family: monospace;
+        }
+        
+        .text, .row {
+            max-width: 800px;
+        }
+        .openseadragon1 {
+            width: 800px;
+            height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+<h2>Preserve relative sizes</h2>
+
+
+
+<div class="row">
+    <div id="osd1" class="openseadragon1"></div>
+<div>
+<div class="row">
+    <div id="osd2" class="openseadragon1"></div>
+</div>
+
+<script type="text/javascript">
+
+    // UV can see these from the manifest, or from the info.json
+    var img1 = { 
+        ts: "http://wellcomelibrary.org/iiif-img/b13266330-0/0f5b9804-8a07-409a-8ffc-053a00697b05/info.json",
+        w: 3284,
+        h:4584
+    };
+    var img2 = { 
+        ts: "http://wellcomelibrary.org/iiif-img/b13266330-0/df3c44e6-dc40-43bf-b140-74a72ab83635/info.json",
+        w: 3988,
+        h: 4612
+    };
+    var img3 = { 
+        ts: "http://wellcomelibrary.org/iiif-img/b13266330-0/fa38fc5f-6bbe-4dd0-910e-5f03baacfefa/info.json",
+        w: 3356,
+        h: 4608
+    };
+    var img4 = { 
+        ts: "http://wellcomelibrary.org/iiif-img/b13266330-0/1b6a248b-f5e4-4f9c-99f8-7ea04ef13b57/info.json",
+        w: 4428,
+        h: 748
+    };
+    
+    var viewer1 = OpenSeadragon({
+        id: "osd1",
+        prefixUrl: "build/openseadragon/images/"
+    });
+    
+    viewer1.addTiledImage({
+            tileSource: img1.ts,
+            x: 0,
+            y: 0,
+            width: img1.w
+        }
+    )
+    viewer1.addTiledImage({
+            tileSource: img2.ts,
+            x: img1.w + 20,
+            y: 0,
+            width: img2.w
+        }
+    )
+        
+    var viewer2 = OpenSeadragon({
+        id: "osd2",
+        prefixUrl: "build/openseadragon/images/"
+    });
+        
+    viewer2.addTiledImage({
+            tileSource: img3.ts,
+            x: 0,
+            y: 0,
+            width: img3.w
+        }
+    )
+    viewer2.addTiledImage({
+            tileSource: img4.ts,
+            x: img3.w + 20,
+            y: 0,
+            width: img4.w
+        }
+    )
+
+</script>
+</body>
+</html>
