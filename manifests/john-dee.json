@@ -1,0 +1,98 @@
+
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://tomcrane.github.io/scratch/manifests/john-dee.json",
+  "@type": "sc:Manifest",
+  "label": "John Dee performing an experiment before Queen Elizabeth I. Oil painting by Henry Gillard Glindoni.",
+  "metadata": [
+    {
+      "label": "Title",
+      "value": "John Dee performing an experiment before Queen Elizabeth I. Oil painting by Henry Gillard Glindoni."
+    },
+    {
+      "label": "Author(s)",
+      "value": "Glindoni, Henry Gillard"
+    },
+    {
+      "label": "Description",
+      "value": "The scene is the house at Mortlake of Dr John Dee (1527-1608). At the court of Queen Elizabeth I, Dee was revered for the range of his scientific knowledge, which embraced the fields of mathematics, navigation, geography, alchemy/chemistry, medicine and optics. He was a Fellow of St John's College, Cambridge, and later one of the original Fellows of Trinity College (he declined a lecturing post at Oxford), and he had an international reputation. In the painting he is showing the effect of combining two elements, either to cause combustion or to extinguish it. Behind him is his assistant Edward Kelly, wearing a long skullcap to conceal the fact that his ears had been cropped as a punishment for forgery\n\nQueen Elizabeth I paid several visits to Dee's house in Mortlake and supported his researches. In the picture the Queen sits in the left middleground, Sir Walter Raleigh is on her left, and behind him, holding a staff, is the Lord Treasurer William Cecil, 1st Lord Burghley\n\nThe painting originally showed Dee standing in a circle of skulls on the floor, stretching from the floor area in front of the Queen (on the left) to the floor near Edward Kelly (on the right). The skulls were at an early stage painted over, but have since become visible. Another pentimento is visible in the tapestry on the right: shelves containing monstrous animals are visible behind it. The pentimenti were clarified when the painting was X-rayed in 2015"
+    },
+    {
+      "label": "Attribution",
+      "value": "Wellcome Library<br/>License: CC-BY-NC"
+    },
+    {
+      "label": "",
+      "value": "<a href='http://search.wellcomelibrary.org/iii/encore/record/C__Rb1465819'>View full catalogue record</a>"
+    },
+    {
+      "label": "Full conditions of use",
+      "value": "You have permission to make copies of this work under a <a target=\"_top\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons, Attribution, Non-commercial license</a>.<br/><br/>Non-commercial use includes private study, academic research, teaching, and other activities that are not primarily intended for, or directed towards, commercial advantage or private monetary compensation. See the <a target=\"_top\" href=\"http://creativecommons.org/licenses/by-nc/4.0/legalcode\">Legal Code</a> for further information.<br/><br/>Image source should be attributed as specified in the full catalogue record. If no source is given the image should be attributed to Wellcome Library."
+    }
+  ],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "logo": "http://wellcomelibrary.org/assets/img/squarelogo64.png",
+  "related": {
+    "@id": "http://wellcomelibrary.org/item/b14658197",
+    "format": "text/html"
+  },
+  "seeAlso": {
+    "@id": "http://wellcomelibrary.org/resource/b14658197",
+    "format": "text/turtle"
+  },
+  "service": [
+    {
+      "@context": "http://wellcomelibrary.org/ld/iiif-ext/0/context.json",
+      "@id": "http://wellcomelibrary.org/iiif/b14658197-0/access-control-hints-service",
+      "profile": "http://wellcomelibrary.org/ld/iiif-ext/access-control-hints",
+      "accessHint": "open"
+    },
+    {
+      "@context": "http://wellcomelibrary.org/ld/iiif-ext/0/context.json",
+      "profile": "http://universalviewer.io/tracking-extensions-profile",
+      "trackingLabel": "Format: artwork, Institution: n/a, Identifier: b14658197, Digicode: digicon, Collection code: n/a"
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "http://wellcomelibrary.org/iiif/b14658197/sequence/s0",
+      "@type": "sc:Sequence",
+      "label": "Sequence s0",
+      "rendering": {
+        "@id": "http://wellcomelibrary.org/pdf/b14658197/0/b14658197_0.pdf",
+        "format": "application/pdf",
+        "label": "Download as PDF"
+      },
+      "canvases": [
+        {
+          "@id": "http://wellcomelibrary.org/iiif/b14658197/canvas/c0",
+          "@type": "sc:Canvas",
+          "label": " - ",
+          "thumbnail": "http://wellcomelibrary.org/thumbs/b14658197/0/8ac70935-b55b-4c6f-89ca-33e6ab9bb161.jpg",
+          "height": 3294,
+          "width": 5346,
+          "images": [
+            {
+              "@id": "http://wellcomelibrary.org/iiif/b14658197/imageanno/8ac70935-b55b-4c6f-89ca-33e6ab9bb161",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "http://wellcomelibrary.org/iiif-img/b14658197-0/8ac70935-b55b-4c6f-89ca-33e6ab9bb161/full/!1024,1024/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 631,
+                "width": 1024,
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://wellcomelibrary.org/iiif-img/b14658197-0/8ac70935-b55b-4c6f-89ca-33e6ab9bb161",
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://wellcomelibrary.org/iiif/b14658197/canvas/c0"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
