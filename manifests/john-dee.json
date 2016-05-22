@@ -88,6 +88,27 @@
                 }
               },
               "on": "http://wellcomelibrary.org/iiif/b14658197/canvas/c0"
+            },
+            {
+              "@id": "http://tomcrane.github.io/scratch/manifests/john-dee/anno1",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource":{
+                "@type": "oa:Choice",
+                "default":{
+                  "@id": "http://tomcrane.github.io/scratch/manifests/john-dee/queen-2.jpg",
+                  "@type": "dctypes:Image",
+                  "label": "Glenda Jackson"
+                },
+                "item": [
+                  {
+                  "@id": "http://tomcrane.github.io/scratch/manifests/john-dee/queen-1.jpg",
+                    "@type": "dctypes:Image",
+                    "label": "Miranda Richardson"
+                  }
+                ]
+              },
+              "on": "http://wellcomelibrary.org/iiif/b14658197/canvas/c0#xyhh=1000,1000,500,500"
             }
           ]
         }
