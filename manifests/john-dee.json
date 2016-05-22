@@ -67,8 +67,7 @@
         {
           "@id": "http://wellcomelibrary.org/iiif/b14658197/canvas/c0",
           "@type": "sc:Canvas",
-          "label": " - ",
-          "thumbnail": "http://wellcomelibrary.org/thumbs/b14658197/0/8ac70935-b55b-4c6f-89ca-33e6ab9bb161.jpg",
+          "label": "(Henry Gillard Glindoni)",
           "height": 3294,
           "width": 5346,
           "images": [
