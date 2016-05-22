@@ -98,13 +98,13 @@
                 "default":{
                   "@id": "http://tomcrane.github.io/scratch/manifests/queen-2.jpg",
                   "@type": "dctypes:Image",
-                  "label": "Glenda Jackson"
+                  "label": "Miranda Richardson"
                 },
                 "item": [
                   {
                   "@id": "http://tomcrane.github.io/scratch/manifests/queen-1.jpg",
                     "@type": "dctypes:Image",
-                    "label": "Miranda Richardson"
+                    "label": "Glenda Jackson"
                   }
                 ]
               },
