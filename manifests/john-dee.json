@@ -96,13 +96,13 @@
               "resource":{
                 "@type": "oa:Choice",
                 "default":{
-                  "@id": "http://tomcrane.github.io/scratch/manifests/john-dee/queen-2.jpg",
+                  "@id": "http://tomcrane.github.io/scratch/manifests/queen-2.jpg",
                   "@type": "dctypes:Image",
                   "label": "Glenda Jackson"
                 },
                 "item": [
                   {
-                  "@id": "http://tomcrane.github.io/scratch/manifests/john-dee/queen-1.jpg",
+                  "@id": "http://tomcrane.github.io/scratch/manifests/queen-1.jpg",
                     "@type": "dctypes:Image",
                     "label": "Miranda Richardson"
                   }
