@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OSD minimal IIIF</title>
+    <script type="text/javascript" src='build/openseadragon/openseadragon.js'></script>
+    <script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
+    <style type="text/css">
+        .openseadragon1 { width: 800px; height: 600px; }
+    </style>
+</head>
+<body>
+<h2>OSD example</h2>
+<div id="osd1" class="openseadragon1"></div>
+
+<script type="text/javascript">
+    
+    var viewer1 = OpenSeadragon({
+        id: "osd1",
+        prefixUrl: "build/openseadragon/images/",
+        tileSources: ['http://wellcomelibrary.org/iiif-img/b11768241-0/e75d37c5-40a1-48a4-b61b-52ac7aa26849/info.json']
+    });
+    
+</script>
+</body>
+</html>
