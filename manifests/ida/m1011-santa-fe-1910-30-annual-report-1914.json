@@ -1,0 +1,2673 @@
+
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://dlcs.io/iiif-resource/4/manifest/M-1011_R-127",
+  "@type": "sc:Manifest",
+  "metadata": [
+    {
+      "label": "Title",
+      "value": "Created by DLCS"
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "http://dlcs.io/iiif-query/4/?sequence=n1&manifest=s1&canvas=n2&s1=M-1011_R-127&n1=",
+      "@type": "sc:Sequence",
+      "label": "Sequence 0",
+      "canvases": [
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=563",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0564.jpg/full/273,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 273,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0564.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 273,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 273,
+                  "height": 400
+                },
+                {
+                  "width": 137,
+                  "height": 200
+                },
+                {
+                  "width": 68,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3488,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0564.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0564.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3488,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0564.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3488,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=563"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=564",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0565.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0565.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0565.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0565.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0565.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=564"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=565",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0566.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0566.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0566.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0566.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0566.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=565"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=566",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0567.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0567.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0567.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0567.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0567.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=566"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=567",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0568.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0568.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0568.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0568.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0568.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=567"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=568",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0569.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0569.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0569.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0569.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0569.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=568"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=569",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0570.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0570.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0570.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0570.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0570.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=569"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=570",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0571.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0571.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0571.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0571.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0571.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=570"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=571",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0572.jpg/full/277,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 277,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0572.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 277,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 277,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0572.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0572.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0572.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=571"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=572",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0573.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0573.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0573.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0573.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0573.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=572"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=573",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0574.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0574.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0574.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0574.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0574.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=573"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=574",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0575.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0575.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0575.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0575.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0575.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=574"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=575",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0576.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0576.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0576.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0576.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0576.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=575"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=576",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0577.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0577.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0577.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0577.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0577.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=576"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=577",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0578.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0578.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0578.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0578.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0578.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=577"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=578",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0579.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0579.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0579.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0579.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0579.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=578"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=579",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0580.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0580.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0580.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0580.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0580.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=579"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=580",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0581.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0581.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0581.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0581.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0581.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=580"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=581",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0582.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0582.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0582.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0582.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0582.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=581"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=582",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0583.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0583.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0583.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0583.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0583.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=582"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=583",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0584.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0584.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3472,
+          "width": 2400,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0584.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0584.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3472,
+                "width": 2400,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0584.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3472,
+                  "width": 2400,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=583"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=584",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0585.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0585.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0585.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0585.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0585.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=584"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=585",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0586.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0586.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 137,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3472,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0586.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0586.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3472,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0586.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3472,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=585"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=586",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0587.jpg/full/277,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 277,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0587.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 277,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 277,
+                  "height": 400
+                },
+                {
+                  "width": 139,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2400,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0587.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0587.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2400,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0587.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2400,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=586"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=587",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0588.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0588.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3472,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0588.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0588.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3472,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0588.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3472,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=587"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=588",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0589.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0589.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0589.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0589.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0589.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=588"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=589",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0590.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0590.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0590.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0590.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0590.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=589"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=590",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0591.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0591.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0591.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0591.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0591.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=590"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=591",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0592.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0592.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0592.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0592.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0592.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=591"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=592",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0593.jpg/full/277,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 277,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0593.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 277,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 277,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0593.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0593.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0593.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=592"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=593",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0594.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0594.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0594.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0594.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0594.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=593"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=594",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0595.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0595.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0595.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0595.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0595.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=594"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=595",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0596.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0596.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0596.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0596.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0596.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=595"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=596",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0597.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0597.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0597.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0597.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0597.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=596"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=597",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0598.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0598.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0598.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0598.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0598.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=597"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=598",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0599.jpg/full/275,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 275,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0599.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 275,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 275,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0599.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0599.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0599.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=598"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=599",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0600.jpg/full/278,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 278,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0600.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 278,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 278,
+                  "height": 400
+                },
+                {
+                  "width": 139,
+                  "height": 200
+                },
+                {
+                  "width": 70,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2408,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0600.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0600.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2408,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0600.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2408,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=599"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=600",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0601.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0601.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3456,
+          "width": 2384,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0601.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0601.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3456,
+                "width": 2384,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0601.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3456,
+                  "width": 2384,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=600"
+            }
+          ]
+        },
+        {
+          "@id": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=601",
+          "@type": "sc:Canvas",
+          "thumbnail": {
+            "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0602.jpg/full/276,/0/default.jpg",
+            "@type": "dcTypes:Image",
+            "format": "image/jpeg",
+            "height": 400,
+            "width": 276,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://thumbs.dlcs.io/thumbs/4/23/M-1011_R-127-0602.jpg",
+              "profile": [
+                "http://iiif.io/api/image/2/level0.json",
+                {
+                  "formats": [
+                    "jpg"
+                  ],
+                  "qualities": [
+                    "color"
+                  ],
+                  "supports": [
+                    "sizeByWhListed"
+                  ]
+                }
+              ],
+              "width": 276,
+              "height": 400,
+              "sizes": [
+                {
+                  "width": 276,
+                  "height": 400
+                },
+                {
+                  "width": 138,
+                  "height": 200
+                },
+                {
+                  "width": 69,
+                  "height": 100
+                }
+              ]
+            }
+          },
+          "height": 3464,
+          "width": 2392,
+          "images": [
+            {
+              "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0602.jpg/anno",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0602.jpg/full/!2000,2000/0/default.jpg",
+                "@type": "dcTypes:Image",
+                "height": 3464,
+                "width": 2392,
+                "service": {
+                  "@id": "https://dlcs.io/iiif-img/4/23/M-1011_R-127-0602.jpg",
+                  "protocol": "http://iiif.io/api/image",
+                  "height": 3464,
+                  "width": 2392,
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "http://dlcs.io/iiif-query/4/?canvas=n2&manifest=s1&sequence=n1&s1=M-1011_R-127&n1=&n2=601"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
