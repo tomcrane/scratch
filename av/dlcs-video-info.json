@@ -1,0 +1,21 @@
+{
+ "@context" : "http://iiif.io/api/av/2/context.json",
+ "@id" : "https:/dlcs.io/iiif-av/wellcome/2/1234455432454",
+ "protocol" : "http://iiif.io/api/av",
+ "width" : 720,
+ "height" : 420,
+ "duration" : "31023",
+ "sizes" : [
+    {"width" : 720, "height" : 420}
+ ],
+ "profile" : [
+   "http://iiif.io/api/av/2/level0.json",
+   {
+     "formats" : [ "mp4", "webm" ],
+     "qualities" : [ "default" ],
+     "supports" : [
+       "canonicalLinkHeader", "profileLinkHeader"
+     ]
+   }
+ ]
+}
