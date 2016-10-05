@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quilt</title>
+    <script type="text/javascript" src='build/openseadragon/openseadragon.js'></script>
+    <script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
+    <style type="text/css">
+        .openseadragon1 { width: 800px; height: 600px; }
+    </style>
+</head>
+<body>
+<h2>Quilt</h2>
+<div id="osd1" class="openseadragon1"></div>
+
+<script type="text/javascript">
+    
+    var viewer1 = OpenSeadragon({
+        id: "osd1",
+        prefixUrl: "build/openseadragon/images/",
+        tileSources: ['http://wellcomelibrary.org/assets/quilt/info.json']
+    });
+    
+</script>
+</body>
+</html>
+
+
