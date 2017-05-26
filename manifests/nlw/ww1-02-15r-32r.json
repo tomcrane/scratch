@@ -2,7 +2,7 @@
     "@context": "http://iiif.io/api/presentation/2/context.json",
     "@type": "sc:Manifest",
     "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-02-15r-32r.json",
-    "label": "Appeal cases, [1916-1918]",
+    "label": "Appeal cases, [1916-1918] (15r-32r)",
     "metadata": [
         {
             "label": [

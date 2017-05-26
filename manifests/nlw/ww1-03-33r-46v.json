@@ -2,7 +2,7 @@
     "@context": "http://iiif.io/api/presentation/2/context.json",
     "@type": "sc:Manifest",
     "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-03-33r-46v.json",
-    "label": "Appeal cases, [1916-1918]",
+    "label": "Appeal cases, [1916-1918] (33r-46v)",
     "metadata": [
         {
             "label": [

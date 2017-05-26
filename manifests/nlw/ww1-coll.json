@@ -4,7 +4,7 @@
   "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-coll.json",
   "@type": "sc:Collection",
   "label": "Appeal cases, [1916-1918]",
-  "collections": [
+  "manifests": [
     {
       "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-01-1r-14r.json",
       "@type": "sc:Manifest",
