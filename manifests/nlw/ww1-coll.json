@@ -1,0 +1,24 @@
+
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-coll.json",
+  "@type": "sc:Collection",
+  "label": "Appeal cases, [1916-1918]",
+  "collections": [
+    {
+      "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-01-1r-14r.json",
+      "@type": "sc:Manifest",
+      "label": "Appeal cases, [1916-1918] (1r-14r)"
+    },
+    {
+      "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-02-15r-32r.json",
+      "@type": "sc:Manifest",
+      "label": "Appeal cases, [1916-1918] (15r-32r)"
+    },
+    {
+      "@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-03-33r-46v.json",
+      "@type": "sc:Manifest",
+      "label": "Appeal cases, [1916-1918] (33r-46v)"
+    }
+  ]
+}

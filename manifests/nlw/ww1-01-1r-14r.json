@@ -1,7 +1,7 @@
 {
 	"@context": "http://iiif.io/api/presentation/2/context.json",
 	"@type": "sc:Manifest",
-	"@id": "http://dams.llgc.org.uk/iiif/2.0/4064120/manifest.json",
+	"@id": "http://tomcrane.github.io/scratch/manifests/nlw/ww1-01-1r-14r.json",
 	"label": "Appeal cases, [1916-1918] (1r-14r)",
 	"metadata": [
 		{
