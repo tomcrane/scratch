@@ -1,0 +1,81 @@
+{
+   "@context" : [
+       "http://www.w3.org/ns/anno.jsonld",
+       "http://iiif.io/api/presentation/3/context.json"
+   ],
+   "metadata" : [
+      {
+         "label" : "Title",
+         "value" : "Quarta Asiæ tabula"
+      }
+   ],
+   "logo" : {
+      "service" : {
+         "@context" : "http://iiif.io/api/image/2/context.json",
+         "profile" : "http://iiif.io/api/image/2/level1.json",
+         "@id" : "https://stacks.stanford.edu/image/iiif/wy534zh7137%2FSULAIR_rosette"
+      },
+      "id" : "https://stacks.stanford.edu/image/iiif/wy534zh7137%2FSULAIR_rosette/full/400,/0/default.jpg"
+   },
+   "label" : "Quarta Asiæ tabula",
+   "thumbnail" : {
+      "type" : "Image",
+      "service" : {
+         "@context" : "http://iiif.io/api/image/2/context.json",
+         "profile" : "http://iiif.io/api/image/2/level1.json",
+         "@id" : "https://stacks.stanford.edu/image/iiif/vv985tj8656%2Fvv985tj8656_00_0001"
+      },
+      "format" : "image/jpeg",
+      "id" : "https://stacks.stanford.edu/image/iiif/vv985tj8656%2Fvv985tj8656_00_0001/full/!400,400/0/default.jpg"
+   },
+   "id" : "https://purl.stanford.edu/vv985tj8656/iiif/manifest",
+   "seeAlso" : {
+      "id" : "https://purl.stanford.edu/vv985tj8656.mods",
+      "format" : "application/mods+xml"
+   },
+   "attribution" : "This work has been identified as being free of known restrictions under copyright law, including all related and neighboring rights. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+   "type" : "Manifest",
+   "description" : "Relief shown pictorially.",
+   "sequences" : [
+      {
+         "canvases" : [
+            {
+               "id" : "https://purl.stanford.edu/vv985tj8656/iiif/canvas/vv985tj8656_1",
+               "width" : 9260,
+               "content" : [
+                  {
+                     "type" : "AnnotationPage",
+                     "items" : [
+                        {
+                           "type" : "Annotation",
+                           "motivation" : "painting",
+                           "target" : "https://purl.stanford.edu/vv985tj8656/iiif/canvas/vv985tj8656_1",
+                           "body" : {
+                              "id" : "https://stacks.stanford.edu/image/iiif/vv985tj8656%2Fvv985tj8656_00_0001/full/full/0/default.jpg",
+                              "type" : "Image",
+                              "format" : "image/jpeg",
+                              "width" : 9260,
+                              "height" : 7412,
+                              "service" : {
+                                 "@id" : "https://stacks.stanford.edu/image/iiif/vv985tj8656%2Fvv985tj8656_00_0001",
+                                 "@context" : "http://iiif.io/api/image/2/context.json",
+                                 "profile" : "http://iiif.io/api/image/2/level1.json"
+                              }
+                           },
+                           "id" : "https://purl.stanford.edu/vv985tj8656/iiif/annotation/vv985tj8656_1"
+                        }
+                     ],
+                     "id" : "Some-id"
+                  }
+               ],
+               "height" : 7412,
+               "label" : "Image 1",
+               "type" : "Canvas"
+            }
+         ],
+         "label" : "Current order",
+         "id" : "https://purl.stanford.edu/vv985tj8656#sequence-1",
+         "type" : "Sequence"
+      }
+   ]
+}
