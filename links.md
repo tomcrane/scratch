@@ -1,3 +1,5 @@
+* [Pre-IIIF](https://cudl.lib.cam.ac.uk/collections/newton)
+
 * [iiif.io](http://iiif.io)
 * [UV Home](http://universalviewer.io/)
 * [UV Examples](http://universalviewer.io/examples/)
@@ -6,6 +8,7 @@
 * [A manifest](https://wellcomelibrary.org/iiif/b22031261/manifest)
 * [Fire](Github)
 * [Image API](https://tomcrane.github.io/the-long-iiif/image-api.html)
+* [simple sizes](https://tomcrane.github.io/scratch/osd/iiif-sizes.html)
 * [UV-AV](http://universalviewer.io/examples/#?c=0&m=0&s=0&cv=0&manifest=https%3A%2F%2Fviewdir.github.io%2Fiiif-av-component%2Fexamples%2Fdata%2Fbl%2F05_synchronised_av_text.json)
 * [newspapers.library.wales](http://newspapers.library.wales/)
 * [Storiiies (annotations)](http://storiiies.cogapp.com/)
