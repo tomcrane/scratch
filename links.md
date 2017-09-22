@@ -1,5 +1,5 @@
 
-* [UV Home]((http://universalviewer.io/)
+* [UV Home](http://universalviewer.io/)
 * [UV Examples](http://universalviewer.io/examples/)
 * [Mirador](http://projectmirador.org/)
 * [Mirador - 2up](http://tomcrane.github.io/scratch/mirador/2up.html)
