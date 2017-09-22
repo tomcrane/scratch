@@ -3,6 +3,8 @@
 * [iiif.io](http://iiif.io)
 * [UV Home](http://universalviewer.io/)
 * [UV Examples](http://universalviewer.io/examples/)
+    * [Pennant (Wales)](https://viewer.library.wales/4690846)
+    * [Insects (Wellcome)](https://wellcomelibrary.org/item/b28047345)
 * [Mirador](http://projectmirador.org/)
 * [Mirador - 2up](http://tomcrane.github.io/scratch/mirador/2up.html)
 * [A manifest](https://wellcomelibrary.org/iiif/b22031261/manifest)
