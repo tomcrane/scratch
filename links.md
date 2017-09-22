@@ -1,4 +1,4 @@
-* [Pre-IIIF](https://cudl.lib.cam.ac.uk/collections/newton)
+* [Newton papers (Pre-IIIF)](https://cudl.lib.cam.ac.uk/collections/newton)
 
 * [iiif.io](http://iiif.io)
 * [UV Home](http://universalviewer.io/)
