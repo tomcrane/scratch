@@ -18,3 +18,4 @@
 * [Gallery](http://digirati-co-uk.github.io/iiif-gallery/src/)
 
 * [Awesome IIIF](https://github.com/IIIF/awesome-iiif)
+* [(Old but good) text transcriptions and Shared Canvas](https://www.slideshare.net/azaroth42/open-repositories-2014-crowdsourced-transcription-via-iiif)
