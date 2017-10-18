@@ -1,3 +1,5 @@
+[https://www.dropbox.com/s/sso4e2rsjpk4xwf/Introduction-to-IIIF-anno.pptx?dl=0](https://www.dropbox.com/s/sso4e2rsjpk4xwf/Introduction-to-IIIF-anno.pptx?dl=0)
+
 * [Newton papers (Pre-IIIF)](https://cudl.lib.cam.ac.uk/collections/newton)
 
 * [iiif.io](http://iiif.io)
