@@ -53,13 +53,13 @@
                 },
                 {
                   "@id": "http://archive.org/download/birdbookillustra00reedrich/birdbookillustra00reedrich_daisy.zip",
-                  "format": "text/plain",
+                  "format": "application/zip",
                   "label": "Download DAISY"
                 },
                 {
                   "@id": "http://archive.org/download/birdbookillustra00reedrich/birdbookillustra00reedrich.mobi",
                   "format": "application/x-mobipocket",
-                  "label": "Download for Kindle (mobi)"
+                  "label": "Download for Kindle"
                 }
               ],        
             "@context": "http://iiif.io/api/image/2/context.json",
