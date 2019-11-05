@@ -6,7 +6,9 @@
         `manifest` as a page variable is a plain IIIF P3 manifest object, 
          optionally passed through a normaliser or converter:
         
-         manifest = helper.normalise(myPrezi2Manifest) 
+         on the server:
+         possibly_dodgy_or_previous_version_manifest = fetch ( request.querystring["iiif-content"] )
+         manifest = helper.normalise ( possibly_dodgy_or_previous_version_manifest ) 
     -->
 <head>
     <title>{ helpers.getLocalised(manifest.label) }</title>
