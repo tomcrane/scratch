@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirador example</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+</head>
+<body>
+
+<div id="mirador"></div>  
+
+
+<script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+
+<script type="text/javascript">
+var mirador = Mirador.viewer({
+  "id": "mirador",
+  "windows": [
+    {
+      "loadedManifest": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/2ae5da0f-56ac-4db7-b93e-4adf5aa302c8.json",
+      "canvasIndex": 2,
+      "thumbnailNavigationPosition": 'far-bottom'
+    },
+    {
+        "loadedManifest": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/caa79907-a1d0-4f7c-968a-8f37f5656f28.json",
+        "canvasIndex": 2,
+        "thumbnailNavigationPosition": 'far-bottom'
+    }
+  ]
+});
+</script>
+</body>
+</html>
