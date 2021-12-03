@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+        .container { display: grid; grid-template-columns: auto auto; }
+        img { padding: 0.3em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="app"></div>
+        <pre id="data"></pre>  
+    </div>    
+    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script>
+    <script>
+
+        const exampleManifestUri = "https://iiif.wellcomecollection.org/presentation/b1932795x";
+        const vault = new HyperionVault.Vault();
+
+        // a couple of helpers for displaying what we find
+        function showJSON(obj){
+            document.getElementById("data").innerHTML = JSON.stringify(obj, null, 2);
+        }
+        function append(element){
+            document.getElementById("app").appendChild(element);
+        }
+        
+        async function demo(){
+            // the script snippets in the following examples are added here
+
+            
+            const manifest = await vault.loadManifest(exampleManifestUri);
+            showJSON(manifest);
+const canvas0 = vault.fromRef(manifest.items[0]);
+showJSON(canvas0);
+
+
+const canvas0a = vault.fromRef({id: "https://iiif.wellcomecollection.org/presentation/b1932795x/canvases/b1932795x_ms_7974_0001.JP2", type: "Canvas"});
+showJSON(canvas0a);
+console.log(canvas0 === canvas0a); // true ... they are the same object from the vault.
+
+
+const canvas0b = vault.fromRef({id: "https://iiif.wellcomecollection.org/presentation/b1932795x/canvases/b1932795x_ms_7974_0001.JP2", type: "Canvas"});
+showJSON(canvas0b);
+console.log(canvas0 === canvas0b); // true ... they are all the same object from the vault.
+
+
+const allCanvases = vault.allFromRef(manifest.items);
+showJSON(allCanvases[0]);
+
+
+const logo = vault.fromRef(manifest.provider[0].logo[0]);
+const img = document.createElement("img");
+img.src = logo.id;
+append(img);
+
+
+for (const canvas of manifest.items) {
+    const thumb = await vault.getThumbnail(canvas, {maxWidth:200, maxHeight:200})
+    showJSON(thumb); // (we'll only see the last one)
+    const img = document.createElement("img");
+    img.src = thumb.best.id; // .best is an Image resource
+    append(img);
+}
+
+const manifestWithAnnotations = "https://iiif.wellcomecollection.org/presentation/b18106158";
+const annoManifest = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b18106158");
+
+const canvas7 = vault.fromRef(annoManifest.items[7]);
+showJSON(canvas7.annotations);
+showJSON(canvas7.items);
+
+
+        }
+
+        demo();
+    </script>
+  </body>
+</html>

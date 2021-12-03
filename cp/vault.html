@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+      #app img { padding:0.3em; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>    
+    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script>
+  </body>
+</html>
+
+    <script>
+      const vault = new HyperionVault.Vault();
+      const app = document.getElementById("app");
+
+      async function main(){
+        const manifest1 = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b1932795x");
+        console.log(manifest1); // The manifest
+        
+        const manifest2 = vault.fromRef({ id: 'https://iiif.wellcomecollection.org/presentation/b1932795x', type: 'Manifest' });
+        console.log(manifest2); // The manifest
+
+        // are manifest1 and manifest2 the same object?
+        console.log(manifest1 === manifest2); // true
+        
+        const manifest3 = vault.fromRef({ id: 'https://iiif.wellcomecollection.org/presentation/b1932795x' });
+        console.log(manifest3); // just the object { id: 'https://iiif.wellcomecollection.org/presentation/b1932795x' }
+
+        const manifest4 = vault.fromRef('https://iiif.wellcomecollection.org/presentation/b1932795x');
+        console.log(manifest4); // just the string "https://iiif.wellcomecollection.org/presentation/b1932795x"
+        
+        // what's the difference between load(..) and loadManifest(..)?
+        const manifest11 = await vault.load("https://iiif.wellcomecollection.org/presentation/b20056163");
+        console.log(manifest11); // The manifest
+
+        const manifest12 = vault.fromRef("https://iiif.wellcomecollection.org/presentation/b20056163");
+        console.log(manifest12); // just the string
+
+
+        
+        // If we print the logo, we will get an ID/Type pair, which is a reference to the actual logo.
+        console.log("manifest.logo", manifest1.provider[0].logo);
+
+        // Although the ID is the same, we can still get the full resource using `fromRef`
+        const logo = vault.fromRef(manifest1.provider[0].logo[0]);
+        console.log("logo", logo);
+
+        // Have to handle this case for content resources
+        if (typeof logo === "string") return;
+
+        // Check if we have enough properties to render
+        if (logo.type === "Image" && logo.id && app) {
+          // Hack together a quick image and add it to the page.
+          const img = document.createElement("img");
+          img.src = logo.id;
+          app.appendChild(img);
+        }
+
+
+        
+        const hr = document.createElement("hr");
+        app.appendChild(hr);
+
+        for (const canvas of manifest1.items) {
+          const cvThumb = await vault.getThumbnail(canvas, {maxWidth:200, maxHeight:200})
+          console.log(cvThumb);
+          const img = document.createElement("img");
+          img.src = cvThumb.best.id;
+          app.appendChild(img);
+        }
+        // We can also access the IIIF Image API library, and get a thumbnail.
+        // passing in a reference to a resource we can get a thumbnail.
+        const thumbnail = await vault.getThumbnail(manifest1.items[10], {
+          // You can set max/min widths and other options that determine how to get a thumbnail.
+          width: 200
+        });
+        console.log(thumbnail);
+
+        console.log("100");
+        const thumbnail100 = await vault.getThumbnail(manifest1.items[11], {width:100});
+        console.log(thumbnail100); // gives /full/82,99/ which is a 404
+
+        
+        console.log("min100");
+        const thumbnailmin100 = await vault.getThumbnail(manifest1.items[11], {minWidth:50});
+        console.log(thumbnailmin100); // gives /full/82,99/ which is a 404
+
+        console.log("200");
+        const thumbnail200 = await vault.getThumbnail(manifest1.items[11], {width:200});
+        console.log(thumbnail200); // gives /full/165,200/  ✓✓✓
+
+
+        console.log("width not specified");
+        const thumbnailX = await vault.getThumbnail(manifest1.items[11]);
+        console.log(thumbnailX); // gives /full/82,99/ which is a 404
+
+        
+        console.log(manifest1.items[11]);
+        const canvas = vault.fromRef(manifest1.items[11]);
+        console.log(canvas);
+
+        // We'll also just render this one out.
+        if (app && thumbnail.best) {
+          const img = document.createElement("img");
+          img.src = thumbnail.best.id;
+          app.appendChild(img);
+        }
+
+        // todo
+        // Show canvases via getThumbnail
+        // show canvases more conventionally, loop through canvases and use thumbnail.id
+        // 
+
+        // load an Othercontent and inspect
+        
+      }
+
+      main();
+    </script>
+  </body>
+</html>
