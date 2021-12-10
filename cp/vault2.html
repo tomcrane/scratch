@@ -64,12 +64,10 @@ for (const canvas of manifest.items) {
     append(img);
 }
 
-const manifestWithAnnotations = "https://iiif.wellcomecollection.org/presentation/b18106158";
-const annoManifest = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b18106158");
 
-const canvas7 = vault.fromRef(annoManifest.items[7]);
-showJSON(canvas7.annotations);
-showJSON(canvas7.items);
+const manifestWithAnnotations = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b18106158");
+const canvas7 = vault.fromRef(manifestWithAnnotations.items[7]);
+showJSON(canvas7);
 
 
         }
