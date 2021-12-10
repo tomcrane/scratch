@@ -66,10 +66,27 @@ for (const canvas of manifest.items) {
 
 
 const manifestWithAnnotations = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b18106158");
-const canvas7 = vault.fromRef(manifestWithAnnotations.items[7]);
-showJSON(canvas7);
+const canvas10 = vault.fromRef(manifestWithAnnotations.items[10]);
+showJSON(canvas10);
 
+// we can safely do things like this without checking to see if canvas7.annotations is null,
+// because Vault normalises array properties to empty arrays.
+for(const annolist of canvas10.annotations)
+{
+    console.log(annolist.label.en[0]); // come back to this, we're making an assumption here
+}
 
+const annoList = await vault.load(canvas10.annotations[0].id);
+showJSON(annoList);
+
+const lines = vault.allFromRef(annoList.items);
+let pageText = "";
+for(const line of lines){
+    const lineBody = vault.fromRef(line.body[0]);
+    pageText += lineBody.value;
+    pageText += "\n";
+}
+document.getElementById("data").innerHTML = pageText;
         }
 
         demo();
