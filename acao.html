@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ACAO test</title>
+</head>
+
+<body>
+
+    <h2>Plain img tag</h2>
+    <img src="https://iiif.wellcomecollection.org/image/b18035723_0031.JP2/full/752,/0/default.jpg" />
+
+    <h2>Via fetch</h2>
+    <img id="img1" src="" />
+
+
+    <h2>Via XHR</h2>
+    <img id="img2" src="" />
+
+    <script>
+
+        const imgUrl = "https://iiif.wellcomecollection.org/image/b18035723_0031.JP2/full/";
+
+        function randomWidth(base, range){
+            let r = Math.floor(Math.random() * range);
+            let w = base + r - (range/2);
+            return imgUrl + w + ",/0/default.jpg";
+        }
+
+        const img1 = document.getElementById("img1");
+        const img2 = document.getElementById("img2");
+
+        const fetch1 = randomWidth(752, 100);
+        console.log("fetch " + fetch1);
+        fetch(new Request(fetch1))
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (response) {
+            img1.src = URL.createObjectURL(response);
+        });
+
+
+        let xhr = new XMLHttpRequest();
+        let xhrUrl = randomWidth(752, 100);        
+        console.log("xhr - GET " + xhrUrl);
+        xhr.open("GET", xhrUrl);
+        xhr.responseType = 'blob';
+        xhr.onload = function(){            
+            img2.src = URL.createObjectURL(xhr.response);
+        };
+        xhr.send();
+
+
+        let xhrHead = new XMLHttpRequest();
+        xhrUrl = randomWidth(752, 100);        
+        console.log("xhr - HEAD " + xhrUrl);
+        xhrHead.open("HEAD", xhrUrl);
+        xhrHead.send();
+
+        xhrHead = new XMLHttpRequest();
+        xhrUrl = randomWidth(752, 0);        
+        console.log("xhr - HEAD " + xhrUrl);
+        xhrHead.open("HEAD", xhrUrl);
+        xhrHead.send();
+
+        xhrHead = new XMLHttpRequest();
+        xhrUrl = randomWidth(752, 100);        
+        console.log("xhr - HEAD " + xhrUrl);
+        xhrHead.open("HEAD", xhrUrl);
+        xhrHead.send();
+
+
+        xhrHead = new XMLHttpRequest();
+        xhrUrl = randomWidth(756, 0);        
+        console.log("xhr - HEAD " + xhrUrl);
+        xhrHead.open("HEAD", xhrUrl);
+        xhrHead.send();
+
+
+    </script>
+
+</body>
+
+</html>
