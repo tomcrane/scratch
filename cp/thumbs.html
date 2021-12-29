@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container { display: grid; grid-template-columns: auto auto; }
+        img { padding: 0.3em; }
+        .long { width: 40vw }
+        .settings { margin: 0.4em;}
+        .settings input { width: 2em; margin-left: 0.3em; margin-right: 0.8em;}
+        #app div { clear: both;}
+        #app img, #app pre { float: left;}
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+        <div class="settings">
+            <label for="tWidth">width</label><input type="text" id="tWidth"/>
+            <label for="tHeight">height</label><input type="text" id="tHeight"/>
+            <label for="tMaxWidth">maxWidth</label><input type="text" id="tMaxWidth" value="200"/>
+            <label for="tMaxHeight">maxHeight</label><input type="text" id="tMaxHeight" value="200"/>
+            <label for="tMinWidth">minWidth</label><input type="text" id="tMinWidth"/>
+            <label for="tMinHeight">minHeight</label><input type="text" id="tMinHeight"/>
+        </div>
+        <div class="settings">
+            <label for="tFallback">fallback</label><input type="checkbox" id="tFallback"/>
+            <label for="tAtAnyCost">atAnyCost</label><input type="checkbox" id="tAtAnyCost"/>
+            <label for="tUnsafeImageService">unsafeImageService</label><input type="checkbox" id="tUnsafeImageService"/>
+            <label for="tReturnAllOptions">returnAllOptions</label><input type="checkbox" id="tReturnAllOptions"/>
+            <label for="tAllowUnsafe">allowUnsafe</label><input type="checkbox" id="tAllowUnsafe"/>
+            <label for="tPreferFixedSize">preferFixedSize</label><input type="checkbox" id="tPreferFixedSize"/>
+            <label for="tExplain">explain</label><input type="checkbox" id="tExplain"/>
+        </div>
+        <input type="text" id="manifest" class="long" value="https://iiif.wellcomecollection.org/presentation/b1932795x" />
+        <input type="button" value="Load Manifest" id="load" >
+        <hr/>
+
+    </div>
+    <div class="container">
+        <div id="app"></div>
+        <pre id="data"></pre>  
+    </div>    
+    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script>
+    <script>
+
+        function append(img1, img2, obj){
+            const wrap = document.createElement("div");
+            if(img1){
+                wrap.appendChild(img1);
+            }
+            if(img2){
+                wrap.appendChild(img2);
+            }
+            if(obj){
+                const pre = document.createElement("pre");
+                pre.innerHTML = JSON.stringify(obj, null, 2);
+                wrap.appendChild(pre);
+            }
+            document.getElementById("app").appendChild(wrap);
+        }
+
+        function val(inputName){
+            const v = document.getElementById(inputName).value.trim(); 
+            if(v){
+                return parseInt(v);
+            }
+            return null;
+        }
+
+        function valX(inputName){
+            return document.getElementById(inputName).checked; 
+        }
+
+        function getArgs(){
+            return {
+                width: val("tWidth"),
+                height: val("tHeight"),
+                maxWidth: val("tMaxWidth"),
+                maxHeight: val("tMaxHeight"),
+                minWidth: val("tMinWidth"),
+                minHeight: val("tMinHeight"),  
+                fallback: valX("tFallback"),
+                atAnyCost: valX("tAtAnyCost"),
+                unsafeImageService: valX("tUnsafeImageService"),
+                returnAllOptions: valX("tReturnAllOptions"),
+                allowUnsafe: valX("tAllowUnsafe"),
+                preferFixedSize: valX("tPreferFixedSize"),
+                explain: valX("tExplain")
+            }
+        }
+
+
+        const vault = new HyperionVault.Vault();
+        document.getElementById("load").addEventListener("click", () => loadManifest(), false);
+
+        async function loadManifest() {
+            clear();
+            const manifestUrl = document.getElementById("manifest").value.trim();
+            if(manifestUrl){
+                const manifest = await vault.loadManifest(manifestUrl);
+                const args = getArgs();
+                append(null, null, args);
+                for (const canvasRef of manifest.items) {   
+                    const canvas = vault.fromRef(canvasRef);   
+                    const canvasThumb = vault.fromRef(canvas.thumbnail[0]);              
+                    const vaultThumb = await vault.getThumbnail(canvasRef, args);
+                    const shortThumb = dlcsShortCircuit(args, canvasThumb);
+                    const log = {"short": shortThumb, "vault" : vaultThumb, "actual": canvasThumb };
+                    const shortImg = document.createElement("img");
+                    const vaultImg = document.createElement("img");
+                    if(shortThumb.best){
+                        shortImg.src = shortThumb.best.id; 
+                    }
+                    if(vaultThumb.best){
+                        vaultImg.src = vaultThumb.best.id; 
+                    } 
+                    append(shortImg, vaultImg, log);
+                }
+            }
+        }
+
+        function clear(){
+            document.getElementById("data").innerHTML = "";
+            document.getElementById("app").innerHTML = "";
+        }
+
+        // This function is not for production! It assumes that the thumb logic has already spotted there's
+        // a thumbnail service, with a sizes array; if we test on Wellcome there will be.
+        function dlcsShortCircuit(args, thumbnail){
+            let candidate = null;
+            if(args.maxWidth || args.maxHeight){
+                // just in case... sort in ascending order
+                thumbnail.service[0].sizes.sort((t1, t2) => t1.width - t2.width);
+                for(const size of thumbnail.service[0].sizes){
+                    if( (!args.maxWidth || size.width <= args.maxWidth) && (!args.maxHeight || size.height <= args.maxHeight)){
+                        candidate = size;
+                    }
+                }
+                if(candidate){
+                    return {
+                        best: {
+                            id: thumbnail.service[0]["@id"] + "/full/" + candidate.width + "," + candidate.height + "/0/default.jpg",
+                            type: "fixed",
+                            width: candidate.width,
+                            height: candidate.height,
+                            unsafe: false
+                        }
+                    }                     
+                }
+            }
+            return {};
+        }
+        
+    </script>
+  </body>
+</html>
