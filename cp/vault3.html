@@ -55,12 +55,13 @@
                 state => {
                     // When this slice of the store changes...
                     console.log("state function for " + annotationPageId);
-                    //console.log(state.hyperion.entities.AnnotationPage[annotationPageId]);
-                    return state.hyperion.entities.AnnotationPage[annotationPageId];
+                    const annotationPage = state.hyperion.entities.AnnotationPage[annotationPageId];
+                    console.log("(state) " + annotationPage.items.length + " items");
+                    return annotationPage;
                 },
                 annotationPage => {
-                    console.log("anno page changed function for " + annotationPage.id);
-                    console.log(annotationPage);
+                    console.log("callback for " + annotationPage.id);
+                    console.log("(callback) " + annotationPage.items.length + " items");
                 }
             );
 
