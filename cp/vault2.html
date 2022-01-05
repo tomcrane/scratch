@@ -12,7 +12,8 @@
         <div id="app"></div>
         <pre id="data"></pre>  
     </div>    
-    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
     <script>
 
         const exampleManifestUri = "https://iiif.wellcomecollection.org/presentation/b1932795x";
@@ -71,9 +72,10 @@ showJSON(canvas10);
 
 // we can safely do things like this without checking to see if canvas7.annotations is null,
 // because Vault normalises array properties to empty arrays.
-for(const annolist of canvas10.annotations)
+for(const annolistRef of canvas10.annotations)
 {
-    console.log(annolist.label.en[0]); // come back to this, we're making an assumption here
+    const annoList = vault.fromRef(annolistRef); // TODO - you shouldn't need to do this, refs will keep their labels
+    console.log(annoList.label.en[0]); // come back to this, we're making an assumption here
 }
 
 const annoList = await vault.load(canvas10.annotations[0].id);
