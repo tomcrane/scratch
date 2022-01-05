@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+        .container { display: grid; grid-template-columns: auto auto; }
+        img { padding: 0.3em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="app"></div>
+        <pre id="data"></pre>  
+    </div>    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
+    <script>
+
+        const exampleManifestUri = "https://iiif.wellcomecollection.org/presentation/b18106158";
+        const vault = new HyperionVault.Vault();
+
+        // a couple of helpers for displaying what we find
+        function showJSON(obj){
+            document.getElementById("data").innerHTML = JSON.stringify(obj, null, 2);
+        }
+        function append(element){
+            document.getElementById("app").appendChild(element);
+        }
+
+        function onUpdateMyKey(meta, manifest) {
+            console.log(meta.MyCustomStorage);
+        }
+
+        async function demo(){
+            // the script snippets in the following examples are added here
+
+            
+            const manifest = await vault.loadManifest(exampleManifestUri);
+
+            // store some arbitrary information in the vault for this manifest
+            vault.setMetaValue([manifest.id, 'MyCustomStorage', 'myKey'], 'myValue');
+            let resourceMeta = vault.getResourceMeta(manifest.id);
+            showJSON(resourceMeta);
+
+            const canvas10 = vault.fromRef(manifest.items[10]);
+            showJSON(canvas10);
+
+
+            const annotationPageId = canvas10.annotations[0].id;
+            
+
+            // let annoPage = await vault.load(annotationPageId);
+
+            await vault.subscribe(
+                state => {
+                    // When this slice of the store changes...
+                    console.log("state function for " + annotationPageId);
+                    //console.log(state.hyperion.entities.AnnotationPage[annotationPageId]);
+                    return state.hyperion.entities.AnnotationPage[annotationPageId];
+                },
+                annotationPage => {
+                    console.log("anno page changed function for " + annotationPage.id);
+                    console.log(annotationPage);
+                }
+            );
+
+            console.log("Now going to load the anno page");
+            // So here we've set up our subscriber. Now we can load it into Vault.
+            vault.load(annotationPageId); // This will trigger it straight away, before the data is loaded
+
+            // While it's loading, we will see the Identifier, but no annotations.
+            // When it has finished loading, our `renderMyAnnotationPage` will be called again with the full page.
+
+
+            //vault.subscribe(state => state.meta[manifest.id], (meta, manifest) => console.log(meta.MyCustomStorage));
+
+            // This is the foundation of some of CPs built in tools
+
+            // vault.addEventListener(manifest, 'onClick', (e) => {
+            //     console.log("clicked", this);
+            // })
+
+            // addEventListener
+            // removeEventListener
+            // setMetaValue([id, meta, key], value)
+            // getResourceMeta(id)
+        }
+
+        demo();
+    </script>
+  </body>
+</html>
