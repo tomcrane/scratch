@@ -10,7 +10,11 @@
   <body>
     <div class="container">
         <div id="app"></div>
-        <pre id="data"></pre>  
+        <pre id="data">
+
+        
+Most recent at top!
+        </pre>  
     </div>    
     <!-- <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@1.1.0/dist/index.umd.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
@@ -20,8 +24,10 @@
         const vault = new HyperionVault.Vault();
 
         // a couple of helpers for displaying what we find
-        function showJSON(obj){
-            document.getElementById("data").innerHTML = JSON.stringify(obj, null, 2);
+        function showJSON(obj, label){
+            const data = document.getElementById("data");
+            const sep = "\n\n\n" + (label || "") + " ==========================================\n\n"
+            data.innerHTML = sep + JSON.stringify(obj, null, 2) + data.innerHTML;
         }
         function append(element){
             document.getElementById("app").appendChild(element);
@@ -31,55 +37,139 @@
             console.log(meta.MyCustomStorage);
         }
 
+        function getLabel(entity, lang){
+            if(!lang) lang = "none";
+            if(entity.label){
+                if(entity.label[lang]) return entity.label[lang][0]; // first string in desired lang
+                if(entity.label["none"]) return entity.label["none"][0]; // first string in "none" lang
+                return Object.values(entity.label)[0][0] || "[no label]"; // first string in any lang
+            }
+            return "[no label]";
+        }
+
         async function demo(){
             // the script snippets in the following examples are added here
 
             
             const manifest = await vault.loadManifest(exampleManifestUri);
 
+            // Beyond storing the IIIF Model, Vault's additional functionality is built on the ability 
+            // to store additional arbitrary application metadata alongside the IIIF entities.
+            // Usually this happens under the hood, behind other API calls, but you can build on this feature yourself:
+
             // store some arbitrary information in the vault for this manifest
             vault.setMetaValue([manifest.id, 'MyCustomStorage', 'myKey'], 'myValue');
             let resourceMeta = vault.getResourceMeta(manifest.id);
-            showJSON(resourceMeta);
+            showJSON(resourceMeta, "stored custom metadata");
+            // "MyCustomStorage" provides a scope, into which you can put keys and values.
 
+            // Having stored this data, we can now _subscribe_ to changes in it, via Vault's
+            // `function subscribe(selector, subscription)`
+            // where `selector` is a function in which you return the particular slice of Vault you want to subscribe to, 
+            // and `subscription` is a function that Vault will call when that slice changes.
+            // The subscribe function returns a function that you can call to unsubscribe, as seen in a moment.
+            // Vault calls subscription with two arguments (selection, vault)
+            // where selection is the part of the state you subscribed to, and vault is a ref to Vault itself, 
+            // so you can handle this callback without an existing reference to vault (e.g., in another library)
+
+            const unsubscribe1 = await vault.subscribe(
+                state => state.hyperion.meta[manifest.id], // define the selection 
+                selection => showJSON(selection, "selection callback") // handle a change to that selection
+            );
+
+            // We get an initial callback when first subscribing.
+            // Now if we update, we get another:
+            await vault.setMetaValue([manifest.id, 'MyCustomStorage', 'myKey'], 'myValue2');
+
+            // and we can see new metadata:
+            await vault.setMetaValue([manifest.id, 'MyCustomStorage2', 'myKey2'], 'myValue2');
+
+            // had we been more specific in our subscription, we could have focussed on just one "scope"
+            // unsubscribe just 
+            unsubscribe1();
+
+            await vault.subscribe(
+                state => state.hyperion.meta[manifest.id]['MyCustomStorage'], // Now listen to just this scope
+                selection => showJSON(selection, "specific selection callback") // handle a change to that selection
+            );
+
+            await vault.setMetaValue([manifest.id, 'MyCustomStorage', 'myKey'], 'myValue3'); // we see this
+            await vault.setMetaValue([manifest.id, 'MyCustomStorage2', 'myKey2'], 'myValue4'); // but now not this
+  
+            // this shows subscriptions on arbitrary data, but we're more likely to be interested in 
+            // changes to known IIIF entities in vault.
+            // Consider this loading of an annotation page:
             const canvas10 = vault.fromRef(manifest.items[10]);
-            showJSON(canvas10);
-
-
             const annotationPageId = canvas10.annotations[0].id;
-            
-
-            // let annoPage = await vault.load(annotationPageId);
-
+         
+            // we can subscribe to changes on this Annotation Page:            
             await vault.subscribe(
                 state => {
                     // When this slice of the store changes...
-                    console.log("state function for " + annotationPageId);
                     const annotationPage = state.hyperion.entities.AnnotationPage[annotationPageId];
-                    console.log("(state) " + annotationPage.items.length + " items");
+                    console.log("Vault is obtaining state (anno page has " + annotationPage.items.length + " items).");
                     return annotationPage;
                 },
                 annotationPage => {
-                    console.log("callback for " + annotationPage.id);
-                    console.log("(callback) " + annotationPage.items.length + " items");
+                    console.log("(callback on change) " + annotationPage.items.length + " items");
+                    showJSON([getLabel(annotationPage), annotationPage.items.length + " items"], "Annotation Page");
                 }
             );
 
+            // Vault only has the reference to the annotation page at the moment. This is why it has 0 items.
             console.log("Now going to load the anno page");
-            // So here we've set up our subscriber. Now we can load it into Vault.
-            vault.load(annotationPageId); // This will trigger it straight away, before the data is loaded
+            // Now load the full annotation page:
+            const annoPage = await vault.load(annotationPageId); // This will trigger it straight away, before the data is loaded
+            
+            // now make some changes
+            annoPage.label = [{ "en": ["I have changed the label"] }];
+            // Making a direct change like this is allowed, and updates the data in Vault, but won't notify subscribers.
 
-            // While it's loading, we will see the Identifier, but no annotations.
-            // When it has finished loading, our `renderMyAnnotationPage` will be called again with the full page.
+            // This is how you notify subscribers:
+            vault.modifyEntityField(annoPage, "label", {  en: ["I have changed the label again"] });
+
+            // Now we see the change appear.
 
 
-            //vault.subscribe(state => state.meta[manifest.id], (meta, manifest) => console.log(meta.MyCustomStorage));
+            // This is the foundation of some of CPs built in tools. They use Vault's storage facilities to build 
+            // application functionality. You can do the same. Event Handlers are a good example:
 
-            // This is the foundation of some of CPs built in tools
+            showJSON(vault.getResourceMeta(manifest.id).eventManager, "Event manager for " + manifest.id);
+            // undefined 
 
-            // vault.addEventListener(manifest, 'onClick', (e) => {
-            //     console.log("clicked", this);
-            // })
+            // There is no event manager for this entity, yet. But if we start adding event listeners, one wil be created:
+            vault.addEventListener(manifest, 'onClick', (e) => {
+                console.log("clicked", this);
+            })
+
+            // Now we have one - 
+            showJSON(vault.getResourceMeta(manifest.id).eventManager, "Event manager for " + manifest.id);
+
+            
+            const manifestButton = document.createElement("button");
+            manifestButton.innerText = "Click the manifest";
+            append(manifestButton);
+
+            await vault.subscribe(
+                state => state.hyperion.meta[manifest.id],
+                selection => {
+                    if (selection && selection.eventManager) {      
+                        // selection.eventManager.onClick[0] is an array of event handlers that I can attach to my DOM elements.                  
+                        manifestButton.addEventListener("click", selection.eventManager.onClick[0].callback);
+                    }
+                }
+            )
+
+            // This example doesn't make a lot of practical sense, but how about click handlers for thumbnails?
+            // Add a click handler to items, from the thread
+            // display all the thumbs in the change event
+            // click them...
+
+            // This is not Canvas Panel, as you see, but it's using Vault to do IIIF work.
+            // the next step would be to replace that static image with Canvas Panel - rather than do it manually!
+
+            // Thread, add a click handler to all the canvases...
+            // make a UI for clicking...
 
             // addEventListener
             // removeEventListener
