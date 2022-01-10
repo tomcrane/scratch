@@ -160,6 +160,18 @@ Most recent at top!
                 }
             )
 
+            vault.setMetaValue(["ViewerState", "LoadedResources", "CurrentManifest"], manifest.id);
+            await vault.subscribe(
+                state => state.hyperion.meta["ViewerState"],
+                selection => {
+                    if (selection && selection.LoadedResources) {      
+                        LoadManifest(selection.LoadedResources.CurrentManifest);
+                    }
+                }
+            )
+
+
+
             // This example doesn't make a lot of practical sense, but how about click handlers for thumbnails?
             // Add a click handler to items, from the thread
             // display all the thumbs in the change event
@@ -171,6 +183,9 @@ Most recent at top!
             // Thread, add a click handler to all the canvases...
             // make a UI for clicking...
 
+            // Then annotation styling - when you apply styles to annotations in Canvas Panel, the style information is stored in meta.
+
+
             // addEventListener
             // removeEventListener
             // setMetaValue([id, meta, key], value)
@@ -178,6 +193,37 @@ Most recent at top!
         }
 
         demo();
+
+        async function LoadManifest(manifestId){
+           
+            const manifest = await vault.loadManifest(manifestId); 
+
+            for(const canvas of manifest.items){
+                // give these handlers a scope, we may wish to have other click handlers for the same canvases elsewhere
+                vault.addEventListener(canvas, 'onClick', thumbClick, ["Thumbs"]); 
+            }
+
+            await vault.subscribe(
+                state => state.hyperion.entities.Manifest[manifestId], // (can't subscribe to [manifest.id].items)
+                (selection, vault) => {
+                    // selection is the manifest
+                    document.getElementById("app").innerHTML = "";                                   
+                    for(const canvas of selection.items){                          
+                        const thumb = document.createElement("img");
+                        const canvasManager = vault.getResourceMeta(canvas.id).eventManager;
+                        thumb.addEventListener("click", canvasManager.onClick[0].callback);
+                        vault.getThumbnail(canvas, { maxWidth:100 }).then(cvThumb => thumb.src = cvThumb.best.id); // needs changing if this moves outside Vault
+                        append(thumb);
+                    }
+                }
+            )
+        }
+        
+        function thumbClick(e, canvas){
+            console.log(this);
+            console.log(e);
+            console.log(canvas);
+        }
     </script>
   </body>
 </html>
