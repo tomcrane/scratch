@@ -9,27 +9,16 @@
   </head>
   <body>
     <div class="container">
-        <div id="app"></div>
         <pre id="data"></pre>  
     </div>    
     <script>
-
-        // a couple of helpers for displaying what we find
-        function showJSON(obj){
-            document.getElementById("data").innerHTML = JSON.stringify(obj, null, 2);
+        const cs = getComputedStyle(document.body);
+        let s = "";
+        for(const prop of cs)
+        {
+            s += " - [ ] [" + prop + "](https://developer.mozilla.org/en-US/docs/Web/CSS/" + prop + ")\n";
         }
-        function append(element){
-            document.getElementById("app").appendChild(element);
-        }
-        
-        async function demo(){
-            // the script snippets in the following examples are added here
-
-            showJSON(getComputedStyle(document.body));
-            
-        }
-
-        demo();
+        document.getElementById("data").innerHTML = s;
     </script>
   </body>
 </html>
