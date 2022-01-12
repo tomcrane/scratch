@@ -9,7 +9,7 @@
 <body>
 
     <h2>Plain img tag</h2>
-    <img src="https://iiif.wellcomecollection.org/image/b18035723_0031.JP2/full/752,/0/default.jpg" />
+    <img src="https://iiif.wellcomecollection.org/image/b18035723_0032.JP2/full/752,/0/default.jpg" />
 
     <h2>Via fetch</h2>
     <img id="img1" src="" />
@@ -20,12 +20,13 @@
 
     <script>
 
-        const imgUrl = "https://iiif.wellcomecollection.org/image/b18035723_0031.JP2/full/";
+        const imgUrl = "https://iiif.wellcomecollection.org/image/b18035723_0032.JP2/full/";
+        const dlcsUrl = "https://dlcs.io/iiif-img/wellcome/5/b18035723_0032.JP2/full/";
 
         function randomWidth(base, range){
             let r = Math.floor(Math.random() * range);
             let w = base + r - (range/2);
-            return imgUrl + w + ",/0/default.jpg";
+            return dlcsUrl + w + ",/0/default.jpg";
         }
 
         const img1 = document.getElementById("img1");
