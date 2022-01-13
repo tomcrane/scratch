@@ -2,7 +2,7 @@
 <head>
     <title>Canvas Panel - simple</title>
     <style>
-        #mf { width: 400px; }
+        #manifest { width: 50vw; }
         #th { width:220px; border-right: 1px solid #999; margin: 5px; float:left; height:90%; overflow-y:scroll; }        
         #main { margin-top:30px; margin-left:10px; float:left; height:90%;} 
         .tc { display: inline-block; padding:5px; cursor: pointer; }
@@ -20,7 +20,7 @@
     <div>    
         <div id="th"></div>
         <div id="main">
-            <canvas-panel id="cp"></canvas-panel>
+            <canvas-panel id="cp" height="95%"></canvas-panel>
             <p id="cvLabel"></p>
         </div>
     </div>
@@ -49,6 +49,7 @@
             }
         }
 
+        $("go").addEventListener('click', loadManifest);
         loadManifest();
 
         function selectCanvas(){
