@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CP Rendering Strategy</title>
+    <link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+    <h2>Canvas Panel rendering strategy</h2>
+
+    <p>Paste either an image service URL, or JSON for an Image resource in a Manifest</p>
+
+    <select id="sourceSelect">
+        <option value="">Choose...</option>
+    </select>
+    <br/>
+    <textarea id="sourceDisplay"></textarea>
+
+    <div id="cpcontainer">       
+        <div class="row">
+            <button id="go">&rdca;</button>
+            canvas width:<input type="text" id="canvasWidth" class="dimension"> 
+            canvas height:<input type="text" id="canvasHeight" class="dimension">
+        </div> 
+        <div>
+            <button id="zoomOut">&ndash;</button>
+            <button id="zoomIn">+</button>
+            <button id="home">⌂</button>
+             &nbsp;| 
+            cp width:<input type="text" id="cpWidth" class="dimension"> 
+            cp height:<input type="text" id="cpHeight" class="dimension">
+            render: <select id="mode"><option>zoom</option><option>static</option><option>(responsive)</option></select>
+            region: <input type="text" id="region" value="full"> <button id="full">⊠</button>
+        </div>
+        <div id="cp">
+
+        </div>
+    </div>
+
+    <script src="strategy.js"></script>
+    
+</body>
+</html>

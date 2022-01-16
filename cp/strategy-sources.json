@@ -1,0 +1,276 @@
+[
+    {
+        "canvas": {"width": 2340, "height": 2349},
+        "label": "Static image",
+        "value": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Apollo_17_Lunar_Roving_vehicle_AS17-134-20453HR.jpg"
+    },
+    {
+        "canvas": {"width": 3116, "height": 2312},
+        "label": "Landscape, l0 image service with tiles",
+        "value": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://iiif.wellcomecollection.org/image/b12026852_V0017421-TO-RA.jp2",
+            "protocol": "http://iiif.io/api/image",
+            "width": 3116,
+            "height": 2312,
+            "tiles": [
+                {
+                    "width": 256,
+                    "height": 256,
+                    "scaleFactors": [
+                        1,
+                        2,
+                        4,
+                        8,
+                        16
+                    ]
+                }
+            ],
+            "profile": [
+                "http://iiif.io/api/image/2/level0.json"
+            ]
+        }
+    },
+    {
+        "canvas": {"width": 3116, "height": 2312},
+        "label": "Landscape, l0 image service with tiles and sizes",
+        "value": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://iiif.wellcomecollection.org/image/b12026852_V0017421-TO-RA.jp2",
+            "protocol": "http://iiif.io/api/image",
+            "width": 3116,
+            "height": 2312,
+            "tiles": [
+                {
+                    "width": 256,
+                    "height": 256,
+                    "scaleFactors": [
+                        1,
+                        2,
+                        4,
+                        8,
+                        16
+                    ]
+                }
+            ],
+            "sizes": [
+                {
+                    "width": 1024,
+                    "height": 760
+                },
+                {
+                    "width": 400,
+                    "height": 297
+                },
+                {
+                    "width": 200,
+                    "height": 148
+                },
+                {
+                    "width": 100,
+                    "height": 74
+                }
+            ],
+            "profile": [
+                "http://iiif.io/api/image/2/level0.json"
+            ]
+        }
+    },
+    {
+        "canvas": {"width": 6976, "height": 5074},
+        "label": "Landscape, l0 image service sizes only",
+        "value": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "http://tomcrane.github.io/scratch/osd/iiif_2_0_sizes",
+            "protocol": "http://iiif.io/api/image",
+            "width": 6976,
+            "height": 5074,
+            "profile": [
+                "http://iiif.io/api/image/2/level0.json"
+            ],
+            "sizes": [
+                {
+                    "width": 400,
+                    "height": 291
+                },
+                {
+                    "width": 800,
+                    "height": 582
+                },
+                {
+                    "width": 1600,
+                    "height": 1164
+                },
+                {
+                    "width": 3200,
+                    "height": 2328
+                },
+                {
+                    "width": 6976,
+                    "height": 5074
+                }
+            ]
+        }
+    },
+    {
+        "canvas": {"width": 3116, "height": 2312},
+        "label": "Landscape, l1 image service tiles only",
+        "value": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://iiif.wellcomecollection.org/image/b12026852_V0017421-TO-RA.jp2",
+            "protocol": "http://iiif.io/api/image",
+            "width": 3116,
+            "height": 2312,
+            "tiles": [
+                {
+                    "width": 256,
+                    "height": 256,
+                    "scaleFactors": [
+                        1,
+                        2,
+                        4,
+                        8,
+                        16
+                    ]
+                }
+            ],
+            "profile": [
+                "http://iiif.io/api/image/2/level1.json"
+            ]
+        }
+    },
+    {
+        "canvas": {"width": 3116, "height": 2312},
+        "label": "Landscape, l1 image service with tiles and sizes - MANIFEST",
+        "value": {
+            "@id": "https://iiif.wellcomecollection.org/image/b12026852_V0017421-TO-RA.jp2/full/1024,760/0/default.jpg",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "height": 760,
+            "width": 1024,
+            "service": {
+                "@context": "http://iiif.io/api/image/2/context.json",
+                "@id": "https://iiif.wellcomecollection.org/image/b12026852_V0017421-TO-RA.jp2",
+                "profile": "http://iiif.io/api/image/2/level1.json",
+                "protocol": "http://iiif.io/api/image",
+                "width": 3116,
+                "height": 2312
+            }
+        }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Portrait, l0 image service with tiles",
+        "value": {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+            "protocol" : "http://iiif.io/api/image",
+            "width" : 2013,
+            "height" : 3290,
+            "tiles" : [
+               { "width" : 256, "height" : 256, "scaleFactors" : [ 1,2,4,8,16 ] }
+            ],
+            "profile" : [
+               "http://iiif.io/api/image/2/level0.json"
+            ]
+          }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Portrait, l0 image service with tiles and sizes",
+        "value": {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+            "protocol" : "http://iiif.io/api/image",
+            "width" : 2013,
+            "height" : 3290,
+            "tiles" : [
+               { "width" : 256, "height" : 256, "scaleFactors" : [ 1,2,4,8,16 ] }
+            ],
+            "sizes" : [
+          {"width": 627, "height": 1024}, {"width": 245, "height": 400}, {"width": 122, "height": 200}, {"width": 61, "height": 100}
+            ],
+            "profile" : [
+               "http://iiif.io/api/image/2/level0.json"
+            ]
+          }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Portrait, l0 image service sizes only",
+        "value": {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+            "protocol" : "http://iiif.io/api/image",
+            "width" : 2013,
+            "height" : 3290,
+            "sizes" : [
+          {"width": 627, "height": 1024}, {"width": 245, "height": 400}, {"width": 122, "height": 200}, {"width": 61, "height": 100}
+            ],
+            "profile" : [
+               "http://iiif.io/api/image/2/level0.json"
+            ]
+          }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Portrait, l1 image service tiles only",
+        "value": {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+            "protocol" : "http://iiif.io/api/image",
+            "width" : 2013,
+            "height" : 3290,
+            "tiles" : [
+               { "width" : 256, "height" : 256, "scaleFactors" : [ 1,2,4,8,16 ] }
+            ],
+            "profile" : [
+               "http://iiif.io/api/image/2/level1.json"
+            ]
+          }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Portrait, l1 image service with tiles and sizes - MANIFEST",
+        "value": {
+            "@id": "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2/full/627,1024/0/default.jpg",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "height": 1024,
+            "width": 627,
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+              "profile": "http://iiif.io/api/image/2/level1.json",
+              "protocol": "http://iiif.io/api/image",
+              "width": 2013,
+              "height": 3290
+            }
+          }
+    },
+    {
+        "canvas": {"width": 2013, "height": 3290},
+        "label": "Level0 image service with tiles, but can support arbitrary region",
+        "value": {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://iiif.wellcomecollection.org/image/b20425272_0011.jp2",
+            "protocol" : "http://iiif.io/api/image",
+            "width" : 2013,
+            "height" : 3290,
+            "tiles" : [
+               { "width" : 256, "height" : 256, "scaleFactors" : [ 1,2,4,8,16 ] }
+            ],
+            "sizes" : [
+          {"width": 627, "height": 1024}, {"width": 245, "height": 400}, {"width": 122, "height": 200}, {"width": 61, "height": 100}
+            ],
+            "profile" : [
+               "http://iiif.io/api/image/2/level0.json",
+               {
+                 "formats" : [ "jpg" ],
+                 "qualities" : ["gray" ],
+                 "supports" : ["regionByPx","sizeByW","sizeByWh"]
+               }
+            ]
+          }
+    }
+]
