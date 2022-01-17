@@ -121,14 +121,36 @@ function applyStrategy(){
     // If 
     const imgSizeMultiplier = window.devicePixelRatio;
 
+    // #### Canvas Panel tweaks and dials you can adjust ####
+
     // The size at which we switch to asking for advertised tiles, even if we could ask for an arbitrary region.
-    // If a `size` is advertised larger than this, we can still ask for it
+    // If a `size` is advertised larger than this, we can still ask for it, as long as it doesn't exceed maxWidth
     const tileThreshold = $("tileThreshold").value;
 
     // The maxWidth supplied by the image service. (if maxHeight or maxArea supplied, we can compute this)
     // This is also a setting CP can choose set itself, and enforce, even if the service permits something
     // higher. e.g., to avoid requesting a very large image that incurs too much processing overhead.
     const maxWidth = $("maxWidth").value;
+
+    // If there's a thumbnail service on the canvas, whether its sizes may be used as part of the
+    // legacy image pyramid to choose from (CP must prefer sizes from the info.json, though)
+    // This can be used to defer loading of the info.json if CP (vault) has the canvas with 
+    // thumbs on it but has not yet loaded the info.json
+    const includeThumbnailSizes = $("includeThumbnailSizes").checked;
+
+    // clients should generally not do this unless they are in control of CP's size on the page AND the image services
+    // Otherwise it will lead to many different large image requests from different users and defeat caching
+    const preferExactInitialImage = $("preferExactInitialImage").checked;
+
+    // Augment any advertised sizes with an additional list - again to assist caching.
+    // Unlike the sizes for an individual image (which are always known width and height),
+    // this list is expressed as an array of iiif /size/ parameters.
+    // e.g., Wellcome might have "880," in this list.
+    const virtualSizes = $("")
+
+    if($("region").value != "full"){
+
+    }
 
     if($("mode").value == "static"){
         if($("region") == "full"){
