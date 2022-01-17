@@ -9,6 +9,7 @@ body {
 .row {
     clear:both;
     margin-bottom: 0.4em;
+    font-size: smaller;
 }
 button {
     width:2em;

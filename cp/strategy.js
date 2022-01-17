@@ -9,6 +9,15 @@ function single(iterable, predicate){
     return null;
 }
 
+function asInt(elementId){
+    let intVal = 0;
+    try {
+        intVal = parseInt($(elementId).value, 10);
+    } catch {}
+    if(intVal < 0) intVal = 0;
+    return intVal;
+}
+
 const cp = $("cp");
 $("cpWidth").value = getComputedStyle(cp).width;
 $("cpHeight").value = getComputedStyle(cp).height;
@@ -33,6 +42,10 @@ $("sourceSelect").addEventListener('change', (e) => {
         $("canvasWidth").value = currentCanvas.width;
         $("canvasHeight").value = currentCanvas.height;
         $("sourceDisplay").value = JSON.stringify(currentSource, null, 4);
+        if(currentSource.maxWidth){
+            $("maxWidth").value = currentSource.maxWidth;
+        }   
+        $("preferredFormat").value = currentSource.preferredFormats ? currentSource.preferredFormats[0] : "jpg";    
         processSource();
     }
 });
@@ -70,8 +83,8 @@ function processSource(){
     const textBox = $("sourceDisplay");
     textBox.style.backgroundColor = "#fff";
     clearCP(); 
-    currentCanvas.width = $("canvasWidth").value;
-    currentCanvas.height = $("canvasHeight").value;        
+    currentCanvas.width = asInt("canvasWidth");
+    currentCanvas.height = asInt("canvasHeight");        
     placeCanvas();
     try {
         if(textBox.value.trim()){
@@ -115,22 +128,28 @@ function applyStrategy(){
         setSingleImage(currentSource);
     }
 
-    // It's not a single image (although technically it could still be a level 0 with only one size and no tiles...)
-    // How many pixels do we need to fill?
-    // Again, for now assume we are filling the canvas and not distorting.
-    // If 
-    const imgSizeMultiplier = window.devicePixelRatio;
+    let imageService = currentSource;
+    // This is shorthand, in the context of this demo for dealing with a partial image service
+    // such as you might find in a manifest
+    if("dctypes:Image" == currentSource["@type"] || "Image" == currentSource["type"])
+    {
+        // forget any other services for now, or auth, etc
+        imageService = currentSource.service.isArray() ? currentSource.service[0] : currentSource.service;
+        imageService.partial = true; // log this here for now
+    }
 
     // #### Canvas Panel tweaks and dials you can adjust ####
 
     // The size at which we switch to asking for advertised tiles, even if we could ask for an arbitrary region.
     // If a `size` is advertised larger than this, we can still ask for it, as long as it doesn't exceed maxWidth
-    const tileThreshold = $("tileThreshold").value;
+    const tileThreshold = asInt("tileThreshold");
 
     // The maxWidth supplied by the image service. (if maxHeight or maxArea supplied, we can compute this)
     // This is also a setting CP can choose set itself, and enforce, even if the service permits something
     // higher. e.g., to avoid requesting a very large image that incurs too much processing overhead.
-    const maxWidth = $("maxWidth").value;
+    // TODO - extend for maxHeight, and maxArea
+    let maxWidth = asInt("maxWidth");
+    if(!maxWidth) maxWidth = imageService.width;
 
     // If there's a thumbnail service on the canvas, whether its sizes may be used as part of the
     // legacy image pyramid to choose from (CP must prefer sizes from the info.json, though)
@@ -142,15 +161,64 @@ function applyStrategy(){
     // Otherwise it will lead to many different large image requests from different users and defeat caching
     const preferExactInitialImage = $("preferExactInitialImage").checked;
 
+    const preferredFormat = $("preferredFormat").value;
+
     // Augment any advertised sizes with an additional list - again to assist caching.
     // Unlike the sizes for an individual image (which are always known width and height),
     // this list is expressed as an array of iiif /size/ parameters.
     // e.g., Wellcome might have "880," in this list.
-    const virtualSizes = $("")
+    // format is JSON: '["1200,1200!", "880,"]';
+    let virtualSizePatterns = [];
+    try {
+        virtualSizePatterns = JSON.parse($("virtualSizes").value);
+    } finally {        
+        if(!virtualSizePatterns) virtualSizePatterns = [];
+    }
+    const virtualSizes = virtualSizePatterns.map(pattern => {
+        // TODO: This needs to "resolve" to IIIF pattern 
+        // (e.g., "880," => {width:880, height:1111} 
+        // (compute the specific size from imageService)
+        return {width: 0, height: 0}; // obviously a useless size for now!
+    });
 
-    if($("region").value != "full"){
+    if(includeThumbnailSizes){
 
     }
+
+
+    // OK, do we need to fetch the whole thing?
+    if(imageService.partial){
+        // under what circumstances, what combinations of info, do we need to get the full service?
+        let needsFetching = false;
+        if(!imageService.preferredFormat){
+            // It's rare this _won't_ be jpg (or default to), but unless it's explicity declared on the inline version, we will need it
+            needsFetching = true;
+        }
+        if(!imageService.sizes){
+            // we can't tell what sizes are available
+            // but we could mix in the thumbnails...
+            needsFetching = true;
+        }
+        // .. etc
+        // but now we need to consider what we're actually trying to draw, and whether we have enough to draw it
+        // or whether there could always be a surprise waiting in the real info.json - like a
+    }
+
+    if($("region").value != "full"){
+        alert("regions coming in a bit");
+        return;
+    }
+
+    // OK...
+    // how big an image do we actually need?
+    // In this demo (but not in non-simple CP composition scenarios) this is the real pixels occupied by CP    
+    const realPxWidth = getComputedStyle(currentCanvas.element).width * window.devicePixelRatio;
+    const realPxHeight = getComputedStyle(currentCanvas.element).height * window.devicePixelRatio;
+
+    // https://digirati.slack.com/archives/D0E15T142/p1642421467050000
+    const fs = IIIFImageApi.getFixedSizesFromService(imageService);
+    console.log(fs);
+    
 
     if($("mode").value == "static"){
         if($("region") == "full"){

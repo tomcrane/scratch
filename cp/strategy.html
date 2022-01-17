@@ -25,8 +25,10 @@
             canvas height:<input type="text" id="canvasHeight" class="dimension">
         </div> 
         <div class="row">
+            preferredFormat:<input type="text" id="preferredFormat" class="dimension">
             tile threshold:<input type="text" id="tileThreshold" class="dimension">
             maxWidth:<input type="text" id="maxWidth" class="dimension">
+            virtual sizes:<input type="text" id="virtualSizes" class="dimension">
             <label for="includeThumbnailSizes">use Thumbnail:</label><input type="checkbox" id="includeThumbnailSizes"> 
             <label for="preferExactInitialImage">Exact initial image:</label><input type="checkbox" id="preferExactInitialImage"> 
         </div> 
@@ -45,6 +47,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@atlas-viewer/iiif-image-api@1.2.6/dist/index.umd.js"></script>
     <script src="strategy.js"></script>
     
 </body>
