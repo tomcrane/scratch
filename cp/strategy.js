@@ -120,6 +120,16 @@ function applyStrategy(){
     // Again, for now assume we are filling the canvas and not distorting.
     // If 
     const imgSizeMultiplier = window.devicePixelRatio;
+
+    // The size at which we switch to asking for advertised tiles, even if we could ask for an arbitrary region.
+    // If a `size` is advertised larger than this, we can still ask for it
+    const tileThreshold = $("tileThreshold").value;
+
+    // The maxWidth supplied by the image service. (if maxHeight or maxArea supplied, we can compute this)
+    // This is also a setting CP can choose set itself, and enforce, even if the service permits something
+    // higher. e.g., to avoid requesting a very large image that incurs too much processing overhead.
+    const maxWidth = $("maxWidth").value;
+
     if($("mode").value == "static"){
         if($("region") == "full"){
 
