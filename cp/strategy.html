@@ -24,14 +24,18 @@
             canvas width:<input type="text" id="canvasWidth" class="dimension"> 
             canvas height:<input type="text" id="canvasHeight" class="dimension">
         </div> 
-        <div>
+        <div class="row">
+            tile threshold:<input type="text" id="tileThreshold" class="dimension">
+            maxWidth:<input type="text" id="tileThreshold" class="dimension">
+        </div> 
+        <div class="row">
             <button id="zoomOut">&ndash;</button>
             <button id="zoomIn">+</button>
             <button id="home">⌂</button>
              &nbsp;| 
             cp width:<input type="text" id="cpWidth" class="dimension"> 
             cp height:<input type="text" id="cpHeight" class="dimension">
-            render: <select id="mode"><option>zoom</option><option>static</option><option>(responsive)</option></select>
+            render: <select id="mode"><option>static</option><option>zoom</option><option>(responsive)</option></select>
             region: <input type="text" id="region" value="full"> <button id="full">⊠</button>
         </div>
         <div id="cp">

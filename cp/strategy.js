@@ -69,14 +69,14 @@ function processSource(){
     console.log("Will try to process source")
     const textBox = $("sourceDisplay");
     textBox.style.backgroundColor = "#fff";
-    clearCP();
+    clearCP(); 
+    currentCanvas.width = $("canvasWidth").value;
+    currentCanvas.height = $("canvasHeight").value;        
+    placeCanvas();
     try {
         if(textBox.value.trim()){
-            currentSource = JSON.parse(textBox.value);            
-            currentCanvas.width = $("canvasWidth").value;
-            currentCanvas.height = $("canvasHeight").value;
-            placeCanvas();
-            // applyStrategy();
+            currentSource = JSON.parse(textBox.value);   
+            applyStrategy();
         }
     } catch (e) {
         textBox.style.backgroundColor = "#f7979f";
@@ -114,22 +114,36 @@ function applyStrategy(){
         // a static image.
         setSingleImage(currentSource);
     }
+
+    // It's not a single image (although technically it could still be a level 0 with only one size and no tiles...)
+    // How many pixels do we need to fill?
+    // Again, for now assume we are filling the canvas and not distorting.
+    // If 
+    const imgSizeMultiplier = window.devicePixelRatio;
+    if($("mode").value == "static"){
+        if($("region") == "full"){
+
+        } else {
+            // if the region is not full, we can zoom in and fill more of the viewport
+        }
+
+    } else {
+        alert("zoom later!")
+    }
 }
 
 function setSingleImage(src){
-
+    // For initial image selection algorithm we are assuming that the 
+    // image targets the whole canvas. Therefore, _for now_, we won't 
+    // place the image on the canvas at a particular point, we will just 
+    // fill the canvas with the image.
+    // later, some of the placeCanvas scaling logic can be used here.
     // Same logic to place the image on the canvas, as to place the canvas on CP
     const img = new Image();
-    cp.append(img);
-    cvAspect = getAspect(currentCanvas);
-    imgAspect = getAspect(img);
-    if(imgAspect > cvAspect){
-
-    }
-    
+    currentCanvas.element.append(img);    
     img.onload = function() {
-        console.log(img.width);
-        console.log(img.height);
+        img.style.width = getComputedStyle(currentCanvas.element).width;
+        img.style.height = getComputedStyle(currentCanvas.element).height;
     }
     img.src = src;
 }
