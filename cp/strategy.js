@@ -148,7 +148,8 @@ function applyStrategy(){
 
     // The maxWidth supplied by the image service. (if maxHeight or maxArea supplied, we can compute this)
     // This is also a setting CP can choose set itself, and enforce, even if the service permits something
-    // higher. e.g., to avoid requesting a very large image that incurs too much processing overhead.
+    // higher. e.g., to *avoid requesting a very large image that incurs too much processing overhead*.
+    // i.e., CP may choose a lower maxXXXX than the image server permits, for its own performnce reasons
     // TODO - extend for maxHeight, and maxArea
     let maxWidth = asInt("maxWidth");
     if(!maxWidth) maxWidth = imageService.width;
