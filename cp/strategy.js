@@ -14,6 +14,7 @@ function asInt(elementId){
     try {
         intVal = parseInt($(elementId).value, 10);
     } catch {}
+    if(isNaN(intVal)) intVal = 0;
     if(intVal < 0) intVal = 0;
     return intVal;
 }
@@ -126,6 +127,7 @@ function applyStrategy(){
         // is an image service endpoint, or just a static image resource. In this demo, it's always
         // a static image.
         setSingleImage(currentSource);
+        return;
     }
 
     let imageService = currentSource;
@@ -150,6 +152,9 @@ function applyStrategy(){
     // TODO - extend for maxHeight, and maxArea
     let maxWidth = asInt("maxWidth");
     if(!maxWidth) maxWidth = imageService.width;
+    let maxHeight = asInt("maxHeight");
+    if(!maxHeight) maxHeight = imageService.height;
+    // TODO: also check for maxArea and synthesise if not present
 
     // If there's a thumbnail service on the canvas, whether its sizes may be used as part of the
     // legacy image pyramid to choose from (CP must prefer sizes from the info.json, though)
@@ -161,29 +166,12 @@ function applyStrategy(){
     // Otherwise it will lead to many different large image requests from different users and defeat caching
     const preferExactInitialImage = $("preferExactInitialImage").checked;
 
+    // Will be taken from the info.json but defaults to "jpg"
+    // can also be set by the developer, e.g., set to png to consume known line art.
     const preferredFormat = $("preferredFormat").value;
 
-    // Augment any advertised sizes with an additional list - again to assist caching.
-    // Unlike the sizes for an individual image (which are always known width and height),
-    // this list is expressed as an array of iiif /size/ parameters.
-    // e.g., Wellcome might have "880," in this list.
-    // format is JSON: '["1200,1200!", "880,"]';
-    let virtualSizePatterns = [];
-    try {
-        virtualSizePatterns = JSON.parse($("virtualSizes").value);
-    } finally {        
-        if(!virtualSizePatterns) virtualSizePatterns = [];
-    }
-    const virtualSizes = virtualSizePatterns.map(pattern => {
-        // TODO: This needs to "resolve" to IIIF pattern 
-        // (e.g., "880," => {width:880, height:1111} 
-        // (compute the specific size from imageService)
-        return {width: 0, height: 0}; // obviously a useless size for now!
-    });
 
-    if(includeThumbnailSizes){
 
-    }
 
 
     // OK, do we need to fetch the whole thing?
@@ -204,6 +192,35 @@ function applyStrategy(){
         // or whether there could always be a surprise waiting in the real info.json - like a
     }
 
+    // Augment any advertised sizes with an additional list - again to assist caching.
+    // Unlike the sizes for an individual image (which are always known width and height),
+    // this list is expressed as an array of iiif /size/ parameters.
+    // e.g., Wellcome might have "880," in this list.
+    // format is JSON: '["1200,1200!", "880,"]';
+    let virtualSizePatterns = [];
+    try {
+        virtualSizePatterns = JSON.parse($("virtualSizes").value);
+    } catch {} finally {        
+        if(!virtualSizePatterns) virtualSizePatterns = [];
+    }
+    const virtualSizes = virtualSizePatterns.map(pattern => {
+        // TODO: This needs to "resolve" to IIIF pattern 
+        // (e.g., "880," => {width:880, height:1111} 
+        // (compute the specific size from imageService)
+        return {width: 0, height: 0}; // obviously a useless size for now!
+    });
+
+    // TODO: merge virtual Sizes into imageService.sizes
+    
+    if(includeThumbnailSizes){
+        if(currentSource.thumbNail){
+            // TODO: merge thumbnail sizes (if any) to imageService.sizes
+            // Need to make a note of the format(s) the thumbnails are in
+            // e.g., if thumbnail is only jpeg and a size not in the main service sizes,
+            // then it's not available as png (unlike)
+        }
+    }
+
     if($("region").value != "full"){
         alert("regions coming in a bit");
         return;
@@ -212,12 +229,40 @@ function applyStrategy(){
     // OK...
     // how big an image do we actually need?
     // In this demo (but not in non-simple CP composition scenarios) this is the real pixels occupied by CP    
-    const realPxWidth = getComputedStyle(currentCanvas.element).width * window.devicePixelRatio;
-    const realPxHeight = getComputedStyle(currentCanvas.element).height * window.devicePixelRatio;
+    const realPxWidth = currentCanvas.element.clientWidth * window.devicePixelRatio;
+    const realPxHeight = currentCanvas.element.clientHeight * window.devicePixelRatio;
 
     // https://digirati.slack.com/archives/D0E15T142/p1642421467050000
-    const fs = IIIFImageApi.getFixedSizesFromService(imageService);
-    console.log(fs);
+    // This will now include any additional virtual sizes from attributes or settings
+    // And will also include (if enabled) thumbnail sizes - but only if format matches preferredFormat
+    const fixedSizes = IIIFImageApi.getFixedSizesFromService(imageService);
+    // we need one >= than the viewport
+    // make sure they are in ascending order
+    fixedSizes.sort((s1, s2) => s1.width - s2.width);
+    let fixedSize = null;
+    for(const size of fixedSizes){
+        if((!maxWidth || size.width <= maxWidth) && (!maxHeight || size.height <= maxHeight)){
+            // TODO: maxArea
+            // Doesn't exceed the max, but is it big enough?
+            if(size.width >= realPxWidth && size.height >= realPxHeight){
+                fixedSize = size;
+                // Here we would need to consider if the fixed size is available in the preferred format
+                break;
+            }
+        }
+    }
+    if(fixedSize){
+        // we are able to fill our viewport with one of the gathered sizes, 
+        // and it doesn't exceed maxXXX (which we might have imposed ourselves at CP end)
+        // so use this image
+        // There's a better way to resolve an image from a size!
+        setSingleImage(fixedSize.id + "/full/" + fixedSize.width + "," + fixedSize.height + "/0/default." + preferredFormat);
+        return;
+    }
+
+
+    // tileThreshold comes in if there is no fixed size to use
+
     
 
     if($("mode").value == "static"){
