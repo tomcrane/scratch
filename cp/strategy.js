@@ -57,6 +57,10 @@ for(const dimText of document.querySelectorAll(".dimension")){
     dimText.addEventListener('change', processSource);
 }
 
+for(const flag of document.querySelectorAll(".flag")){
+    flag.addEventListener('change', processSource);
+}
+
 $("region").addEventListener('change', processSource);
 $("full").addEventListener('click', () => $("region").value = "full");
 
@@ -80,7 +84,7 @@ function clearCP(){
 }
 
 function processSource(){
-    console.log("Will try to process source")
+    console.log("=========== Will try to process source")
     const textBox = $("sourceDisplay");
     textBox.style.backgroundColor = "#fff";
     clearCP(); 
@@ -138,6 +142,10 @@ function applyStrategy(){
         // forget any other services for now, or auth, etc
         imageService = currentSource.service.isArray() ? currentSource.service[0] : currentSource.service;
         imageService.partial = true; // log this here for now
+    }
+
+    if(!imageService.id){
+        imageService.id = imageService["@id"];
     }
 
     // #### Canvas Panel tweaks and dials you can adjust ####
@@ -257,13 +265,57 @@ function applyStrategy(){
         // and it doesn't exceed maxXXX (which we might have imposed ourselves at CP end)
         // so use this image
         // There's a better way to resolve an image from a size!
+        console.log("found a fixed size we can use");
         setSingleImage(fixedSize.id + "/full/" + fixedSize.width + "," + fixedSize.height + "/0/default." + preferredFormat);
         return;
     }
 
+    console.log("no fixed size was big enough, look at other options")
 
-    // tileThreshold comes in if there is no fixed size to use
+    
+    if(realPxWidth <= maxWidth && realPxHeight <= maxHeight && IIIFImageApi.supportsCustomSizes(imageService)){
+        console.log("This image service might support a single image request");
+        if(realPxWidth <= tileThreshold && realPxHeight <= tileThreshold){
+            console.log("the required size is also below the tiling threshold");
+            setSingleImage(imageService.id + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat); 
+            return;
+        }
+        if(preferExactInitialImage){            
+            console.log("We are forcing a single image request, if supported (and below maxWidth)");
+            setSingleImage(imageService.id  + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat); 
+            return;
+        }
+    }
 
+    // tileThreshold only comes in if there is no fixed size to use
+    if(preferExactInitialImage && IIIFImageApi.supportsCustomSizes(imageService)){
+        if(realPxWidth <= maxWidth && realPxHeight <= maxHeight){
+            if(realPxWidth <= tileThreshold && realPxHeight <= tileThreshold){
+                console.log("We are able to request the full image");
+                setSingleImage(imageService.id + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat);     
+                return;           
+            }
+        }
+    }
+
+    if(imageService.tiles){
+        console.log("We are going to use tiles");
+        cp.innerHTML = "<p>Using the image service tiles!!!</p>"
+        return;
+    }
+
+
+    console.log("we have not been able to find an image yet!");
+    if(fixedSizes && fixedSizes.length > 0){
+        console.log("We'll just use the largest fixed size");
+        const size = fixedSizes[fixedSizes.length - 1];
+        setSingleImage(imageService.id + "/full/" + size.width + "," + size.height + "/0/default." + preferredFormat);    
+        return; 
+    }
+
+    console.log("No way of providing the image!")
+    textBox.style.backgroundColor = "#f7979f";
+    cp.innerHTML = "<p>Can't find anything to make an image!</p>";
     
 
     if($("mode").value == "static"){
