@@ -34,7 +34,9 @@ function getAspect(obj){
 }
 
 
-$("sourceSelect").addEventListener('change', (e) => {
+$("sourceSelect").addEventListener('change', handleSourceChange);
+
+async function handleSourceChange(e) {
     const label = e.target.options[e.target.selectedIndex].text;
     const sourceByLabel = single(sources, s => s.label == label);
     if(sourceByLabel){
@@ -47,9 +49,9 @@ $("sourceSelect").addEventListener('change', (e) => {
             $("maxWidth").value = currentSource.maxWidth;
         }   
         $("preferredFormat").value = currentSource.preferredFormats ? currentSource.preferredFormats[0] : "jpg";    
-        processSource();
+        await processSource();
     }
-});
+}
 
 $("go").addEventListener('click', processSource);
 
@@ -83,7 +85,7 @@ function clearCP(){
     cp.innerHTML = "";
 }
 
-function processSource(){
+async function processSource(){
     console.log("=========== Will try to process source")
     const textBox = $("sourceDisplay");
     textBox.style.backgroundColor = "#fff";
@@ -94,7 +96,7 @@ function processSource(){
     try {
         if(textBox.value.trim()){
             currentSource = JSON.parse(textBox.value);   
-            applyStrategy();
+            await applyStrategy();
         }
     } catch (e) {
         textBox.style.backgroundColor = "#f7979f";
@@ -122,7 +124,8 @@ function placeCanvas(){
     cvElement.style.height = (currentCanvas.height * scale) + "px";
 }
 
-function applyStrategy(){    
+async function applyStrategy(){    
+    // async because it might have to fetch the full service
     console.log("Applying image selection strategy")
     // 1. place the canvas in CP
 
@@ -140,7 +143,7 @@ function applyStrategy(){
     if("dctypes:Image" == currentSource["@type"] || "Image" == currentSource["type"])
     {
         // forget any other services for now, or auth, etc
-        imageService = currentSource.service.isArray() ? currentSource.service[0] : currentSource.service;
+        imageService = Array.isArray(currentSource.service) ? currentSource.service[0] : currentSource.service;
         imageService.partial = true; // log this here for now
     }
 
@@ -199,6 +202,15 @@ function applyStrategy(){
         // .. etc
         // but now we need to consider what we're actually trying to draw, and whether we have enough to draw it
         // or whether there could always be a surprise waiting in the real info.json - like a
+
+        // when is this actually not true!
+        if(needsFetching){
+            const response = await fetch(imageService.id);
+            imageService = await response.json();
+            if(!imageService.id){
+                imageService.id = imageService["@id"];
+            }
+        }
     }
 
     // Augment any advertised sizes with an additional list - again to assist caching.
@@ -266,7 +278,7 @@ function applyStrategy(){
         // so use this image
         // There's a better way to resolve an image from a size!
         console.log("found a fixed size we can use");
-        setSingleImage(fixedSize.id + "/full/" + fixedSize.width + "," + fixedSize.height + "/0/default." + preferredFormat);
+        setSingleImage(fixedSize.id + "/full/" + whForm(imageService, fixedSize.width, fixedSize.height) + "/0/default." + preferredFormat);
         return;
     }
 
@@ -277,12 +289,12 @@ function applyStrategy(){
         console.log("This image service might support a single image request");
         if(realPxWidth <= tileThreshold && realPxHeight <= tileThreshold){
             console.log("the required size is also below the tiling threshold");
-            setSingleImage(imageService.id + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat); 
+            setSingleImage(imageService.id + "/full/" + whForm(imageService, realPxWidth, realPxHeight) + "/0/default." + preferredFormat); 
             return;
         }
         if(preferExactInitialImage){            
             console.log("We are forcing a single image request, if supported (and below maxWidth)");
-            setSingleImage(imageService.id  + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat); 
+            setSingleImage(imageService.id  + "/full/" + whForm(imageService, realPxWidth, realPxHeight) + "/0/default." + preferredFormat); 
             return;
         }
     }
@@ -292,7 +304,7 @@ function applyStrategy(){
         if(realPxWidth <= maxWidth && realPxHeight <= maxHeight){
             if(realPxWidth <= tileThreshold && realPxHeight <= tileThreshold){
                 console.log("We are able to request the full image");
-                setSingleImage(imageService.id + "/full/" + realPxWidth + "," + realPxHeight + "/0/default." + preferredFormat);     
+                setSingleImage(imageService.id + "/full/" + whForm(imageService, realPxWidth, realPxHeight) + "/0/default." + preferredFormat);     
                 return;           
             }
         }
@@ -309,7 +321,7 @@ function applyStrategy(){
     if(fixedSizes && fixedSizes.length > 0){
         console.log("We'll just use the largest fixed size");
         const size = fixedSizes[fixedSizes.length - 1];
-        setSingleImage(imageService.id + "/full/" + size.width + "," + size.height + "/0/default." + preferredFormat);    
+        setSingleImage(imageService.id + "/full/" + whForm(imageService, size.width, size.height) + "/0/default." + preferredFormat);    
         return; 
     }
 
@@ -343,5 +355,13 @@ function setSingleImage(src){
         img.style.width = getComputedStyle(currentCanvas.element).width;
         img.style.height = getComputedStyle(currentCanvas.element).height;
     }
+    console.log("requesting image " + src);
     img.src = src;
+}
+
+function whForm(imageService, width, height){
+    if(imageService["@id"]){
+        return width + ",";
+    }
+    return width + "," + height;
 }
