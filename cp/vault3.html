@@ -37,14 +37,20 @@ Most recent at top!
             console.log(meta.MyCustomStorage);
         }
 
-        function getLabel(entity, lang){
-            if(!lang) lang = "none";
-            if(entity.label){
-                if(entity.label[lang]) return entity.label[lang][0]; // first string in desired lang
-                if(entity.label["none"]) return entity.label["none"][0]; // first string in "none" lang
-                return Object.values(entity.label)[0][0] || "[no label]"; // first string in any lang
+        // Extract a string from a language map in an appropriate language.
+        function getLabel(entity, separator, lang){
+            if(!entity.label) return "";
+            if(!lang){
+                if(navigator && navigator.language){
+                    lang = navigator.language.substring(0,2);
+                } else {
+                    lang = "none";
+                }               
             }
-            return "[no label]";
+            if(!separator) separator = "\n";
+            if(entity.label[lang]) return entity.label[lang].join(separator); // joined strings in desired lang
+            if(entity.label["none"]) return entity.label["none"].join(separator); // joined strings in "none" lang
+            return Object.values(entity.label)[0].join(separator) || ""; // joined strings in any lang
         }
 
         async function demo(){
@@ -200,7 +206,7 @@ Most recent at top!
 
             for(const canvas of manifest.items){
                 // give these handlers a scope, we may wish to have other click handlers for the same canvases elsewhere
-                vault.addEventListener(canvas, 'onClick', thumbClick, ["Thumbs"]); 
+                vault.addEventListener(canvas, 'onClick', () => showJSON(vault.fromRef(canvas)), ["Thumbs"]); 
             }
 
             await vault.subscribe(
@@ -219,11 +225,6 @@ Most recent at top!
             )
         }
         
-        function thumbClick(e, canvas){
-            console.log(this);
-            console.log(e);
-            console.log(canvas);
-        }
     </script>
   </body>
 </html>
