@@ -19,18 +19,31 @@
     <div class="container-fluid">
         
         <div class="row">
-            <div class="col">
-                The top manifest input loader... borrow one from wellcome today 
-                The top manifest input loader... borrow one from wellcome today 
-                The top manifest input loader... borrow one from wellcome today 
-                The top manifest input loader... borrow one from wellcome today 
-                The top manifest input loader... borrow one from wellcome today 
-                The top manifest input loader... borrow one from wellcome today 
+            <div class="col p-4">
+                <form>
+                    <div class="row">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="Manifest URL" id="manifestUri" 
+                            value="https://iiif.wellcomecollection.org/presentation/b28799495">
+                      </div>
+                      <div class="col">
+                          <button id="loadManifest" class="btn btn-primary">Load</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeEmpty">
+                        <label class="form-check-label" for="includeEmpty">Include empty elements</label>
+                        </div>
+                        </div>
+                    </div>
+                  </form>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-auto manifest-nav">
+            <div class="col-md-auto manifest-nav ps-4" id="treeContainer">
 
                 <ul class="list-group">
                     <li class="list-group-item"><i data-feather="chevron-right"></i> Cras justo odio</li>
@@ -50,7 +63,7 @@
 
             </div>
         
-            <div class="col">
+            <div class="col p-1">
                 This is where the selection appears
             </div>
         
@@ -58,19 +71,158 @@
 
 
         <div class="row">
-
-            <p>This is the footer</p>
+            <div class="col p-4">
+                <p>This is the footer</p>
+            </div>
         </div>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
     <script>
-        feather.replace()
+
+        const vault = new HyperionVault.Vault();
+        //document.getElementById("loadManifest").addEventListener("click", loadManifest);
+        let includeEmpty = false;
+        
+
+        async function loadManifest(){
+            const manifestUri = document.getElementById("manifestUri").value;
+            if(manifestUri){
+                const manifest = await vault.loadManifest(manifestUri);
+                if(manifest){   
+                    render(manifest);
+                }
+            }
+        }
+
+        function render(manifest){
+            const container = document.getElementById("treeContainer");
+            container.innerHTML = "";
+            renderResource(manifest, container);            
+            feather.replace()
+        }
+
+        function renderResource(iiifResource, parent){
+            if(!iiifResource) return;
+            const ul = document.createElement("ul");
+            ul.className = "list-group";
+            ul.setAttribute("data-iiif-id", iiifResource.id);
+            if(iiifResource.type){
+                ul.setAttribute("data-iiif-type", iiifResource.type);
+                ul.appendChild(makeHeaderListItem(iiifResource));
+            }
+            parent.appendChild(ul);
+            iiifResource = vault.fromRef(iiifResource);
+            for(property in iiifResource){
+                if(
+                    property == "id" || 
+                    property == "type" || 
+                    property == "@context"){
+                    continue;
+                }
+                const value = iiifResource[property];
+                const isArrayWithMembers = value && Array.isArray(value) && value.length > 0;
+                if(!includeEmpty && !value && !isArrayWithMembers){
+                    continue;
+                }
+                const li = makeListItem(property);
+                ul.appendChild(li);
+                if(isArrayWithMembers){
+                    li.appendChild(document.createTextNode(" "));
+                    li.appendChild(getCountBadge(value.length));
+                    const ula = document.createElement("ul");
+                    ula.className = "list-group iiif-array";
+                    li.appendChild(ula);
+                    for(member of value){
+                        if(member.type){
+                            renderResource(member, li);
+                        } else {
+                            console.log("b: " + value);
+                        }
+                    }
+                } else if(typeof value === "object"){
+                    if(property === "label"){
+                        li.className += " label";
+                        const labelEl = document.createElement("i");
+                        labelEl.innerHTML = " - " + truncate(getLabel(iiifResource));
+                        li.appendChild(labelEl);
+                    } else {
+                        renderResource(value, li);
+
+                    }
+                } else {
+                    console.log("a: " + value);
+                }
+            }
+        }
+
+        function makeListItem(propertyName){
+            const li = document.createElement("li");
+            li.className = "list-group-item";
+            const icon = document.createElement("i");
+            icon.setAttribute("data-feather", "chevron-right");
+            li.appendChild(icon);
+            const lbl = document.createTextNode(" " + propertyName);
+            li.appendChild(lbl);
+            return li;
+        }
+
+        function makeHeaderListItem(iiifResource){
+            const li = document.createElement("li");
+            li.className = "list-group-item active";
+            const icon = document.createElement("i");
+            icon.setAttribute("data-feather", "chevron-right");
+            li.appendChild(icon);
+            const lbl = document.createTextNode(" " + iiifResource.type);
+            li.appendChild(lbl);
+            return li;
+        }
+
+        function getCountBadge(count){
+            const badge = document.createElement("span");
+            badge.className = "badge bg-primary rounded-pill";
+            badge.innerText = count;
+            return badge;
+        }
+
+        // Extract a string from a language map in an appropriate language.
+        function getLabel(entity, separator, lang){
+            if(!entity.label) return "";
+            if(!lang){
+                if(navigator && navigator.language){
+                    lang = navigator.language.substring(0,2);
+                } else {
+                    lang = "none";
+                }               
+            }
+            if(separator){
+                // join multiple values (usually there's only one)
+                if(entity.label[lang]) return entity.label[lang].join(separator); // joined strings in desired lang
+                if(entity.label["none"]) return entity.label["none"].join(separator); // joined strings in "none" lang
+                return Object.values(entity.label)[0].join(separator) || ""; // joined strings in any lang                
+            } else {
+                // only return the first label
+                if(entity.label[lang]) return entity.label[lang][0]; // joined strings in desired lang
+                if(entity.label["none"]) return entity.label["none"][0]; // joined strings in "none" lang
+                return Object.values(entity.label)[0][0] || ""; // joined strings in any lang     
+            }
+        }
+
+        function truncate(s){
+            if(s && s.length > 100){
+                return s.substring(0, 97) + "...";
+            }
+            return s;
+        }
+
+        
+        loadManifest();
+
     </script>
 </body>
 
