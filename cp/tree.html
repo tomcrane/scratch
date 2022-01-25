@@ -38,10 +38,14 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="includeEmpty">
-                        <label class="form-check-label" for="includeEmpty">Include empty elements</label>
-                        </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="includeEmpty">
+                                <label class="form-check-label" for="includeEmpty">Include empty elements</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="useModelColours">
+                                <label class="form-check-label" for="useModelColours">Use Presentation API Model colours</label>
+                            </div>
                         </div>
                     </div>
                   </form>
@@ -71,6 +75,12 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
     <script>
+
+        // TODO
+        // collapse the tree and expand on selection
+        // specify a specific order for the props when enumerating them so that they are better logically grouped for visual purposes
+        // use iiif model colours (optional)
+        // breadcrumb trail, with working links
 
         const vault = new HyperionVault.Vault();
         document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
@@ -244,7 +254,7 @@
             const data = document.getElementById("json");
             data.innerHTML = JSON.stringify(resource, null, 2);
             const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
-            data.style.marginTop = offset - 110 + "px";
+            data.style.marginTop = offset - 133 + "px";
             let highlightEl = element;
             let highlightClass = "list-group-item-primary";
             document.querySelectorAll("." + highlightClass).forEach(li => li.classList.remove(highlightClass));
