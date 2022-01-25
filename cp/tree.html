@@ -15,6 +15,9 @@
         pre {
             white-space: pre-wrap;
         }
+        .bordered { 
+            border: 2px solid blue;
+        }
     </style>
 </head>
 
@@ -221,9 +224,8 @@
         function headerClick(e){
             e.stopPropagation();
             const ref = { id: this.getAttribute("data-iiif-id"), type: this.getAttribute("data-iiif-type") };
-            const obj = vault.fromRef(ref);            
-            const data = document.getElementById("json");
-            data.innerHTML = JSON.stringify(obj, null, 2);
+            const obj = vault.fromRef(ref);             
+            displayResource(obj, this);
         }
 
         function propertyClick(e){
@@ -232,9 +234,24 @@
             const parentType = this.parentElement.getAttribute("data-iiif-type");
             const ref = { id:parentId, type: parentType };
             const obj = vault.fromRef(ref); 
-            const prop = obj[this.getAttribute("data-iiif-property")];           
+            const prop = obj[this.getAttribute("data-iiif-property")];      
+            displayResource(prop, this);
+        }
+
+        function displayResource(resource, element){     
             const data = document.getElementById("json");
-            data.innerHTML = JSON.stringify(prop, null, 2);
+            data.innerHTML = JSON.stringify(resource, null, 2);
+            const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
+            data.style.marginTop = offset - 115 + "px";
+            let highlightEl = element;
+            let highlightClass = "list-group-item-primary";
+            document.querySelectorAll("." + highlightClass).forEach(li => li.classList.remove(highlightClass));
+            document.querySelectorAll(".bordered").forEach(li => li.classList.remove("bordered"));
+            if(element.classList.contains("resource-header")){
+                highlightEl = element.parentElement;
+                highlightClass = "bordered";
+            }
+            highlightEl.classList.add(highlightClass);
         }
 
         loadManifest();
