@@ -118,23 +118,25 @@
                     continue;
                 }
                 const value = iiifResource[property];
-                const isArrayWithMembers = value && Array.isArray(value) && value.length > 0;
-                if(!includeEmpty && !value && !isArrayWithMembers){
+                const isArray = value && Array.isArray(value);
+                if(!includeEmpty && (!value || isArray && value.length == 0)){
                     continue;
                 }
                 const li = makeListItem(property);
                 ul.appendChild(li);
-                if(isArrayWithMembers){
+                if(isArray){
                     li.appendChild(document.createTextNode(" "));
                     li.appendChild(getCountBadge(value.length));
-                    const ula = document.createElement("ul");
-                    ula.className = "list-group iiif-array";
-                    li.appendChild(ula);
-                    for(member of value){
-                        if(member.type){
-                            renderResource(member, li);
-                        } else {
-                            console.log("b: " + value);
+                    if(value.length > 0){
+                        const ula = document.createElement("ul");
+                        ula.className = "list-group iiif-array";
+                        li.appendChild(ula);
+                        for(member of value){
+                            if(member.type){
+                                renderResource(member, li);
+                            } else {
+                                console.log("b: " + value);
+                            }
                         }
                     }
                 } else if(value && typeof value === "object"){
@@ -242,7 +244,7 @@
             const data = document.getElementById("json");
             data.innerHTML = JSON.stringify(resource, null, 2);
             const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
-            data.style.marginTop = offset - 115 + "px";
+            data.style.marginTop = offset - 110 + "px";
             let highlightEl = element;
             let highlightClass = "list-group-item-primary";
             document.querySelectorAll("." + highlightClass).forEach(li => li.classList.remove(highlightClass));
