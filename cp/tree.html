@@ -12,6 +12,9 @@
         .manifest-nav ul {
             margin-top: 0.4em;
         }
+        pre {
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 
@@ -43,30 +46,11 @@
         </div>
 
         <div class="row">
-            <div class="col-md-auto manifest-nav ps-4" id="treeContainer">
-
-                <ul class="list-group">
-                    <li class="list-group-item"><i data-feather="chevron-right"></i> Cras justo odio</li>
-                    <li class="list-group-item"><i data-feather="chevron-right"></i> OPen the manifest</li>
-                    <li class="list-group-item"><i data-feather="chevron-down"></i> Things
-                        <ul class="list-group">
-                            <li class="list-group-item"><i data-feather="chevron-right"></i> Cras justo odio</li>
-                            <li class="list-group-item"><i data-feather="chevron-right"></i> OPen the manifest</li>
-                            <li class="list-group-item"><i data-feather="chevron-down"></i> Things</li>
-                            <li class="list-group-item"><i data-feather="chevron-right"></i> Are not</li>
-                            <li class="list-group-item"><i data-feather="chevron-right"></i> All they seem</li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item"><i data-feather="chevron-right"></i> Are not</li>
-                    <li class="list-group-item"><i data-feather="chevron-right"></i> All they seem</li>
-                </ul>
-
-            </div>
+            <div class="col-md-auto manifest-nav ps-4" id="treeContainer"></div>
         
             <div class="col p-1">
-                This is where the selection appears
-            </div>
-        
+                <pre id="json"></pre>
+            </div>        
         </div>
 
 
@@ -86,15 +70,19 @@
     <script>
 
         const vault = new HyperionVault.Vault();
-        //document.getElementById("loadManifest").addEventListener("click", loadManifest);
+        document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
         let includeEmpty = false;
         
 
-        async function loadManifest(){
+        async function loadManifest(e){
+            if(e){
+                e.preventDefault();
+            }
             const manifestUri = document.getElementById("manifestUri").value;
             if(manifestUri){
                 const manifest = await vault.loadManifest(manifestUri);
                 if(manifest){   
+                    includeEmpty = document.getElementById("includeEmpty").checked;
                     render(manifest);
                 }
             }
@@ -104,7 +92,8 @@
             const container = document.getElementById("treeContainer");
             container.innerHTML = "";
             renderResource(manifest, container);            
-            feather.replace()
+            feather.replace();
+            
         }
 
         function renderResource(iiifResource, parent){
@@ -145,7 +134,11 @@
                             console.log("b: " + value);
                         }
                     }
-                } else if(typeof value === "object"){
+                } else if(value && typeof value === "object"){
+                    if(value.id){
+                        li.setAttribute("data-iiif-id", value.id);
+                        li.className += " iiif-resource"
+                    }
                     if(property === "label"){
                         li.className += " label";
                         const labelEl = document.createElement("i");
@@ -164,6 +157,8 @@
         function makeListItem(propertyName){
             const li = document.createElement("li");
             li.className = "list-group-item";
+            li.setAttribute("data-iiif-property", propertyName);
+            li.addEventListener("click", propertyClick);
             const icon = document.createElement("i");
             icon.setAttribute("data-feather", "chevron-right");
             li.appendChild(icon);
@@ -174,7 +169,10 @@
 
         function makeHeaderListItem(iiifResource){
             const li = document.createElement("li");
-            li.className = "list-group-item active";
+            li.className = "list-group-item active resource-header";
+            li.setAttribute("data-iiif-id", iiifResource.id);
+            li.setAttribute("data-iiif-type", iiifResource.type);
+            li.addEventListener("click", headerClick);
             const icon = document.createElement("i");
             icon.setAttribute("data-feather", "chevron-right");
             li.appendChild(icon);
@@ -220,7 +218,25 @@
             return s;
         }
 
-        
+        function headerClick(e){
+            e.stopPropagation();
+            const ref = { id: this.getAttribute("data-iiif-id"), type: this.getAttribute("data-iiif-type") };
+            const obj = vault.fromRef(ref);            
+            const data = document.getElementById("json");
+            data.innerHTML = JSON.stringify(obj, null, 2);
+        }
+
+        function propertyClick(e){
+            e.stopPropagation();
+            const parentId = this.parentElement.getAttribute("data-iiif-id");
+            const parentType = this.parentElement.getAttribute("data-iiif-type");
+            const ref = { id:parentId, type: parentType };
+            const obj = vault.fromRef(ref); 
+            const prop = obj[this.getAttribute("data-iiif-property")];           
+            const data = document.getElementById("json");
+            data.innerHTML = JSON.stringify(prop, null, 2);
+        }
+
         loadManifest();
 
     </script>
