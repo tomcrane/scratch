@@ -18,6 +18,9 @@
         .bordered { 
             border: 2px solid blue;
         }
+        ul.list-group {
+            /* display: none; */
+        }
     </style>
 </head>
 
@@ -106,7 +109,7 @@
             container.innerHTML = "";
             renderResource(manifest, container);            
             feather.replace();
-            
+            toggleList(null, container.firstElementChild);            
         }
 
         function renderResource(iiifResource, parent){
@@ -138,6 +141,7 @@
                     li.appendChild(document.createTextNode(" "));
                     li.appendChild(getCountBadge(value.length));
                     if(value.length > 0){
+                        prependChevron(li);
                         const ula = document.createElement("ul");
                         ula.className = "list-group iiif-array";
                         li.appendChild(ula);
@@ -160,8 +164,8 @@
                         labelEl.innerHTML = " - " + truncate(getLabel(iiifResource));
                         li.appendChild(labelEl);
                     } else {
+                        prependChevron(li);
                         renderResource(value, li);
-
                     }
                 } else {
                     console.log("a: " + value);
@@ -169,15 +173,23 @@
             }
         }
 
+        function prependChevron(li){
+            // this list needs a chevron                       
+            const icon = document.createElement("i");
+            icon.setAttribute("data-feather", "chevron-right");
+            li.prepend(icon);
+            icon.addEventListener("click", toggleList);
+        }
+
         function makeListItem(propertyName){
             const li = document.createElement("li");
             li.className = "list-group-item";
             li.setAttribute("data-iiif-property", propertyName);
             li.addEventListener("click", propertyClick);
-            const icon = document.createElement("i");
-            icon.setAttribute("data-feather", "chevron-right");
-            li.appendChild(icon);
-            const lbl = document.createTextNode(" " + propertyName);
+            // const icon = document.createElement("i");
+            // icon.setAttribute("data-feather", "chevron-right");
+            // li.appendChild(icon);
+            const lbl = document.createTextNode(propertyName);
             li.appendChild(lbl);
             return li;
         }
@@ -190,6 +202,7 @@
             li.addEventListener("click", headerClick);
             const icon = document.createElement("i");
             icon.setAttribute("data-feather", "chevron-right");
+            icon.addEventListener("click", toggleList);
             li.appendChild(icon);
             const lbl = document.createTextNode(" " + iiifResource.type);
             li.appendChild(lbl);
@@ -264,6 +277,25 @@
                 highlightClass = "bordered";
             }
             highlightEl.classList.add(highlightClass);
+        }
+
+        function toggleList(e, ul){
+            let chevron = null;
+            if(e){
+                chevron = this;
+                ul = element.parentElement.parentElement;
+            } else {
+                chevron = ul.firstElementChild.firstElementChild;
+            }
+            const style = getComputedStyle(ul);
+            if(style.display === "none"){
+                ul.style.display = "block";
+                chevron.setAttribute("data-feather", "chevron-down");
+            } else if(e) {
+                ul.style.display = "none";
+                chevron.setAttribute("data-feather", "chevron-right");
+            }
+            feather.replace();
         }
 
         loadManifest();
