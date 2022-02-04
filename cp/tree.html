@@ -75,8 +75,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@2.0.0-alpha.0/dist/index.umd.js"></script>
+        <script>
+            if(typeof process === 'undefined'){
+                process = {env: {NODE_ENV: "hello"}}
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@0.9.5/dist/index.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@0.9.0/dist/index.umd.js"></script>
     <script>
 
         // TODO
@@ -85,7 +91,8 @@
         // use iiif model colours (optional)
         // breadcrumb trail, with working links
 
-        const vault = new HyperionVault.Vault();
+        const vault = new IIIFVault.Vault();
+
         document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
         let includeEmpty = false;
         
@@ -122,7 +129,7 @@
                 ul.appendChild(makeHeaderListItem(iiifResource));
             }
             parent.appendChild(ul);
-            iiifResource = vault.fromRef(iiifResource);
+            iiifResource = vault.get(iiifResource);
             for(property in iiifResource){
                 if(
                     property == "id" || 
@@ -217,26 +224,8 @@
         }
 
         // Extract a string from a language map in an appropriate language.
-        function getLabel(entity, separator, lang){
-            if(!entity.label) return "";
-            if(!lang){
-                if(navigator && navigator.language){
-                    lang = navigator.language.substring(0,2);
-                } else {
-                    lang = "none";
-                }               
-            }
-            if(separator){
-                // join multiple values (usually there's only one)
-                if(entity.label[lang]) return entity.label[lang].join(separator); // joined strings in desired lang
-                if(entity.label["none"]) return entity.label["none"].join(separator); // joined strings in "none" lang
-                return Object.values(entity.label)[0].join(separator) || ""; // joined strings in any lang                
-            } else {
-                // only return the first label
-                if(entity.label[lang]) return entity.label[lang][0]; // joined strings in desired lang
-                if(entity.label["none"]) return entity.label["none"][0]; // joined strings in "none" lang
-                return Object.values(entity.label)[0][0] || ""; // joined strings in any lang     
-            }
+        function getLabel(entity){
+            return entity.label ? IIIFVaultHelpers.getValue(entity.label) : "";
         }
 
         function truncate(s){
@@ -249,7 +238,7 @@
         function headerClick(e){
             e.stopPropagation();
             const ref = { id: this.getAttribute("data-iiif-id"), type: this.getAttribute("data-iiif-type") };
-            const obj = vault.fromRef(ref);             
+            const obj = vault.get(ref);             
             displayResource(obj, this);
         }
 
@@ -258,7 +247,7 @@
             const parentId = this.parentElement.getAttribute("data-iiif-id");
             const parentType = this.parentElement.getAttribute("data-iiif-type");
             const ref = { id:parentId, type: parentType };
-            const obj = vault.fromRef(ref); 
+            const obj = vault.get(ref); 
             const prop = obj[this.getAttribute("data-iiif-property")];      
             displayResource(prop, this);
         }
