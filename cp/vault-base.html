@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Vault</title>
+    <script>
+        if(typeof process === 'undefined'){
+            process = {env: {NODE_ENV: "hello"}}
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@0.9.5/dist/index.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@0.9.0/dist/index.umd.js"></script>
 </head>
 <body>
     
     <script>
-        
+        const vault = new IIIFVault.Vault();
+        console.log(vault);
     </script>
     
 </body>

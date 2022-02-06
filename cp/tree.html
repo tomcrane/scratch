@@ -16,12 +16,26 @@
             white-space: pre-wrap;
         }
         .bordered { 
-            border: 2px solid blue;
+            border: 1px solid blue;
         }
-        ul.list-group {
-            /* display: none; */
+        .manifest-nav button {
+            border:0;
+            padding:0 0.2em;
+            margin:0;
+            font-size: larger;
+            background-color: transparent;
+            font-family: monospace!important;
+            font-size: larger;
+            font-weight: bolder;
+        }
+        .resource-header button {
+            color: white;
+        }
+        ul.list-group, li.list-group-item {
+            display: none;
         }
     </style>
+    <link href="tree-iiif-colours.css" rel="stylesheet">
 </head>
 
 <body>
@@ -80,21 +94,19 @@
                 process = {env: {NODE_ENV: "hello"}}
             }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@0.9.5/dist/index.umd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@0.9.0/dist/index.umd.js"></script>
     <script>
 
         // TODO
-        // collapse the tree and expand on selection
         // specify a specific order for the props when enumerating them so that they are better logically grouped for visual purposes
-        // use iiif model colours (optional)
         // breadcrumb trail, with working links
 
         const vault = new IIIFVault.Vault();
 
         document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
         let includeEmpty = false;
+        let useModelColours = false;
         
 
         async function loadManifest(e){
@@ -106,6 +118,7 @@
                 const manifest = await vault.loadManifest(manifestUri);
                 if(manifest){   
                     includeEmpty = document.getElementById("includeEmpty").checked;
+                    useModelColours = document.getElementById("useModelColours").checked;
                     render(manifest);
                 }
             }
@@ -114,19 +127,32 @@
         function render(manifest){
             const container = document.getElementById("treeContainer");
             container.innerHTML = "";
-            renderResource(manifest, container);            
-            feather.replace();
-            toggleList(null, container.firstElementChild);            
+            renderResource(manifest, container);  
+            const manifestUL = container.firstElementChild;
+            manifestUL.style.display = "block";
+            for(li of manifestUL.children){
+                li.style.display = "block";
+            }
+            const btn = manifestUL.firstElementChild.firstElementChild
+            btn.innerText = "-";           
         }
 
         function renderResource(iiifResource, parent){
             if(!iiifResource) return;
+            // A little wrinkle for older version service inclusion, e.g., ImageService2
+            const resourceId = iiifResource.id || iiifResource["@id"];
+            const resourceType = iiifResource.type || iiifResource["@type"];
             const ul = document.createElement("ul");
             ul.className = "list-group";
-            ul.setAttribute("data-iiif-id", iiifResource.id);
-            if(iiifResource.type){
-                ul.setAttribute("data-iiif-type", iiifResource.type);
-                ul.appendChild(makeHeaderListItem(iiifResource));
+            ul.setAttribute("data-iiif-id", resourceId);
+            let headerListItem = null;
+            if(resourceType){ 
+                ul.setAttribute("data-iiif-type", resourceType);
+                headerListItem = makeHeaderListItem(iiifResource);
+                ul.appendChild(headerListItem);
+                if(useModelColours){
+                    headerListItem.className += " resource-colour-" + resourceType;
+                }
             }
             parent.appendChild(ul);
             iiifResource = vault.get(iiifResource);
@@ -134,6 +160,8 @@
                 if(
                     property == "id" || 
                     property == "type" || 
+                    property == "@id" ||       // for ImageService2 etc
+                    property == "@type" || 
                     property == "@context"){
                     continue;
                 }
@@ -148,13 +176,18 @@
                     li.appendChild(document.createTextNode(" "));
                     li.appendChild(getCountBadge(value.length));
                     if(value.length > 0){
-                        prependChevron(li);
-                        const ula = document.createElement("ul");
-                        ula.className = "list-group iiif-array";
-                        li.appendChild(ula);
-                        for(member of value){
-                            if(member.type){
-                                renderResource(member, li);
+                        let ula = null;
+                        for(member of value){            
+                            if(member.type || member["@type"]){        
+                                if(ula == null){                                    
+                                    prependChevron(li);
+                                    ula = document.createElement("ul");
+                                    ula.className = "list-group iiif-array";
+                                    li.appendChild(ula);
+                                }
+                                const lia = makeListItem(); 
+                                ula.appendChild(lia);   
+                                renderResource(member, lia);
                             } else {
                                 console.log("b: " + value);
                             }
@@ -166,10 +199,9 @@
                         li.className += " iiif-resource"
                     }
                     if(property === "label"){
-                        li.className += " label";
                         const labelEl = document.createElement("i");
-                        labelEl.innerHTML = " - " + truncate(getLabel(iiifResource));
-                        li.appendChild(labelEl);
+                        labelEl.innerHTML = "&nbsp; | &nbsp;" + truncate(getLabel(iiifResource));
+                        headerListItem.appendChild(labelEl);
                     } else {
                         prependChevron(li);
                         renderResource(value, li);
@@ -182,22 +214,76 @@
 
         function prependChevron(li){
             // this list needs a chevron                       
-            const icon = document.createElement("i");
-            icon.setAttribute("data-feather", "chevron-right");
-            li.prepend(icon);
-            icon.addEventListener("click", toggleList);
+            const btn = document.createElement("button");
+            btn.innerText = ">"; // "▶";
+            btn.addEventListener("click", toggleList);
+            li.prepend(btn);
+        }
+
+        
+        function toggleList(e){
+            let ul = this;
+            while(ul && ul.nodeName != "UL"){
+                ul = ul.nextElementSibling;
+            }
+            if(this.innerText == "-"){
+                if(ul) {
+                    closeAll(ul);
+                } else {
+                    let ul = this.parentElement.parentElement;
+                    for(li of ul.children){
+                        if(!li.classList.contains("resource-header")){
+                            li.style.display = "none";
+                        }
+                    }
+                }
+                this.innerText = ">";
+            } else {
+                if(ul){
+                    ul.style.display = "block";
+                    if(ul.classList.contains("iiif-array")){
+                        for(li of ul.children){
+                            li.style.display = "block";
+                            if(li.children[0].getAttribute("data-iiif-type")){
+                                li.children[0].style.display = "block"; // the resource UL
+                                li.children[0].children[0].style.display = "block"; // the first LI
+                            }
+                        }
+                    }
+                } else {
+                    let ul = this.parentElement.parentElement;
+                    for(li of ul.children){
+                        li.style.display = "block";
+                    }
+                }
+                this.innerText = "-";
+            }
+        }
+
+        function closeAll(ul){
+            ul.style.display == "none";
+            for(li of ul.children){
+                li.style.display = "none";
+                for(el of li.children){
+                    if(el.nodeName == "UL"){
+                        closeAll(el);
+                    }
+                    if(el.nodeName == "BUTTON"){
+                        el.innerText = ">";
+                    }
+                }
+            }
         }
 
         function makeListItem(propertyName){
             const li = document.createElement("li");
             li.className = "list-group-item";
-            li.setAttribute("data-iiif-property", propertyName);
-            li.addEventListener("click", propertyClick);
-            // const icon = document.createElement("i");
-            // icon.setAttribute("data-feather", "chevron-right");
-            // li.appendChild(icon);
-            const lbl = document.createTextNode(propertyName);
-            li.appendChild(lbl);
+            if(propertyName){
+                li.setAttribute("data-iiif-property", propertyName);
+                li.addEventListener("click", propertyClick);
+                const lbl = document.createTextNode(propertyName);
+                li.appendChild(lbl);
+            }
             return li;
         }
 
@@ -205,13 +291,10 @@
             const li = document.createElement("li");
             li.className = "list-group-item active resource-header";
             li.setAttribute("data-iiif-id", iiifResource.id);
-            li.setAttribute("data-iiif-type", iiifResource.type);
+            li.setAttribute("data-iiif-type", iiifResource.type || iiifResource["@type"]);
             li.addEventListener("click", headerClick);
-            const icon = document.createElement("i");
-            icon.setAttribute("data-feather", "chevron-right");
-            icon.addEventListener("click", toggleList);
-            li.appendChild(icon);
-            const lbl = document.createTextNode(" " + iiifResource.type);
+            prependChevron(li);
+            const lbl = document.createTextNode(" " + (iiifResource.type || iiifResource["@type"]));
             li.appendChild(lbl);
             return li;
         }
@@ -234,24 +317,7 @@
             }
             return s;
         }
-
-        function headerClick(e){
-            e.stopPropagation();
-            const ref = { id: this.getAttribute("data-iiif-id"), type: this.getAttribute("data-iiif-type") };
-            const obj = vault.get(ref);             
-            displayResource(obj, this);
-        }
-
-        function propertyClick(e){
-            e.stopPropagation();
-            const parentId = this.parentElement.getAttribute("data-iiif-id");
-            const parentType = this.parentElement.getAttribute("data-iiif-type");
-            const ref = { id:parentId, type: parentType };
-            const obj = vault.get(ref); 
-            const prop = obj[this.getAttribute("data-iiif-property")];      
-            displayResource(prop, this);
-        }
-
+       
         function displayResource(resource, element){     
             const data = document.getElementById("json");
             data.innerHTML = JSON.stringify(resource, null, 2);
@@ -268,26 +334,81 @@
             highlightEl.classList.add(highlightClass);
         }
 
-        function toggleList(e, ul){
-            let chevron = null;
-            if(e){
-                chevron = this;
-                ul = element.parentElement.parentElement;
-            } else {
-                chevron = ul.firstElementChild.firstElementChild;
-            }
-            const style = getComputedStyle(ul);
-            if(style.display === "none"){
-                ul.style.display = "block";
-                chevron.setAttribute("data-feather", "chevron-down");
-            } else if(e) {
-                ul.style.display = "none";
-                chevron.setAttribute("data-feather", "chevron-right");
-            }
-            feather.replace();
-        }
 
         loadManifest();
+
+        function headerClick(e){
+            e.stopPropagation();            
+            let obj = getTypedResourceFromElement(this);
+            console.log("Displaying resource of type " + obj.type);
+            if(Object.keys(obj).length == 2){
+                console.log("WARNING: This object only has two keys!");
+                console.log(obj);
+                obj = getObjectFromArrayViaParent(this, obj);
+            }  
+            displayResource(obj, this);
+        }
+
+        function propertyClick(e){
+            e.stopPropagation();
+            const obj = getTypedResourceFromElement(this.parentElement);
+            const propertyName = this.getAttribute("data-iiif-property");
+            console.log("Displaying " + obj.type + "::" + propertyName);
+            let prop = obj[propertyName];     
+            if(typeof prop === "undefined"){
+                // We got here because a property that was traversed 
+                // when building the tree appears to be missing
+                // from the object when recovered using 
+                // vault.get(ref); 
+                console.log("WARNING: Could not find property '" + propertyName + "' of object:");
+                console.log(obj);                
+                const reAcquiredObj = getObjectFromArrayViaParent(this.parentElement, obj);
+                prop = reAcquiredObj[propertyName];   
+            } 
+            displayResource(prop, this);
+        }
+
+        function getTypedResourceFromElement(element){
+            // Walk up HTML tree until we find a header element
+            let type = null;
+            let id = null;
+            do {
+                type = element.getAttribute("data-iiif-type");
+                id = element.getAttribute("data-iiif-id");
+                element = element.parentElement;
+            } while(element && !type)
+            if(id && type){
+               return vault.get({ id: id, type: type });
+            }
+        }
+
+        // This should not be needed
+        function getObjectFromArrayViaParent(element, objRef){
+            // Ideally this NEVER happens - and Vault has helpers to stop it.
+            // However we can mitigate it for the purposes of the tree demo by
+            // trying to go up further, obtaining the parent resource and walking back down
+            
+            // I think this happens in arrays
+            // go up to the array property and come back down to this one.
+            let prevElement = null;
+            do{ 
+                prevElement = element;
+                element = element.parentElement;
+            } while (!element.classList.contains("iiif-array"));
+            // `element` is now the array UL, prevElement is the LI for the selected item
+            const propertyName = element.parentElement.getAttribute("data-iiif-property");
+            const objWithProperty = getTypedResourceFromElement(element);
+            const index = Array.prototype.indexOf.call(element.children, prevElement);
+            return objWithProperty[propertyName][index];
+
+
+            // The other way is to re-find the object in the array by its ID.
+            // But what if two entries in the array had the same ID, but were not identical in the orginal serialisation?
+            // This is probaly rare, and bad anyway, but I'd find the first of these.
+            // However Vault might be doing this internally too.
+
+        }
+                
 
     </script>
 </body>
