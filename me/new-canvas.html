@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>New Canvas</title>
+    <style>
+        .dialogue {
+            margin-top: 20vh;
+            margin-left: 25vw;
+            width: 50vw;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            padding: 1em;
+        }
+
+        .row {
+            padding-bottom: 1em;
+        }
+
+        small {
+            clear: both;
+        }
+
+        .try {
+            margin:10vw;
+            font-size: smaller;
+        }
+
+        #mediaInfo {
+            display: none;
+        }
+
+        #imgPreview {
+            max-width: 200;
+            max-height: 200;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dialogue">
+
+        <h4>Add Canvas</h4>
+        <form>
+            <div class="input-group">
+                <input type="text" id="mediaUrl" 
+                    class="form-control" placeholder="Paste URL of Media" aria-label="URL of Media"
+                    aria-describedby="mediaHelp">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                </div>
+            </div>
+            <small id="mediaHelp" class="form-text text-muted">
+                Any image, IIIF Image Service, audio, video or IIIF Manifests and Canvases
+            </small>
+
+            <div id="mediaInfo">
+                <img id="imgPreview" />
+                <span id="imgService"><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" /> This is a IIIF Image Service</span>
+                <dic id="manifestPreview">TBC - this would show a carousel to select a canvas, or just the single canvas if there's only one.</dic>
+            </div>
+
+            <h6 class="mt-3 mb-1">Or set dimensions:</h6>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="width">Width</label>
+                    <input type="text" class="form-control" id="width" placeholder="n/a">
+                </div>
+                <div class="col">
+                    <label for="height">Height</label>
+                    <input type="text" class="form-control" id="height" placeholder="n/a">
+                </div>
+                <div class="col">
+                    <label for="duration">Duration</label>
+                    <input type="text" class="form-control" id="duration" placeholder="n/a">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Canvas</button>
+            <button type="submit" class="btn btn-primary">Cancel</button>
+        </form>
+    </div>
+
+    <div class="try">
+        <h2>Try these:</h2>
+        <p>NB smoke and mirrors going on here.</p>
+        <ul>
+            <li>Image: <a href="https://upload.wikimedia.org/wikipedia/commons/4/4d/NASA_Apollo_17_Lunar_Roving_Vehicle.jpg">https://upload.wikimedia.org/wikipedia/commons/4/4d/NASA_Apollo_17_Lunar_Roving_Vehicle.jpg</a></li>
+            <li>Image Service: <a href="https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2">https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2</a></li>
+            <li>Image Service: <a href="https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2/info.json">https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2/info.json</a></li>
+            <li>Image Service: <a href="https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2/full/1000,/0/default.jpg">https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2/full/1000,/0/default.jpg</a></li>
+            <li>Manifest: <a href="https://iiif.wellcomecollection.org/presentation/b19431132">https://iiif.wellcomecollection.org/presentation/b19431132</a></li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script>
+
+        function $(id){ return document.getElementById(id); }
+
+        $("mediaUrl").addEventListener("change", analyseUrl);
+        $("refreshUrl").addEventListener("click", analyseUrl);        
+        $("imgPreview").addEventListener("load", function(){setDimensions(this.width, this.height)});
+        
+        function analyseUrl(){
+            // This is, quite obviously, not an implementation of
+            // https://github.com/digirati-co-uk/iiif-manifest-editor/issues/45
+            const url = $("mediaUrl").value.trim();
+            $("mediaInfo").style.display = "none";
+            $("imgPreview").style.display = "none";
+            $("imgService").style.display = "none";
+            $("manifestPreview").style.display = "none";
+            if(url){
+                $("mediaInfo").style.display = "block";
+                const ringer = "https://iiif.wellcomecollection.org/image/b19431132_ms_2000_0006.JP2";
+                if(url.indexOf(ringer) != -1){
+                    url = ringer + "/info.json";
+                    fetch(url).then(response => response.json()).then(info => {                        
+                        $("imgPreview").style.display = "block";
+                        setDimensions(info.width, info.height);
+                        $("imgService").style.display = "block";
+                    });
+                } else if (url.indexOf("wellcomecollection.org/presentation") != -1){
+
+                }
+            }
+        }
+
+        function setDimensions(width, height){
+            $("width").value = width;
+            $("height").value = height;
+            $("duration").value = "";
+        }
+    </script>
+</body>
+
+</html>
