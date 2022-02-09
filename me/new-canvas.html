@@ -127,7 +127,11 @@
 
         $("mediaUrl").addEventListener("change", analyseUrl);
         $("refreshUrl").addEventListener("click", analyseUrl);        
-        $("imgPreview").addEventListener("load", function(){setDimensions(this.naturalWidth, this.naturalHeight)});
+        $("imgPreview").addEventListener("load", function(){
+            if($("staticImg").style.display == "block"){
+                setDimensions(this.naturalWidth, this.naturalHeight);
+            }
+        });
         
         function analyseUrl(){
             // This is, quite obviously, not an implementation of
