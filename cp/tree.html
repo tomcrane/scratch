@@ -47,7 +47,7 @@
                     <div class="row">
                       <div class="col">
                         <input type="text" class="form-control" placeholder="Manifest URL" id="manifestUri" 
-                            value="https://iiif.wellcomecollection.org/presentation/b28799495">
+                            value="">
                       </div>
                       <div class="col">
                           <button id="loadManifest" class="btn btn-primary">Load</button>
@@ -103,7 +103,23 @@
         document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
         let includeEmpty = false;
         let useModelColours = false;
+
+
         
+        
+        let manifestUri = "https://iiif.wellcomecollection.org/presentation/b28799495"
+        let qs = /iiif-content=(.*)/g.exec(window.location.search);
+        if(qs && qs[1]){   
+            manifestUri = qs[1];
+        } else {
+            qs = /manifest=(.*)/g.exec(window.location.search);
+            if(qs && qs[1]){   
+                manifestUri = qs[1];
+            }
+        }
+        document.getElementById("manifestUri").value = manifestUri;
+
+        loadManifest();
 
         async function loadManifest(e){
             if(e){
@@ -330,8 +346,6 @@
             highlightEl.classList.add(highlightClass);
         }
 
-
-        loadManifest();
 
         function headerClick(e){
             e.stopPropagation();            
