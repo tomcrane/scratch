@@ -36,8 +36,26 @@
         }
 
         #imgPreview {
-            max-width: 200;
-            max-height: 200;
+            float: left;
+            margin-right: 1em;
+            padding-bottom: 1em;
+            max-width: 120px;
+            max-height: 120px;
+        }
+
+        #imgService {
+            float: left;
+            max-width: 20vw;
+            font-size: smaller;
+        }
+
+        #manifestPreview {
+            padding-top: 1em;
+            font-size: smaller;
+        }
+
+        h5 {
+            clear:both;
         }
     </style>
 </head>
@@ -46,11 +64,11 @@
 
     <div class="dialogue">
 
-        <h4>Add Canvas</h4>
+        <h5>Add Canvas from Content</h5>
         <form>
             <div class="input-group">
                 <input type="text" id="mediaUrl" 
-                    class="form-control" placeholder="Paste URL of Media" aria-label="URL of Media"
+                    class="form-control" placeholder="Paste URL of Media to create Canvas" aria-label="URL of Media"
                     aria-describedby="mediaHelp">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
@@ -61,12 +79,14 @@
             </small>
 
             <div id="mediaInfo">
-                <img id="imgPreview" />
-                <span id="imgService"><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" /> This is a IIIF Image Service</span>
-                <dic id="manifestPreview">TBC - this would show a carousel to select a canvas, or just the single canvas if there's only one.</dic>
+                <img id="imgPreview" />                
+                <div id="staticImg"><br/> This is a Static Image.</div>
+                <div id="imgService"><br/><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" /> This is a IIIF Image Service</div>
+                <div id="manifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" />  This is a IIIF Manifest.<br/>
+                    TBC - this would show a carousel to select a canvas, or just the single canvas if there's only one.</div>
             </div>
 
-            <h6 class="mt-3 mb-1">Or set dimensions:</h6>
+            <h5 class="mt-3 mb-1">Or set dimensions</h5>
             <div class="form-group row">
                 <div class="col">
                     <label for="width">Width</label>
@@ -107,14 +127,15 @@
 
         $("mediaUrl").addEventListener("change", analyseUrl);
         $("refreshUrl").addEventListener("click", analyseUrl);        
-        $("imgPreview").addEventListener("load", function(){setDimensions(this.width, this.height)});
+        $("imgPreview").addEventListener("load", function(){setDimensions(this.naturalWidth, this.naturalHeight)});
         
         function analyseUrl(){
             // This is, quite obviously, not an implementation of
             // https://github.com/digirati-co-uk/iiif-manifest-editor/issues/45
-            const url = $("mediaUrl").value.trim();
+            let url = $("mediaUrl").value.trim();
             $("mediaInfo").style.display = "none";
             $("imgPreview").style.display = "none";
+            $("staticImg").style.display = "none";
             $("imgService").style.display = "none";
             $("manifestPreview").style.display = "none";
             if(url){
@@ -124,16 +145,28 @@
                     url = ringer + "/info.json";
                     fetch(url).then(response => response.json()).then(info => {                        
                         $("imgPreview").style.display = "block";
-                        setDimensions(info.width, info.height);
                         $("imgService").style.display = "block";
+                        setDimensions(info.width, info.height);
+                        $("imgPreview").src = ringer + "/full/!200,200/0/default.jpg";
                     });
                 } else if (url.indexOf("wellcomecollection.org/presentation") != -1){
-
+                    $("manifestPreview").style.display = "block";
+                } else {
+                    // assume this is a static image                                          
+                    $("imgPreview").style.display = "block";                              
+                    $("staticImg").style.display = "block";
+                    $("imgPreview").src = url;
                 }
             }
         }
 
         function setDimensions(width, height){
+            // This is no longer in the spec for 3.0, but maybe we want to do it
+            // can be a config flag
+            while(width < 1200 || height < 1200){
+                width = width * 2;
+                height = height * 2;
+            }
             $("width").value = width;
             $("height").value = height;
             $("duration").value = "";
