@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 20vw;
+            height: 20vw;
+            border: 1px solid gray;
+            background-color: antiquewhite;
+            position:absolute;
+            padding: 0.3em;
+        }
+
+        .d1 {
+            top: 6vw;
+            left: 2vw;
+        }
+        .d2 {
+            top: 7vw;
+            left: 3vw;
+        }
+        .d3 {
+            top: 8vw;
+            left: 4vw;
+        }
+        .d4 {
+            top: 9vw;
+            left: 5vw;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stacking order</h1>
+    <p>Canvas <code>painting</code> anno order should be the same as HTML stacking order, if you processed the canvases in the order they appear in the document.</p>
+
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+
+</body>
+</html>
