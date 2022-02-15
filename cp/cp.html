@@ -4,24 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CP tag</title>
+    <title>Minimal CP</title>
 </head>
 <body>
     <canvas-panel id="cp"></canvas-panel>
+    <h3 id="manifestLabel"></h3>
+    <h3 id="canvasLabel"></h3>
+    <img id="thumb" />
 
     
-    <script src="https://cdn.jsdelivr.net/npm/@hyperion-framework/vault@latest/dist/index.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@digirati/canvas-panel-web-components@latest/dist/bundle.js"></script>
-    <script>   
-       const cp = document.getElementById("cp");
-       console.log(window.__hyperionVault__);
-       const vault = HyperionVault.globalVault(); // Vault simplifies access to IIIF resources
+    <script src="https://cdn.jsdelivr.net/npm/@digirati/canvas-panel-web-components@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@latest/dist/index.umd.js"></script>
+
+    <script>  
+        
+        function $(id){ return document.getElementById(id); }
+
+        const cp = $("cp");
+        const helper = IIIFVaultHelpers.createThumbnailHelper(cp.vault);
+
         async function main(){
-            await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b18035723");
-            cp.setCanvas("https://iiif.wellcomecollection.org/presentation/b18035723/canvases/b18035723_0001.JP2");
+            const manifestId = "https://iiif.wellcomecollection.org/presentation/b18035723";
+            const canvasId = "https://iiif.wellcomecollection.org/presentation/b18035723/canvases/b18035723_0001.JP2";
+            let manifest = await cp.vault.loadManifest(manifestId);
+            $("manifestLabel").innerText = IIIFVaultHelpers.getValue(manifest.label);
+            cp.setCanvas(canvasId);
+            let thatCanvas = cp.vault.get(canvasId);
+            $("canvasLabel").innerText = IIIFVaultHelpers.getValue(thatCanvas.label);
+            let thumbSrc = (await helper.getBestThumbnailAtSize(thatCanvas, 200)).best.id;
+            $("thumb").src = thumbSrc;
         }
 
         main();
+        
     </script>  
 </body>
 </html>
