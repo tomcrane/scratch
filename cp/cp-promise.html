@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal CP</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@latest/dist/index.umd.js"></script>
+    <script>  
+        const manifestUrl = "https://iiif.wellcomecollection.org/presentation/b18035723";
+        const vault = new IIIFVault.Vault();
+        vault.load(manifestUrl).then((manifest) => console.log(manifest.items.length));
+    </script>  
+</body>
+</html>
+
