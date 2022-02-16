@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+        .container { display: grid; grid-template-columns: auto auto; }
+        img { padding: 0.3em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="app"></div>
+        <pre id="data"></pre>  
+    </div>    
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@latest/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@latest/dist/index.umd.js"></script>
+    <script>
+
+        let manifestUri = "https://digirati-co-uk.github.io/journal.json";        
+        const vault = new IIIFVault.Vault();
+        const thumbHelper = IIIFVaultHelpers.createThumbnailHelper(vault);  // NEW - make a thumbnail helper
+
+        // a couple of helpers for displaying what we find
+        function show(obj, label){
+            const data = document.getElementById("data");
+            const sep = "\n\n\n" + (label || "") + " ==========================================\n\n"
+            data.innerHTML = sep + JSON.stringify(obj, null, 2) + data.innerHTML;
+        }
+        function append(element){
+            document.getElementById("app").appendChild(element);
+        }
+        
+        async function demo(){
+            const manifest = await vault.loadManifest(manifestUri);
+            show(manifest, "Vault loads a manifest from a URI");
+
+            let canvas0Id = manifest.items[0].id;
+show(canvas0Id, "The canvas ID, a string URL")
+const canvas0 = vault.get(canvas0Id);
+show(canvas0, "The canvas, using get(id)");
+const myBadRef = {
+  id: "https://digirati-co-uk.github.io/journal/canvases/0",
+  type: "Manifest"
+}
+const canvas0b = vault.get(myBadRef);
+show(canvas0b, "There is no Manifest with that id in Vault!");
+
+
+
+
+const allCanvases = vault.get(manifest.items);
+show(allCanvases[0], "The first of allCanvases - all obtained in one operation");
+
+
+
+const manifestWithAnnotations = await vault.load("https://digirati-co-uk.github.io/wunder.json");
+const canvas10 = vault.get(manifestWithAnnotations.items[10]);
+show(canvas10);
+
+let loadedAnnoPage; // this will be the last loaded but here we know there's only one
+for(const annoPage of canvas10.annotations)
+{
+    // the .annotations property is an array of 0..n AnnotationPage resources.
+    console.log(IIIFVaultHelpers.getValue(annoPage.label)); 
+    // how do we know these are not inline?
+    let embedded = annoPage.items && !vault.requestStatus(annoPage);
+    if(!embedded){
+        console.log("This needs to be loaded");
+        // As a resource external to the manifest, we load annotations specifically, from their id:
+        loadedAnnoPage = await vault.load(annoPage.id);
+        show(loadedAnnoPage, "The dereferenced AnnotationPage");
+    }
+}
+
+const lines = vault.get(loadedAnnoPage.items);
+let pageText = "";
+for(const line of lines){
+    const lineBody = vault.get(line.body[0]);
+    pageText += lineBody.value;
+    pageText += "\n";
+}
+show({ pageText: pageText }, "The full text of the page");
+
+        }
+
+        demo();
+    </script>
+  </body>
+</html>
