@@ -73,13 +73,12 @@ for(const annoPage of canvas10.annotations)
 }
 
 const lines = vault.get(loadedAnnoPage.items);
-let pageText = "";
+let pageText = [];
 for(const line of lines){
     const lineBody = vault.get(line.body[0]);
-    pageText += lineBody.value;
-    pageText += "\n";
+    pageText.push(lineBody.value);
 }
-show({ pageText: pageText }, "The full text of the page");
+show(pageText, "The full text of the page");
 
         }
 
