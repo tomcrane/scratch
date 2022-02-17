@@ -186,9 +186,10 @@ async function LoadManifest(manifestId){
             for(const canvas of selection.items){                 
                 // ...create an image element for each canvas         
                 const thumb = document.createElement("img");
-                const canvasManager = vault.getResourceMeta(canvas.id).eventManager;
-                // ...add the event listener we previously stored in Vault
-                thumb.addEventListener("click", canvasManager.onClick[0].callback);
+                // const canvasManager = vault.getResourceMeta(canvas.id).eventManager;
+                const props = events.getListenersAsProps(canvas);
+                // thumb.addEventListener("click", canvasManager.onClick[0].callback);
+                thumb.addEventListener("click", props.onClick);
                 // ...set the src of the image to a vault-picked thumbnail
                 thumbHelper.getBestThumbnailAtSize(canvas, { maxWidth:100 }).then(cvThumb => thumb.src = cvThumb.best.id);
                 append(thumb);
