@@ -34,10 +34,12 @@ ul.list-group, li.list-group-item {
     cursor: pointer;
 }
 
-#slidestrip {
-    background-color: #eee;
+#slidestrip, #treeContainer{
     overflow-y: scroll;
     height: 80vh;
+}
+#slidestrip {
+    background-color: #eee;
 }
 
 

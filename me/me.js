@@ -13,7 +13,11 @@ const app = {
     resourceEditor: null,
     canvas: null,
     selectedResource: null, // may be more specific than canvas
-    activeShortcuts: []
+    selectedProperty: null, // may be more specific than canvas
+    activeShortcuts: [],
+    outlineRendered: false,    // these three only work for a static app - no editing!
+    stripRendered: false,
+    gridRendered: false
 };
 
 for(btn of document.getElementsByClassName("btn-mode")){
@@ -73,6 +77,8 @@ function setColClass(id, className){
 }
 
 function renderApp(){
+
+    renderOutline(shell.resource);     
     const mode = document.getElementById("topForm").elements["btnMode"].value;
     console.log(mode);
     if(mode != app.displayMode){
@@ -98,7 +104,7 @@ function renderApp(){
                 setColClass("resourceEditor", "col-3");                     
                 showId("slidestrip");
                 showId("canvasContainer");
-                renderStrip(shell.resource);    
+                renderStrip(shell.resource);  
                 break;
 
             case "outline":
@@ -136,39 +142,41 @@ async function drawThumbs(container, manifest){
         thumbContainer.appendChild(thumbImg);
         thumbImg.setAttribute("data-id", canvas.id);
         thumbImg.src = cvThumb.best.id;
-        thumbImg.addEventListener("click", e => selectCanvas(canvas.id)); 
+        thumbImg.addEventListener("click", e => selectCanvas(canvas.id, false)); 
         container.appendChild(thumbContainer);
     }
 }
 
-async function renderGrid(manifest){    
-    const gridContainer = document.getElementById("gridview");
-    drawThumbs(gridContainer, manifest);
+async function renderGrid(manifest){  
+    if(!app.gridRendered){
+        const gridContainer = document.getElementById("gridview");
+        drawThumbs(gridContainer, manifest);
+    }  
+    app.gridRendered = true;
 }
 
 async function renderStrip(manifest){
-    const stripContainer = document.getElementById("slidestrip");
-    drawThumbs(stripContainer, manifest);
-}
-
-function selectCanvas(canvasId){
-    const cp = document.getElementById("cp");
-    cp.setCanvas(canvasId);
-    const temp = document.getElementById("resourceTempText");
-    temp.innerHTML = "CANVAS resource editor<br/><span>" + canvasId + "</span>";
+    if(!app.stripRendered){
+        const stripContainer = document.getElementById("slidestrip");
+        drawThumbs(stripContainer, manifest);
+    }
+    app.stripRendered = true;
 }
 
 function renderOutline(manifest) {
-    const container = document.getElementById("treeContainer");
-    container.innerHTML = "";
-    renderResource(manifest, container);
-    const manifestUL = container.firstElementChild;
-    manifestUL.style.display = "block";
-    for (li of manifestUL.children) {
-        li.style.display = "block";
+    if(!app.outlineRendered){
+        const container = document.getElementById("treeContainer");
+        container.innerHTML = "";
+        renderResource(manifest, container);
+        const manifestUL = container.firstElementChild;
+        manifestUL.style.display = "block";
+        for (li of manifestUL.children) {
+            li.style.display = "block";
+        }
+        const btn = manifestUL.firstElementChild.firstElementChild
+        btn.innerText = "-";
     }
-    const btn = manifestUL.firstElementChild.firstElementChild
-    btn.innerText = "-";
+    app.outlineRendered = true;
 }
 
 function renderResource(iiifResource, parent) {
@@ -255,23 +263,24 @@ function prependChevron(li) {
 }
 
 
-function toggleList(e) {
-    let ul = this;
+function toggleList(e, element) {
+    let toggle = this || element;
+    let ul = toggle;
     while (ul && ul.nodeName != "UL") {
         ul = ul.nextElementSibling;
     }
-    if (this.innerText == "-") {
+    if (toggle.innerText == "-") {
         if (ul) {
             closeAll(ul);
         } else {
-            let ul = this.parentElement.parentElement;
+            let ul = toggle.parentElement.parentElement;
             for (li of ul.children) {
                 if (!li.classList.contains("resource-header")) {
                     li.style.display = "none";
                 }
             }
         }
-        this.innerText = ">";
+        toggle.innerText = ">";
     } else {
         if (ul) {
             ul.style.display = "block";
@@ -285,12 +294,12 @@ function toggleList(e) {
                 }
             }
         } else {
-            let ul = this.parentElement.parentElement;
+            let ul = toggle.parentElement.parentElement;
             for (li of ul.children) {
                 li.style.display = "block";
             }
         }
-        this.innerText = "-";
+        toggle.innerText = "-";
     }
 }
 
@@ -346,17 +355,78 @@ function getLabel(entity) {
 }
 
 function truncate(s) {
-    if (s && s.length > 40) {
-        return s.substring(0, 37) + "...";
+    if (s && s.length > 35) {
+        return s.substring(0, 32) + "...";
     }
     return s;
 }
 
-function displayResource(resource, element) {
-    const data = document.getElementById("json");
-    data.innerHTML = JSON.stringify(resource, null, 2);
-    const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
-    data.style.marginTop = offset - 133 + "px";
+
+function selectCanvas(canvasId, fromOutline){
+    const cp = document.getElementById("cp");
+    cp.setCanvas(canvasId);
+    const ref = { id: canvasId, type:"Canvas"};
+    app.canvas = ref;
+    app.selectedResource = ref;
+    if(!fromOutline){
+        // open the items list on Manifest, if not already
+        const tree = document.getElementById("treeContainer");
+        for(const li of tree.children[0].children){
+            if(li.getAttribute("data-iiif-property") == "items"){
+                // this is gross
+                const button = li.getElementsByTagName("button")[0];
+                if(button.innerText == ">"){
+                    button.click();
+                }
+                break;
+            }
+        }
+        let canvasHeader = null;
+        for(cvUl of document.getElementsByTagName("ul")){
+            if(cvUl.getAttribute("data-iiif-id") == canvasId){
+                canvasHeader = cvUl.children[0];
+                break;
+            }
+        }
+        if(canvasHeader){
+            // let treeEl = canvasHeader;
+            // while(true){
+            //     treeEl.style.display = "block";
+            //     treeEl = treeEl.parentElement;
+            //     if(treeEl.tagName != "UL" && treeEl.tagName == "LI"){
+            //         break;
+            //     } 
+            // }
+            displayResourceInternal(shell.vault.get(ref), canvasHeader)
+        }
+    }
+    updateResourceEditor(fromOutline);
+}
+
+function updateResourceEditor(fromOutline){
+    const temp = document.getElementById("resourceTempText");
+    temp.innerHTML = "Resource Editor:<br/><span>" + app.selectedResource + "</span>";
+}
+
+
+function displayProperty(prop, element){
+    app.selectedProperty = prop;
+    displayResourceInternal(prop, element);
+}
+
+
+function displayResource(resource, element){
+    app.selectedResource = resource;
+    displayResourceInternal(resource, element);
+}
+
+function displayResourceInternal(resource, element) {
+    // canvas selection in strip or grid updates the outline tree
+    // then update the breadcrumb after this.
+    // const data = document.getElementById("json");
+    // data.innerHTML = JSON.stringify(resource, null, 2);
+    // const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
+    // data.style.marginTop = offset - 133 + "px";
     let highlightEl = element;
     let highlightClass = "list-group-item-primary";
     document.querySelectorAll("." + highlightClass).forEach(li => li.classList.remove(highlightClass));
@@ -366,6 +436,58 @@ function displayResource(resource, element) {
         highlightClass = "bordered";
     }
     highlightEl.classList.add(highlightClass);
+
+    // make crumbs
+    const breadcrumbs = document.getElementById("breadcrumbs");
+    breadcrumbs.innerHTML = "";
+
+    crumbSource = element;
+    prevElement = null;
+    while(crumbSource.id != "treeContainer"){
+        if(crumbSource.tagName == "LI"){
+            addBreadcrumb(crumbSource);
+        }
+        if(crumbSource.tagName == "UL"){
+            if(crumbSource.children.length > 0){
+                const header = crumbSource.children[0];
+                const iiifType = header.getAttribute("data-iiif-type");
+                if(header != prevElement && iiifType){
+                    addBreadcrumb(header, iiifType);
+                }
+            }
+        }
+        prevElement = crumbSource;
+        crumbSource = crumbSource.parentElement;
+    }    
+}
+
+function addBreadcrumb(treeElement, iiifType){
+    const breadcrumbs = document.getElementById("breadcrumbs");
+    const text = getTextNodes(treeElement);
+    if(!text) return;
+    const li = document.createElement("li");
+    li.className = "breadcrumb-item";
+    li.innerText = text;
+    if(!breadcrumbs.innerHTML){
+        li.classList.add("active");
+    }
+    if(iiifType){
+        li.classList.add("resource-colour-" + iiifType);
+    }
+    breadcrumbs.prepend(li);
+}
+
+function getTextNodes(element){
+    let str = "";
+    for(const child of element.childNodes){
+        if(child.nodeType == Node.TEXT_NODE){
+            str += child.nodeValue;
+        }
+        // if(child.tagName == "I"){
+        //     str += child.innerText;
+        // }
+    }
+    return str;
 }
 
 
@@ -379,6 +501,9 @@ function headerClick(e) {
         obj = getObjectFromArrayViaParent(this, obj);
     }
     displayResource(obj, this);
+    if(obj.type == "Canvas"){
+        selectCanvas(obj.id, true);
+    }
 }
 
 function propertyClick(e) {
@@ -397,7 +522,7 @@ function propertyClick(e) {
         const reAcquiredObj = getObjectFromArrayViaParent(this.parentElement, obj);
         prop = reAcquiredObj[propertyName];
     }
-    displayResource(prop, this);
+    displayProperty(prop, this);
 }
 
 function getTypedResourceFromElement(element) {
