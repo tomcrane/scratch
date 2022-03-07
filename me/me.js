@@ -3,7 +3,7 @@
 // breadcrumb trail, with working links
 
 const shell = {
-    vault: new IIIFVault.Vault(),
+    vault: new IIIFVault.globalVault(),
     resource: null
 };
 shell.thumbHelper = IIIFVaultHelpers.createThumbnailHelper(shell.vault);
@@ -62,6 +62,15 @@ function showId(id){
 function hideId(id){
     document.getElementById(id).style.display = "none";
 }
+function setColClass(id, className){
+    const el = document.getElementById(id);
+    for(cls of el.classList){
+        if(cls.indexOf("col-") == 0){
+            el.classList.remove(cls);
+        }
+    }
+    el.classList.add(className);
+}
 
 function renderApp(){
     const mode = document.getElementById("topForm").elements["btnMode"].value;
@@ -76,24 +85,34 @@ function renderApp(){
 
         // These probably wouldn't re-render when changing modes... just show / hide?
         switch (mode) {
-            case "manifest":                
+            case "manifest":        
+                setColClass("gridview", "col-9");
+                setColClass("resourceEditor", "col-3");        
                 showId("gridview");
                 renderGrid(shell.resource);    
                 break;
 
-            case "strip":                           
+            case "strip":    
+                setColClass("slidestrip", "col-1");
+                setColClass("canvasContainer", "col-8");    
+                setColClass("resourceEditor", "col-3");                     
                 showId("slidestrip");
                 showId("canvasContainer");
                 renderStrip(shell.resource);    
                 break;
 
             case "outline":
+                setColClass("treeContainer", "col-3");
+                setColClass("canvasContainer", "col-6");    
+                setColClass("resourceEditor", "col-3");  
                 showId("treeContainer");
                 showId("canvasContainer");  
                 renderOutline(shell.resource);        
                 break;
 
             case "noNav":
+                setColClass("canvasContainer", "col-9");    
+                setColClass("resourceEditor", "col-3");  
                 showId("canvasContainer");                
                 break;
         
@@ -105,6 +124,7 @@ function renderApp(){
 }
 
 async function drawThumbs(container, manifest){
+    container.innerHTML = "";
     for(const canvas of shell.vault.get(manifest.items)){              
         const label = IIIFVaultHelpers.getValue(canvas.label);
         const cvThumb = await shell.thumbHelper.getBestThumbnailAtSize(canvas, {maxWidth:100, maxHeight:200});
@@ -129,6 +149,13 @@ async function renderGrid(manifest){
 async function renderStrip(manifest){
     const stripContainer = document.getElementById("slidestrip");
     drawThumbs(stripContainer, manifest);
+}
+
+function selectCanvas(canvasId){
+    const cp = document.getElementById("cp");
+    cp.setCanvas(canvasId);
+    const temp = document.getElementById("resourceTempText");
+    temp.innerHTML = "CANVAS resource editor<br/><span>" + canvasId + "</span>";
 }
 
 function renderOutline(manifest) {

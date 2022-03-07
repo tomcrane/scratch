@@ -30,12 +30,20 @@ ul.list-group, li.list-group-item {
     padding:15px;
     float:left;
 }
+.tc img {
+    cursor: pointer;
+}
 
 #slidestrip {
-    background-color: lightgray;
+    background-color: #eee;
+    overflow-y: scroll;
+    height: 80vh;
 }
 
 
 #slidestrip .tc {
     padding: 15px;
+}
+#resourceTempText span {
+    font-size: x-small;
 }
