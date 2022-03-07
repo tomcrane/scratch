@@ -423,8 +423,8 @@ function displayResource(resource, element){
 function displayResourceInternal(resource, element) {
     // canvas selection in strip or grid updates the outline tree
     // then update the breadcrumb after this.
-    // const data = document.getElementById("json");
-    // data.innerHTML = JSON.stringify(resource, null, 2);
+    const data = document.getElementById("json");
+    data.innerHTML = JSON.stringify(resource, null, 2);
     // const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
     // data.style.marginTop = offset - 133 + "px";
     let highlightEl = element;
