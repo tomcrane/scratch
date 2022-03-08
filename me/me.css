@@ -32,6 +32,11 @@ ul.list-group, li.list-group-item {
 }
 .tc img {
     cursor: pointer;
+    border: 2px solid white;
+}
+.selected-canvas img {
+    cursor: auto;
+    border: 2px solid blue;
 }
 
 #slidestrip, #treeContainer{

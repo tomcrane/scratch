@@ -12,8 +12,9 @@ const app = {
     manifest: null, // our "app" is a manifest editor
     resourceEditor: null,
     canvas: null,
-    selectedResource: null, // may be more specific than canvas
-    selectedProperty: null, // may be more specific than canvas
+    selectedResourceRef: null, // may be more specific than canvas
+    selectedPropertyName: null, // may be more specific than canvas
+    selectedPropertyValue: null, // may be more specific than canvas
     activeShortcuts: [],
     outlineRendered: false,    // these three only work for a static app - no editing!
     stripRendered: false,
@@ -54,7 +55,9 @@ async function loadManifest(e) {
         if (shell.resource) {
             includeEmpty = document.getElementById("includeEmpty").checked;
             // useModelColours = document.getElementById("useModelColours").checked;
+            app.selectedResourceRef = asRef(shell.resource);
             renderApp();
+            updateResourceEditor();
             document.getElementById("resourceLabel").innerText = IIIFVaultHelpers.getValue(shell.resource.label);
         }
     }
@@ -78,7 +81,10 @@ function setColClass(id, className){
 
 function renderApp(){
 
-    renderOutline(shell.resource);     
+    // in the demo just draw all these up front
+    renderGrid(shell.resource); 
+    renderOutline(shell.resource);    
+    renderStrip(shell.resource); 
     const mode = document.getElementById("topForm").elements["btnMode"].value;
     console.log(mode);
     if(mode != app.displayMode){
@@ -140,7 +146,7 @@ async function drawThumbs(container, manifest){
         thumbContainer.appendChild(document.createElement("br"));
         const thumbImg = document.createElement("img");
         thumbContainer.appendChild(thumbImg);
-        thumbImg.setAttribute("data-id", canvas.id);
+        thumbImg.setAttribute("data-iiif-id", canvas.id);
         thumbImg.src = cvThumb.best.id;
         thumbImg.addEventListener("click", e => selectCanvas(canvas.id, false)); 
         container.appendChild(thumbContainer);
@@ -367,8 +373,20 @@ function selectCanvas(canvasId, fromOutline){
     cp.setCanvas(canvasId);
     const ref = { id: canvasId, type:"Canvas"};
     app.canvas = ref;
-    app.selectedResource = ref;
+    app.selectedResourceRef = ref;
+    app.selectedPropertyValue = null;
+    app.selectedPropertyName = null;
+    for(thumbDiv of document.getElementsByClassName("tc")){        
+        thumbDiv.classList.remove("selected-canvas");
+        const thumbImg = thumbDiv.getElementsByTagName('img')[0];
+        const id = thumbImg.getAttribute("data-iiif-id");
+        if(id == canvasId){     
+            thumbDiv.classList.add("selected-canvas");
+        }
+    }
     if(!fromOutline){
+        // need to update the outline tree to select this canvas, because the selection came from something else
+        // TODO: general purpose select tree node from ID and open parents and scrollIntoView
         // open the items list on Manifest, if not already
         const tree = document.getElementById("treeContainer");
         for(const li of tree.children[0].children){
@@ -381,6 +399,8 @@ function selectCanvas(canvasId, fromOutline){
                 break;
             }
         }
+        app.canvas = ref;
+        app.selectedResourceRef = ref;
         let canvasHeader = null;
         for(cvUl of document.getElementsByTagName("ul")){
             if(cvUl.getAttribute("data-iiif-id") == canvasId){
@@ -400,31 +420,30 @@ function selectCanvas(canvasId, fromOutline){
             displayResourceInternal(shell.vault.get(ref), canvasHeader)
         }
     }
-    updateResourceEditor(fromOutline);
 }
 
-function updateResourceEditor(fromOutline){
-    const temp = document.getElementById("resourceTempText");
-    temp.innerHTML = "Resource Editor:<br/><span>" + app.selectedResource + "</span>";
-}
-
-
-function displayProperty(prop, element){
-    app.selectedProperty = prop;
-    displayResourceInternal(prop, element);
+function displayProperty(objectWithProperty, propertyName, propertyValue, element){
+    app.selectedPropertyName = propertyName;
+    app.selectedPropertyValue = propertyValue;
+    app.selectedResourceRef = asRef(objectWithProperty);
+    displayResourceInternal(propertyValue, element);
 }
 
 
 function displayResource(resource, element){
-    app.selectedResource = resource;
+    app.selectedResourceRef = asRef(resource);
+    app.selectedPropertyValue = null;
     displayResourceInternal(resource, element);
 }
 
+function asRef(resource){
+    return {
+        id: resource.id,
+        type: resource.type
+    }
+}
+
 function displayResourceInternal(resource, element) {
-    // canvas selection in strip or grid updates the outline tree
-    // then update the breadcrumb after this.
-    const data = document.getElementById("json");
-    data.innerHTML = JSON.stringify(resource, null, 2);
     // const offset = element.getBoundingClientRect().top + document.documentElement.scrollTop;
     // data.style.marginTop = offset - 133 + "px";
     let highlightEl = element;
@@ -437,28 +456,32 @@ function displayResourceInternal(resource, element) {
     }
     highlightEl.classList.add(highlightClass);
 
-    // make crumbs
+    makeBreadcrumbs(element);    
+    updateResourceEditor();
+}
+
+function makeBreadcrumbs(element) {
     const breadcrumbs = document.getElementById("breadcrumbs");
     breadcrumbs.innerHTML = "";
-
+    app.path = [];
     crumbSource = element;
     prevElement = null;
-    while(crumbSource.id != "treeContainer"){
-        if(crumbSource.tagName == "LI"){
+    while (crumbSource.id != "treeContainer") {
+        if (crumbSource.tagName == "LI") {
             addBreadcrumb(crumbSource);
         }
-        if(crumbSource.tagName == "UL"){
-            if(crumbSource.children.length > 0){
+        if (crumbSource.tagName == "UL") {
+            if (crumbSource.children.length > 0) {
                 const header = crumbSource.children[0];
                 const iiifType = header.getAttribute("data-iiif-type");
-                if(header != prevElement && iiifType){
+                if (header != prevElement && iiifType) {
                     addBreadcrumb(header, iiifType);
                 }
             }
         }
         prevElement = crumbSource;
         crumbSource = crumbSource.parentElement;
-    }    
+    }
 }
 
 function addBreadcrumb(treeElement, iiifType){
@@ -473,6 +496,17 @@ function addBreadcrumb(treeElement, iiifType){
     }
     if(iiifType){
         li.classList.add("resource-colour-" + iiifType);
+    }
+    const prop = treeElement.getAttribute("data-iiif-property");
+    const type = treeElement.getAttribute("data-iiif-type");
+    const id = treeElement.getAttribute("data-iiif-id");
+    if(id && type){
+        app.path.push({ id: id, type: type });        
+        li.setAttribute("data-iiif-id", id);    
+        li.setAttribute("data-iiif-type", type);
+    } else if(prop){
+        app.path.push({ property: prop});
+        li.setAttribute("data-iiif-property", prop);
     }
     breadcrumbs.prepend(li);
 }
@@ -489,6 +523,67 @@ function getTextNodes(element){
     }
     return str;
 }
+
+
+function updateResourceEditor(){
+    // At this point, the tree is open and selected, the breadcrumb trail is updated.
+    // canvas is highlighted in grid and strip.
+
+    if(!app.selectedResourceRef){
+        return;
+    }
+    const data = document.getElementById("json");    
+    const state = {
+        resourceRef: app.selectedResourceRef,
+        propertyName: app.selectedPropertyName,
+        path: app.path,
+        vaultResource: shell.vault.get(app.selectedResourceRef)
+    };
+    data.innerHTML = JSON.stringify(state, null, 2);
+   
+    const re = document.getElementById("resourceEditorInner");
+    const bestResource = state.vaultResource || state.resourceRef;
+
+    let html = "<p>Resource Editor for " + bestResource.type + "</p>"; 
+    html += "<p>Properties:</p><ul class='list-group' style='display:block'>"
+    for(prop in bestResource){
+        if(prop == "@context") continue;
+        if(prop == "type") continue;
+        if(prop == state.propertyName){
+            html += "<li style='display:block' class='list-group-item list-group-item-primary'>" + prop + "</li>";
+        } else {            
+            html += "<li style='display:block' class='list-group-item'>" + prop + "</li>";
+        }
+    }
+    html += "</ul>";
+    re.innerHTML = html;
+
+    switch(app.selectedResourceRef.type){
+        case "Manifest":
+            loadEditor("manifest");
+            break;        
+        case "Canvas":
+            loadEditor("canvas");
+            break;
+    }
+}
+
+function loadEditor(name){
+    const re = document.getElementById("resourceEditorInner");
+    return fetch("resourceeditors/" + name + ".html")
+        .then(data => {
+            return data.text();
+        })
+        .then( data => {
+            re.innerHTML += data;
+        })
+        .then(() => {
+            re.innerHTML += "<p>with prop: " + app.selectedPropertyName + "</p>";
+        });
+}
+
+
+
 
 
 function headerClick(e) {
@@ -508,21 +603,21 @@ function headerClick(e) {
 
 function propertyClick(e) {
     e.stopPropagation();
-    const obj = getTypedResourceFromElement(this.parentElement);
+    let objectWithProperty = getTypedResourceFromElement(this.parentElement);
     const propertyName = this.getAttribute("data-iiif-property");
-    console.log("Displaying " + obj.type + "::" + propertyName);
-    let prop = obj[propertyName];
-    if (typeof prop === "undefined") {
+    console.log("Displaying " + objectWithProperty.type + "::" + propertyName);
+    let propertyValue = objectWithProperty[propertyName];
+    if (typeof propertyValue === "undefined") {
         // We got here because a property that was traversed 
         // when building the tree appears to be missing
         // from the object when recovered using 
         // vault.get(ref); 
         console.log("WARNING: Could not find property '" + propertyName + "' of object:");
-        console.log(obj);
-        const reAcquiredObj = getObjectFromArrayViaParent(this.parentElement, obj);
-        prop = reAcquiredObj[propertyName];
+        console.log(objectWithProperty);
+        objectWithProperty = getObjectFromArrayViaParent(this.parentElement, objectWithProperty);
+        propertyValue = objectWithProperty[propertyName];
     }
-    displayProperty(prop, this);
+    displayProperty(objectWithProperty, propertyName, propertyValue, this);
 }
 
 function getTypedResourceFromElement(element) {
