@@ -542,10 +542,13 @@ function updateResourceEditor(){
     data.innerHTML = JSON.stringify(state, null, 2);
    
     const re = document.getElementById("resourceEditorInner");
+    
+    // TODO - will need to go up and down to get the best resource as in the tree
     const bestResource = state.vaultResource || state.resourceRef;
 
     let html = "<p>Resource Editor for " + bestResource.type + "</p>"; 
     html += "<p>Properties:</p><ul class='list-group' style='display:block'>"
+
     for(prop in bestResource){
         if(prop == "@context") continue;
         if(prop == "type") continue;
