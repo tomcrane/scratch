@@ -77,9 +77,29 @@
                 </div>
             </div>
 
-            <div id="resourceEditor" class="col-md-auto resource-editor p-1">
-                <div id="resourceEditorInner">Resource editor will be replaced here.</div>
-                <pre id="json"></pre>                
+            <div id="resourceEditor" class="col-md-auto resource-editor p-1">                
+                <ul id="resourceTabs" class="nav nav-tabs">
+                    <li class="nav-item" id="navdescriptive">
+                      <a class="nav-link active" href="#"><small>Descriptive</small></a>
+                    </li>
+                    <li class="nav-item" id="navmetadata">
+                      <a class="nav-link" href="#"><small>Metadata</small></a>
+                    </li>
+                    <li class="nav-item" id="navlinking">
+                      <a class="nav-link" href="#"><small>Linking</small></a>
+                    </li>
+                    <li class="nav-item" id="navtechnical">
+                      <a class="nav-link" href="#"><small>Technical</small></a>
+                    </li>
+                    <li class="nav-item" id="navstructural">
+                      <a class="nav-link" href="#"><small>Structural</small></a>
+                    </li>
+                </ul>
+                <div id="resourceEditorInner">
+                </div>
+                <div id="resourceEditorExtra">
+                </div>
+                <!-- <pre id="json"></pre> -->
             </div>
         </div>
 
@@ -99,6 +119,138 @@
     <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@latest/dist/index.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@digirati/canvas-panel-web-components@latest"></script>
     <script src="me.js"></script>
+
+    <!-- resource editor parts -->
+
+    <!-- manifest -->
+    <div class="rhs-component" 
+        data-resource="Manifest"
+        data-props="label,summary,requiredStatement,rights,navDate"
+        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural">
+        <img src="img/descriptive.png" />
+    </div>
+
+    
+    <div class="rhs-component" 
+        data-resource="Manifest"
+        data-props="metadata"
+        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural">
+        <img src="img/metadata.png" />
+    </div>
+
+    
+    <div class="rhs-component" 
+        data-resource="Manifest"
+        data-props="homepage,rendering,seeAlso,services,service"
+        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural">
+        <img src="img/linking.png" />
+    </div>
+
+    
+    <div class="rhs-component"
+        data-resource="Manifest"
+        data-props="viewingDirection,behavior"
+        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural">
+        <img src="img/technical.png" />
+    </div>
+    
+
+    <div class="rhs-component" 
+        data-resource="Manifest"
+        data-props="annotations,partOf,start"
+        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural">
+        <img src="img/structural.png" />
+    </div>
+
+
+    <!-- canvas -->    
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="label,summary,requiredStatement,rights,navDate"
+        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical,Structural">   
+        <img src="img/descriptive.png" />
+    </div>
+
+    
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="metadata"
+        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical,Structural">   
+        <img src="img/metadata.png" />
+    </div>
+
+        
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="items"
+        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical,Structural">   
+        <p>
+            This aggregates all the media on all the AnnotationPages under the canvas.items property.
+            So there are no sub-pages.
+        </p>
+        <p>
+            That seems a bit extreme - but there will almost always only ever be one piece of media here.
+            And if there are many, the UI just has to flex - it's a special case!
+        </p>
+        <p>
+            This will not handle Choice, nor will it handle AV.
+            (Choice and AV also more likely to go together).
+        </p>
+        <p>
+            TODO - mock this UI.
+        </p>
+        <p>
+            Add new media (GH issue).
+        </p>
+        <p>
+            Very rare case - a loaded Manifest splits its painting annos onto more than one AnnoPage under items.
+            The ME will just collapse that into a single AnnoPage.
+            This is worth sacrificing for UI simplicty - it's going to be very rare!
+        </p>
+    </div>
+
+            
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="items"
+        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical,Structural">   
+        <img src="img/annopage.png" />
+        <p>
+            Cycle through the anno pages; each anno is independently editable.
+        </p>
+    </div>
+
+
+
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="homepage,rendering,seeAlso,service">
+        <img src="img/linking.png" />
+    </div>
+
+
+    <div class="rhs-component" 
+        data-resource="Canvas"
+        data-props="viewingDirection,behavior,width,height,duration">
+        <img src="img/technical.png" />
+
+        <div class="form-group row">
+            <div class="col">
+                <label for="width">Width</label>
+                <input type="text" class="form-control" id="width" placeholder="n/a">
+            </div>
+            <div class="col">
+                <label for="height">Height</label>
+                <input type="text" class="form-control" id="height" placeholder="n/a">
+            </div>
+            <div class="col">
+                <label for="duration">Duration</label>
+                <input type="text" class="form-control" id="duration" placeholder="n/a">
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

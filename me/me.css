@@ -54,3 +54,11 @@ ul.list-group, li.list-group-item {
 #resourceTempText span {
     font-size: x-small;
 }
+
+#resourceEditor .nav-link {
+    padding: 0.15rem 0.4rem;
+}
+
+.rhs-component {
+    display: none;
+}

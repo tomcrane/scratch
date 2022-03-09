@@ -529,64 +529,85 @@ function updateResourceEditor(){
     // At this point, the tree is open and selected, the breadcrumb trail is updated.
     // canvas is highlighted in grid and strip.
 
+    
+
+
+
+
     if(!app.selectedResourceRef){
         return;
     }
-    const data = document.getElementById("json");    
-    const state = {
-        resourceRef: app.selectedResourceRef,
-        propertyName: app.selectedPropertyName,
-        path: app.path,
-        vaultResource: shell.vault.get(app.selectedResourceRef)
-    };
-    data.innerHTML = JSON.stringify(state, null, 2);
+    // const data = document.getElementById("json");    
+    // const state = {
+    //     resourceRef: app.selectedResourceRef,
+    //     propertyName: app.selectedPropertyName,
+    //     path: app.path,
+    //     vaultResource: shell.vault.get(app.selectedResourceRef)
+    // };
+    // data.innerHTML = JSON.stringify(state, null, 2);
    
-    const re = document.getElementById("resourceEditorInner");
+    const vaultResource = shell.vault.get(app.selectedResourceRef)
     
     // TODO - will need to go up and down to get the best resource as in the tree
-    const bestResource = state.vaultResource || state.resourceRef;
+    const bestResource = vaultResource || app.selectedResourceRef;
 
-    let html = "<p>Resource Editor for " + bestResource.type + "</p>"; 
-    html += "<p>Properties:</p><ul class='list-group' style='display:block'>"
+    let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
+    if(bestComponent){
+        renderRhsComponent(bestComponent);
+    } else {
+        // special annotation page tests.
+        // tree walk-up tests.
+    }
 
-    for(prop in bestResource){
-        if(prop == "@context") continue;
-        if(prop == "type") continue;
-        if(prop == state.propertyName){
-            html += "<li style='display:block' class='list-group-item list-group-item-primary'>" + prop + "</li>";
-        } else {            
-            html += "<li style='display:block' class='list-group-item'>" + prop + "</li>";
+// function activateTab(mode){
+//     for(tab of document.getElementById("resourceTabs").children){
+//         const link = tab.children[0];
+//         link.classList.remove("active");
+//         if(tab.id == "nav" + mode){
+//             link.classList.add("active");
+//         }
+//     }
+// }
+}
+
+
+function tryGetBestComponent(type, propertyName){
+    let bestComponent = null;
+    for(rhs of document.getElementsByClassName("rhs-component")){
+        if(rhs.getAttribute("data-resource") == type){
+            if(bestComponent == null){
+                bestComponent = rhs;
+            }
+            const props = rhs.getAttribute("data-props").split(",");
+            if(app.selectedPropertyName && props.includes(propertyName)){
+                bestComponent = rhs; 
+                break;
+            }
         }
     }
-    html += "</ul>";
-    re.innerHTML = html;
+    return bestComponent;
+}
 
-    switch(app.selectedResourceRef.type){
-        case "Manifest":
-            loadEditor("manifest");
-            break;        
-        case "Canvas":
-            loadEditor("canvas");
-            break;
+function renderRhsComponent(rhsComponent){
+    document.getElementById("resourceEditorInner").innerHTML = rhsComponent.innerHTML;
+    const tabs = rhsComponent.getAttribute("data-tabs").split(",");
+    const ulTabs = document.getElementById("resourceTabs");
+    ulTabs.innerHTML = "";
+    for(tab of tabs){
+        const li = document.createElement("li");
+        li.className = "nav-item";
+        const a = document.createElement("a");
+        li.append(a);
+        a.className = "nav-link";
+        if(tab.startsWith("-")){
+            a.classList.add("active");
+            a.innerHTML = "<small>" + tab.substring(1) + "</small>";
+        } else {
+            a.innerHTML = "<small>" + tab + "</small>";
+        }
+        ulTabs.append(li);
     }
 }
-
-function loadEditor(name){
-    const re = document.getElementById("resourceEditorInner");
-    return fetch("resourceeditors/" + name + ".html")
-        .then(data => {
-            return data.text();
-        })
-        .then( data => {
-            re.innerHTML += data;
-        })
-        .then(() => {
-            re.innerHTML += "<p>with prop: " + app.selectedPropertyName + "</p>";
-        });
-}
-
-
-
 
 
 function headerClick(e) {
@@ -664,6 +685,3 @@ function getObjectFromArrayViaParent(element, objRef) {
 
 }
 
-function getDisplayMode(){
-
-}
