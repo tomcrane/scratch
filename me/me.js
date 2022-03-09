@@ -554,6 +554,7 @@ function updateResourceEditor(){
     let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
     if(bestComponent){
         renderRhsComponent(bestComponent);
+        document.getElementById("rhsHeader").innerText = bestResource.type + " properties";
     } else {
         // special annotation page tests.
         // tree walk-up tests.
