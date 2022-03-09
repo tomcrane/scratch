@@ -62,3 +62,7 @@ ul.list-group, li.list-group-item {
 .rhs-component {
     display: none;
 }
+
+#resourceTabs .nav-link {
+    cursor: pointer;
+}

@@ -21,13 +21,25 @@ const app = {
     gridRendered: false
 };
 
-for(btn of document.getElementsByClassName("btn-mode")){
+function $(s){
+    if(s.startsWith("#")){
+        return document.getElementById(s.substring(1));
+    } else if(s.startsWith(".")) {
+        return document.getElementsByClassName(s.substring(1));
+    } else {
+        return document.getElementsByTagName(s);
+    }
+}
+
+function $$(s){ return $("#" + s)};
+
+for(btn of $(".btn-mode")){
     btn.addEventListener("change", e => {
         renderApp();    
     });
 }
 
-document.getElementById("loadManifest").addEventListener("click", e => loadManifest(e));
+$("#loadManifest").addEventListener("click", e => loadManifest(e));
 let includeEmpty = false;
 let useModelColours = true; // false if checkbox included
 
@@ -41,7 +53,7 @@ if (qs && qs[1]) {
         manifestUri = qs[1];
     }
 }
-document.getElementById("manifestUri").value = manifestUri;
+$("#manifestUri").value = manifestUri;
 
 loadManifest();
 
@@ -49,28 +61,28 @@ async function loadManifest(e) {
     if (e) {
         e.preventDefault();
     }
-    const manifestUri = document.getElementById("manifestUri").value;
+    const manifestUri = $("#manifestUri").value;
     if (manifestUri) {
         shell.resource = await shell.vault.loadManifest(manifestUri);
         if (shell.resource) {
-            includeEmpty = document.getElementById("includeEmpty").checked;
-            // useModelColours = document.getElementById("useModelColours").checked;
+            includeEmpty = $("#includeEmpty").checked;
+            // useModelColours = $("#useModelColours").checked;
             app.selectedResourceRef = asRef(shell.resource);
             renderApp();
             updateResourceEditor();
-            document.getElementById("resourceLabel").innerText = IIIFVaultHelpers.getValue(shell.resource.label);
+            $("#resourceLabel").innerText = IIIFVaultHelpers.getValue(shell.resource.label);
         }
     }
 }
 
 function showId(id){
-    document.getElementById(id).style.display = "";
+    $$(id).style.display = "";
 }
 function hideId(id){
-    document.getElementById(id).style.display = "none";
+    $$(id).style.display = "none";
 }
 function setColClass(id, className){
-    const el = document.getElementById(id);
+    const el = $$(id);
     for(cls of el.classList){
         if(cls.indexOf("col-") == 0){
             el.classList.remove(cls);
@@ -85,7 +97,7 @@ function renderApp(){
     renderGrid(shell.resource); 
     renderOutline(shell.resource);    
     renderStrip(shell.resource); 
-    const mode = document.getElementById("topForm").elements["btnMode"].value;
+    const mode = $("#topForm").elements["btnMode"].value;
     console.log(mode);
     if(mode != app.displayMode){
         hideId("treeContainer");
@@ -155,7 +167,7 @@ async function drawThumbs(container, manifest){
 
 async function renderGrid(manifest){  
     if(!app.gridRendered){
-        const gridContainer = document.getElementById("gridview");
+        const gridContainer = $("#gridview");
         drawThumbs(gridContainer, manifest);
     }  
     app.gridRendered = true;
@@ -163,7 +175,7 @@ async function renderGrid(manifest){
 
 async function renderStrip(manifest){
     if(!app.stripRendered){
-        const stripContainer = document.getElementById("slidestrip");
+        const stripContainer = $("#slidestrip");
         drawThumbs(stripContainer, manifest);
     }
     app.stripRendered = true;
@@ -171,7 +183,7 @@ async function renderStrip(manifest){
 
 function renderOutline(manifest) {
     if(!app.outlineRendered){
-        const container = document.getElementById("treeContainer");
+        const container = $("#treeContainer");
         container.innerHTML = "";
         renderResource(manifest, container);
         const manifestUL = container.firstElementChild;
@@ -369,14 +381,14 @@ function truncate(s) {
 
 
 function selectCanvas(canvasId, fromOutline){
-    const cp = document.getElementById("cp");
+    const cp = $("#cp");
     cp.setCanvas(canvasId);
     const ref = { id: canvasId, type:"Canvas"};
     app.canvas = ref;
     app.selectedResourceRef = ref;
     app.selectedPropertyValue = null;
     app.selectedPropertyName = null;
-    for(thumbDiv of document.getElementsByClassName("tc")){        
+    for(thumbDiv of $(".tc")){        
         thumbDiv.classList.remove("selected-canvas");
         const thumbImg = thumbDiv.getElementsByTagName('img')[0];
         const id = thumbImg.getAttribute("data-iiif-id");
@@ -388,7 +400,7 @@ function selectCanvas(canvasId, fromOutline){
         // need to update the outline tree to select this canvas, because the selection came from something else
         // TODO: general purpose select tree node from ID and open parents and scrollIntoView
         // open the items list on Manifest, if not already
-        const tree = document.getElementById("treeContainer");
+        const tree = $("#treeContainer");
         for(const li of tree.children[0].children){
             if(li.getAttribute("data-iiif-property") == "items"){
                 // this is gross
@@ -402,7 +414,7 @@ function selectCanvas(canvasId, fromOutline){
         app.canvas = ref;
         app.selectedResourceRef = ref;
         let canvasHeader = null;
-        for(cvUl of document.getElementsByTagName("ul")){
+        for(cvUl of $("ul")){
             if(cvUl.getAttribute("data-iiif-id") == canvasId){
                 canvasHeader = cvUl.children[0];
                 break;
@@ -461,7 +473,7 @@ function displayResourceInternal(resource, element) {
 }
 
 function makeBreadcrumbs(element) {
-    const breadcrumbs = document.getElementById("breadcrumbs");
+    const breadcrumbs = $("#breadcrumbs");
     breadcrumbs.innerHTML = "";
     app.path = [];
     crumbSource = element;
@@ -485,7 +497,7 @@ function makeBreadcrumbs(element) {
 }
 
 function addBreadcrumb(treeElement, iiifType){
-    const breadcrumbs = document.getElementById("breadcrumbs");
+    const breadcrumbs = $("#breadcrumbs");
     const text = getTextNodes(treeElement);
     if(!text) return;
     const li = document.createElement("li");
@@ -537,7 +549,7 @@ function updateResourceEditor(){
     if(!app.selectedResourceRef){
         return;
     }
-    // const data = document.getElementById("json");    
+    // const data = $("#json");    
     // const state = {
     //     resourceRef: app.selectedResourceRef,
     //     propertyName: app.selectedPropertyName,
@@ -554,14 +566,14 @@ function updateResourceEditor(){
     let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
     if(bestComponent){
         renderRhsComponent(bestComponent);
-        document.getElementById("rhsHeader").innerText = bestResource.type + " properties";
+        $("#rhsHeader").innerText = bestResource.type + " properties";
     } else {
         // special annotation page tests.
         // tree walk-up tests.
     }
 
 // function activateTab(mode){
-//     for(tab of document.getElementById("resourceTabs").children){
+//     for(tab of $("#resourceTabs").children){
 //         const link = tab.children[0];
 //         link.classList.remove("active");
 //         if(tab.id == "nav" + mode){
@@ -574,7 +586,7 @@ function updateResourceEditor(){
 
 function tryGetBestComponent(type, propertyName){
     let bestComponent = null;
-    for(rhs of document.getElementsByClassName("rhs-component")){
+    for(rhs of $(".rhs-component")){
         if(rhs.getAttribute("data-resource") == type){
             if(bestComponent == null){
                 bestComponent = rhs;
@@ -589,10 +601,28 @@ function tryGetBestComponent(type, propertyName){
     return bestComponent;
 }
 
+function getOtherTab(type, tab){
+    let otherTab = null;
+    for(rhs of $(".rhs-component")){
+        if(rhs.getAttribute("data-resource") == type){
+            if(otherTab == null){
+                otherTab = rhs;
+            }
+            const tabs = rhs.getAttribute("data-tabs").split(",");
+            if(tabs.includes("-" + tab)){
+                otherTab = rhs; 
+                break;
+            }
+        }
+    }
+    return otherTab;  
+}
+
 function renderRhsComponent(rhsComponent){
-    document.getElementById("resourceEditorInner").innerHTML = rhsComponent.innerHTML;
+    const type = rhsComponent.getAttribute("data-resource");
+    $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
     const tabs = rhsComponent.getAttribute("data-tabs").split(",");
-    const ulTabs = document.getElementById("resourceTabs");
+    const ulTabs = $("#resourceTabs");
     ulTabs.innerHTML = "";
     for(tab of tabs){
         const li = document.createElement("li");
@@ -605,6 +635,13 @@ function renderRhsComponent(rhsComponent){
             a.innerHTML = "<small>" + tab.substring(1) + "</small>";
         } else {
             a.innerHTML = "<small>" + tab + "</small>";
+            const ttab = tab;
+            a.addEventListener("click", () => {
+                const clicked = getOtherTab(type, ttab);
+                if(clicked){
+                    renderRhsComponent(clicked);
+                }
+            });
         }
         ulTabs.append(li);
     }
