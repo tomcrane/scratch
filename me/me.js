@@ -336,8 +336,17 @@ function closeAll(ul) {
     }
 }
 
+function* treeId() {
+var index = 0;
+while (true)
+    yield "tn_" + index++;
+}
+  
+const treeIdGenerator = treeId();
+
 function makeListItem(propertyName) {
     const li = document.createElement("li");
+    li.id = treeIdGenerator.next().value;
     li.className = "list-group-item";
     if (propertyName) {
         li.setAttribute("data-iiif-property", propertyName);
@@ -350,6 +359,7 @@ function makeListItem(propertyName) {
 
 function makeHeaderListItem(iiifResource) {
     const li = document.createElement("li");
+    li.id = treeIdGenerator.next().value;
     li.className = "list-group-item active resource-header";
     li.setAttribute("data-iiif-id", iiifResource.id);
     li.setAttribute("data-iiif-type", iiifResource.type || iiifResource["@type"]);
@@ -509,18 +519,29 @@ function addBreadcrumb(treeElement, iiifType){
     if(iiifType){
         li.classList.add("resource-colour-" + iiifType);
     }
-    const prop = treeElement.getAttribute("data-iiif-property");
-    const type = treeElement.getAttribute("data-iiif-type");
-    const id = treeElement.getAttribute("data-iiif-id");
-    if(id && type){
-        app.path.push({ id: id, type: type });        
-        li.setAttribute("data-iiif-id", id);    
-        li.setAttribute("data-iiif-type", type);
-    } else if(prop){
-        app.path.push({ property: prop});
-        li.setAttribute("data-iiif-property", prop);
-    }
+    li.setAttribute("data-tree-id", treeElement.id);
+    // const prop = treeElement.getAttribute("data-iiif-property");
+    // const type = treeElement.getAttribute("data-iiif-type");
+    // const id = treeElement.getAttribute("data-iiif-id");
+    // if(id && type){
+    //     app.path.push({ id: id, type: type });        
+    //     li.setAttribute("data-iiif-id", id);    
+    //     li.setAttribute("data-iiif-type", type);
+    // } else if(prop){
+    //     app.path.push({ property: prop});
+    //     li.setAttribute("data-iiif-property", prop);
+    // }
+    li.addEventListener("click", handleBreadCrumbClick);
     breadcrumbs.prepend(li);
+}
+
+function handleBreadCrumbClick(){
+    treeElement = $$(this.getAttribute("data-tree-id"));
+    if(this.getAttribute("data-iiif-property")){
+        activateProperty(treeElement);
+    } else {
+        activateResource(treeElement);
+    }
 }
 
 function getTextNodes(element){
@@ -650,23 +671,17 @@ function renderRhsComponent(rhsComponent){
 
 function headerClick(e) {
     e.stopPropagation();
-    let obj = getTypedResourceFromElement(this);
-    console.log("Displaying resource of type " + obj.type);
-    if (Object.keys(obj).length == 2) {
-        console.log("WARNING: This object only has two keys!");
-        console.log(obj);
-        obj = getObjectFromArrayViaParent(this, obj);
-    }
-    displayResource(obj, this);
-    if(obj.type == "Canvas"){
-        selectCanvas(obj.id, true);
-    }
+    activateResource(this);
 }
 
 function propertyClick(e) {
     e.stopPropagation();
-    let objectWithProperty = getTypedResourceFromElement(this.parentElement);
-    const propertyName = this.getAttribute("data-iiif-property");
+    activateProperty(this);
+}
+
+function activateProperty(propertyTreeElement){
+    let objectWithProperty = getTypedResourceFromElement(propertyTreeElement.parentElement);
+    const propertyName = propertyTreeElement.getAttribute("data-iiif-property");
     console.log("Displaying " + objectWithProperty.type + "::" + propertyName);
     let propertyValue = objectWithProperty[propertyName];
     if (typeof propertyValue === "undefined") {
@@ -676,10 +691,24 @@ function propertyClick(e) {
         // vault.get(ref); 
         console.log("WARNING: Could not find property '" + propertyName + "' of object:");
         console.log(objectWithProperty);
-        objectWithProperty = getObjectFromArrayViaParent(this.parentElement, objectWithProperty);
+        objectWithProperty = getObjectFromArrayViaParent(propertyTreeElement.parentElement, objectWithProperty);
         propertyValue = objectWithProperty[propertyName];
     }
-    displayProperty(objectWithProperty, propertyName, propertyValue, this);
+    displayProperty(objectWithProperty, propertyName, propertyValue, propertyTreeElement);
+}
+
+function activateResource(resourceTreeElement){
+    let obj = getTypedResourceFromElement(resourceTreeElement);
+    console.log("Displaying resource of type " + obj.type);
+    if (Object.keys(obj).length == 2) {
+        console.log("WARNING: this object only has two keys!");
+        console.log(obj);
+        obj = getObjectFromArrayViaParent(resourceTreeElement, obj);
+    }
+    displayResource(obj, resourceTreeElement);
+    if(obj.type == "Canvas"){
+        selectCanvas(obj.id, true);
+    }
 }
 
 function getTypedResourceFromElement(element) {
