@@ -18,7 +18,8 @@ const app = {
     activeShortcuts: [],
     outlineRendered: false,    // these three only work for a static app - no editing!
     stripRendered: false,
-    gridRendered: false
+    gridRendered: false,
+    manifestTreeElement: null
 };
 
 function $(s){
@@ -69,7 +70,8 @@ async function loadManifest(e) {
             // useModelColours = $("#useModelColours").checked;
             app.selectedResourceRef = asRef(shell.resource);
             renderApp();
-            updateResourceEditor();
+            activateResource(app.manifestTreeElement);
+            //updateResourceEditor();
             $("#resourceLabel").innerText = IIIFVaultHelpers.getValue(shell.resource.label);
         }
     }
@@ -189,6 +191,9 @@ function renderOutline(manifest) {
         const manifestUL = container.firstElementChild;
         manifestUL.style.display = "block";
         for (li of manifestUL.children) {
+            if(!app.manifestTreeElement){
+                app.manifestTreeElement = li;
+            }
             li.style.display = "block";
         }
         const btn = manifestUL.firstElementChild.firstElementChild
@@ -281,13 +286,13 @@ function prependChevron(li) {
 }
 
 
-function toggleList(e, element) {
-    let toggle = this || element;
+function toggleList(e, element, force) {
+    let toggle = element || this;
     let ul = toggle;
     while (ul && ul.nodeName != "UL") {
         ul = ul.nextElementSibling;
     }
-    if (toggle.innerText == "-") {
+    if (toggle.innerText == "-" && "open" != force) {
         if (ul) {
             closeAll(ul);
         } else {
@@ -411,16 +416,6 @@ function selectCanvas(canvasId, fromOutline){
         // TODO: general purpose select tree node from ID and open parents and scrollIntoView
         // open the items list on Manifest, if not already
         const tree = $("#treeContainer");
-        for(const li of tree.children[0].children){
-            if(li.getAttribute("data-iiif-property") == "items"){
-                // this is gross
-                const button = li.getElementsByTagName("button")[0];
-                if(button.innerText == ">"){
-                    button.click();
-                }
-                break;
-            }
-        }
         app.canvas = ref;
         app.selectedResourceRef = ref;
         let canvasHeader = null;
@@ -431,14 +426,6 @@ function selectCanvas(canvasId, fromOutline){
             }
         }
         if(canvasHeader){
-            // let treeEl = canvasHeader;
-            // while(true){
-            //     treeEl.style.display = "block";
-            //     treeEl = treeEl.parentElement;
-            //     if(treeEl.tagName != "UL" && treeEl.tagName == "LI"){
-            //         break;
-            //     } 
-            // }
             displayResourceInternal(shell.vault.get(ref), canvasHeader)
         }
     }
@@ -483,6 +470,18 @@ function displayResourceInternal(resource, element) {
 }
 
 function makeBreadcrumbs(element) {
+    // also ensure path up tree is visible
+
+    // for(const li of tree.children[0].children){
+    //     if(li.getAttribute("data-iiif-property") == "items"){
+    //         // this is gross
+    //         const button = li.getElementsByTagName("button")[0];
+    //         if(button.innerText == ">"){
+    //             button.click();
+    //         }
+    //         break;
+    //     }
+    // }
     const breadcrumbs = $("#breadcrumbs");
     breadcrumbs.innerHTML = "";
     app.path = [];
@@ -520,19 +519,12 @@ function addBreadcrumb(treeElement, iiifType){
         li.classList.add("resource-colour-" + iiifType);
     }
     li.setAttribute("data-tree-id", treeElement.id);
-    // const prop = treeElement.getAttribute("data-iiif-property");
-    // const type = treeElement.getAttribute("data-iiif-type");
-    // const id = treeElement.getAttribute("data-iiif-id");
-    // if(id && type){
-    //     app.path.push({ id: id, type: type });        
-    //     li.setAttribute("data-iiif-id", id);    
-    //     li.setAttribute("data-iiif-type", type);
-    // } else if(prop){
-    //     app.path.push({ property: prop});
-    //     li.setAttribute("data-iiif-property", prop);
-    // }
     li.addEventListener("click", handleBreadCrumbClick);
     breadcrumbs.prepend(li);
+    const buttons = treeElement.getElementsByTagName("button");
+    if(buttons && buttons[0]){
+        toggleList(null, buttons[0], "open");
+    }
 }
 
 function handleBreadCrumbClick(){
@@ -752,3 +744,69 @@ function getObjectFromArrayViaParent(element, objRef) {
 
 }
 
+// ***************** MODALS
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+    createNewCanvasModal();
+  });
+
+  function createNewCanvasModal(){
+    const newCanvasModalEl = $("#newCanvasModal");
+    const newCanvasModal = new bootstrap.Modal(newCanvasModalEl);
+    newCanvasModalEl.addEventListener('shown.bs.modal', function (event) {
+        $("#mediaUrl").addEventListener("change", analyseUrl);
+        $("#refreshUrl").addEventListener("click", analyseUrl);        
+        $("#imgPreview").addEventListener("load", function(){
+            if($("#staticImg").style.display == "block"){
+                setDimensions(this.naturalWidth, this.naturalHeight);
+            }
+        });
+        newCanvasModal.handleUpdate();
+    })
+    $("#btnNewCanvas").addEventListener("click", () => newCanvasModal.show());
+  }
+
+
+function analyseUrl(){
+    // This is, quite obviously, not an implementation of
+    // https://github.com/digirati-co-uk/iiif-manifest-editor/issues/45
+    let url = $("#mediaUrl").value.trim();
+    $("#mediaInfo").style.display = "none";
+    $("#imgPreview").style.display = "none";
+    $("#staticImg").style.display = "none";
+    $("#imgService").style.display = "none";
+    $("#manifestPreview").style.display = "none";
+    if(url){
+        $("#mediaInfo").style.display = "block";
+        const ringer = "https://iiif.wellcomecollection.org/image/";
+        if(url.startsWith(ringer)){
+            const idPart = url.split("/")[4];
+            url = ringer + idPart;
+            fetch(url).then(response => response.json()).then(info => {                        
+                $("#imgPreview").style.display = "block";
+                $("#imgService").style.display = "block";
+                setDimensions(info.width, info.height);
+                $("#imgPreview").src = url + "/full/!200,200/0/default.jpg";
+            });
+        } else if (url.indexOf("wellcomecollection.org/presentation") != -1){
+            $("#manifestPreview").style.display = "block";
+        } else {
+            // assume this is a static image                                          
+            $("#imgPreview").style.display = "block";                              
+            $("#staticImg").style.display = "block";
+            $("#imgPreview").src = url;
+        }
+    }
+}
+
+function setDimensions(width, height){
+    // This is no longer in the spec for 3.0, but maybe we want to do it
+    // can be a config flag
+    while(width < 1200 || height < 1200){
+        width = width * 2;
+        height = height * 2;
+    }
+    $("#newCanvasWidth").value = width;
+    $("#newCanvasHeight").value = height;
+    $("#newCanvasDuration").value = "";
+}

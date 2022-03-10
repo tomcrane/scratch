@@ -19,38 +19,46 @@
             <div class="col p-4">
                 <form id="topForm">
                     <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Manifest URL" id="manifestUri"
-                                value="">
+                        <div class="col-4">
+                            <input type="text" class="form-control form-control-sm" placeholder="Manifest URL"
+                                id="manifestUri" value="">
                         </div>
-                        <div class="col">
+                        <div class="col-1">
                             <button id="loadManifest" class="btn btn-primary">Load</button>
                         </div>
-                        <div class="col">
+                        <div class="col-2">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="includeEmpty">
-                                <label class="form-check-label" for="includeEmpty">Include empty elements</label>
+                                <label class="form-check-label" for="includeEmpty"><small>Include empty
+                                        elements</small></label>
                             </div>
+                        </div>
+                        <div class="col-5 p-2 ps-3">
+                            <h6 id="resourceLabel"></h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-auto p-2 ps-3">
                             <div class="btn-group" role="group" aria-label="Modes">
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeManifest" value="manifest" autocomplete="off" checked>
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeManifest"
+                                    value="manifest" autocomplete="off" checked>
                                 <label class="btn btn-outline-primary" for="modeManifest">Manifest grid</label>
-                                
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeStrip" value="strip" autocomplete="off">
+
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeStrip"
+                                    value="strip" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeStrip">Canvas strip</label>
 
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeOutline" value="outline" autocomplete="off">
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeOutline"
+                                    value="outline" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeOutline">Outline view</label>
-                              
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeNoNav" value="noNav" autocomplete="off">
+
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeNoNav"
+                                    value="noNav" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeNoNav">No navigation</label>
                             </div>
                         </div>
-                        <div class="col-lg-auto p-2 ps-3">
-                            <h4 id="resourceLabel"></h4>
+                        <div class="col-md-auto p-2 ps-3">
+                            <button id="btnNewCanvas" type="button" class="btn btn-primary">Add new Canvas...</button>
                         </div>
                     </div>
                 </form>
@@ -61,7 +69,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumbs">
                 </ol>
-              </nav>
+            </nav>
         </div>
 
         <div class="row">
@@ -77,23 +85,23 @@
                 </div>
             </div>
 
-            <div id="resourceEditor" class="col-md-auto resource-editor p-1">      
-                <h4 id="rhsHeader">Properties</h4>          
+            <div id="resourceEditor" class="col-md-auto resource-editor p-1">
+                <h4 id="rhsHeader">Properties</h4>
                 <ul id="resourceTabs" class="nav nav-tabs">
                     <li class="nav-item" id="navdescriptive">
-                      <a class="nav-link active" href="#"><small>Descriptive</small></a>
+                        <a class="nav-link active" href="#"><small>Descriptive</small></a>
                     </li>
                     <li class="nav-item" id="navmetadata">
-                      <a class="nav-link" href="#"><small>Metadata</small></a>
+                        <a class="nav-link" href="#"><small>Metadata</small></a>
                     </li>
                     <li class="nav-item" id="navlinking">
-                      <a class="nav-link" href="#"><small>Linking</small></a>
+                        <a class="nav-link" href="#"><small>Linking</small></a>
                     </li>
                     <li class="nav-item" id="navtechnical">
-                      <a class="nav-link" href="#"><small>Technical</small></a>
+                        <a class="nav-link" href="#"><small>Technical</small></a>
                     </li>
                     <li class="nav-item" id="navstructural">
-                      <a class="nav-link" href="#"><small>Structural</small></a>
+                        <a class="nav-link" href="#"><small>Structural</small></a>
                     </li>
                 </ul>
                 <div id="resourceEditorInner">
@@ -124,67 +132,51 @@
     <!-- resource editor parts -->
 
     <!-- manifest -->
-    <div class="rhs-component" 
-        data-resource="Manifest"
-        data-props="label,summary,requiredStatement,rights,navDate"
+    <div class="rhs-component" data-resource="Manifest" data-props="label,summary,requiredStatement,rights,navDate"
         data-tabs="-Descriptive,Metadata,Linking,Technical,Structural">
         <img src="img/descriptive.png" />
     </div>
 
-    
-    <div class="rhs-component" 
-        data-resource="Manifest"
-        data-props="metadata"
+
+    <div class="rhs-component" data-resource="Manifest" data-props="metadata"
         data-tabs="Descriptive,-Metadata,Linking,Technical,Structural">
         <img src="img/metadata.png" />
     </div>
 
-    
-    <div class="rhs-component" 
-        data-resource="Manifest"
-        data-props="homepage,rendering,seeAlso,services,service"
+
+    <div class="rhs-component" data-resource="Manifest" data-props="homepage,rendering,seeAlso,services,service"
         data-tabs="Descriptive,Metadata,-Linking,Technical,Structural">
         <img src="img/linking.png" />
     </div>
 
-    
-    <div class="rhs-component"
-        data-resource="Manifest"
-        data-props="viewingDirection,behavior"
+
+    <div class="rhs-component" data-resource="Manifest" data-props="viewingDirection,behavior"
         data-tabs="Descriptive,Metadata,Linking,-Technical,Structural">
         <img src="img/technical.png" />
     </div>
-    
 
-    <div class="rhs-component" 
-        data-resource="Manifest"
-        data-props="annotations,partOf,start"
+
+    <div class="rhs-component" data-resource="Manifest" data-props="annotations,partOf,start"
         data-tabs="Descriptive,Metadata,Linking,Technical,-Structural">
         <img src="img/structural.png" />
     </div>
 
 
-    <!-- canvas -->    
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical">   
+    <!-- canvas -->
+    <div class="rhs-component" data-resource="Canvas" data-props="label,summary,requiredStatement,rights,navDate"
+        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical">
         <img src="img/descriptive.png" />
     </div>
 
-    
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical">   
+
+    <div class="rhs-component" data-resource="Canvas" data-props="metadata"
+        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical">
         <img src="img/metadata.png" />
     </div>
 
-        
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="items,thumbnail"
-        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical">   
+
+    <div class="rhs-component" data-resource="Canvas" data-props="items,thumbnail"
+        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical">
         <h4>Thumbnail</h4>
         <small>A thumbnail to represent this canvas.</small>
         <p>NB the media tab can also carry the thumbnail for the Canvas - it might well be the same service even.</p>
@@ -214,11 +206,9 @@
         </p>
     </div>
 
-            
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="annotations"
-        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical">   
+
+    <div class="rhs-component" data-resource="Canvas" data-props="annotations"
+        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical">
         <img src="img/annopage.png" />
         <p>
             Cycle through the anno pages; each anno is independently editable.
@@ -227,18 +217,14 @@
 
 
 
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="homepage,rendering,seeAlso,service"
-        data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical">  
+    <div class="rhs-component" data-resource="Canvas" data-props="homepage,rendering,seeAlso,service"
+        data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical">
         <img src="img/linking.png" />
     </div>
 
 
-    <div class="rhs-component" 
-        data-resource="Canvas"
-        data-props="viewingDirection,behavior,width,height,duration"
-        data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical">  
+    <div class="rhs-component" data-resource="Canvas" data-props="viewingDirection,behavior,width,height,duration"
+        data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical">
         <img src="img/technical.png" />
 
         <div class="form-group row">
@@ -257,8 +243,68 @@
         </div>
     </div>
 
-    
 
+
+    <!-- Modals -->
+
+    <div class="modal fade" id="newCanvasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Canvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Add Canvas from Content</h5>
+                    <form>
+                        <div class="input-group">
+                            <input type="text" id="mediaUrl" class="form-control"
+                                placeholder="Paste URL of Media to create Canvas" aria-label="URL of Media"
+                                aria-describedby="mediaHelp">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                            </div>
+                        </div>
+                        <small id="mediaHelp" class="form-text text-muted">
+                            Any image, IIIF Image Service, audio, video or IIIF Manifests and Canvases
+                        </small>
+
+                        <div id="mediaInfo">
+                            <img id="imgPreview" />
+                            <div id="staticImg"><br /> This is a Static Image.</div>
+                            <div id="imgService"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                                    id="iiifLogo" /> This is a IIIF Image Service</div>
+                            <div id="manifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                                    id="iiifLogo" /> This is a IIIF Manifest.<br />
+                                TBC - this would show a carousel to select a canvas, or just the single canvas if
+                                there's only one.</div>
+                        </div>
+
+                        <h5 class="mt-3 mb-1">Or set dimensions</h5>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="newCanvasWidth">Width</label>
+                                <input type="text" class="form-control" id="newCanvasWidth" placeholder="n/a">
+                            </div>
+                            <div class="col">
+                                <label for="newCanvasHeight">Height</label>
+                                <input type="text" class="form-control" id="newCanvasHeight" placeholder="n/a">
+                            </div>
+                            <div class="col">
+                                <label for="newCanvasDuration">Duration</label>
+                                <input type="text" class="form-control" id="newCanvasDuration" placeholder="n/a">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add Canvas</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
