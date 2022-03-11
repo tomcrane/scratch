@@ -71,7 +71,6 @@ async function loadManifest(e) {
             app.selectedResourceRef = asRef(shell.resource);
             renderApp();
             activateResource(app.manifestTreeElement);
-            //updateResourceEditor();
             $("#resourceLabel").innerText = IIIFVaultHelpers.getValue(shell.resource.label);
         }
     }
@@ -552,15 +551,17 @@ function getParentPropertyAndType(){
         type: null,
         id: null
     };
-    for(i = breadcrumbs.children.length - 1; i >= 0; i--){
-        const prop = breadcrumbs.children[i].getAttribute("data-iiif-property");
+    for(i = breadcrumbs.children.length - 2; i >= 0; i--){
+        const treeId = breadcrumbs.children[i].getAttribute("data-tree-id");
+        const treeEl = $$(treeId);
+        const prop = treeEl.getAttribute("data-iiif-property");
         if(prop){
             propertyAndType.propertyName = prop;
-        }        
-        const type = breadcrumbs.children[i].getAttribute("data-iiif-type");
-        const id = breadcrumbs.children[i].getAttribute("data-iiif-id");
+        }      
+        const type = treeEl.getAttribute("data-iiif-type");
+        const id = treeEl.getAttribute("data-iiif-id");
         if(type){
-            propertyAndType.propertyName = prop;
+            propertyAndType.type = type;
             propertyAndType.id = id;
         }
         if(propertyAndType.type && propertyAndType.propertyName){
@@ -591,7 +592,7 @@ function updateResourceEditor(){
     let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
     if(bestComponent){
         renderRhsComponent(bestComponent);
-        $("#rhsHeader").innerText = bestResource.type + " properties";
+        $("#rhsHeader").innerText = bestComponent.getAttribute("resource-editor-title") || bestResource.type + " properties";
     } else {
         // special annotation page tests.
         // tree walk-up tests.
@@ -641,11 +642,13 @@ function getOtherTab(type, tab){
 }
 
 function renderRhsComponent(rhsComponent){
-
-// look for data-component-ref
-
     const type = rhsComponent.getAttribute("data-resource");
-    $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
+    const componentRef = rhsComponent.getAttribute("data-component-ref");
+    if(componentRef){
+        $("#resourceEditorInner").innerHTML = $$("data-component-" + componentRef).innerHTML;
+    } else {
+        $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
+    }
     setResourceEditorEventHandlers();
     const tabs = rhsComponent.getAttribute("data-tabs").split(",");
     const ulTabs = $("#resourceTabs");

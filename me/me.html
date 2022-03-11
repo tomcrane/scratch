@@ -133,19 +133,22 @@
 
     <!-- manifest -->
     <div class="rhs-component" data-resource="Manifest" data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations">
+        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations"
+        resource-editor-title="Manifest properties">
         <img src="img/descriptive.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural,Annotations">
+        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural,Annotations"
+        resource-editor-title="Manifest properties">
         <img src="img/metadata.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="homepage,rendering,seeAlso,services,service"
-        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural,Annotations">
+        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural,Annotations"
+        resource-editor-title="Manifest properties">
         <form>
             <h4>Homepage</h4>
             <div class="card external-resource-mini">
@@ -166,13 +169,15 @@
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="viewingDirection,behavior"
-        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural,Annotations">
+        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural,Annotations"
+        resource-editor-title="Manifest properties">
         <img src="img/technical.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="partOf,start"
-        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural,Annotations">
+        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural,Annotations"
+        resource-editor-title="Manifest properties">
         
         <form>
         <h4>Part Of</h4>
@@ -203,25 +208,29 @@
     </div>
 
     <div class="rhs-component" data-resource="Manifest" data-props="annotations" data-component-ref="annotationpage"
-        data-tabs="Descriptive,Metadata,Linking,Technical,Structural,-Annotations">        
+        data-tabs="Descriptive,Metadata,Linking,Technical,Structural,-Annotations"
+        resource-editor-title="Manifest properties: Annotations">        
         <p>Replaced by anno pager</p>
     </div>
 
     <!-- canvas -->
     <div class="rhs-component" data-resource="Canvas" data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical">
+        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical"
+        resource-editor-title="Canvas properties">
         <img src="img/descriptive.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Canvas" data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical">
+        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical"
+        resource-editor-title="Canvas properties">
         <img src="img/metadata.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Canvas" data-props="items,thumbnail"
-        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical">
+        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical"
+        resource-editor-title="Canvas Media Editor">
         <h4>Thumbnail</h4>
         <small>A thumbnail to represent this canvas.</small>
         <p>NB the media tab can also carry the thumbnail for the Canvas - it might well be the same service even.</p>
@@ -253,19 +262,22 @@
 
 
     <div class="rhs-component" data-resource="Canvas" data-props="annotations" data-component-ref="annotationpage"
-        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical">
+        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical"
+        resource-editor-title="Canvas Annotations">
     </div>
 
 
 
     <div class="rhs-component" data-resource="Canvas" data-props="homepage,rendering,seeAlso,service"
-        data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical">
+        data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical"
+        resource-editor-title="Canvas properties">
         <img src="img/linking.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Canvas" data-props="viewingDirection,behavior,width,height,duration"
-        data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical">
+        data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical"
+        resource-editor-title="Canvas properties">
         <img src="img/technical.png" />
 
         <div class="form-group row">
@@ -286,7 +298,7 @@
 
     <!-- Components -->
     <!-- if I am an annopage what am I an annopage on?-->
-    <div class="rhs-component" data-component="annotationpage">
+    <div class="rhs-component" id="data-component-annotationpage">
         <img src="img/annopage.png" />
         <p>
             Cycle through the anno pages; each anno is independently editable.
