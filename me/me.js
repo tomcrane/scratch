@@ -470,6 +470,11 @@ function displayResourceInternal(resource, element) {
 }
 
 
+
+
+
+
+
 /* Breadcrumbs and Path */
 
 function makeBreadcrumbs(element) {
@@ -540,27 +545,6 @@ function getTextNodes(element){
     return str;
 }
 
-
-function updateResourceEditor(){
-    // At this point, the tree is open and selected, the breadcrumb trail is updated.
-    // canvas is highlighted in grid and strip.
-    if(!app.selectedResourceRef){
-        return;
-    }
-    const vaultResource = shell.vault.get(app.selectedResourceRef)
-    // TODO - will need to go up and down to get the best resource as in the tree
-    const bestResource = vaultResource || app.selectedResourceRef;
-
-    let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
-    if(bestComponent){
-        renderRhsComponent(bestComponent);
-        $("#rhsHeader").innerText = bestResource.type + " properties";
-    } else {
-        // special annotation page tests.
-        // tree walk-up tests.
-    }
-}
-
 function getParentPropertyAndType(){
     const breadcrumbs = $("#breadcrumbs");
     const propertyAndType = {
@@ -585,6 +569,35 @@ function getParentPropertyAndType(){
     }
     return propertyAndType;
 }
+
+
+
+
+
+
+
+
+
+function updateResourceEditor(){
+    // At this point, the tree is open and selected, the breadcrumb trail is updated.
+    // canvas is highlighted in grid and strip.
+    if(!app.selectedResourceRef){
+        return;
+    }
+    const vaultResource = shell.vault.get(app.selectedResourceRef)
+    // TODO - will need to go up and down to get the best resource as in the tree
+    const bestResource = vaultResource || app.selectedResourceRef;
+
+    let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
+    if(bestComponent){
+        renderRhsComponent(bestComponent);
+        $("#rhsHeader").innerText = bestResource.type + " properties";
+    } else {
+        // special annotation page tests.
+        // tree walk-up tests.
+    }
+}
+
 
 function tryGetBestComponent(type, propertyName){
     if(type == "AnnotationPage" || type == "Agent"){
