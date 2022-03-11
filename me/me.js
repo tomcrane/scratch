@@ -100,7 +100,7 @@ function renderApp(){
     renderOutline(shell.resource);    
     renderStrip(shell.resource); 
     const mode = $("#topForm").elements["btnMode"].value;
-    console.log(mode);
+    //console.log(mode);
     if(mode != app.displayMode){
         hideId("treeContainer");
         hideId("slidestrip");
@@ -254,7 +254,7 @@ function renderResource(iiifResource, parent) {
                         ula.appendChild(lia);
                         renderResource(member, lia);
                     } else {
-                        console.log("b: " + value);
+                        //console.log("b: " + value);
                     }
                 }
             }
@@ -272,7 +272,7 @@ function renderResource(iiifResource, parent) {
                 renderResource(value, li);
             }
         } else {
-            console.log("a: " + value);
+            //console.log("a: " + value);
         }
     }
 }
@@ -469,19 +469,10 @@ function displayResourceInternal(resource, element) {
     updateResourceEditor();
 }
 
-function makeBreadcrumbs(element) {
-    // also ensure path up tree is visible
 
-    // for(const li of tree.children[0].children){
-    //     if(li.getAttribute("data-iiif-property") == "items"){
-    //         // this is gross
-    //         const button = li.getElementsByTagName("button")[0];
-    //         if(button.innerText == ">"){
-    //             button.click();
-    //         }
-    //         break;
-    //     }
-    // }
+/* Breadcrumbs and Path */
+
+function makeBreadcrumbs(element) {
     const breadcrumbs = $("#breadcrumbs");
     breadcrumbs.innerHTML = "";
     app.path = [];
@@ -553,26 +544,10 @@ function getTextNodes(element){
 function updateResourceEditor(){
     // At this point, the tree is open and selected, the breadcrumb trail is updated.
     // canvas is highlighted in grid and strip.
-
-    
-
-
-
-
     if(!app.selectedResourceRef){
         return;
     }
-    // const data = $("#json");    
-    // const state = {
-    //     resourceRef: app.selectedResourceRef,
-    //     propertyName: app.selectedPropertyName,
-    //     path: app.path,
-    //     vaultResource: shell.vault.get(app.selectedResourceRef)
-    // };
-    // data.innerHTML = JSON.stringify(state, null, 2);
-   
     const vaultResource = shell.vault.get(app.selectedResourceRef)
-    
     // TODO - will need to go up and down to get the best resource as in the tree
     const bestResource = vaultResource || app.selectedResourceRef;
 
@@ -584,20 +559,41 @@ function updateResourceEditor(){
         // special annotation page tests.
         // tree walk-up tests.
     }
-
-// function activateTab(mode){
-//     for(tab of $("#resourceTabs").children){
-//         const link = tab.children[0];
-//         link.classList.remove("active");
-//         if(tab.id == "nav" + mode){
-//             link.classList.add("active");
-//         }
-//     }
-// }
 }
 
+function getParentPropertyAndType(){
+    const breadcrumbs = $("#breadcrumbs");
+    const propertyAndType = {
+        propertyName: null,
+        type: null,
+        id: null
+    };
+    for(i = breadcrumbs.children.length - 1; i >= 0; i--){
+        const prop = breadcrumbs.children[i].getAttribute("data-iiif-property");
+        if(prop){
+            propertyAndType.propertyName = prop;
+        }        
+        const type = breadcrumbs.children[i].getAttribute("data-iiif-type");
+        const id = breadcrumbs.children[i].getAttribute("data-iiif-id");
+        if(type){
+            propertyAndType.propertyName = prop;
+            propertyAndType.id = id;
+        }
+        if(propertyAndType.type && propertyAndType.propertyName){
+            return propertyAndType;
+        }
+    }
+    return propertyAndType;
+}
 
 function tryGetBestComponent(type, propertyName){
+    if(type == "AnnotationPage" || type == "Agent"){
+        // display within their parent type editor
+        // AnnoPage depends on whether it's the .items property or the .annotation property.
+        const parentPropertyAndType = getParentPropertyAndType();
+        type = parentPropertyAndType.type;
+        propertyName = parentPropertyAndType.propertyName;
+    }
     let bestComponent = null;
     for(rhs of $(".rhs-component")){
         if(rhs.getAttribute("data-resource") == type){
@@ -632,8 +628,12 @@ function getOtherTab(type, tab){
 }
 
 function renderRhsComponent(rhsComponent){
+
+// look for data-component-ref
+
     const type = rhsComponent.getAttribute("data-resource");
     $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
+    setResourceEditorEventHandlers();
     const tabs = rhsComponent.getAttribute("data-tabs").split(",");
     const ulTabs = $("#resourceTabs");
     ulTabs.innerHTML = "";
@@ -660,6 +660,15 @@ function renderRhsComponent(rhsComponent){
     }
 }
 
+function setResourceEditorEventHandlers(){
+    for(el of $(".external-resource-mini")){
+        el.addEventListener("click", window.showResourceEditor);
+    }
+    for(el of $(".add-another-resource")){
+        el.addEventListener("click", window.showResourceEditor);
+    }
+}
+
 
 function headerClick(e) {
     e.stopPropagation();
@@ -674,7 +683,7 @@ function propertyClick(e) {
 function activateProperty(propertyTreeElement){
     let objectWithProperty = getTypedResourceFromElement(propertyTreeElement.parentElement);
     const propertyName = propertyTreeElement.getAttribute("data-iiif-property");
-    console.log("Displaying " + objectWithProperty.type + "::" + propertyName);
+    //console.log("Displaying " + objectWithProperty.type + "::" + propertyName);
     let propertyValue = objectWithProperty[propertyName];
     if (typeof propertyValue === "undefined") {
         // We got here because a property that was traversed 
@@ -691,7 +700,7 @@ function activateProperty(propertyTreeElement){
 
 function activateResource(resourceTreeElement){
     let obj = getTypedResourceFromElement(resourceTreeElement);
-    console.log("Displaying resource of type " + obj.type);
+    //console.log("Displaying resource of type " + obj.type);
     if (Object.keys(obj).length == 2) {
         console.log("WARNING: this object only has two keys!");
         console.log(obj);
@@ -748,6 +757,7 @@ function getObjectFromArrayViaParent(element, objRef) {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     createNewCanvasModal();
+    createResourceEditorModal();
   });
 
   function createNewCanvasModal(){
@@ -766,6 +776,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $("#btnNewCanvas").addEventListener("click", () => newCanvasModal.show());
   }
 
+  function createResourceEditorModal(){
+    const resourceEditorModalEl = $("#externalResourceModal");
+    const resourceEditorModal = new bootstrap.Modal(resourceEditorModalEl);
+    resourceEditorModalEl.addEventListener('shown.bs.modal', function (event) {
+        resourceEditorModal.handleUpdate();
+    })
+    window.showResourceEditor = () => resourceEditorModal.show();
+  }
 
 function analyseUrl(){
     // This is, quite obviously, not an implementation of

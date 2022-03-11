@@ -133,34 +133,64 @@
 
     <!-- manifest -->
     <div class="rhs-component" data-resource="Manifest" data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural">
+        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations">
         <img src="img/descriptive.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural">
+        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural,Annotations">
         <img src="img/metadata.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="homepage,rendering,seeAlso,services,service"
-        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural">
+        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural,Annotations">
         <img src="img/linking.png" />
     </div>
 
 
     <div class="rhs-component" data-resource="Manifest" data-props="viewingDirection,behavior"
-        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural">
+        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural,Annotations">
         <img src="img/technical.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Manifest" data-props="annotations,partOf,start"
-        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural">
-        <img src="img/structural.png" />
+    <div class="rhs-component" data-resource="Manifest" data-props="partOf,start"
+        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural,Annotations">
+        
+        <form>
+        <h4>Part Of</h4>
+        <div class="card external-resource-mini">
+            <div class="card-body">
+                <h5 class="card-title">Some collection</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Collection</h6>
+                <a class="resource-id" href="https://example.org/iiif/collections/my-collection">https://example.org/iiif/collections/my-collection</a>
+            </div>
+        </div>
+        <div class="card text-end border-0 add-another-resource">
+            <div class="card-body">
+                <a class="add-another-resource" href="#">Add another</a>
+            </div>
+        </div>
+        
+
+        <h4>Start Canvas</h4>
+        <select class="form-select" aria-label="Select a canvas">
+            <option selected>Select a canvas (with thumbnails)</option>
+            <option value="1"> - </option>
+            <option value="2"> - </option>
+            <option value="3">1</option>
+            <option value="4">2</option>
+            <option value="5">etc</option>
+          </select>
+        </form>
     </div>
 
+    <div class="rhs-component" data-resource="Manifest" data-props="annotations" data-component-ref="annotationpage"
+        data-tabs="Descriptive,Metadata,Linking,Technical,Structural,-Annotations">        
+        <p>Replaced by anno pager</p>
+    </div>
 
     <!-- canvas -->
     <div class="rhs-component" data-resource="Canvas" data-props="label,summary,requiredStatement,rights,navDate"
@@ -207,12 +237,8 @@
     </div>
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="annotations"
+    <div class="rhs-component" data-resource="Canvas" data-props="annotations" data-component-ref="annotationpage"
         data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical">
-        <img src="img/annopage.png" />
-        <p>
-            Cycle through the anno pages; each anno is independently editable.
-        </p>
     </div>
 
 
@@ -243,10 +269,24 @@
         </div>
     </div>
 
+    <!-- Components -->
+    <!-- if I am an annopage what am I an annopage on?-->
+    <div class="rhs-component" data-component="annotationpage">
+        <img src="img/annopage.png" />
+        <p>
+            Cycle through the anno pages; each anno is independently editable.
+        </p>
+    </div>
+
+    <!-- if I am an agent what am I an agent (provider) on?-->
+    <div class="rhs-component" data-component="agent"
+        data-tabs="-Agent">
+        <p>fields for editing provider</p>
+    </div>
 
 
     <!-- Modals -->
-
+    <!-- New Canvas -->
     <div class="modal fade" id="newCanvasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -302,6 +342,59 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Add Canvas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External resource #72 -->
+    <div class="modal fade" id="externalResourceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">External resource</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                placeholder="(URL of external resource)" aria-label="URL of external resource"
+                                aria-describedby="exHelp">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="refreshUrlExternal" type="button">⟳</button>
+                            </div>
+                        </div>
+                        <small id="exHelp" class="form-text text-muted">
+                            The id (URL) of the external resource
+                        </small>
+
+                        <p>Some of the following may be set automatically on analysis</p>
+
+                        <h5>Type</h5>
+                        <input type="text" class="form-control">
+                        <small>e.g., Manifest, Image etc</small>
+                        
+                        <h5>Label</h5>
+                        <input type="text" class="form-control">
+                        
+                        <h5>Format</h5>
+                        <input type="text" class="form-control">
+                        <small>An internet media type, if possible</small>
+
+                        <h5>Language</h5>
+                        <input type="text" class="form-control">
+
+                        <h5>Profile</h5>
+                        <input type="text" class="form-control">
+                        
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>
