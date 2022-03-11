@@ -544,14 +544,17 @@ function getTextNodes(element){
     return str;
 }
 
-function getParentPropertyAndType(){
+function getParentPropertyAndType(fromEnd){
+    const offset = fromEnd || 1;
     const breadcrumbs = $("#breadcrumbs");
     const propertyAndType = {
         propertyName: null,
         type: null,
-        id: null
+        id: null,
+        offset: offset,
+        totalItems: breadcrumbs.children.length
     };
-    for(i = breadcrumbs.children.length - 2; i >= 0; i--){
+    for(i = breadcrumbs.children.length - (1 + offset); i >= 0; i--){
         const treeId = breadcrumbs.children[i].getAttribute("data-tree-id");
         const treeEl = $$(treeId);
         const prop = treeEl.getAttribute("data-iiif-property");
@@ -560,7 +563,8 @@ function getParentPropertyAndType(){
         }      
         const type = treeEl.getAttribute("data-iiif-type");
         const id = treeEl.getAttribute("data-iiif-id");
-        if(type){
+        if(type && propertyAndType.propertyName){
+            // we can't set the type until we have a property, because we want the type that has this property
             propertyAndType.type = type;
             propertyAndType.id = id;
         }
@@ -593,33 +597,43 @@ function updateResourceEditor(){
     if(bestComponent){
         renderRhsComponent(bestComponent);
         $("#rhsHeader").innerText = bestComponent.getAttribute("resource-editor-title") || bestResource.type + " properties";
-    } else {
-        // special annotation page tests.
-        // tree walk-up tests.
     }
 }
 
 
 function tryGetBestComponent(type, propertyName){
+    
+    let bestComponent = null;
+    let parentPropertyAndType = getParentPropertyAndType();
     if(type == "AnnotationPage" || type == "Agent"){
         // display within their parent type editor
         // AnnoPage depends on whether it's the .items property or the .annotation property.
-        const parentPropertyAndType = getParentPropertyAndType();
+        // Will this happen anyway?
+        
         type = parentPropertyAndType.type;
         propertyName = parentPropertyAndType.propertyName;
     }
-    let bestComponent = null;
-    for(rhs of $(".rhs-component")){
-        if(rhs.getAttribute("data-resource") == type){
-            if(bestComponent == null){
-                bestComponent = rhs;
-            }
-            const props = rhs.getAttribute("data-props").split(",");
-            if(app.selectedPropertyName && props.includes(propertyName)){
-                bestComponent = rhs; 
-                break;
+    let offset = 0;
+    while(true){
+        for(rhs of $(".rhs-component")){
+            if(rhs.getAttribute("data-resource") == type){
+                if(bestComponent == null){
+                    bestComponent = rhs; // default to the first one
+                }
+                const props = rhs.getAttribute("data-props").split(",");
+                if(propertyName && props.includes(propertyName)){
+                    bestComponent = rhs; // refine to the one with the property, if we can
+                    break;
+                }
             }
         }
+        if(bestComponent) break;
+        if(offset >= parentPropertyAndType.totalItems) break;
+        offset += 2;
+        parentPropertyAndType = getParentPropertyAndType(offset);
+        console.log(parentPropertyAndType);
+        type = parentPropertyAndType.type;
+        propertyName = parentPropertyAndType.propertyName;
     }
     return bestComponent;
 }
