@@ -59,7 +59,7 @@ ul.list-group, li.list-group-item {
     padding: 0.15rem 0.4rem;
 }
 
-.rhs-component {
+.rhs-component, .rhs-component-part {
     display: none;
 }
 
@@ -123,4 +123,16 @@ h5 {
 
 .modal-body h5 {
     margin-top: 0.9rem;
+}
+
+.annotation-page h5 {
+    margin-top:0.9rem;
+}
+
+.anno-page-items {
+    margin-left:0.9rem;
+}
+
+.anno-page-items .annotation {
+    margin:0.3rem 0.4rem 0.9rem 0.9rem;
 }
