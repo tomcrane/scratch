@@ -660,6 +660,9 @@ function renderRhsComponent(rhsComponent){
     const componentRef = rhsComponent.getAttribute("data-component-ref");
     if(componentRef){
         $("#resourceEditorInner").innerHTML = $$("data-component-" + componentRef).innerHTML;
+        if(componentRef == "annotationpage"){
+            makeAnnoPagingUI();
+        }
     } else {
         $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
     }
@@ -690,6 +693,25 @@ function renderRhsComponent(rhsComponent){
     }
 }
 
+function makeAnnoPagingUI() {
+    let idx = 0;
+    const listEls = Array.from($$("annopageSwitch").children);
+    window.annoPages = listEls.map(li => {
+        const i = idx++;
+        const link = li.children[0];
+        link.addEventListener("click", () => showAnnoPage(i));
+        return {
+            index: i,
+            html: link.getAttribute("data-source"),
+            label: link.innerText,
+            selected: false
+        };
+    });
+    $$("annoPagePrevPage").addEventListener("click", () => cycleAnnoPage(-1));
+    $$("annoPageNextPage").addEventListener("click", () => cycleAnnoPage(1));
+    showAnnoPage(0);
+}
+
 function setResourceEditorEventHandlers(){
     for(el of $(".external-resource-mini")){
         el.addEventListener("click", window.showResourceEditor);
@@ -698,6 +720,86 @@ function setResourceEditorEventHandlers(){
         el.addEventListener("click", window.showResourceEditor);
     }
 }
+
+function showAnnoPage(idx){
+    for(i = 0; i< window.annoPages.length; i++){
+        const annoPage = window.annoPages[i];
+        if(i == idx){
+            fetch(annoPage.html)
+                .then(resp => resp.text())
+                .then(text => $$("annoPageContainer").innerHTML = text);
+            annoPage.selected = true;
+            $$("annoPageCurrent").value = annoPage.label;
+            //setResourceEditorEventHandlers(); // this doesn't wire up the handlers for the fetched HTML...
+            setTimeout(() => setupAnnoPage(annoPage.index), 500);
+        } else {
+            annoPage.selected = false;
+        }
+    }
+}
+
+function setupAnnoPage(idx){
+    setResourceEditorEventHandlers();
+    if(app.canvas && app.selectedResourceRef && app.selectedResourceRef.type != "Manifest"){
+        const canvas = shell.vault.get(app.canvas);
+        if(canvas.annotations.length > 0 && canvas.annotations[0].id.startsWith("https://iiif.wellcomecollection.org")){
+            const annoPage = canvas.annotations[0];
+            const label = IIIFVaultHelpers.getValue(annoPage.label); // This is empty!
+            if(idx == 1){
+                // This is our fake internal annotation page
+                // We'll make this work with Wellcome manifests for now
+                let embedded = annoPage.items && !shell.vault.requestStatus(annoPage);
+                if(!embedded){
+                    console.log("This needs to be loaded");
+                    // As a resource external to the manifest, we load annotations specifically, from their id:
+                    shell.vault.load(annoPage.id).then(loadedAnnoPage => {
+                        const template = new String($$("textualBodyTemplate").innerHTML);
+                        $$("textualBodyTemplate").style.display = "none";
+                        const mediaAnnoPage = shell.vault.get(canvas.items[0]);
+                        const mediaAnno =  shell.vault.get(mediaAnnoPage.items[0]);
+                        const mediaBody =  shell.vault.get(mediaAnno.body[0]);
+                        const imgServiceId = mediaBody.service[0].id || mediaBody.service[0]["@id"]; // AAARGG
+                        for(annoRef of loadedAnnoPage.items){
+                            const anno = shell.vault.get(annoRef);
+                            let htmlAnno = template.replace("{anno-id}", anno.id);
+                            htmlAnno = htmlAnno.replace("{text}", shell.vault.get(anno.body[0]).value);
+                            htmlAnno = htmlAnno.replace("{img-service}", imgServiceId);
+                            // we are making a big assumption here!!!
+                            const xywh = anno.target.split("=")[1].split(",");
+                            htmlAnno = htmlAnno.replaceAll("{x}", xywh[0]);
+                            htmlAnno = htmlAnno.replaceAll("{y}", xywh[1]);
+                            htmlAnno = htmlAnno.replaceAll("{w}", xywh[2]);
+                            htmlAnno = htmlAnno.replaceAll("{h}", xywh[3]);
+                            const cardAnno = document.createElement("div");
+                            cardAnno.className = "card";
+                            cardAnno.classList.add("annotation");
+                            cardAnno.innerHTML = htmlAnno;
+                            $$("annoPageItems").append(cardAnno);
+                        }
+                    });
+                }
+
+            } else if (idx == 2){
+                // This is our annotation as external resource
+                $$("sampleExternalAnnoPageLabel").innerText = label;
+                $$("sampleExternalAnnoPageLink").href = canvas.annotations[0].id;
+                $$("sampleExternalAnnoPageLink").innerText = canvas.annotations[0].id;
+            } else {
+                const tbt = $$("textualBodyTemplate");
+                if(tbt) tbt.style.display = "none";
+            }
+        }
+    }
+}
+
+function cycleAnnoPage(move){
+    const current = window.annoPages.filter(ap => ap.selected)[0];
+    let newIdx = current.index + move;
+    if(newIdx < 0) newIdx = 0;
+    if(newIdx >= window.annoPages.length) newIdx = window.annoPages.length - 1;
+    showAnnoPage(newIdx);
+}
+
 
 
 function headerClick(e) {

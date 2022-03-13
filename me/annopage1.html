@@ -1,0 +1,217 @@
+<h5><i>[<b>Internal</b> Annotation Page]</i></h5>
+
+<!-- these are properties of the annotation page itself -->
+<!-- TODO - if external, it may have a label on the ref in the Manifest, and a label on the external resource, and they might be different -->
+<!-- BUT in the ME, we are only editing labels (and other properties like behavior) on the Ref itself; whatever props the external resource has is irrelevant here. -->
+<h5>Label</h5>
+<div class="input-group">
+    <input type="text" class="form-control" value="Internal demo of different bodies">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">en + 3</button>
+    </div>
+</div>
+
+<h5>Behavior</h5>
+<input type="text" class="form-control">
+
+<h5>Language</h5>
+<select class="form-select" aria-label="language of the resource">
+    <option selected>(n/a)</option>
+    <option value="1">en</option>
+    <option value="2">de</option>
+    <option value="3">fr</option>
+    <option value="4">es</option>
+    <option value="5">(enter manually)</option>
+</select>
+
+<h5>Items</h5>
+<div class="anno-page-items">
+    <div class="card annotation">
+        <div class="card-body">
+            <h5>ID</h5>
+            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno">
+
+            <h5>Label</h5>
+            <div class="input-group">
+                <input type="text" class="form-control" value="Example annotation label">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                </div>
+            </div>
+
+            <h5>Motivation</h5>
+            <select class="form-select">
+                <option>supplementimg</option>
+                <option>bookmarking</option>
+                <option>classifying</option>
+                <option selected>commenting</option>
+                <option>describing</option>
+                <option>assessing</option>
+                <option>editing</option>
+                <option>highlighting</option>
+                <option>identifying</option>
+                <option>linking</option>
+                <option>moderating</option>
+                <option>questioning</option>
+                <option>replying</option>
+                <option>tagging</option>
+            </select>
+
+            <h5>Body</h5>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Maybe this annotation is a <b>custom capture model</b>.</h6>
+                    <p class="card-text">We will have capture models to match common annotation types. An annotation
+                        could be anything.</p>
+                    <p class="card-text">This annotation targets the whole canvas.</p>
+                    <a href="#" class="card-link">Maybe this annotation's capture model requires a modal dialog to
+                        edit, and this link launches it.</a>
+                </div>
+            </div>
+
+            <h5>Target</h5>
+            <!-- this is a standard reusable widget -->
+            <img src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg" />
+            (Whole Canvas)
+            <a href="#">Change</a>
+        </div>
+    </div>
+
+    <div class="card annotation">
+        <div class="card-body">
+            <h5>ID</h5>
+            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-2">
+
+            <h5>Motivation</h5>
+            <select class="form-select">
+                <option selected>supplementimg</option>
+                <option>bookmarking</option>
+                <option>classifying</option>
+                <option>commenting</option>
+                <option>describing</option>
+                <option>assessing</option>
+                <option>editing</option>
+                <option>highlighting</option>
+                <option>identifying</option>
+                <option>linking</option>
+                <option>moderating</option>
+                <option>questioning</option>
+                <option>replying</option>
+                <option>tagging</option>
+            </select>
+
+            <h5>Body</h5>
+            <div class="card">
+                <div class="card-body textualbody">
+                    <div class="card-header">TextualBody</div>
+                    <!-- See note in Anno spec at https://www.w3.org/TR/annotation-model/#string-body -->
+                    <!-- NOTE: Systems may rewrite Annotations to instead use the TextualBody construction, rather than maintaining the bodyValue form. The TextualBody construction is preferred, as language and format information are important for clients processing the Annotation.-->
+                    <!-- We should normalise string body form (if Vault doesn't already)-->
+                    <h5>Value</h5>
+                    <textarea class="form-control">
+This is a standard textual body. It can be edited inline.
+This anno might want a label property, and this Body might want a language property.
+Can we keep the UI clean by hiding until asked for?
+                        </textarea>
+                    <h5>Language</h5>
+                    <!-- optional -->
+                    <select class="form-select" aria-label="language of the resource">
+                        <option selected>(n/a)</option>
+                        <option value="1">en</option>
+                        <option value="2">de</option>
+                        <option value="3">fr</option>
+                        <option value="4">es</option>
+                        <option value="5">(enter manually)</option>
+                    </select>
+                    <h5>Format</h5>
+                    <!-- This is optional, and could be set automatically -->
+                    <input class="form-control" value="text/plain">
+                </div>
+            </div>
+
+            <h5>Target</h5>
+            <!-- this is a standard reusable widget -->
+            <img
+                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg" />
+            <div class="input-group mb-3">
+                <span class="input-group-text">x</span>
+                <input type="text" class="form-control" value="207">
+                <span class="input-group-text">y</span>
+                <input type="text" class="form-control" value="241">
+                <span class="input-group-text">w</span>
+                <input type="text" class="form-control" value="1962">
+                <span class="input-group-text">h</span>
+                <input type="text" class="form-control" value="116">
+            </div>
+            (or move/resize box)
+        </div>
+    </div>
+
+    <div class="card annotation">
+        <div class="card-body">
+            <h5>ID</h5>
+            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-3">
+
+            <h5>Motivation</h5>
+            <select class="form-select">
+                <option>supplementimg</option>
+                <option>bookmarking</option>
+                <option>classifying</option>
+                <option selected>commenting</option>
+                <option>describing</option>
+                <option>assessing</option>
+                <option>editing</option>
+                <option>highlighting</option>
+                <option>identifying</option>
+                <option>linking</option>
+                <option>moderating</option>
+                <option>questioning</option>
+                <option>replying</option>
+                <option>tagging</option>
+            </select>
+
+            <h5>Body</h5>
+            <div class="card">
+                <div class="card-body externalresourcebody">
+                    <div class="card-header">External Resource</div> 
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title">http://example.org/analysis1.mp3</h5><!-- no label -->
+                            <h6 class="card-subtitle mb-2 text-muted">language: fr</h6> <!-- language -->
+                            <h6 class="card-subtitle mb-2 text-muted">audio/mpeg</h6> <!-- type and format -->
+                            <a class="resource-id" href="http://example.org/analysis1.mp3">http://example.org/analysis1.mp3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5>Target</h5>
+            <!-- this is a standard reusable widget -->
+            <img
+                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg" />
+            <div class="input-group mb-3">
+                <span class="input-group-text">x</span>
+                <input type="text" class="form-control" value="207">
+                <span class="input-group-text">y</span>
+                <input type="text" class="form-control" value="241">
+                <span class="input-group-text">w</span>
+                <input type="text" class="form-control" value="1962">
+                <span class="input-group-text">h</span>
+                <input type="text" class="form-control" value="116">
+            </div>
+            (or move/resize box)
+        </div>
+    </div>
+
+    <div class="card annotation">
+        <div class="card-body">
+            <h5 class="card-title">Example Annotation</h5>
+            <h6 class="card-subtitle mb-2 text-muted">An example extra field</h6>
+            <p class="card-text">We will have capture models to match common annotation types. An annotation could be
+                anything.</p>
+            <p class="card-text">This annotation targets the whole canvas.</p>
+            <a href="#" class="card-link">Some annotation link.</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>

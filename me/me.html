@@ -299,9 +299,6 @@
     <!-- Components -->
     <!-- if I am an annopage what am I an annopage on?-->
     <div class="rhs-component-part" id="data-component-annotationpage">
-
-
-
         <div class="btn-toolbar mb-3 p-2" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group">
                 <button type="button" class="btn btn-outline-secondary"> + </button>
@@ -315,128 +312,22 @@
                   <li><a class="dropdown-item" href="#">External Annotation Page</a></li>
                 </ul>
             </div>
-            <div class="input-group ps-4">
-                <button type="button" class="btn btn-outline-secondary">&lt;</button>
-                <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">        
-                <button type="button" class="btn btn-outline-secondary">&gt;</button>
+            <div class="btn-group ps-4">
+                <button type="button" class="btn btn-outline-secondary" id="annoPagePrevPage">&lt;</button>
+                <input type="text" class="form-control" placeholder="Input group example" value="" id="annoPageCurrent">        
+                <button type="button" class="btn btn-outline-secondary" id="annoPageNextPage">&gt;</button>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" id="annopageSwitch">
+                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage1.html">Internal demo of different bodies</a></li>
+                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage2.html">Internal demo of Textual bodies</a></li>
+                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage3.html">External Annotation Page</a></li>
+                </ul>
             </div>
           </div>
           <hr/>
-        <div id="annoPage1" class="annotation-page">
-            <h5><i>[Internal Annotation Page]</i></h5>
-
-            <h5>Label</h5>
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">en + 3</button>
-                </div>
-            </div>
-            
-            <h5>Behavior</h5>
-            <input type="text" class="form-control">
-
-            <h5>Language</h5>        
-            <select class="form-select" aria-label="language of the resource">
-                <option selected>(n/a)</option>
-                <option value="1">en</option>
-                <option value="2">de</option>
-                <option value="3">fr</option>
-                <option value="4">es</option>
-                <option value="5">(enter manually)</option>
-              </select>
-
-            <h5>Items</h5>
-            <div class="anno-page-items">
-                <div class="card annotation">
-                    <div class="card-body">         
-                        <h5>ID</h5>
-                        <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno" >    
-
-                        <h5>Label</h5>
-                        <div class="input-group">
-                            <input type="text" class="form-control" value="Example annotation label">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">en + 3</button>
-                            </div>
-                        </div>
-    
-                        <h5>Motivation</h5>            
-                        <select class="form-select">
-                            <option selected>Supplementimg</option>
-                            <option value="1">xxxx</option>
-                            <option value="2">yyyy</option>
-                          </select>
-    
-                        <h5>Body</h5>
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-subtitle mb-2 text-muted">Maybe this annotation is a custom capture model</h6>
-                                <p class="card-text">We will have capture models to match common annotation types. An annotation could be anything.</p>
-                                <p class="card-text">This annotation targets the whole canvas.</p>
-                                <a href="#" class="card-link">Maybe this annotation's capture model requires a modal dialog to edit.</a>
-                            </div>
-                        </div>
-    
-                        <h5>Target</h5>
-                        <img src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg" />                    
-                        (Whole Canvas) 
-                        <a href="#">Change</a>
-                    </div>
-                </div>
-    
-                <div class="card annotation">
-                    <div class="card-body">
-                        <h5>ID</h5>
-                        <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-2" >    
-    
-                        <h5>Motivation</h5>            
-                        <select class="form-select">
-                            <option selected>Supplementimg</option>
-                            <option value="1">xxxx</option>
-                            <option value="2">yyyy</option>
-                          </select>
-    
-                        <h5>Body</h5>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5><i>[TextualBody]</i></h5>
-                                <textarea class="form-control">
-This is a standard textual body. It can be edited inline.
-This anno might want a label property, and this Body might want a language property.
-Can we keep the UI clean by hiding until asked for?
-                                </textarea>
-                            </div>
-                        </div>
-    
-                        <h5>Target</h5>
-                        <img src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg" />                    
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">x</span>
-                            <input type="text" class="form-control" value="207">
-                            <span class="input-group-text">y</span>
-                            <input type="text" class="form-control" value="241">
-                            <span class="input-group-text">w</span>
-                            <input type="text" class="form-control" value="1962">
-                            <span class="input-group-text">h</span>
-                            <input type="text" class="form-control" value="116">
-                        </div>
-                        (or move/resize box)
-                    </div>
-                </div>
-    
-                <div class="card annotation">
-                    <div class="card-body">
-                        <h5 class="card-title">Example Annotation</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">An example extra field</h6>
-                        <p class="card-text">We will have capture models to match common annotation types. An annotation could be anything.</p>
-                        <p class="card-text">This annotation targets the whole canvas.</p>
-                        <a href="#" class="card-link">Some annotation link.</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            </div>
+        <div id="annoPageContainer" class="annotation-page"></div>
 
 
     </div>

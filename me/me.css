@@ -136,3 +136,7 @@ h5 {
 .anno-page-items .annotation {
     margin:0.3rem 0.4rem 0.9rem 0.9rem;
 }
+
+.external-resource-mini, .add-another-resource {
+    cursor: pointer;
+}

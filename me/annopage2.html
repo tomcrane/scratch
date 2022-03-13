@@ -1,0 +1,93 @@
+<h5><i>[<b>Internal</b> Annotation Page]</i></h5>
+
+<h5>Label</h5>
+<div class="input-group">
+    <input type="text" class="form-control" value="Internal demo of Textual bodies">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">en + 3</button>
+    </div>
+</div>
+
+<h5>Behavior</h5>
+<input type="text" class="form-control" value="fakeAnnotationPage">
+
+<h5>Language</h5>
+<select class="form-select" aria-label="language of the resource">
+    <option>(n/a)</option>
+    <option selected value="1">en</option>
+    <option value="2">de</option>
+    <option value="3">fr</option>
+    <option value="4">es</option>
+    <option value="5">(enter manually)</option>
+</select>
+
+<h5>Items</h5>
+<div class="anno-page-items" id="annoPageItems">
+
+
+    <!-- template these -->
+
+    <div class="card annotation" id="textualBodyTemplate">
+        <div class="card-body">
+            <h5>ID</h5>
+            <input type="text" class="form-control" value="{anno-id}">
+
+            <h5>Motivation</h5>
+            <select class="form-select">
+                <option selected>supplementimg</option>
+                <option>bookmarking</option>
+                <option>commenting</option>
+                <option>describing</option>
+                <option>highlighting</option>
+                <option>identifying</option>
+                <option>linking</option>
+                <option>tagging</option>
+            </select>
+
+            <h5>Body</h5>
+            <div class="card">
+                <div class="card-body textualbody">
+                    <div class="card-header">TextualBody</div>
+                    <!-- See note in Anno spec at https://www.w3.org/TR/annotation-model/#string-body -->
+                    <!-- NOTE: Systems may rewrite Annotations to instead use the TextualBody construction, rather than maintaining the bodyValue form. The TextualBody construction is preferred, as language and format information are important for clients processing the Annotation.-->
+                    <!-- We should normalise string body form (if Vault doesn't already)-->
+                    <h5>Value</h5>
+                    <textarea class="form-control">
+{text}
+                        </textarea>
+                    <h5>Language</h5>
+                    <!-- optional -->
+                    <select class="form-select" aria-label="language of the resource">
+                        <option selected>(n/a)</option>
+                        <option value="1">en</option>
+                        <option value="2">de</option>
+                        <option value="3">fr</option>
+                        <option value="4">es</option>
+                        <option value="5">(enter manually)</option>
+                    </select>
+                    <h5>Format</h5>
+                    <!-- This is optional, and could be set automatically -->
+                    <input class="form-control" value="text/plain">
+                </div>
+            </div>
+
+            <h5>Target</h5>
+            <!-- this is a standard reusable widget -->
+            <img
+                src="{img-service}/{x},{y},{w},{h}/!200,200/0/default.jpg" />
+            <div class="input-group mb-3">
+                <span class="input-group-text">x</span>
+                <input type="text" class="form-control" value="{x}">
+                <span class="input-group-text">y</span>
+                <input type="text" class="form-control" value="{y}">
+                <span class="input-group-text">w</span>
+                <input type="text" class="form-control" value="{w}">
+                <span class="input-group-text">h</span>
+                <input type="text" class="form-control" value="{h}">
+            </div>
+            (or move/resize box)
+        </div>
+    </div>
+
+
+</div>
