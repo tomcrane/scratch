@@ -136,6 +136,20 @@
         data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations"
         resource-editor-title="Manifest properties">
         <img src="img/descriptive.png" />
+        <form>                
+            <h4>Thumbnail</h4>
+            <div class="card media-mini">
+                <div class="card-body">
+                    <img id="manifestThumbnail" />
+                    <p>Image</p>
+                </div>
+            </div>
+            <div class="card text-end border-0 media-mini">
+                <div class="card-body">
+                    <a class="media-mini" href="#">Add another</a>
+                </div>
+            </div>
+        </form>        
     </div>
 
 
@@ -231,33 +245,75 @@
     <div class="rhs-component" data-resource="Canvas" data-props="items,thumbnail"
         data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical"
         resource-editor-title="Canvas Media Editor">
-        <h4>Thumbnail</h4>
-        <small>A thumbnail to represent this canvas.</small>
-        <p>NB the media tab can also carry the thumbnail for the Canvas - it might well be the same service even.</p>
-        <h4>Media</h4>
-        <p>
+        <form>
+            <h4>Thumbnail</h4>
+            <div class="card media-mini">
+                <div class="card-body">
+                    <img id="canvasThumbnail" />
+                    <p>Image</p>
+                </div>
+            </div>
+            <div class="card text-end border-0 add-another-resource">
+                <div class="card-body">
+                    <a class="add-another-resource" href="#">Add another</a>
+                </div>
+            </div>
+
+            <h4>Items</h4>
+            <!--
             This aggregates all the media on all the AnnotationPages under the canvas.items property.
             So there are no sub-pages.
-        </p>
-        <p>
+        
             That seems a bit extreme - but there will almost always only ever be one piece of media here.
             And if there are many, the UI just has to flex - it's a special case!
-        </p>
-        <p>
-            This will not handle Choice, nor will it handle AV.
-            (Choice and AV also more likely to go together).
-        </p>
-        <p>
-            TODO - mock this UI.
-        </p>
-        <p>
-            Add new media (GH issue).
-        </p>
-        <p>
+
+            
             Very rare case - a loaded Manifest splits its painting annos onto more than one AnnoPage under items.
             The ME will just collapse that into a single AnnoPage.
             This is worth sacrificing for UI simplicty - it's going to be very rare!
-        </p>
+
+            NOT SHOWN - Choice, AV (Choice and AV also more likely to go together)            
+         -->
+         
+            <div class="card annotation">
+                <div class="card-body">
+                    <h5>Body</h5>
+                    <div class="card media-mini">
+                        <div class="card-body">
+                            <img id="canvasPaintingBody" />
+                            <p>Image</p>
+                        </div>
+                    </div>
+
+                    <h5>Target</h5>
+                    <!-- this is a standard reusable widget -->
+                    <img style="display:none" id="canvasPaintingTarget" src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg" />
+                    (Whole Canvas)
+                    <a href="#" id="changeTarget">Change</a>
+                    <div id="canvasPaintingTargetXywh">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">x</span>
+                            <input type="text" class="form-control" value="">
+                            <span class="input-group-text">y</span>
+                            <input type="text" class="form-control" value="">
+                            <span class="input-group-text">w</span>
+                            <input type="text" class="form-control" value="">
+                            <span class="input-group-text">h</span>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        (or move/resize box)
+                    </div>
+
+                </div>
+            </div>
+            <div class="card text-end border-0 media-mini">
+                <div class="card-body">
+                    <a class="media-mini" href="#">Add another</a>
+                </div>
+            </div>
+
+        </form>
+
     </div>
 
 
@@ -341,34 +397,34 @@
 
     <!-- Modals -->
     <!-- New Canvas -->
-    <div class="modal fade" id="newCanvasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newCanvasModal" tabindex="-1" aria-labelledby="newCanvasModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Canvas</h5>
+                    <h5 class="modal-title" id="newCanvasModalLabel">Add Canvas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h5>Add Canvas from Content</h5>
                     <form>
                         <div class="input-group">
-                            <input type="text" id="mediaUrl" class="form-control"
+                            <input type="text" id="newCanvasMediaUrl" class="form-control"
                                 placeholder="Paste URL of Media to create Canvas" aria-label="URL of Media"
-                                aria-describedby="mediaHelp">
+                                aria-describedby="newCanvasMediaHelp">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                                <button class="btn btn-outline-secondary" id="newCanvasRefreshUrl" type="button">⟳</button>
                             </div>
                         </div>
-                        <small id="mediaHelp" class="form-text text-muted">
+                        <small id="newCanvasMediaHelp" class="form-text text-muted">
                             Any image, IIIF Image Service, audio, video or IIIF Manifests and Canvases
                         </small>
 
-                        <div id="mediaInfo">
-                            <img id="imgPreview" />
-                            <div id="staticImg"><br /> This is a Static Image.</div>
-                            <div id="imgService"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                        <div id="newCanvasMediaInfo" class="media-info">
+                            <img id="newCanvasImgPreview" class="img-preview" />
+                            <div id="newCanvasStaticImg" class="static-img"><br /> This is a Static Image.</div>
+                            <div id="newCanvasImgService" class="img-service"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
                                     id="iiifLogo" /> This is a IIIF Image Service</div>
-                            <div id="manifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                            <div id="newCanvasManifestPreview" class="manifest-preview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
                                     id="iiifLogo" /> This is a IIIF Manifest.<br />
                                 TBC - this would show a carousel to select a canvas, or just the single canvas if
                                 there's only one.</div>
@@ -395,17 +451,17 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add Canvas</button>
+                <button type="button" class="btn btn-primary" id="btnAddCanvas">Add Canvas</button>
             </div>
         </div>
     </div>
 
     <!-- External resource #72 -->
-    <div class="modal fade" id="externalResourceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="externalResourceModal" tabindex="-1" aria-labelledby="externalResourceModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">External resource</h5>
+                    <h5 class="modal-title" id="externalResourceModalLabel">External resource</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -464,6 +520,123 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <!-- Media #94 -->
+    <div class="modal fade" id="mediaModal" tabindex="-1" aria-hidden="true" aria-labelledby="mediaModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mediaModalLabel">Media</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- The job of this dialog is to return media information back the ME for inclusion 
+                            in the Vault as part of the Manifest being edited.
+                        In this demo the media must already exist externally.
+                        But this UI could be replaced or augmented with a plugin that allows you to 
+                        create/upload media, either for use as-is (e.g., an MP3) or to a service like
+                        DLCS which can provide image service or transcoded as well as hosting.    
+                    -->
+                    <!-- This is very similar to the New Canvas dialog in the way it analyses the media.
+                    But it won't return a canvas, it will return a media reference.
+                        Maybe it still allows browsing IIIF resources to find that media though. It then has to return
+                        the media it finds ON the canvas.
+                -->
+                    <form>
+                        <div class="input-group">
+                            <input type="text" id="mediaMediaUrl" class="form-control"
+                                placeholder="Paste URL of Media" aria-label="URL of Media"
+                                aria-describedby="mediaMediaHelp">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="mediaRefreshUrl" type="button">⟳</button>
+                            </div>
+                        </div>
+                        <small id="mediaMediaHelp" class="form-text text-muted">
+                            Any image, IIIF Image Service, audio, or video resource; or browse IIIF to find linked media.
+                        </small>
+                        <p>
+                            <a class="btn btn-primary" onclick="javascript:alert('Integration Point for DLCS etc')">Browse / upload</a>
+                        </p>
+                        <div id="mediaMediaInfo" class="media-info">
+                            <img id="mediaImgPreview" />
+                            <div id="mediaStaticImg"><br /> This is a Static Image.</div>
+                            <div id="mediaImgService"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                                    id="mediaIiifLogo" /> This is a IIIF Image Service</div>
+                            <div id="mediaManifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
+                                    id="mediaIiifLogo" /> This is a IIIF Manifest.<br />
+                                TBC - this would show a carousel to select a canvas, or just the single canvas if
+                                there's only one.</div>
+                        </div>
+
+                        <p>Some of the following will be set automatically on analysis</p>
+
+                        <h5 class="mt-3 mb-1">Media dimensions</h5>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="mediaWidth">Width</label>
+                                <input type="text" class="form-control" id="mediaWidth" placeholder="n/a">
+                            </div>
+                            <div class="col">
+                                <label for="mediaHeight">Height</label>
+                                <input type="text" class="form-control" id="mediaHeight" placeholder="n/a">
+                            </div>
+                            <div class="col">
+                                <label for="mediaDuration">Duration</label>
+                                <input type="text" class="form-control" id="mediaDuration" placeholder="n/a">
+                            </div>
+                        </div>                        
+                        <small id="mediaDimensionsHelp" class="form-text text-muted">
+                            When the source is an image service, this defaults to the advertised width and height.<br/>
+                            But you can select a different size for the image (especially important for thumbnails).<br/>
+                            This should also show a sizes dropdown, and if level 0, NOT show free-form width and height.
+                        </small>
+
+
+                        <h5>Type</h5>
+                        <input type="text" class="form-control" id="mediaModalType">
+                        <small>e.g., Image, Sound etc</small>
+
+                        <h5>Format</h5>
+                        <input type="text" class="form-control" id="mediaModalFormat">
+                        <small>An internet media type, if possible</small>
+
+                        <h5>Label</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                            </div>
+                        </div>
+                        
+                        <h5>Language</h5>        
+                        <select class="form-select" aria-label="language of the resource">
+                            <option selected>(n/a)</option>
+                            <option value="1">en</option>
+                            <option value="2">de</option>
+                            <option value="3">fr</option>
+                            <option value="4">es</option>
+                            <option value="5">(enter manually)</option>
+                          </select>
+
+                        <h5>Profile</h5>
+                        <input type="text" class="form-control">
+                        
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 

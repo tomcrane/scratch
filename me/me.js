@@ -408,6 +408,11 @@ function selectCanvas(canvasId, fromOutline){
         const id = thumbImg.getAttribute("data-iiif-id");
         if(id == canvasId){     
             thumbDiv.classList.add("selected-canvas");
+            if($$("canvasThumbnail")){
+                $$("canvasThumbnail").src = thumbImg.src;
+                $$("canvasPaintingBody").src = thumbImg.src;     
+                $$("canvasPaintingTarget").src = thumbImg.src;                
+            }
         }
     }
     if(!fromOutline){
@@ -719,6 +724,16 @@ function setResourceEditorEventHandlers(){
     for(el of $(".add-another-resource")){
         el.addEventListener("click", window.showResourceEditor);
     }
+    for(el of $(".media-mini")){
+        el.addEventListener("click", window.showMediaModal);
+    }
+    const changeTarget = $$("changeTarget");
+    if(changeTarget){
+        $$("canvasPaintingTargetXywh").style.display = "none";
+        changeTarget.addEventListener("click", () => {
+            $$("canvasPaintingTargetXywh").style.display = "block";
+        });
+    }
 }
 
 function showAnnoPage(idx){
@@ -890,22 +905,43 @@ function getObjectFromArrayViaParent(element, objRef) {
 document.addEventListener("DOMContentLoaded", function(event) { 
     createNewCanvasModal();
     createResourceEditorModal();
+    createMediaModal();
   });
 
   function createNewCanvasModal(){
     const newCanvasModalEl = $("#newCanvasModal");
     const newCanvasModal = new bootstrap.Modal(newCanvasModalEl);
-    newCanvasModalEl.addEventListener('shown.bs.modal', function (event) {
-        $("#mediaUrl").addEventListener("change", analyseUrl);
-        $("#refreshUrl").addEventListener("click", analyseUrl);        
-        $("#imgPreview").addEventListener("load", function(){
-            if($("#staticImg").style.display == "block"){
-                setDimensions(this.naturalWidth, this.naturalHeight);
-            }
-        });
+    newCanvasModalEl.addEventListener('shown.bs.modal', function (event) {        
+        setMediaEventListeners("newCanvas");
         newCanvasModal.handleUpdate();
     })
+    newCanvasModalEl.addEventListener('hide.bs.modal', () => {
+        alert("This will create:\n\na new canvas\nwith an items property\nwith an anno page\nwith a painting annotation targeting the canvas\nwith a body that is a full static image\nwith an image service if supplied.")
+    });
     $("#btnNewCanvas").addEventListener("click", () => newCanvasModal.show());
+  }
+
+  function createMediaModal(){
+    const mediaModalEl = $("#mediaModal");
+    const mediaModal = new bootstrap.Modal(mediaModalEl);
+    mediaModalEl.addEventListener('shown.bs.modal', function (event) {
+        setMediaEventListeners("media");
+        mediaModal.handleUpdate();
+    })
+    mediaModalEl.addEventListener('hide.bs.modal', () => {
+        alert("This will return a media resource.\n\nIf an image service was supplied, it will be a media resource with that image service attached.")
+    });
+    window.showMediaModal = () => mediaModal.show();
+  }
+
+  function setMediaEventListeners(prefix){
+    $$(prefix + "MediaUrl").addEventListener("change", () => analyseUrl(prefix));
+    $$(prefix + "RefreshUrl").addEventListener("click", () => analyseUrl(prefix));        
+    $$(prefix + "ImgPreview").addEventListener("load", function(){
+        if($$(prefix + "StaticImg").style.display == "block"){
+            setDimensions(prefix, this.naturalWidth, this.naturalHeight, (prefix == "newCanvas"));
+        }
+    });
   }
 
   function createResourceEditorModal(){
@@ -917,46 +953,55 @@ document.addEventListener("DOMContentLoaded", function(event) {
     window.showResourceEditor = () => resourceEditorModal.show();
   }
 
-function analyseUrl(){
+function analyseUrl(prefix){
     // This is, quite obviously, not an implementation of
     // https://github.com/digirati-co-uk/iiif-manifest-editor/issues/45
-    let url = $("#mediaUrl").value.trim();
-    $("#mediaInfo").style.display = "none";
-    $("#imgPreview").style.display = "none";
-    $("#staticImg").style.display = "none";
-    $("#imgService").style.display = "none";
-    $("#manifestPreview").style.display = "none";
+    let url = $$(prefix + "MediaUrl").value.trim();
+    $$(prefix + "MediaInfo").style.display = "none";
+    $$(prefix + "ImgPreview").style.display = "none";
+    $$(prefix + "StaticImg").style.display = "none";
+    $$(prefix + "ImgService").style.display = "none";
+    $$(prefix + "ManifestPreview").style.display = "none";
     if(url){
-        $("#mediaInfo").style.display = "block";
-        const ringer = "https://iiif.wellcomecollection.org/image/";
-        if(url.startsWith(ringer)){
+        $$(prefix + "MediaInfo").style.display = "block";
+        const ringerI = "https://iiif.wellcomecollection.org/image/";
+        const ringerT = "https://iiif.wellcomecollection.org/thumbs/";
+        if(url.startsWith(ringerI) || url.startsWith(ringerT)){
             const idPart = url.split("/")[4];
-            url = ringer + idPart;
+            url = (url.startsWith(ringerI) ? ringerI : ringerT) + idPart;
             fetch(url).then(response => response.json()).then(info => {                        
-                $("#imgPreview").style.display = "block";
-                $("#imgService").style.display = "block";
-                setDimensions(info.width, info.height);
-                $("#imgPreview").src = url + "/full/!200,200/0/default.jpg";
+                $$(prefix + "ImgPreview").style.display = "block";
+                $$(prefix + "ImgService").style.display = "block";
+                setDimensions(prefix, info.width, info.height, false);
+                $$(prefix + "ImgPreview").src = url + "/full/!200,200/0/default.jpg";
             });
         } else if (url.indexOf("wellcomecollection.org/presentation") != -1){
-            $("#manifestPreview").style.display = "block";
+            $$(prefix + "ManifestPreview").style.display = "block";
         } else {
             // assume this is a static image                                          
-            $("#imgPreview").style.display = "block";                              
-            $("#staticImg").style.display = "block";
-            $("#imgPreview").src = url;
+            $$(prefix + "ImgPreview").style.display = "block";                              
+            $$(prefix + "StaticImg").style.display = "block";
+            $$(prefix + "ImgPreview").src = url;
+        }
+        if($$("mediaModalType")){
+            $$("mediaModalType").value = "Image";
+        }
+        if($$("mediaModalFormat")){
+            $$("mediaModalFormat").value = "application/jpeg";
         }
     }
 }
 
-function setDimensions(width, height){
+function setDimensions(prefix, width, height, enforceMinSize){
     // This is no longer in the spec for 3.0, but maybe we want to do it
     // can be a config flag
-    while(width < 1200 || height < 1200){
-        width = width * 2;
-        height = height * 2;
+    if(enforceMinSize){        
+        while(width < 1200 || height < 1200){
+            width = width * 2;
+            height = height * 2;
+        }
     }
-    $("#newCanvasWidth").value = width;
-    $("#newCanvasHeight").value = height;
-    $("#newCanvasDuration").value = "";
+    $$(prefix + "Width").value = width;
+    $$(prefix + "Height").value = height;
+    $$(prefix + "Duration").value = "";
 }

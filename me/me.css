@@ -88,17 +88,17 @@ ul.list-group, li.list-group-item {
 
 
 
-/* MODAL: New Canvas  */
+/* MODAL: New Canvas, Media  */
 .try {
     margin:10vw;
     font-size: smaller;
 }
 
-#mediaInfo {
+.media-info {
     display: none;
 }
 
-#imgPreview {
+.img-preview {
     float: left;
     margin-right: 1em;
     padding-bottom: 1em;
@@ -106,13 +106,13 @@ ul.list-group, li.list-group-item {
     max-height: 120px;
 }
 
-#imgService {
+.img-service {
     float: left;
     max-width: 20vw;
     font-size: smaller;
 }
 
-#manifestPreview {
+.manifest-preview {
     padding-top: 1em;
     font-size: smaller;
 }
@@ -139,4 +139,8 @@ h5 {
 
 .external-resource-mini, .add-another-resource {
     cursor: pointer;
+}
+
+#canvasPaintingTargetXywh {
+    display: none;
 }
