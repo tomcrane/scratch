@@ -144,3 +144,27 @@ h5 {
 #canvasPaintingTargetXywh {
     display: none;
 }
+
+#hoistedAnnoContainer {
+    display: none;
+}
+
+.annotation-mini {
+    font-size: smaller;
+    padding:0.5rem;
+}
+
+.annotation-mini p {
+    margin-bottom: 0;
+}
+
+.annotation-mini-info {
+    font-weight: bold;
+    color: gray;
+    font-style: italic;
+}
+
+.annotation-mini img {
+    max-width: 200px;
+    max-height: 200px;
+}

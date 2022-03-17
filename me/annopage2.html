@@ -28,7 +28,15 @@
     <!-- template these -->
 
     <div class="card annotation" id="textualBodyTemplate">
-        <div class="card-body">
+        <div class="card-body annotation-mini">
+            <p>{elidedText}</p>
+            <img src="{img-service}/{x},{y},{w},{h}/full/0/default.jpg" />
+            <p class="annotation-mini-info">TextualBody</p>
+        </div>
+        <div class="card-body annotation-full">
+            
+            <h4><span class="anno-back">🡨</span> {elidedText}</h4>
+
             <h5>ID</h5>
             <input type="text" class="form-control" value="{anno-id}">
 

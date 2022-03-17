@@ -665,8 +665,12 @@ function renderRhsComponent(rhsComponent){
     const componentRef = rhsComponent.getAttribute("data-component-ref");
     if(componentRef){
         $("#resourceEditorInner").innerHTML = $$("data-component-" + componentRef).innerHTML;
-        if(componentRef == "annotationpage"){
-            makeAnnoPagingUI();
+        if(componentRef == "annotationpage") {
+            if(type == "Canvas"){
+                makeAnnoPagingUI();
+            } else {
+                alert("See annotations property on a canvas for demo");
+            }
         }
     } else {
         $("#resourceEditorInner").innerHTML = rhsComponent.innerHTML;
@@ -717,7 +721,33 @@ function makeAnnoPagingUI() {
     showAnnoPage(0);
 }
 
-function setResourceEditorEventHandlers(){
+function setResourceEditorEventHandlers(){    
+    const annoContainer = $$("hoistedAnnoContainer");
+    for(el of $(".annotation-full")){
+        const fullAnno = el;
+        const miniAnno = el.previousElementSibling;
+        fullAnno.style.display = "none";
+        miniAnno.addEventListener("click", () => {
+            // Hide the contents of the current resourceEditor panel
+            $$("rhsHeader").style.display = "none";
+            $$("resourceTabs").style.display = "none";
+            $$("resourceEditorInner").style.display = "none";
+            $$("resourceEditorExtra").style.display = "none";
+            annoContainer.style.display = "block";
+            fullAnno.style.display = "block";
+            annoContainer.innerHTML = fullAnno.outerHTML;
+            const backArrow = annoContainer.getElementsByTagName("h4")[0].getElementsByClassName("anno-back")[0];
+            backArrow.addEventListener("click", () => {
+                annoContainer.innerHTML = "";
+                annoContainer.style.display = "none";
+                $$("rhsHeader").style.display = "";
+                $$("resourceTabs").style.display = "";
+                $$("resourceEditorInner").style.display = "";
+                $$("resourceEditorExtra").style.display = "";
+                fullAnno.style.display = "none";
+            });
+        });
+    }
     for(el of $(".external-resource-mini")){
         el.addEventListener("click", window.showResourceEditor);
     }
@@ -745,7 +775,6 @@ function showAnnoPage(idx){
                 .then(text => $$("annoPageContainer").innerHTML = text);
             annoPage.selected = true;
             $$("annoPageCurrent").value = annoPage.label;
-            //setResourceEditorEventHandlers(); // this doesn't wire up the handlers for the fetched HTML...
             setTimeout(() => setupAnnoPage(annoPage.index), 500);
         } else {
             annoPage.selected = false;
@@ -777,8 +806,10 @@ function setupAnnoPage(idx){
                         for(annoRef of loadedAnnoPage.items){
                             const anno = shell.vault.get(annoRef);
                             let htmlAnno = template.replace("{anno-id}", anno.id);
-                            htmlAnno = htmlAnno.replace("{text}", shell.vault.get(anno.body[0]).value);
-                            htmlAnno = htmlAnno.replace("{img-service}", imgServiceId);
+                            const text = shell.vault.get(anno.body[0]).value;
+                            htmlAnno = htmlAnno.replace("{text}", text);
+                            htmlAnno = htmlAnno.replaceAll("{elidedText}", truncate(text));
+                            htmlAnno = htmlAnno.replaceAll("{img-service}", imgServiceId);
                             // we are making a big assumption here!!!
                             const xywh = anno.target.split("=")[1].split(",");
                             htmlAnno = htmlAnno.replaceAll("{x}", xywh[0]);
@@ -791,7 +822,7 @@ function setupAnnoPage(idx){
                             cardAnno.innerHTML = htmlAnno;
                             $$("annoPageItems").append(cardAnno);
                         }
-                    });
+                    }).then(() => setResourceEditorEventHandlers());
                 }
 
             } else if (idx == 2){
@@ -805,6 +836,7 @@ function setupAnnoPage(idx){
             }
         }
     }
+    
 }
 
 function cycleAnnoPage(move){

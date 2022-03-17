@@ -11,23 +11,18 @@
     </div>
 </div>
 
-<h5>Behavior</h5>
-<input type="text" class="form-control">
-
-<h5>Language</h5>
-<select class="form-select" aria-label="language of the resource">
-    <option selected>(n/a)</option>
-    <option value="1">en</option>
-    <option value="2">de</option>
-    <option value="3">fr</option>
-    <option value="4">es</option>
-    <option value="5">(enter manually)</option>
-</select>
-
 <h5>Items</h5>
 <div class="anno-page-items">
+    
     <div class="card annotation">
-        <div class="card-body">
+        <div class="card-body annotation-mini">
+            <p>Example annotation label</p>
+            <!-- if an annotation targets the whole canvas I suggest it does not have a thumbnail -->
+            <p class="annotation-mini-info">V&A custom capture model</p>
+        </div>
+        <div class="card-body annotation-full">            
+            <h4><span class="anno-back">🡨</span> Example annotation label</h4>
+
             <h5>ID</h5>
             <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno">
 
@@ -78,7 +73,14 @@
     </div>
 
     <div class="card annotation">
-        <div class="card-body">
+        <div class="card-body annotation-mini">
+            <p>This is a standard textual body. It can be edited...</p><!-- truncated-->
+            <img src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg" />
+            <p class="annotation-mini-info">TextualBody</p>
+        </div>
+        <div class="card-body annotation-full">
+            <h4><span class="anno-back">🡨</span> This is a standard textual body. It can be edited...</h4>
+            
             <h5>ID</h5>
             <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-2">
 
@@ -148,7 +150,14 @@ Can we keep the UI clean by hiding until asked for?
     </div>
 
     <div class="card annotation">
-        <div class="card-body">
+        <div class="card-body annotation-mini">
+            <p>http://example.org/analysis1.mp3</p><!-- truncated-->
+            <img src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg" />
+            <p class="annotation-mini-info">External resource</p>
+        </div>
+        <div class="card-body annotation-full">
+            <h4><span class="anno-back">🡨</span> http://example.org/analysis1.mp3</h4>
+
             <h5>ID</h5>
             <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-3">
 
@@ -204,8 +213,13 @@ Can we keep the UI clean by hiding until asked for?
     </div>
 
     <div class="card annotation">
-        <div class="card-body">
-            <h5 class="card-title">Example Annotation</h5>
+        <div class="card-body annotation-mini">
+            <p>Example Annotation</p><!-- truncated-->
+            <p class="annotation-mini-info">Another custom widget</p>
+        </div>
+        <div class="card-body annotation-full">
+            <h4><span class="anno-back">🡨</span> Example Annotation</h4>
+
             <h6 class="card-subtitle mb-2 text-muted">An example extra field</h6>
             <p class="card-text">We will have capture models to match common annotation types. An annotation could be
                 anything.</p>
@@ -214,4 +228,19 @@ Can we keep the UI clean by hiding until asked for?
             <a href="#" class="card-link">Another link</a>
         </div>
     </div>
+
+    
 </div>
+
+<h5>Behavior</h5>
+<input type="text" class="form-control">
+
+<h5>Language</h5>
+<select class="form-select" aria-label="language of the resource">
+    <option selected>(n/a)</option>
+    <option value="1">en</option>
+    <option value="2">de</option>
+    <option value="3">fr</option>
+    <option value="4">es</option>
+    <option value="5">(enter manually)</option>
+</select>
