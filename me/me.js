@@ -746,6 +746,9 @@ function setResourceEditorEventHandlers(){
                 $$("resourceEditorExtra").style.display = "";
                 fullAnno.style.display = "none";
             });
+            for(el of $(".external-resource-mini")){
+                el.addEventListener("click", window.showResourceEditor);
+            }
         });
     }
     for(el of $(".external-resource-mini")){
