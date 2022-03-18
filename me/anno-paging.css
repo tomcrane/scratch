@@ -1,0 +1,31 @@
+body {
+    padding: 2rem;
+}
+
+h1 {
+    margin-top: 3rem;
+    color: cadetblue;
+    font-size: 140%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.resource-editor {
+    margin: 2rem;
+}
+
+.annotation-page {
+    padding: 1rem;
+}
+
+.very-small {
+    font-size: 60%;
+    color: gray;
+}
+
+#case1RefUrl, #case1Embedded, #case1Add, #case1AfterAnno{
+    display: none;
+}
+
+#case1Add {
+    padding-bottom: 0;
+}
