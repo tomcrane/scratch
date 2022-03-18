@@ -7,6 +7,9 @@ Review the storybooks
 
 IIIF Collections for starting manifests
 
+Make test scripts based on narratives
+Scripts for user testing
+
 
 synch properties back to tree (make html props, or cut out images)
 
@@ -15,7 +18,6 @@ hoist tabs into a fake menu bar - config for what gets hoisted
 go through Diego's sheet again
 
 
-Make test scripts based on narratives
 
 
 Annos
