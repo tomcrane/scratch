@@ -18,42 +18,535 @@
             href="https://github.com/digirati-co-uk/iiif-manifest-editor/issues/100#issuecomment-1072299870">GitHub
             issue</a> for different states</p>
 
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" checked id="toggleComments">
+        <label class="form-check-label" for="toggleComments">
+            Toggle comments
+        </label>
+    </div>
+    <p class="very-small">Comments that are not meant to be part of the UI are in this font.</p>
+
     <h1>Case 1. An empty annotations property</h1>
 
-    <div class="resource-editor p-1 col-4">
-        <div id="hoistedAnnoContainer" class="card annotation"></div>
-        <h4 id="rhsHeader">Canvas properties</h4>
-        <ul id="resourceTabs" class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link"><small>Descriptive</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Metadata</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Media</small></a></li>
-            <li class="nav-item"><a class="nav-link active"><small>Annotations</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Linking</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Technical</small></a></li>
-        </ul>
-        <div id="resourceEditorInner">
-
-            <div id="annoPageContainer" class="annotation-page">
-
+    <div class="resource-editor p-1 col-4" id="case1ResourceEditor">
+        <h4>Canvas properties</h4>
+        <ul class="nav nav-tabs"></ul>
+        <div class="resource-editor-inner">
+            <div class="annotation-page">
 
                 <form id="case1Form">
-                <p id="case1Intro"><em>This canvas has no annotations yet.
-                        You can either link to an existing external Annotation Page,
-                        or create a new Annotation Page to hold your annotations within this Manifest.</em></p>
+                    <p id="case1Intro"><em>This canvas has no annotations yet.
+                            You can either link to an existing external Annotation Page,
+                            or create a new Annotation Page to hold your annotations within this Manifest.</em></p>
+
+                    <p style="text-align: right;">
+                        <a href="#" class="new-anno-page-launcher" data-resource-editor="case1ResourceEditor">Create an
+                            annotation page...</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <hr />
+
+    <h1>2. A single referenced Annotation Page</h1>
+
+    <div class="resource-editor p-1 col-4" id="case2ResourceEditor">
+        <h4>Canvas properties</h4>
+        <ul class="nav nav-tabs"></ul>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+
+                <form id="case2Form">
+
+
+                    <p class="very-small">This is a standard external resource, its label and many other props can be
+                        edited by launching the #72 editor.</p>
+
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title" id="case2ExtLabel">Text of page 27</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id" id="case2ExternalAnnoPageLink"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                            <!-- annotation page would retain the same ID, so we know where it came from -->
+                        </div>
+                    </div>
+
+                    <p style="text-align: right;">
+                        <br>
+                        <a href="#" class="new-anno-page-launcher" data-resource-editor="case2ResourceEditor">Add another Annotation Page...</a>
+                    </p>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <hr />
+
+    <h1>3. More than one referenced Annotation Page</h1>
+
+    <div class="resource-editor p-1 col-4" id="case3ResourceEditor">
+        <h4>Canvas properties</h4>
+        <ul class="nav nav-tabs"></ul>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+
+                <form id="case3Form">
+
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title">Text of page 27 - English Transcription</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title">Text of page 27 - French Translation</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line-french</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title" id="case2ExtLabel">Text of page 27 - Commentary</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/commentary</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+
+                    <p style="text-align: right;">
+                        <br>
+                        <a href="#" class="new-anno-page-launcher" data-resource-editor="case3ResourceEditor">Add another Annotation Page...</a>
+                    </p>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <hr />
+
+    <h1>4. A single embedded Annotation Page</h1>
+
+
+    <div class="resource-editor p-1 col-4" id="case4ResourceEditor">
+        <h4>Canvas properties</h4>
+        <ul class="nav nav-tabs"></ul>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary add-new-annotation" 
+                    data-anno-container="case4AnnoContainer"                    
+                    data-anno-items-header="case4ItemCount">Add new Annotation</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item add-new-annotation" href="#" 
+                            data-anno-container="case4AnnoContainer"
+                            data-anno-items-header="case4ItemCount">Add new Annotation</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item new-anno-page-launcher" href="#" data-resource-editor="case4ResourceEditor">Add new Annotation Page</a></li>
+                    </ul>
+                </div>
+
+                <form id="case4Form">
+
+                    <div class="accordion" id="case4AnnoPageAccordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case4Accordion-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseOne" aria-expanded="true" aria-controls="case4Accordion-collapseOne">
+                                <div style="font-size:120%">Annotation Page Descriptive Properties</div>   
+                            </button>
+                          </h2>
+                          <div id="case4Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case4Accordion-headingOne">
+                            <div class="accordion-body">
+                                <h5>Annotation Page Label</h5>
+                                <small class="form-muted"></small>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Label for your page of annotations" value="">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                                    </div>
+                                </div>  
+
+                                <h5>Behavior</h5>
+                                <input type="text" class="form-control">
+                
+                                <h5>Language</h5>
+                                <select class="form-select" aria-label="language of the resource">
+                                    <option selected="">(n/a)</option>
+                                    <option value="1">en</option>
+                                    <option value="2">de</option>
+                                    <option value="3">fr</option>
+                                    <option value="4">es</option>
+                                    <option value="5">(enter manually)</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case4Accordion-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseTwo" aria-expanded="false" aria-controls="case4Accordion-collapseTwo">
+                              <div class="anno-counter" id="case4ItemCount" style="font-size:120%">Items (0)</div>
+                            </button>
+                          </h2>
+                          <div id="case4Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case4Accordion-headingTwo">
+                            <div class="accordion-body">                            
+                                <div id="case4AnnoContainer" data-anno-count="0">
+                                    <p><em>No annotations yet!</em></p>
+                                    <p><em>Add new annotations using the button above</em></p>
+                                </div>
+                                <p style="text-align: right;">
+                                  <br>
+                                  <a href="#" class="add-new-annotation" 
+                                  data-anno-container="case4AnnoContainer"
+                                  data-anno-items-header="case4ItemCount">Add another Annotation...</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <p style="text-align: right;">
+                        <br>
+                        <a href="#" class="new-anno-page-launcher" data-resource-editor="case4ResourceEditor">Add another Annotation Page...</a>
+                    </p>
+
+
+
+
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+    <hr />
+
+    <h1>5 and 6. More than one Annotation Page (embedded or referenced)</h1>
+
+
+    <div class="resource-editor p-1 col-4" id="case5ResourceEditor">
+        <h4>Canvas properties</h4>
+        <ul class="nav nav-tabs"></ul>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary add-new-annotation" 
+                    data-anno-container="case5AnnoContainer"                    
+                    data-anno-items-header="case5ItemCount">Add new Annotation</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item add-new-annotation" href="#" 
+                            data-anno-container="case5AnnoContainer"
+                            data-anno-items-header="case5ItemCount">Add new Annotation</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item new-anno-page-launcher" href="#" data-resource-editor="case5ResourceEditor">Add new Annotation Page</a></li>
+                    </ul>
+                </div>                
+                <div class="btn-group ps-4">
+                    <button type="button" class="btn btn-outline-secondary" id="annoPagePrevPage">&lt;</button>
+                    <input type="text" class="form-control" placeholder="Input group example" value="My Embedded Page 1"
+                        id="annoPageCurrent">
+                    <button type="button" class="btn btn-outline-secondary" id="annoPageNextPage">&gt;</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" id="annopageSwitch">
+                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_1">My Embedded Page 1</a></li>
+                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_2">Text of page 27 - English Transcription</a></li>
+                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_3">My own commentary</a></li>
+                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_4">Text of page 27 - French Translation</a></li>
+                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_5">Text of page 27 - Commentary</a></li>
+                    </ul>
+                </div>
+
+
+                <form id="case5Form_1">
+
+                    <div class="accordion" id="case5AnnoPageAccordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case5Accordion-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseOne" aria-expanded="true" aria-controls="case5Accordion-collapseOne">
+                                <div style="font-size:120%">Annotation Page Descriptive Properties</div>   
+                            </button>
+                          </h2>
+                          <div id="case5Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case5Accordion-headingOne">
+                            <div class="accordion-body">
+                                <h5>Annotation Page Label</h5>
+                                <small class="form-muted"></small>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Label for your page of annotations" value="My Embedded Page 1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                                    </div>
+                                </div>  
+
+                                <h5>Behavior</h5>
+                                <input type="text" class="form-control">
+                
+                                <h5>Language</h5>
+                                <select class="form-select" aria-label="language of the resource">
+                                    <option selected="">(n/a)</option>
+                                    <option value="1">en</option>
+                                    <option value="2">de</option>
+                                    <option value="3">fr</option>
+                                    <option value="4">es</option>
+                                    <option value="5">(enter manually)</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case5Accordion-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseTwo" aria-expanded="false" aria-controls="case5Accordion-collapseTwo">
+                              <div class="anno-counter" id="case5ItemCount" style="font-size:120%">Items (0)</div>
+                            </button>
+                          </h2>
+                          <div id="case5Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case5Accordion-headingTwo">
+                            <div class="accordion-body">                            
+                                <div id="case5AnnoContainer" data-anno-count="0">
+                                    <p><em>No annotations yet!</em></p>
+                                    <p><em>Add new annotations using the button above</em></p>
+                                </div>
+                                <p style="text-align: right;">
+                                  <br>
+                                  <a href="#" class="add-new-annotation" 
+                                  data-anno-container="case5AnnoContainer"
+                                  data-anno-items-header="case5ItemCount">Add another Annotation...</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                </form>
+                
+                <form id="case5Form_2" style="display: none;">
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title">Text of page 27 - English Transcription</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="case5Form_3" style="display: none;">
+
+                    <div class="accordion" id="case5_3AnnoPageAccordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case5_3Accordion-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case5_3Accordion-collapseOne" aria-expanded="true" aria-controls="case5_3Accordion-collapseOne">
+                                <div style="font-size:120%">Annotation Page Descriptive Properties</div>   
+                            </button>
+                          </h2>
+                          <div id="case5_3Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case5_3Accordion-headingOne">
+                            <div class="accordion-body">
+                                <h5>Annotation Page Label</h5>
+                                <small class="form-muted"></small>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Label for your page of annotations" value="My own commentary">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                                    </div>
+                                </div>  
+
+                                <h5>Behavior</h5>
+                                <input type="text" class="form-control">
+                
+                                <h5>Language</h5>
+                                <select class="form-select" aria-label="language of the resource">
+                                    <option selected="">(n/a)</option>
+                                    <option value="1">en</option>
+                                    <option value="2">de</option>
+                                    <option value="3">fr</option>
+                                    <option value="4">es</option>
+                                    <option value="5">(enter manually)</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="case5_3Accordion-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case5_3Accordion-collapseTwo" aria-expanded="false" aria-controls="case5_3Accordion-collapseTwo">
+                              <div class="anno-counter" id="case5_3ItemCount" style="font-size:120%">Items (0)</div>
+                            </button>
+                          </h2>
+                          <div id="case5_3Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case5_3Accordion-headingTwo">
+                            <div class="accordion-body">                            
+                                <div id="case5_3AnnoContainer" data-anno-count="0">
+                                    <p><em>No annotations yet!</em></p>
+                                    <p><em>Add new annotations using the button above</em></p>
+                                </div>
+                                <p style="text-align: right;">
+                                  <br>
+                                  <a href="#" class="add-new-annotation" 
+                                  data-anno-container="case5_3AnnoContainer"
+                                  data-anno-items-header="case5_3ItemCount">Add another Annotation...</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                </form>
 
                 
-                <div id="case1Radios">
+                <form id="case5Form_4" style="display: none;">
+                    <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title">Text of page 27 - French Translation</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line-french</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+                </form>
+
+                
+                <form id="case5Form_5" style="display: none;">                    
+                        <div class="card external-resource-mini">
+                        <div class="card-body">
+                            <h5 class="card-title" id="case2ExtLabel">Text of page 27 - Commentary</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">AnnotationPage</h6>
+                            <small><a class="resource-id"
+                                    href="https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/line">https://iiif.wellcomecollection.org/annotations/v3/b28799495/b28799495_0014.jp2/commentary</a></small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group">
+                                <button class="btn btn-secondary convert-to-internal">Convert to embedded Annotation Page</button>
+                            </div>
+                            <small><i>Make this page of external annotations part of this manifest, for editing.</i></small>
+                        </div>
+                    </div>
+                </form>
+
+                <p style="text-align: right;">
+                    <br>
+                    <a href="#" class="new-anno-page-launcher" data-resource-editor="case5ResourceEditor">Add another Annotation Page...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <template id="tabsTemplate">
+        <li class="nav-item"><a class="nav-link"><small>Descriptive</small></a></li>
+        <li class="nav-item"><a class="nav-link"><small>Metadata</small></a></li>
+        <li class="nav-item"><a class="nav-link"><small>Media</small></a></li>
+        <li class="nav-item"><a class="nav-link active"><small>Annotations</small></a></li>
+        <li class="nav-item"><a class="nav-link"><small>Linking</small></a></li>
+        <li class="nav-item"><a class="nav-link"><small>Technical</small></a></li>
+    </template>
+
+    <template id="exampleAnno">
+        <div class="card annotation">
+            <div class="card-body annotation-mini">
+                <p>Sampling of Milk and Foods.</p>
+                <img
+                    src="https://iiif.wellcomecollection.org/image/b28799495_0008.jp2/726,1652,1049,63/full/0/default.jpg">
+                <p class="annotation-mini-info">TextualBody</p>
+            </div>
+        </div>
+    </template>
+
+    <div id="newAnnotationPageTemplate" style="visibility: hidden">
+
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+                <h5>Create new Annotation Page</h5>
+                <div id="newAnnoPageRadios">
                     <div class="form-check">
-                        <input class="case-1-check form-check-input" type="radio" name="radPage" id="radEmbedded" value="embedded">
+                        <input class="new-anno-page-check form-check-input" type="radio" name="radPage" id="radEmbedded"
+                            value="embedded" checked>
                         <label class="form-check-label" for="radEmbedded">
                             Store annotations in the Manifest<br>
                             <em>can be edited in the Manifest Editor</em>
-                            <p class="very-small">Just choosing this doesn't actually do anything - only once an annotation is added, or the label filled in (with this option selected) does it become Case 4.</p>
-                    
+                            <p class="very-small">Just choosing this doesn't actually do anything - only once an
+                                annotation is added, or the label filled in (with this option selected) does it
+                                become Case 4.</p>
+
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="case-1-check form-check-input" type="radio" name="radPage" id="radRef" value="referenced">
+                        <input class="new-anno-page-check form-check-input" type="radio" name="radPage" id="radRef"
+                            value="referenced">
                         <label class="form-check-label" for="radRef">
                             Link to an external Annotation Page<br>
                             <em>for annotations created elsewhere</em>
@@ -71,399 +564,19 @@
                 </div>
                 <p class="very-small">We could have other props here but want to capture label primarily</p>
 
-                <div id="case1RefUrl">
+                <div id="newAnnoPageRefUrl">
                     <h5>Annotation Page URL</h5>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Existing annotation page URL" value="">
                     </div>
-                    <p class="very-small">This will be analysed to check that it is an AnnoPage! If so, it will become Case 2</p>
-                    <button class="btn btn-primary" id="case1CreateExternalLink">Create link</button>
+                    <p class="very-small">This will be analysed to check that it is an AnnoPage! If so, it will
+                        become Case 2</p>
                 </div>
 
-                <div id="case1Embedded">
-                    <hr/>
-                    <h5>Items</h5>
-                    <div id="case1Add" class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group">
-                            <button type="button" id="case1AddNewAnno" class="btn btn-outline-secondary">Add new Annotation</button>
-                        </div>
-                        <p class="very-small">We don't need to introduce paging yet, there is only one page at this point</p>
-                    </div>
-                    <div id="case1BeforeAnno">
-                        <p><em>No annotations yet!</em></p>
-                        <p><em>Add new annotations using the button above</em></p>
-                    </div>
-                    <div id="case1AfterAnno">
-                        <div class="card annotation">
-                            <div class="card-body annotation-mini">
-                                <p>Sampling of Milk and Foods.</p>
-                                <img src="https://iiif.wellcomecollection.org/image/b28799495_0008.jp2/726,1652,1049,63/full/0/default.jpg">
-                                <p class="annotation-mini-info">TextualBody</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </form> 
-
-
+                <button class="btn btn-primary" id="newAnnoPageCreate">Create embedded annotation page</button>
             </div>
         </div>
-
     </div>
-    <div id="resourceEditorExtra"></div>
-    </div>
-
-
-    <hr/>
-
-    <h1>2. Next thing</h1>
-
-
-
-
-
-
-
-
-
-    <!-- scrap -->
-    <div class="btn-group" style="display: none">
-        <button type="button" class="btn btn-outline-secondary">Add new Annotation</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Add new Annotation</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Add new Editable Annotation Page</a></li>
-            <li><a class="dropdown-item" href="#">Add Link to external Annotation Page</a></li>
-        </ul>
-    </div>
-
-
-    <div class="resource-editor p-1 col-4">
-        <div id="hoistedAnnoContainer" class="card annotation"></div>
-        <h4 id="rhsHeader">Canvas properties</h4>
-        <ul id="resourceTabs" class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link"><small>Descriptive</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Metadata</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Media</small></a></li>
-            <li class="nav-item"><a class="nav-link active"><small>Annotations</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Linking</small></a></li>
-            <li class="nav-item"><a class="nav-link"><small>Technical</small></a></li>
-        </ul>
-        <div id="resourceEditorInner">
-            <div class="btn-toolbar mb-3 p-2" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-secondary"> + </button>
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Annotation</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Internal Annotation Page</a></li>
-                        <li><a class="dropdown-item" href="#">External Annotation Page</a></li>
-                    </ul>
-                </div>
-                <div class="btn-group ps-4">
-                    <button type="button" class="btn btn-outline-secondary" id="annoPagePrevPage">&lt;</button>
-                    <input type="text" class="form-control" placeholder="Input group example" value=""
-                        id="annoPageCurrent">
-                    <button type="button" class="btn btn-outline-secondary" id="annoPageNextPage">&gt;</button>
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu" id="annopageSwitch">
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage1.html">Internal
-                                demo of different bodies</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage2.html">Internal
-                                demo of Textual bodies</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage3.html">External
-                                Annotation Page</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div id="annoPageContainer" class="annotation-page">
-                <h5><i>[<b>Internal</b> Annotation Page]</i></h5>
-
-                <!-- these are properties of the annotation page itself -->
-                <!-- TODO - if external, it may have a label on the ref in the Manifest, and a label on the external resource, and they might be different -->
-                <!-- BUT in the ME, we are only editing labels (and other properties like behavior) on the Ref itself; whatever props the external resource has is irrelevant here. -->
-                <h5>Label</h5>
-                <div class="input-group">
-                    <input type="text" class="form-control" value="Internal demo of different bodies">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">en + 3</button>
-                    </div>
-                </div>
-
-                <h5>Items</h5>
-                <div class="anno-page-items">
-
-                    <div class="card annotation">
-                        <div class="card-body annotation-mini">
-                            <p>Example annotation label</p>
-                            <!-- if an annotation targets the whole canvas I suggest it does not have a thumbnail -->
-                            <p class="annotation-mini-info">V&amp;A custom capture model</p>
-                        </div>
-                        <div class="card-body annotation-full" style="display: none;">
-                            <h4><span class="anno-back">🡨</span> Example annotation label</h4>
-
-                            <h5>ID</h5>
-                            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno">
-
-                            <h5>Label</h5>
-                            <div class="input-group">
-                                <input type="text" class="form-control" value="Example annotation label">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button">en + 3</button>
-                                </div>
-                            </div>
-
-                            <h5>Motivation</h5>
-                            <select class="form-select">
-                                <option>supplementimg</option>
-                                <option>bookmarking</option>
-                                <option>classifying</option>
-                                <option selected="">commenting</option>
-                                <option>describing</option>
-                                <option>assessing</option>
-                                <option>editing</option>
-                                <option>highlighting</option>
-                                <option>identifying</option>
-                                <option>linking</option>
-                                <option>moderating</option>
-                                <option>questioning</option>
-                                <option>replying</option>
-                                <option>tagging</option>
-                            </select>
-
-                            <h5>Body</h5>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 text-muted">Maybe this annotation is a <b>custom
-                                            capture model</b>.</h6>
-                                    <p class="card-text">We will have capture models to match common annotation types.
-                                        An annotation
-                                        could be anything.</p>
-                                    <p class="card-text">This annotation targets the whole canvas.</p>
-                                    <a href="#" class="card-link">Maybe this annotation's capture model requires a modal
-                                        dialog to
-                                        edit, and this link launches it.</a>
-                                </div>
-                            </div>
-
-                            <h5>Target</h5>
-                            <!-- this is a standard reusable widget -->
-                            <img
-                                src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg">
-                            (Whole Canvas)
-                            <a href="#">Change</a>
-                        </div>
-                    </div>
-
-                    <div class="card annotation">
-                        <div class="card-body annotation-mini">
-                            <p>This is a standard textual body. It can be edited...</p><!-- truncated-->
-                            <img
-                                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg">
-                            <p class="annotation-mini-info">TextualBody</p>
-                        </div>
-                        <div class="card-body annotation-full" style="display: none;">
-                            <h4><span class="anno-back">🡨</span> This is a standard textual body. It can be edited...
-                            </h4>
-
-                            <h5>ID</h5>
-                            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-2">
-
-                            <h5>Motivation</h5>
-                            <select class="form-select">
-                                <option selected="">supplementimg</option>
-                                <option>bookmarking</option>
-                                <option>classifying</option>
-                                <option>commenting</option>
-                                <option>describing</option>
-                                <option>assessing</option>
-                                <option>editing</option>
-                                <option>highlighting</option>
-                                <option>identifying</option>
-                                <option>linking</option>
-                                <option>moderating</option>
-                                <option>questioning</option>
-                                <option>replying</option>
-                                <option>tagging</option>
-                            </select>
-
-                            <h5>Body</h5>
-                            <div class="card">
-                                <div class="card-body textualbody">
-                                    <div class="card-header">TextualBody</div>
-                                    <!-- See note in Anno spec at https://www.w3.org/TR/annotation-model/#string-body -->
-                                    <!-- NOTE: Systems may rewrite Annotations to instead use the TextualBody construction, rather than maintaining the bodyValue form. The TextualBody construction is preferred, as language and format information are important for clients processing the Annotation.-->
-                                    <!-- We should normalise string body form (if Vault doesn't already)-->
-                                    <h5>Value</h5>
-                                    <textarea class="form-control">This is a standard textual body. It can be edited inline.
-This anno might want a label property, and this Body might want a language property.
-Can we keep the UI clean by hiding until asked for?
-                </textarea>
-                                    <h5>Language</h5>
-                                    <!-- optional -->
-                                    <select class="form-select" aria-label="language of the resource">
-                                        <option selected="">(n/a)</option>
-                                        <option value="1">en</option>
-                                        <option value="2">de</option>
-                                        <option value="3">fr</option>
-                                        <option value="4">es</option>
-                                        <option value="5">(enter manually)</option>
-                                    </select>
-                                    <h5>Format</h5>
-                                    <!-- This is optional, and could be set automatically -->
-                                    <input class="form-control" value="text/plain">
-                                </div>
-                            </div>
-
-                            <h5>Target</h5>
-                            <!-- this is a standard reusable widget -->
-                            <img
-                                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">x</span>
-                                <input type="text" class="form-control" value="207">
-                                <span class="input-group-text">y</span>
-                                <input type="text" class="form-control" value="241">
-                                <span class="input-group-text">w</span>
-                                <input type="text" class="form-control" value="1962">
-                                <span class="input-group-text">h</span>
-                                <input type="text" class="form-control" value="116">
-                            </div>
-                            (or move/resize box)
-                        </div>
-                    </div>
-
-                    <div class="card annotation">
-                        <div class="card-body annotation-mini">
-                            <p>http://example.org/analysis1.mp3</p><!-- truncated-->
-                            <img
-                                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg">
-                            <p class="annotation-mini-info">External resource</p>
-                        </div>
-                        <div class="card-body annotation-full" style="display: none;">
-                            <h4><span class="anno-back">🡨</span> http://example.org/analysis1.mp3</h4>
-
-                            <h5>ID</h5>
-                            <input type="text" class="form-control" value="https://example.org/annotations/1/my-anno-3">
-
-                            <h5>Motivation</h5>
-                            <select class="form-select">
-                                <option>supplementimg</option>
-                                <option>bookmarking</option>
-                                <option>classifying</option>
-                                <option selected="">commenting</option>
-                                <option>describing</option>
-                                <option>assessing</option>
-                                <option>editing</option>
-                                <option>highlighting</option>
-                                <option>identifying</option>
-                                <option>linking</option>
-                                <option>moderating</option>
-                                <option>questioning</option>
-                                <option>replying</option>
-                                <option>tagging</option>
-                            </select>
-
-                            <h5>Body</h5>
-                            <div class="card">
-                                <div class="card-body externalresourcebody">
-                                    <div class="card-header">External Resource</div>
-                                    <div class="card external-resource-mini">
-                                        <div class="card-body">
-                                            <h5 class="card-title">http://example.org/analysis1.mp3</h5>
-                                            <!-- no label -->
-                                            <h6 class="card-subtitle mb-2 text-muted">language: fr</h6>
-                                            <!-- language -->
-                                            <h6 class="card-subtitle mb-2 text-muted">audio/mpeg</h6>
-                                            <!-- type and format -->
-                                            <a class="resource-id"
-                                                href="http://example.org/analysis1.mp3">http://example.org/analysis1.mp3</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h5>Target</h5>
-                            <!-- this is a standard reusable widget -->
-                            <img
-                                src="https://iiif.wellcomecollection.org/image/b28799495_0005.jp2/207,241,1962,116/200,/0/default.jpg">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">x</span>
-                                <input type="text" class="form-control" value="207">
-                                <span class="input-group-text">y</span>
-                                <input type="text" class="form-control" value="241">
-                                <span class="input-group-text">w</span>
-                                <input type="text" class="form-control" value="1962">
-                                <span class="input-group-text">h</span>
-                                <input type="text" class="form-control" value="116">
-                            </div>
-                            (or move/resize box)
-                        </div>
-                    </div>
-
-                    <div class="card annotation">
-                        <div class="card-body annotation-mini">
-                            <p>Example Annotation</p><!-- truncated-->
-                            <p class="annotation-mini-info">Another custom widget</p>
-                        </div>
-                        <div class="card-body annotation-full" style="display: none;">
-                            <h4><span class="anno-back">🡨</span> Example Annotation</h4>
-
-                            <h6 class="card-subtitle mb-2 text-muted">An example extra field</h6>
-                            <p class="card-text">We will have capture models to match common annotation types. An
-                                annotation could be
-                                anything.</p>
-                            <p class="card-text">This annotation targets the whole canvas.</p>
-                            <a href="#" class="card-link">Some annotation link.</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <h5>Behavior</h5>
-                <input type="text" class="form-control">
-
-                <h5>Language</h5>
-                <select class="form-select" aria-label="language of the resource">
-                    <option selected="">(n/a)</option>
-                    <option value="1">en</option>
-                    <option value="2">de</option>
-                    <option value="3">fr</option>
-                    <option value="4">es</option>
-                    <option value="5">(enter manually)</option>
-                </select>
-            </div>
-
-
-        </div>
-        <div id="resourceEditorExtra"></div>
-    </div>
-
-
-
-
-
-
-
 
 
 
@@ -475,6 +588,8 @@ Can we keep the UI clean by hiding until asked for?
     <script src="anno-paging.js"></script>
 
 
+    <div id="reHolder" style="visibility: hidden;">
+    </div>
 </body>
 
 </html>

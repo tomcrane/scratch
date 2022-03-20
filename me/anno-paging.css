@@ -22,10 +22,39 @@ h1 {
     color: gray;
 }
 
-#case1RefUrl, #case1Embedded, #case1Add, #case1AfterAnno{
+#newAnnoPageRefUrl, #case1Embedded, #case1Add, #case1AfterAnno{
     display: none;
 }
 
 #case1Add {
     padding-bottom: 0;
+}
+
+.external-resource-mini {
+    margin: 0.6rem 0 1.2rem 0;
+}
+
+.external-resource-mini h6 {
+    margin-bottom: 0!important;
+}
+
+
+.external-resource-mini h5 {
+    margin-top: 0!important;
+}
+
+.external-resource-mini .resource-id {
+    font-size: 75%;
+}
+
+#newAnnoPageRadios, #newAnnoPageCreate {
+    margin-top: 1.3rem;
+}
+
+.convert-to-internal {
+    margin-top:0.6rem;
+}
+
+.annotation {
+    margin-bottom: 0.8rem;
 }

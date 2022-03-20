@@ -1,0 +1,80 @@
+
+
+
+                    <div id="case1Embedded">
+                        <hr />
+                        <h5>Items</h5>
+                        <div id="case1Add" class="btn-toolbar mb-3" role="toolbar"
+                            aria-label="Toolbar with button groups">
+                            <div class="btn-group">
+                                <button type="button" id="case1AddNewAnno" class="btn btn-outline-secondary">Add new
+                                    Annotation</button>
+                            </div>
+                            <p class="very-small">We don't need to introduce paging yet, there is only one page at this
+                                point</p>
+                        </div>
+                        <div id="case1BeforeAnno">
+                            <p><em>No annotations yet!</em></p>
+                            <p><em>Add new annotations using the button above</em></p>
+                        </div>
+                        <div id="case1AfterAnno">
+                            <div class="card annotation">
+                                <div class="card-body annotation-mini">
+                                    <p>Sampling of Milk and Foods.</p>
+                                    <img
+                                        src="https://iiif.wellcomecollection.org/image/b28799495_0008.jp2/726,1652,1049,63/full/0/default.jpg">
+                                    <p class="annotation-mini-info">TextualBody</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    
+                    <div id="case1Radios">
+                        <div class="form-check">
+                            <input class="case-1-check form-check-input" type="radio" name="radPage" id="radEmbedded"
+                                value="embedded">
+                            <label class="form-check-label" for="radEmbedded">
+                                Store annotations in the Manifest<br>
+                                <em>can be edited in the Manifest Editor</em>
+                                <p class="very-small">Just choosing this doesn't actually do anything - only once an
+                                    annotation is added, or the label filled in (with this option selected) does it
+                                    become Case 4.</p>
+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="case-1-check form-check-input" type="radio" name="radPage" id="radRef"
+                                value="referenced">
+                            <label class="form-check-label" for="radRef">
+                                Link to an external Annotation Page<br>
+                                <em>for annotations created elsewhere</em>
+                            </label>
+                        </div>
+                    </div>
+
+                    <h5>Annotation Page Label</h5>
+                    <small class="form-muted"></small>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Label for your page of annotations"
+                            value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">en + 3</button>
+                        </div>
+                    </div>
+                    <p class="very-small">We could have other props here but want to capture label primarily</p>
+
+                    <div id="case1RefUrl">
+                        <h5>Annotation Page URL</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Existing annotation page URL" value="">
+                        </div>
+                        <p class="very-small">This will be analysed to check that it is an AnnoPage! If so, it will
+                            become Case 2</p>
+                        <button class="btn btn-primary" id="case1CreateExternalLink">Create link</button>
+                    </div>
