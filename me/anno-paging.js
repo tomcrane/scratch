@@ -41,9 +41,65 @@ document.addEventListener("DOMContentLoaded", function(event) {
             itemHeader.innerText = "Items (" + newAnnoCount + ")";
         });
     }
-
-    
+    for(aps of $(".anno-page-switcher")){
+        aps.addEventListener("click", function(e){
+            e.preventDefault();
+            for(form of $(".anno-page-form")){
+                if(form.id == this.getAttribute("data-source")){
+                    form.style.display = "block";
+                } else {
+                    form.style.display = "none";
+                }
+                $("#annoPageCurrent").value = this.innerText;
+                for(aps of $(".anno-page-switcher")){
+                    aps.setAttribute("data-selected", "");
+                }
+                this.setAttribute("data-selected", "selected");                
+            }
+        });
+    }    
+    $("#annoPagePrevPage").addEventListener("click", () => {
+        setSelectedPageIndex(getSelectedPageIndex() - 1);        
+    });
+    $("#annoPageNextPage").addEventListener("click", () => {
+        setSelectedPageIndex(getSelectedPageIndex() + 1);       
+    });
 });
+
+
+function getSelectedPageIndex(){
+    let index = 0;
+    for(aps of $(".anno-page-switcher")){
+        if(aps.getAttribute("data-selected") == "selected"){
+            return index;
+        }     
+        index++;
+    }
+}
+
+function setSelectedPageIndex(index){
+    if(index > 4) index = 4;
+    if(index < 0) index = 0;
+    let i = 0;
+    let dataSource = null;
+    for(aps of $(".anno-page-switcher")){
+        if(i == index){
+            aps.setAttribute("data-selected", "selected");            
+            $("#annoPageCurrent").value = aps.innerText;
+            dataSource = aps.getAttribute("data-source");
+        } else {
+            aps.setAttribute("data-selected", "");
+        }
+        i++;
+    }    
+    for(form of $(".anno-page-form")){
+        if(form.id == dataSource){
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+}
 
 $("#toggleComments").addEventListener("click", () => {
     const style = $("#toggleComments").checked ? "block" : "none";

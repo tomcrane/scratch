@@ -269,9 +269,7 @@
         </div>
     </div>
 
-
-
-    
+   
 
     <hr />
 
@@ -312,16 +310,16 @@
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu" id="annopageSwitch">
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_1">My Embedded Page 1</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_2">Text of page 27 - English Transcription</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_3">My own commentary</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_4">Text of page 27 - French Translation</a></li>
-                        <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="case5Form_5">Text of page 27 - Commentary</a></li>
+                        <li><a class="dropdown-item anno-page-switcher" href="#" data-source="case5Form_1" data-selected="selected">My Embedded Page 1</a></li>
+                        <li><a class="dropdown-item anno-page-switcher" href="#" data-source="case5Form_2" data-selected="">Text of page 27 - English Transcription</a></li>
+                        <li><a class="dropdown-item anno-page-switcher" href="#" data-source="case5Form_3" data-selected="">My own commentary</a></li>
+                        <li><a class="dropdown-item anno-page-switcher" href="#" data-source="case5Form_4" data-selected="">Text of page 27 - French Translation</a></li>
+                        <li><a class="dropdown-item anno-page-switcher" href="#" data-source="case5Form_5" data-selected="">Text of page 27 - Commentary</a></li>
                     </ul>
                 </div>
 
 
-                <form id="case5Form_1">
+                <form class="anno-page-form" id="case5Form_1">
 
                     <div class="accordion" id="case5AnnoPageAccordion" style="margin-top: 1rem;">
                         <div class="accordion-item">
@@ -381,7 +379,7 @@
 
                 </form>
                 
-                <form id="case5Form_2" style="display: none;">
+                <form class="anno-page-form not-first" id="case5Form_2">
                     <div class="card external-resource-mini">
                         <div class="card-body">
                             <h5 class="card-title">Text of page 27 - English Transcription</h5>
@@ -398,7 +396,7 @@
                     </div>
                 </form>
 
-                <form id="case5Form_3" style="display: none;">
+                <form class="anno-page-form not-first" id="case5Form_3">
 
                     <div class="accordion" id="case5_3AnnoPageAccordion" style="margin-top: 1rem;">
                         <div class="accordion-item">
@@ -459,7 +457,7 @@
                 </form>
 
                 
-                <form id="case5Form_4" style="display: none;">
+                <form class="anno-page-form not-first" id="case5Form_4">
                     <div class="card external-resource-mini">
                         <div class="card-body">
                             <h5 class="card-title">Text of page 27 - French Translation</h5>
@@ -477,7 +475,7 @@
                 </form>
 
                 
-                <form id="case5Form_5" style="display: none;">                    
+                <form class="anno-page-form not-first" id="case5Form_5">                    
                         <div class="card external-resource-mini">
                         <div class="card-body">
                             <h5 class="card-title" id="case2ExtLabel">Text of page 27 - Commentary</h5>

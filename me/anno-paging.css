@@ -58,3 +58,22 @@ h1 {
 .annotation {
     margin-bottom: 0.8rem;
 }
+
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-button {
+    background-color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.accordion-button:not(.collapsed) {
+    color:black;
+    background-color: white;
+}
+
+.not-first {
+    display: none;
+}
