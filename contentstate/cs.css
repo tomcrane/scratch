@@ -1,0 +1,39 @@
+.dialogue {
+    margin-top: 20vh;
+    margin-left: 25vw;
+    width: 50vw;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 20vh;
+}
+
+.row {
+    padding-bottom: 1em;
+}
+
+small {
+    clear: both;
+}
+
+.try {
+    margin: 10vw;
+    font-size: smaller;
+}
+
+h5 {
+    clear: both;
+}
+
+#thumbnails {
+    padding: 1rem;
+    height: 10vh;
+    overflow-y: scroll;
+}
+
+#thumbnails img {
+    margin: 0.3rem;
+    cursor: pointer;
+    max-width: 65px;
+    max-height: 65px;
+}
