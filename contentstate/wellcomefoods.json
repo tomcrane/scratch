@@ -1,0 +1,43 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://tomcrane.github.io/scratch/cs/wellcomefoods.json",
+    "type": "Collection",
+    "label": { "en": ["Some foodstuffs from Wellcome"] },
+    "items": [{
+            "id": "https://iiif.wellcomecollection.org/presentation/collections/subjects/pdh2m8nu",
+            "type": "Collection",
+            "label": {
+                "en": [
+                    "Subject: Coca Cola (Trademark)"
+                ]
+            }
+        },
+        {
+            "id": "https://iiif.wellcomecollection.org/presentation/collections/subjects/b88y2qdu",
+            "type": "Collection",
+            "label": {
+                "en": [
+                    "Subject: French fries"
+                ]
+            }
+        },
+        {
+            "id": "https://iiif.wellcomecollection.org/presentation/collections/subjects/pkefmp5b",
+            "type": "Collection",
+            "label": {
+                "en": [
+                    "Subject: Sausages"
+                ]
+            }
+        },
+        {
+            "id": "https://iiif.wellcomecollection.org/presentation/collections/subjects/d9v4484u",
+            "type": "Collection",
+            "label": {
+                "en": [
+                    "Subject: Convenience foods"
+                ]
+            }
+        }
+    ]
+}
