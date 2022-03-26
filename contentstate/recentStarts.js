@@ -1,6 +1,6 @@
 // This simulates the app's local-storage recently used
 const recentStarts = [{
-        "id": "https://tomcrane.github.io/scratch/cs/wellcomefoods.json",
+        "id": "https://tomcrane.github.io/scratch/contentstate/wellcomefoods.json",
         "type": "Collection",
         "label": { "en": ["Some foodstuffs from Wellcome"] }
     },

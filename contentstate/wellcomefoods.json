@@ -1,6 +1,6 @@
 {
     "@context": "http://iiif.io/api/presentation/3/context.json",
-    "id": "https://tomcrane.github.io/scratch/cs/wellcomefoods.json",
+    "id": "https://tomcrane.github.io/scratch/contentstate/wellcomefoods.json",
     "type": "Collection",
     "label": { "en": ["Some foodstuffs from Wellcome"] },
     "items": [{
