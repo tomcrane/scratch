@@ -37,3 +37,16 @@ h5 {
     max-width: 65px;
     max-height: 65px;
 }
+
+#treeHolder h6 {
+    margin-top: 0.4rem;
+}
+
+.list-group-item a {
+    font-size: 80%;
+    text-decoration: none;
+}
+
+.list-group-item {
+    padding: 0.2rem 1.1rem;
+}

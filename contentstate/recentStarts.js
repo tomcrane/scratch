@@ -1,5 +1,14 @@
 // This simulates the app's local-storage recently used
 const recentStarts = [{
+        "id": "https://iiif.wellcomecollection.org/presentation/b15701360",
+        "type": "Manifest",
+        "label": {
+            "en": [
+                "Welfare foods service entitlement book / Ministry of Food."
+            ]
+        }
+    },
+    {
         "id": "https://tomcrane.github.io/scratch/contentstate/wellcomefoods.json",
         "type": "Collection",
         "label": { "en": ["Some foodstuffs from Wellcome"] }

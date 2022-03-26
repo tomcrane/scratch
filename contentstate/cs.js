@@ -29,8 +29,8 @@ function clear() {
 }
 
 function truncate(s) {
-    if (s && s.length > 55) {
-        return s.substring(0, 52) + "...";
+    if (s && s.length > 85) {
+        return s.substring(0, 82) + "...";
     }
     return s;
 }
@@ -104,7 +104,11 @@ async function startTree(collection) {
     const top = $("#treeHolder");
     top.innerHTML = "";
     top.style.display = "block";
-    await renderInto(top, collection);
+    const h6 = document.createElement("h6");
+    const vColl = await vault.load(collection);
+    h6.innerText = getLabel(collection, vColl);
+    top.append(h6);
+    await renderInto(top, vColl);
 }
 
 function getLabel(res1, res2) {
@@ -112,15 +116,14 @@ function getLabel(res1, res2) {
 }
 
 async function renderInto(element, collection) {
-    const h4 = document.createElement("h4");
-    const vColl = await vault.load(collection);
-    h4.innerText = getLabel(collection, vColl);
-    element.append(h4);
     const ul = document.createElement("ul");
-    for (item of vColl.items) {
+    ul.className = "list-group";
+    ul.classList.add("list-group-flush");
+    for (item of collection.items) {
         const vItem = vault.get(item);
         const label = getLabel(vItem, item);
         const li = document.createElement("li");
+        li.className = "list-group-item";
         const a = document.createElement("a");
         a.href = item.id;
         a.setAttribute("data-type", item.type);
@@ -133,12 +136,13 @@ async function renderInto(element, collection) {
                 const manifest = await vault.load(this.href);
                 setManifest(manifest);
             } else if (this.getAttribute("data-type") == "Collection") {
-                if (this.getAttribute("data-rendered")) {
-                    // already rendered
+                const childUls = this.parentElement.getElementsByTagName("ul");
+                if (childUls.length > 0) {
+                    childUls[0].remove();
                 } else {
                     const lip = this.parentElement;
-                    renderInto(lip, vault.get(this.href));
-                    this.setAttribute("data-rendered", "true");
+                    const subCollection = await vault.load(this.href);
+                    renderInto(lip, subCollection);
                 }
             }
         });
