@@ -60,14 +60,30 @@
                     </div>
                 </div>
                 <div id="treeHolder">
+                    <button class="btn btn-primary btn-sm expander" type="button" id="treeExpander">
+                        <i class="bi bi-chevron-expand"></i>
+                    </button>
+                    <h6 id="selectedResourceLabel"></h6>
                     <ul id="treeTop"></ul>
                 </div>
-                <h5 id="selectedItemsLabel"></h5>
-                <div id="thumbnails">
+                <div id="thumbnailsContainer">
+                    <button class="btn btn-primary btn-sm expander" type="button" id="thumbsExpander">
+                        <i class="bi bi-chevron-expand"></i>
+                    </button>
+                    <h6 id="selectedManifestLabel"></h6>
+                    <div id="thumbnails">
 
+                    </div>
                 </div>
                 <div id="canvas">
-                    <canvas-panel id="cp" height="200"></canvas-panel>
+                    <button class="btn btn-primary btn-sm expander" type="button" id="canvasExpander">
+                        <i class="bi bi-chevron-expand"></i>
+                    </button>
+                    <h6 id="selectedCanvasLabel"></h6>
+                    <div id="cpHolder">
+                        <canvas-panel id="cp" height="200"></canvas-panel>
+                    </div>
+
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="canvasSelectionMode">
                         <label class="form-check-label" for="canvasSelectionMode">Enable region selection</label>

@@ -38,6 +38,39 @@ h5 {
     max-height: 65px;
 }
 
+.expander {
+    /* float: left; */
+    margin-top: 10px;
+    margin-right: 8px;
+}
+
+#treeHolder {
+    max-height: 25vh;
+    transition: max-height 0.15s ease-out;
+    overflow-y: scroll;
+}
+
+#treeHolder.expanded {
+    max-height: none;
+    transition: max-height 0.25s ease-in;
+}
+
+
+/* #treeHolder>ul {
+    max-height: 20vh;
+    overflow-y: scroll;
+} */
+
+#treeHolder ul,
+#thumbnails {
+    width: calc(100% - 50px);
+    /* float: left; */
+}
+
+#cpHolder {
+    width: calc(100% - 50px);
+}
+
 #treeHolder h6 {
     margin-top: 0.4rem;
 }

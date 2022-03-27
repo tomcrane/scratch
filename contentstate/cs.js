@@ -23,7 +23,7 @@ $("#refreshUrl").addEventListener("click", loadIIIF);
 
 function clear() {
     $("#treeHolder").style.display = "none";
-    $("#thumbnails").style.display = "none";
+    $("#thumbnailsContainer").style.display = "none";
     $("#canvas").style.display = "none";
     $("#selection").innerText = "";
 }
@@ -83,8 +83,9 @@ async function loadIIIF() {
 async function setManifest(manifest) {
     currentManifestId = manifest.id;
     const thumbDiv = $("#thumbnails");
-    thumbDiv.style.display = "block";
+    thumbDiv.parentElement.style.display = "block";
     thumbDiv.innerHTML = "";
+    $("#selectedManifestLabel").innerText = getLabel(manifest, manifest);
     for (canvasRef of manifest.items) {
         const canvas = vault.get(canvasRef);
         const img = document.createElement("img");
@@ -102,14 +103,16 @@ async function setManifest(manifest) {
 
 async function startTree(collection) {
     const top = $("#treeHolder");
-    top.innerHTML = "";
+    const lists = top.getElementsByTagName("ul");
+    if (lists.length > 0) {
+        lists[0].remove();
+    }
     top.style.display = "block";
-    const h6 = document.createElement("h6");
     const vColl = await vault.load(collection);
-    h6.innerText = getLabel(collection, vColl);
-    top.append(h6);
+    $("#selectedResourceLabel").innerText = getLabel(collection, vColl);
     await renderInto(top, vColl);
 }
+
 
 function getLabel(res1, res2) {
     return IIIFVaultHelpers.getValue(res1.label) || IIIFVaultHelpers.getValue(res2.label);
@@ -156,3 +159,5 @@ function showCanvasById(canvasId) {
     cp.setCanvas(canvasId);
     currentCanvasId = canvasId;
 }
+
+$("#treeExpander").addEventListener("click", () => $("#treeHolder").classList.toggle("expanded"));
