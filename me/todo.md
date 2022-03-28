@@ -1,11 +1,8 @@
 TODO - 
 
 
-Canvas surface 
-
 Write a Jules test script
 
-Write the IIIF Browser / Content State selector
 hoist tabs into a fake menu bar - config for what gets hoisted
 
 Go through CP low hanging documentation issues
@@ -27,8 +24,10 @@ Annos
 Multiple bodies (make into a list)
 Choice of bodies (wrap in Choice)
 
-fja
 IIIF Auth
 
 Understand BFI UV Auth stuff
 
+Born Digital
+Aim at TANC
+Aim at everyone (see )
