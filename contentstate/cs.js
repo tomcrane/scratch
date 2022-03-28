@@ -83,7 +83,7 @@ async function loadIIIF() {
 async function setManifest(manifest) {
     currentManifestId = manifest.id;
     const thumbDiv = $("#thumbnails");
-    thumbDiv.parentElement.style.display = "block";
+    $("#thumbnailsContainer").style.display = "grid";
     thumbDiv.innerHTML = "";
     $("#selectedManifestLabel").innerText = getLabel(manifest, manifest);
     for (canvasRef of manifest.items) {
@@ -103,14 +103,15 @@ async function setManifest(manifest) {
 
 async function startTree(collection) {
     const top = $("#treeHolder");
-    const lists = top.getElementsByTagName("ul");
+    const inner = $("#treeHolderInner");
+    const lists = inner.getElementsByTagName("ul");
     if (lists.length > 0) {
         lists[0].remove();
     }
-    top.style.display = "block";
+    top.style.display = "grid";
     const vColl = await vault.load(collection);
     $("#selectedResourceLabel").innerText = getLabel(collection, vColl);
-    await renderInto(top, vColl);
+    await renderInto(inner, vColl);
 }
 
 
@@ -155,9 +156,9 @@ async function renderInto(element, collection) {
 }
 
 function showCanvasById(canvasId) {
-    $("#canvas").style.display = "block";
+    $("#canvas").style.display = "grid";
     cp.setCanvas(canvasId);
     currentCanvasId = canvasId;
 }
 
-$("#treeExpander").addEventListener("click", () => $("#treeHolder").classList.toggle("expanded"));
+$("#treeExpander").addEventListener("click", () => $("#treeHolderInner").classList.toggle("expanded"));

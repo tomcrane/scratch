@@ -59,35 +59,52 @@
                         <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
                     </div>
                 </div>
-                <div id="treeHolder">
-                    <button class="btn btn-primary btn-sm expander" type="button" id="treeExpander">
-                        <i class="bi bi-chevron-expand"></i>
-                    </button>
-                    <h6 id="selectedResourceLabel"></h6>
-                    <ul id="treeTop"></ul>
-                </div>
-                <div id="thumbnailsContainer">
-                    <button class="btn btn-primary btn-sm expander" type="button" id="thumbsExpander">
-                        <i class="bi bi-chevron-expand"></i>
-                    </button>
-                    <h6 id="selectedManifestLabel"></h6>
-                    <div id="thumbnails">
-
+                <div class="grid-container" id="treeHolder">
+                    <div class="grid-item grid-button">
+                        <button class="btn btn-primary btn-sm expander" type="button" id="treeExpander">
+                            <i class="bi bi-chevron-expand"></i>
+                        </button>
+                    </div>
+                    <div class="grid-item grid-heading">
+                        <h6 id="selectedResourceLabel"></h6>
+                    </div>
+                    <div class="grid-item grid-content" id="treeHolderInner">
+                        <ul id="treeTop"></ul>
                     </div>
                 </div>
-                <div id="canvas">
-                    <button class="btn btn-primary btn-sm expander" type="button" id="canvasExpander">
-                        <i class="bi bi-chevron-expand"></i>
-                    </button>
-                    <h6 id="selectedCanvasLabel"></h6>
-                    <div id="cpHolder">
+                <div class="grid-container" id="thumbnailsContainer">
+                    <div class="grid-item grid-button">
+                        <button class="btn btn-primary btn-sm expander" type="button" id="thumbsExpander">
+                            <i class="bi bi-chevron-expand"></i>
+                        </button>
+                    </div>
+                    <div class="grid-item grid-heading">
+                        <h6 id="selectedManifestLabel"></h6>
+                    </div>
+                    <div class="grid-item grid-content">
+                        <div id="thumbnails">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-container" id="canvas">
+                    <div class="grid-item grid-button">
+                        <button class="btn btn-primary btn-sm expander" type="button" id="canvasExpander">
+                            <i class="bi bi-chevron-expand"></i>
+                        </button>
+                    </div>
+                    <div class="grid-item grid-heading">
+                        <div class="form-check form-switch" style="margin-top: 0.9rem">
+                            <input class="form-check-input" type="checkbox" role="switch" id="canvasSelectionMode">
+                            <label class="form-check-label" for="canvasSelectionMode">Enable region selection</label>
+                        </div>
+                        <!-- <h6 id="selectedCanvasLabel"></h6> -->
+                    </div>
+                    <div class="grid-item grid-content" id="cpHolder">
                         <canvas-panel id="cp" height="200"></canvas-panel>
                     </div>
 
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="canvasSelectionMode">
-                        <label class="form-check-label" for="canvasSelectionMode">Enable region selection</label>
-                    </div>
+
                 </div>
 
                 <p id="selection"></p>
