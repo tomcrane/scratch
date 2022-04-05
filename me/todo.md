@@ -5,10 +5,6 @@ Write a Jules test script
 
 hoist tabs into a fake menu bar - config for what gets hoisted
 
-Go through CP low hanging documentation issues
-https://github.com/digirati-co-uk/iiif-canvas-panel/issues/156 
-Make checkboxes
-
 ME
 
 Test all journeys in ME
