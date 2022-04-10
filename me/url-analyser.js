@@ -53,12 +53,20 @@ async function analyse(url){
 
 }
 
-async function analyseJson(data, url){
+function asImageService(data){
     if(data.protocol && data.protocol == "http://iiif.io/api/image"){
         if(!data.type) data.type = "ImageService";
         // NB this will be ImageService3 if it's a v3 img service
         return data;
     }
+    return null;  
+}
+
+async function analyseJson(data, url){
+    // Is it an image service?
+    const testImageService = asImageService(data);
+    if(testImageService) return testImageService;
+
     // does it have an ID?
     const dataId = data.id || data["@id"];
     if(!dataId){
@@ -98,7 +106,9 @@ async function handleNonFetchableUrl(url, capturedContentType){
                 const serviceUrl = parts.slice(0, parts.length - 4).join("/") + "/info.json";
                 // assume this is a low cost thing to try
                 const imgService = getImageService(serviceUrl);
-                if(imgService) return imgService;
+                if(imgService?.type?.startsWith("ImageService")){
+                    return imgService;
+                }
             }
         }
     }
