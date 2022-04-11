@@ -1,4 +1,5 @@
 // This is from the ts version
+// Create an image in the DOM to measure height and width
 const getImage = async (src) => {
   return new Promise((resolve, reject) => {
     const $img = document.createElement("img");
@@ -11,11 +12,60 @@ const getImage = async (src) => {
   });
 };
 
+// use the hints from the user (if any), plus defaults, to get the order
+// in which to try various analysis
+function makeTryList(suppliedExpectedTypes){
+    const defaults = [
+        "Image",
+        "ImageService",
+        "ManifestOrCollection",
+        "ContentState"
+    ]
+    let tryList = [];
+    if(!suppliedExpectedTypes || suppliedExpectedTypes.length == 0){
+        tryList = defaults;
+    }
+    mergeList(suppliedExpectedTypes, tryList);
+    mergeList(defaults, tryList);
+    return tryList;
+}
 
-async function analyse(url){
-    // This is not an optimised approach, which probably would not try the fetch immediately
+
+function mergeList(inputList, outputList){
+    for(t of inputList){
+        if(t == "Image" && !outputList.includes("Image")){
+            outputList.push("Image");
+        }
+        if(t == "ImageService" && !outputList.includes("ImageService")){
+            outputList.push("ImageService");
+        }
+        if(t == "Manifest" && !outputList.includes("ManifestOrCollection")){
+            outputList.push("ManifestOrCollection");
+        }
+        if(t == "Collection" && !outputList.includes("ManifestOrCollection")){
+            outputList.push("ManifestOrCollection");
+        }
+        if(t == "ManifestOrCollection" && !outputList.includes("ManifestOrCollection")){
+            outputList.push("ManifestOrCollection");
+        }
+        if(t == "ContentState" && !outputList.includes("ContentState")){
+            outputList.push("ContentState");
+        }
+    }  
+}
+
+
+async function analyse(url, ...expectedTypes){
+
+    const tryList = makeTryList(expectedTypes);
+    console.log("User's suggestions indicate likely types");
+    console.log(tryList);
+
     if(!url) return;
 
+    // This doesn't use the tryList order yet.
+    // One advantage of doing a fetch first _even if we expect an image_ is that
+    // we might capture the content type, if the image is CORS-enabled.
     let response = null;
     try{
         response = await fetch(url);
@@ -130,6 +180,7 @@ async function handleNonFetchableUrl(url, capturedContentType){
     return null;
 
 }
+
 
 async function getImageService(url){
     const response = await fetch(url);
