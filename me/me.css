@@ -36,7 +36,7 @@ ul.list-group, li.list-group-item {
 }
 .selected-canvas img {
     cursor: auto;
-    border: 2px solid blue;
+    border: 2px solid red;
 }
 
 #slidestrip, #treeContainer{

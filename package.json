@@ -1,0 +1,18 @@
+{
+  "name": "@tomcrane/scratch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tomcrane/scratch.git",
+  "author": "Tom Crane <tom.crane@digirati.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "vite"
+  },
+  "devDependencies": {
+    "vite": "^2.9.6"
+  },
+  "dependencies": {
+    "@iiif/vault": "^0.9.18",
+    "@iiif/vault-helpers": "^0.9.5"
+  }
+}

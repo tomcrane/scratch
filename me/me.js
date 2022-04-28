@@ -2,6 +2,9 @@
 // specify a specific order for the props when enumerating them so that they are better logically grouped for visual purposes
 // breadcrumb trail, with working links
 
+import * as IIIFVault from '@iiif/vault';
+import * as IIIFVaultHelpers from '@iiif/vault-helpers';
+
 const shell = {
     vault: new IIIFVault.globalVault(),
     resource: null
@@ -34,7 +37,7 @@ function $(s){
 
 function $$(s){ return $("#" + s)};
 
-for(btn of $(".btn-mode")){
+for(let btn of $(".btn-mode")){
     btn.addEventListener("change", e => {
         renderApp();    
     });
@@ -84,7 +87,7 @@ function hideId(id){
 }
 function setColClass(id, className){
     const el = $$(id);
-    for(cls of el.classList){
+    for(let cls of el.classList){
         if(cls.indexOf("col-") == 0){
             el.classList.remove(cls);
         }
@@ -189,7 +192,7 @@ function renderOutline(manifest) {
         renderResource(manifest, container);
         const manifestUL = container.firstElementChild;
         manifestUL.style.display = "block";
-        for (li of manifestUL.children) {
+        for (let li of manifestUL.children) {
             if(!app.manifestTreeElement){
                 app.manifestTreeElement = li;
             }
@@ -220,7 +223,7 @@ function renderResource(iiifResource, parent) {
     }
     parent.appendChild(ul);
     iiifResource = shell.vault.get(iiifResource);
-    for (property in iiifResource) {
+    for (let property in iiifResource) {
         if (
             property == "id" ||
             property == "type" ||
@@ -241,7 +244,7 @@ function renderResource(iiifResource, parent) {
             li.appendChild(getCountBadge(value.length));
             if (value.length > 0) {
                 let ula = null;
-                for (member of value) {
+                for (let member of value) {
                     if (member.type || member["@type"]) {
                         if (ula == null) {
                             prependChevron(li);
@@ -296,7 +299,7 @@ function toggleList(e, element, force) {
             closeAll(ul);
         } else {
             let ul = toggle.parentElement.parentElement;
-            for (li of ul.children) {
+            for (let li of ul.children) {
                 if (!li.classList.contains("resource-header")) {
                     li.style.display = "none";
                 }
@@ -307,7 +310,7 @@ function toggleList(e, element, force) {
         if (ul) {
             ul.style.display = "block";
             if (ul.classList.contains("iiif-array")) {
-                for (li of ul.children) {
+                for (let li of ul.children) {
                     li.style.display = "block";
                     if (li.children[0].getAttribute("data-iiif-type")) {
                         li.children[0].style.display = "block"; // the resource UL
@@ -317,7 +320,7 @@ function toggleList(e, element, force) {
             }
         } else {
             let ul = toggle.parentElement.parentElement;
-            for (li of ul.children) {
+            for (let li of ul.children) {
                 li.style.display = "block";
             }
         }
@@ -327,9 +330,9 @@ function toggleList(e, element, force) {
 
 function closeAll(ul) {
     ul.style.display == "none";
-    for (li of ul.children) {
+    for (let li of ul.children) {
         li.style.display = "none";
-        for (el of li.children) {
+        for (let el of li.children) {
             if (el.nodeName == "UL") {
                 closeAll(el);
             }
@@ -402,7 +405,7 @@ function selectCanvas(canvasId, fromOutline){
     app.selectedResourceRef = ref;
     app.selectedPropertyValue = null;
     app.selectedPropertyName = null;
-    for(thumbDiv of $(".tc")){        
+    for(let thumbDiv of $(".tc")){        
         thumbDiv.classList.remove("selected-canvas");
         const thumbImg = thumbDiv.getElementsByTagName('img')[0];
         const id = thumbImg.getAttribute("data-iiif-id");
@@ -423,7 +426,7 @@ function selectCanvas(canvasId, fromOutline){
         app.canvas = ref;
         app.selectedResourceRef = ref;
         let canvasHeader = null;
-        for(cvUl of $("ul")){
+        for(let cvUl of $("ul")){
             if(cvUl.getAttribute("data-iiif-id") == canvasId){
                 canvasHeader = cvUl.children[0];
                 break;
@@ -485,8 +488,8 @@ function makeBreadcrumbs(element) {
     const breadcrumbs = $("#breadcrumbs");
     breadcrumbs.innerHTML = "";
     app.path = [];
-    crumbSource = element;
-    prevElement = null;
+    let crumbSource = element;
+    let prevElement = null;
     while (crumbSource.id != "treeContainer") {
         if (crumbSource.tagName == "LI") {
             addBreadcrumb(crumbSource);
@@ -559,7 +562,7 @@ function getParentPropertyAndType(fromEnd){
         offset: offset,
         totalItems: breadcrumbs.children.length
     };
-    for(i = breadcrumbs.children.length - (1 + offset); i >= 0; i--){
+    for(let i = breadcrumbs.children.length - (1 + offset); i >= 0; i--){
         const treeId = breadcrumbs.children[i].getAttribute("data-tree-id");
         const treeEl = $$(treeId);
         const prop = treeEl.getAttribute("data-iiif-property");
@@ -620,7 +623,7 @@ function tryGetBestComponent(type, propertyName){
     }
     let offset = 0;
     while(true){
-        for(rhs of $(".rhs-component")){
+        for(let rhs of $(".rhs-component")){
             if(rhs.getAttribute("data-resource") == type){
                 if(bestComponent == null){
                     bestComponent = rhs; // default to the first one
@@ -645,7 +648,7 @@ function tryGetBestComponent(type, propertyName){
 
 function getOtherTab(type, tab){
     let otherTab = null;
-    for(rhs of $(".rhs-component")){
+    for(let rhs of $(".rhs-component")){
         if(rhs.getAttribute("data-resource") == type){
             if(otherTab == null){
                 otherTab = rhs;
@@ -679,7 +682,7 @@ function renderRhsComponent(rhsComponent){
     const tabs = rhsComponent.getAttribute("data-tabs").split(",");
     const ulTabs = $("#resourceTabs");
     ulTabs.innerHTML = "";
-    for(tab of tabs){
+    for(let tab of tabs){
         const li = document.createElement("li");
         li.className = "nav-item";
         const a = document.createElement("a");
@@ -723,7 +726,7 @@ function makeAnnoPagingUI() {
 
 function setResourceEditorEventHandlers(){    
     const annoContainer = $$("hoistedAnnoContainer");
-    for(el of $(".annotation-full")){
+    for(let el of $(".annotation-full")){
         const fullAnno = el;
         const miniAnno = el.previousElementSibling;
         fullAnno.style.display = "none";
@@ -746,18 +749,18 @@ function setResourceEditorEventHandlers(){
                 $$("resourceEditorExtra").style.display = "";
                 fullAnno.style.display = "none";
             });
-            for(el of $(".external-resource-mini")){
+            for(let el of $(".external-resource-mini")){
                 el.addEventListener("click", window.showResourceEditor);
             }
         });
     }
-    for(el of $(".external-resource-mini")){
+    for(let el of $(".external-resource-mini")){
         el.addEventListener("click", window.showResourceEditor);
     }
-    for(el of $(".add-another-resource")){
+    for(let el of $(".add-another-resource")){
         el.addEventListener("click", window.showResourceEditor);
     }
-    for(el of $(".media-mini")){
+    for(let el of $(".media-mini")){
         el.addEventListener("click", window.showMediaModal);
     }
     const changeTarget = $$("changeTarget");
@@ -770,7 +773,7 @@ function setResourceEditorEventHandlers(){
 }
 
 function showAnnoPage(idx){
-    for(i = 0; i< window.annoPages.length; i++){
+    for(let i = 0; i< window.annoPages.length; i++){
         const annoPage = window.annoPages[i];
         if(i == idx){
             fetch(annoPage.html)
@@ -806,7 +809,7 @@ function setupAnnoPage(idx){
                         const mediaAnno =  shell.vault.get(mediaAnnoPage.items[0]);
                         const mediaBody =  shell.vault.get(mediaAnno.body[0]);
                         const imgServiceId = mediaBody.service[0].id || mediaBody.service[0]["@id"]; // AAARGG
-                        for(annoRef of loadedAnnoPage.items){
+                        for(let annoRef of loadedAnnoPage.items){
                             const anno = shell.vault.get(annoRef);
                             let htmlAnno = template.replace("{anno-id}", anno.id);
                             const text = shell.vault.get(anno.body[0]).value;
