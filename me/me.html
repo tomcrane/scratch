@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IIIF Manifest Explorer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="me.css" rel="stylesheet">
     <link href="tree-iiif-colours.css" rel="stylesheet">
 </head>
@@ -20,8 +19,7 @@
                 <form id="topForm">
                     <div class="row">
                         <div class="col-4">
-                            <input type="text" class="form-control form-control-sm" placeholder="Manifest URL"
-                                id="manifestUri" value="">
+                            <input type="text" class="form-control form-control-sm" placeholder="Manifest URL" id="manifestUri" value="">
                         </div>
                         <div class="col-1">
                             <button id="loadManifest" class="btn btn-primary">Load</button>
@@ -40,20 +38,16 @@
                     <div class="row">
                         <div class="col-md-auto p-2 ps-3">
                             <div class="btn-group" role="group" aria-label="Modes">
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeManifest"
-                                    value="manifest" autocomplete="off" checked>
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeManifest" value="manifest" autocomplete="off" checked>
                                 <label class="btn btn-outline-primary" for="modeManifest">Manifest grid</label>
 
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeStrip"
-                                    value="strip" autocomplete="off">
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeStrip" value="strip" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeStrip">Canvas strip</label>
 
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeOutline"
-                                    value="outline" autocomplete="off">
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeOutline" value="outline" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeOutline">Outline view</label>
 
-                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeNoNav"
-                                    value="noNav" autocomplete="off">
+                                <input type="radio" class="btn-check btn-mode" name="btnMode" id="modeNoNav" value="noNav" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="modeNoNav">No navigation</label>
                             </div>
                         </div>
@@ -103,29 +97,27 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@atlas-viewer/iiif-image-api@2.0.3/dist/index.umd.js"></script>
-    <script>window.iiifImageApi = window.IIIFImageApi;</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@atlas-viewer/iiif-image-api@2.0.3/dist/index.umd.js"></script>
+    <script>
+        window.iiifImageApi = window.IIIFImageApi;
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@latest/dist/index.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@latest/dist/index.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@latest/dist/index.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@digirati/canvas-panel-web-components@latest"></script>
-    <script type="module" src="me.js"></script>
-
+    <script src="me.js"></script>
+    <!-- 
     <script type="module">
         import * as IIIFVault from '@iiif/vault';
         console.log(IIIFVault);
-    </script>
+    </script> -->
 
     <!-- resource editor parts -->
 
     <!-- manifest -->
-    <div class="rhs-component" data-resource="Manifest" data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations"
-        resource-editor-title="Manifest properties">
+    <div class="rhs-component" data-resource="Manifest" data-props="label,summary,requiredStatement,rights,navDate" data-tabs="-Descriptive,Metadata,Linking,Technical,Structural,Annotations" resource-editor-title="Manifest properties">
         <img src="img/descriptive.png" />
-        <form>                
+        <form>
             <h4>Thumbnail</h4>
             <div class="card media-mini">
                 <div class="card-body">
@@ -138,20 +130,16 @@
                     <a class="media-mini" href="#">Add another</a>
                 </div>
             </div>
-        </form>        
+        </form>
     </div>
 
 
-    <div class="rhs-component" data-resource="Manifest" data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Linking,Technical,Structural,Annotations"
-        resource-editor-title="Manifest properties">
+    <div class="rhs-component" data-resource="Manifest" data-props="metadata" data-tabs="Descriptive,-Metadata,Linking,Technical,Structural,Annotations" resource-editor-title="Manifest properties">
         <img src="img/metadata.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Manifest" data-props="homepage,rendering,seeAlso,services,service"
-        data-tabs="Descriptive,Metadata,-Linking,Technical,Structural,Annotations"
-        resource-editor-title="Manifest properties">
+    <div class="rhs-component" data-resource="Manifest" data-props="homepage,rendering,seeAlso,services,service" data-tabs="Descriptive,Metadata,-Linking,Technical,Structural,Annotations" resource-editor-title="Manifest properties">
         <form>
             <h4>Homepage</h4>
             <div class="card external-resource-mini">
@@ -171,35 +159,31 @@
     </div>
 
 
-    <div class="rhs-component" data-resource="Manifest" data-props="viewingDirection,behavior"
-        data-tabs="Descriptive,Metadata,Linking,-Technical,Structural,Annotations"
-        resource-editor-title="Manifest properties">
+    <div class="rhs-component" data-resource="Manifest" data-props="viewingDirection,behavior" data-tabs="Descriptive,Metadata,Linking,-Technical,Structural,Annotations" resource-editor-title="Manifest properties">
         <img src="img/technical.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Manifest" data-props="partOf,start"
-        data-tabs="Descriptive,Metadata,Linking,Technical,-Structural,Annotations"
-        resource-editor-title="Manifest properties">
-        
-        <form>
-        <h4>Part Of</h4>
-        <div class="card external-resource-mini">
-            <div class="card-body">
-                <h5 class="card-title">Some collection</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Collection</h6>
-                <a class="resource-id" href="https://example.org/iiif/collections/my-collection">https://example.org/iiif/collections/my-collection</a>
-            </div>
-        </div>
-        <div class="card text-end border-0 add-another-resource">
-            <div class="card-body">
-                <a class="add-another-resource" href="#">Add another</a>
-            </div>
-        </div>
-        
+    <div class="rhs-component" data-resource="Manifest" data-props="partOf,start" data-tabs="Descriptive,Metadata,Linking,Technical,-Structural,Annotations" resource-editor-title="Manifest properties">
 
-        <h4>Start Canvas</h4>
-        <select class="form-select" aria-label="Select a canvas">
+        <form>
+            <h4>Part Of</h4>
+            <div class="card external-resource-mini">
+                <div class="card-body">
+                    <h5 class="card-title">Some collection</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Collection</h6>
+                    <a class="resource-id" href="https://example.org/iiif/collections/my-collection">https://example.org/iiif/collections/my-collection</a>
+                </div>
+            </div>
+            <div class="card text-end border-0 add-another-resource">
+                <div class="card-body">
+                    <a class="add-another-resource" href="#">Add another</a>
+                </div>
+            </div>
+
+
+            <h4>Start Canvas</h4>
+            <select class="form-select" aria-label="Select a canvas">
             <option selected>Select a canvas (with thumbnails)</option>
             <option value="1"> - </option>
             <option value="2"> - </option>
@@ -210,30 +194,22 @@
         </form>
     </div>
 
-    <div class="rhs-component" data-resource="Manifest" data-props="annotations" data-component-ref="annotationpage"
-        data-tabs="Descriptive,Metadata,Linking,Technical,Structural,-Annotations"
-        resource-editor-title="Manifest properties: Annotations">        
+    <div class="rhs-component" data-resource="Manifest" data-props="annotations" data-component-ref="annotationpage" data-tabs="Descriptive,Metadata,Linking,Technical,Structural,-Annotations" resource-editor-title="Manifest properties: Annotations">
         <p>Replaced by anno pager</p>
     </div>
 
     <!-- canvas -->
-    <div class="rhs-component" data-resource="Canvas" data-props="label,summary,requiredStatement,rights,navDate"
-        data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical"
-        resource-editor-title="Canvas properties">
+    <div class="rhs-component" data-resource="Canvas" data-props="label,summary,requiredStatement,rights,navDate" data-tabs="-Descriptive,Metadata,Media,Annotations,Linking,Technical" resource-editor-title="Canvas properties">
         <img src="img/descriptive.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="metadata"
-        data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical"
-        resource-editor-title="Canvas properties">
+    <div class="rhs-component" data-resource="Canvas" data-props="metadata" data-tabs="Descriptive,-Metadata,Media,Annotations,Linking,Technical" resource-editor-title="Canvas properties">
         <img src="img/metadata.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="items,thumbnail"
-        data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical"
-        resource-editor-title="Canvas Media Editor">
+    <div class="rhs-component" data-resource="Canvas" data-props="items,thumbnail" data-tabs="Descriptive,Metadata,-Media,Annotations,Linking,Technical" resource-editor-title="Canvas Media Editor">
         <form>
             <h4>Thumbnail</h4>
             <div class="card media-mini">
@@ -263,7 +239,7 @@
 
             NOT SHOWN - Choice, AV (Choice and AV also more likely to go together)            
          -->
-         
+
             <div class="card annotation">
                 <div class="card-body">
                     <h5>Body</h5>
@@ -276,8 +252,7 @@
 
                     <h5>Target</h5>
                     <!-- this is a standard reusable widget -->
-                    <img style="display:none" id="canvasPaintingTarget" src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg" />
-                    (Whole Canvas)
+                    <img style="display:none" id="canvasPaintingTarget" src="https://iiif.wellcomecollection.org/thumbs/b28799495_0009.jp2/full/61,100/0/default.jpg" /> (Whole Canvas)
                     <a href="#" id="changeTarget">Change</a>
                     <div id="canvasPaintingTargetXywh">
                         <div class="input-group mb-3">
@@ -306,23 +281,17 @@
     </div>
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="annotations" data-component-ref="annotationpage"
-        data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical"
-        resource-editor-title="Canvas Annotations">
+    <div class="rhs-component" data-resource="Canvas" data-props="annotations" data-component-ref="annotationpage" data-tabs="Descriptive,Metadata,Media,-Annotations,Linking,Technical" resource-editor-title="Canvas Annotations">
     </div>
 
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="homepage,rendering,seeAlso,service"
-        data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical"
-        resource-editor-title="Canvas properties">
+    <div class="rhs-component" data-resource="Canvas" data-props="homepage,rendering,seeAlso,service" data-tabs="Descriptive,Metadata,Media,Annotations,-Linking,Technical" resource-editor-title="Canvas properties">
         <img src="img/linking.png" />
     </div>
 
 
-    <div class="rhs-component" data-resource="Canvas" data-props="viewingDirection,behavior,width,height,duration"
-        data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical"
-        resource-editor-title="Canvas properties">
+    <div class="rhs-component" data-resource="Canvas" data-props="viewingDirection,behavior,width,height,duration" data-tabs="Descriptive,Metadata,Media,Annotations,Linking,-Technical" resource-editor-title="Canvas properties">
         <img src="img/technical.png" />
 
         <div class="form-group row">
@@ -351,35 +320,36 @@
                   <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Annotation</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Internal Annotation Page</a></li>
-                  <li><a class="dropdown-item" href="#">External Annotation Page</a></li>
+                    <li><a class="dropdown-item" href="#">Annotation</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Internal Annotation Page</a></li>
+                    <li><a class="dropdown-item" href="#">External Annotation Page</a></li>
                 </ul>
             </div>
             <div class="btn-group ps-4">
                 <button type="button" class="btn btn-outline-secondary" id="annoPagePrevPage">&lt;</button>
-                <input type="text" class="form-control" placeholder="Input group example" value="" id="annoPageCurrent">        
+                <input type="text" class="form-control" placeholder="Input group example" value="" id="annoPageCurrent">
                 <button type="button" class="btn btn-outline-secondary" id="annoPageNextPage">&gt;</button>
                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu" id="annopageSwitch">
-                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage1.html">Internal demo of different bodies</a></li>
-                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage2.html">Internal demo of Textual bodies</a></li>
-                  <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage3.html">External Annotation Page</a></li>
+                    <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage1.html">Internal demo of different bodies</a></li>
+                    <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage2.html">Internal demo of Textual bodies</a></li>
+                    <li><a class="dropdown-item annoPageSwitcher" href="#" data-source="annopage3.html">External Annotation Page</a></li>
                 </ul>
             </div>
-          </div>
-          <hr/>
+        </div>
+        <hr/>
         <div id="annoPageContainer" class="annotation-page"></div>
 
 
     </div>
 
     <!-- if I am an agent what am I an agent (provider) on?-->
-    <div class="rhs-component-part" data-component="data-component-agent"
-        data-tabs="-Agent">
+    <div class="rhs-component-part" data-component="data-component-agent" data-tabs="-Agent">
         <p>fields for editing provider</p>
     </div>
 
@@ -397,9 +367,7 @@
                     <h5>Add Canvas from Content</h5>
                     <form>
                         <div class="input-group">
-                            <input type="text" id="newCanvasMediaUrl" class="form-control"
-                                placeholder="Paste URL of Media to create Canvas" aria-label="URL of Media"
-                                aria-describedby="newCanvasMediaHelp">
+                            <input type="text" id="newCanvasMediaUrl" class="form-control" placeholder="Paste URL of Media to create Canvas" aria-label="URL of Media" aria-describedby="newCanvasMediaHelp">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" id="newCanvasRefreshUrl" type="button">⟳</button>
                             </div>
@@ -411,12 +379,8 @@
                         <div id="newCanvasMediaInfo" class="media-info">
                             <img id="newCanvasImgPreview" class="img-preview" />
                             <div id="newCanvasStaticImg" class="static-img"><br /> This is a Static Image.</div>
-                            <div id="newCanvasImgService" class="img-service"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
-                                    id="iiifLogo" /> This is a IIIF Image Service</div>
-                            <div id="newCanvasManifestPreview" class="manifest-preview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
-                                    id="iiifLogo" /> This is a IIIF Manifest.<br />
-                                TBC - this would show a carousel to select a canvas, or just the single canvas if
-                                there's only one.</div>
+                            <div id="newCanvasImgService" class="img-service"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" /> This is a IIIF Image Service</div>
+                            <div id="newCanvasManifestPreview" class="manifest-preview"><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="iiifLogo" /> This is a IIIF Manifest.<br /> TBC - this would show a carousel to select a canvas, or just the single canvas if there's only one.</div>
                         </div>
 
                         <h5 class="mt-3 mb-1">Or set dimensions</h5>
@@ -456,9 +420,7 @@
                 <div class="modal-body">
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control"
-                                placeholder="(URL of external resource)" aria-label="URL of external resource"
-                                aria-describedby="exHelp">
+                            <input type="text" class="form-control" placeholder="(URL of external resource)" aria-label="URL of external resource" aria-describedby="exHelp">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" id="refreshUrlExternal" type="button">⟳</button>
                             </div>
@@ -480,12 +442,12 @@
                                 <button class="btn btn-outline-secondary" type="button">en + 3</button>
                             </div>
                         </div>
-                        
+
                         <h5>Format</h5>
                         <input type="text" class="form-control">
                         <small>An internet media type, if possible</small>
 
-                        <h5>Language</h5>        
+                        <h5>Language</h5>
                         <select class="form-select" aria-label="language of the resource">
                             <option selected>(n/a)</option>
                             <option value="1">en</option>
@@ -497,7 +459,7 @@
 
                         <h5>Profile</h5>
                         <input type="text" class="form-control">
-                        
+
 
                     </form>
                 </div>
@@ -522,7 +484,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <!-- The job of this dialog is to return media information back the ME for inclusion 
                             in the Vault as part of the Manifest being edited.
                         In this demo the media must already exist externally.
@@ -537,9 +499,7 @@
                 -->
                     <form>
                         <div class="input-group">
-                            <input type="text" id="mediaMediaUrl" class="form-control"
-                                placeholder="Paste URL of Media" aria-label="URL of Media"
-                                aria-describedby="mediaMediaHelp">
+                            <input type="text" id="mediaMediaUrl" class="form-control" placeholder="Paste URL of Media" aria-label="URL of Media" aria-describedby="mediaMediaHelp">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" id="mediaRefreshUrl" type="button">⟳</button>
                             </div>
@@ -553,12 +513,8 @@
                         <div id="mediaMediaInfo" class="media-info">
                             <img id="mediaImgPreview" />
                             <div id="mediaStaticImg"><br /> This is a Static Image.</div>
-                            <div id="mediaImgService"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png"
-                                    id="mediaIiifLogo" /> This is a IIIF Image Service</div>
-                            <div id="mediaManifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png"
-                                    id="mediaIiifLogo" /> This is a IIIF Manifest.<br />
-                                TBC - this would show a carousel to select a canvas, or just the single canvas if
-                                there's only one.</div>
+                            <div id="mediaImgService"><br /><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="mediaIiifLogo" /> This is a IIIF Image Service</div>
+                            <div id="mediaManifestPreview"><img src="https://iiif.io/assets/images/logos/logo-sm.png" id="mediaIiifLogo" /> This is a IIIF Manifest.<br /> TBC - this would show a carousel to select a canvas, or just the single canvas if there's only one.</div>
                         </div>
 
                         <p>Some of the following will be set automatically on analysis</p>
@@ -577,7 +533,7 @@
                                 <label for="mediaDuration">Duration</label>
                                 <input type="text" class="form-control" id="mediaDuration" placeholder="n/a">
                             </div>
-                        </div>                        
+                        </div>
                         <small id="mediaDimensionsHelp" class="form-text text-muted">
                             When the source is an image service, this defaults to the advertised width and height.<br/>
                             But you can select a different size for the image (especially important for thumbnails).<br/>
@@ -600,8 +556,8 @@
                                 <button class="btn btn-outline-secondary" type="button">en + 3</button>
                             </div>
                         </div>
-                        
-                        <h5>Language</h5>        
+
+                        <h5>Language</h5>
                         <select class="form-select" aria-label="language of the resource">
                             <option selected>(n/a)</option>
                             <option value="1">en</option>
@@ -613,7 +569,7 @@
 
                         <h5>Profile</h5>
                         <input type="text" class="form-control">
-                        
+
 
                     </form>
                 </div>
