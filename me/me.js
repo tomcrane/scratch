@@ -2,6 +2,9 @@
 // specify a specific order for the props when enumerating them so that they are better logically grouped for visual purposes
 // breadcrumb trail, with working links
 
+// import * as IIIFVault from '@iiif/vault';
+// import * as IIIFVaultHelpers from '@iiif/vault-helpers';
+
 const shell = {
     vault: new IIIFVault.globalVault(),
     resource: null
@@ -16,27 +19,27 @@ const app = {
     selectedPropertyName: null, // may be more specific than canvas
     selectedPropertyValue: null, // may be more specific than canvas
     activeShortcuts: [],
-    outlineRendered: false,    // these three only work for a static app - no editing!
+    outlineRendered: false, // these three only work for a static app - no editing!
     stripRendered: false,
     gridRendered: false,
     manifestTreeElement: null
 };
 
-function $(s){
-    if(s.startsWith("#")){
+function $(s) {
+    if (s.startsWith("#")) {
         return document.getElementById(s.substring(1));
-    } else if(s.startsWith(".")) {
+    } else if (s.startsWith(".")) {
         return document.getElementsByClassName(s.substring(1));
     } else {
         return document.getElementsByTagName(s);
     }
 }
 
-function $$(s){ return $("#" + s)};
+function $$(s) { return $("#" + s) };
 
-for(btn of $(".btn-mode")){
+for (let btn of $(".btn-mode")) {
     btn.addEventListener("change", e => {
-        renderApp();    
+        renderApp();
     });
 }
 
@@ -76,31 +79,33 @@ async function loadManifest(e) {
     }
 }
 
-function showId(id){
+function showId(id) {
     $$(id).style.display = "";
 }
-function hideId(id){
+
+function hideId(id) {
     $$(id).style.display = "none";
 }
-function setColClass(id, className){
+
+function setColClass(id, className) {
     const el = $$(id);
-    for(cls of el.classList){
-        if(cls.indexOf("col-") == 0){
+    for (let cls of el.classList) {
+        if (cls.indexOf("col-") == 0) {
             el.classList.remove(cls);
         }
     }
     el.classList.add(className);
 }
 
-function renderApp(){
+function renderApp() {
 
     // in the demo just draw all these up front
-    renderGrid(shell.resource); 
-    renderOutline(shell.resource);    
-    renderStrip(shell.resource); 
+    renderGrid(shell.resource);
+    renderOutline(shell.resource);
+    renderStrip(shell.resource);
     const mode = $("#topForm").elements["btnMode"].value;
     //console.log(mode);
-    if(mode != app.displayMode){
+    if (mode != app.displayMode) {
         hideId("treeContainer");
         hideId("slidestrip");
         hideId("gridview");
@@ -110,72 +115,72 @@ function renderApp(){
 
         // These probably wouldn't re-render when changing modes... just show / hide?
         switch (mode) {
-            case "manifest":        
+            case "manifest":
                 setColClass("gridview", "col-9");
-                setColClass("resourceEditor", "col-3");        
+                setColClass("resourceEditor", "col-3");
                 showId("gridview");
-                renderGrid(shell.resource);    
+                renderGrid(shell.resource);
                 break;
 
-            case "strip":    
+            case "strip":
                 setColClass("slidestrip", "col-1");
-                setColClass("canvasContainer", "col-8");    
-                setColClass("resourceEditor", "col-3");                     
+                setColClass("canvasContainer", "col-8");
+                setColClass("resourceEditor", "col-3");
                 showId("slidestrip");
                 showId("canvasContainer");
-                renderStrip(shell.resource);  
+                renderStrip(shell.resource);
                 break;
 
             case "outline":
                 setColClass("treeContainer", "col-3");
-                setColClass("canvasContainer", "col-6");    
-                setColClass("resourceEditor", "col-3");  
+                setColClass("canvasContainer", "col-6");
+                setColClass("resourceEditor", "col-3");
                 showId("treeContainer");
-                showId("canvasContainer");  
-                renderOutline(shell.resource);        
+                showId("canvasContainer");
+                renderOutline(shell.resource);
                 break;
 
             case "noNav":
-                setColClass("canvasContainer", "col-9");    
-                setColClass("resourceEditor", "col-3");  
-                showId("canvasContainer");                
+                setColClass("canvasContainer", "col-9");
+                setColClass("resourceEditor", "col-3");
+                showId("canvasContainer");
                 break;
-        
+
             default:
                 console.log("Not a mode!");
-        }   
+        }
 
     }
 }
 
-async function drawThumbs(container, manifest){
+async function drawThumbs(container, manifest) {
     container.innerHTML = "";
-    for(const canvas of shell.vault.get(manifest.items)){              
+    for (const canvas of shell.vault.get(manifest.items)) {
         const label = IIIFVaultHelpers.getValue(canvas.label);
-        const cvThumb = await shell.thumbHelper.getBestThumbnailAtSize(canvas, {maxWidth:100, maxHeight:200});
+        const cvThumb = await shell.thumbHelper.getBestThumbnailAtSize(canvas, { maxWidth: 100, maxHeight: 200 });
         const thumbContainer = document.createElement("div");
         thumbContainer.className = "tc";
-        thumbContainer.appendChild(document.createTextNode(label));        
+        thumbContainer.appendChild(document.createTextNode(label));
         thumbContainer.appendChild(document.createElement("br"));
         const thumbImg = document.createElement("img");
         thumbContainer.appendChild(thumbImg);
         thumbImg.setAttribute("data-iiif-id", canvas.id);
         thumbImg.src = cvThumb.best.id;
-        thumbImg.addEventListener("click", e => selectCanvas(canvas.id, false)); 
+        thumbImg.addEventListener("click", e => selectCanvas(canvas.id, false));
         container.appendChild(thumbContainer);
     }
 }
 
-async function renderGrid(manifest){  
-    if(!app.gridRendered){
+async function renderGrid(manifest) {
+    if (!app.gridRendered) {
         const gridContainer = $("#gridview");
         drawThumbs(gridContainer, manifest);
-    }  
+    }
     app.gridRendered = true;
 }
 
-async function renderStrip(manifest){
-    if(!app.stripRendered){
+async function renderStrip(manifest) {
+    if (!app.stripRendered) {
         const stripContainer = $("#slidestrip");
         drawThumbs(stripContainer, manifest);
     }
@@ -183,14 +188,14 @@ async function renderStrip(manifest){
 }
 
 function renderOutline(manifest) {
-    if(!app.outlineRendered){
+    if (!app.outlineRendered) {
         const container = $("#treeContainer");
         container.innerHTML = "";
         renderResource(manifest, container);
         const manifestUL = container.firstElementChild;
         manifestUL.style.display = "block";
-        for (li of manifestUL.children) {
-            if(!app.manifestTreeElement){
+        for (let li of manifestUL.children) {
+            if (!app.manifestTreeElement) {
                 app.manifestTreeElement = li;
             }
             li.style.display = "block";
@@ -220,11 +225,11 @@ function renderResource(iiifResource, parent) {
     }
     parent.appendChild(ul);
     iiifResource = shell.vault.get(iiifResource);
-    for (property in iiifResource) {
+    for (let property in iiifResource) {
         if (
             property == "id" ||
             property == "type" ||
-            property == "@id" ||       // for ImageService2 etc
+            property == "@id" || // for ImageService2 etc
             property == "@type" ||
             property == "@context") {
             continue;
@@ -241,7 +246,7 @@ function renderResource(iiifResource, parent) {
             li.appendChild(getCountBadge(value.length));
             if (value.length > 0) {
                 let ula = null;
-                for (member of value) {
+                for (let member of value) {
                     if (member.type || member["@type"]) {
                         if (ula == null) {
                             prependChevron(li);
@@ -296,7 +301,7 @@ function toggleList(e, element, force) {
             closeAll(ul);
         } else {
             let ul = toggle.parentElement.parentElement;
-            for (li of ul.children) {
+            for (let li of ul.children) {
                 if (!li.classList.contains("resource-header")) {
                     li.style.display = "none";
                 }
@@ -307,7 +312,7 @@ function toggleList(e, element, force) {
         if (ul) {
             ul.style.display = "block";
             if (ul.classList.contains("iiif-array")) {
-                for (li of ul.children) {
+                for (let li of ul.children) {
                     li.style.display = "block";
                     if (li.children[0].getAttribute("data-iiif-type")) {
                         li.children[0].style.display = "block"; // the resource UL
@@ -317,7 +322,7 @@ function toggleList(e, element, force) {
             }
         } else {
             let ul = toggle.parentElement.parentElement;
-            for (li of ul.children) {
+            for (let li of ul.children) {
                 li.style.display = "block";
             }
         }
@@ -327,9 +332,9 @@ function toggleList(e, element, force) {
 
 function closeAll(ul) {
     ul.style.display == "none";
-    for (li of ul.children) {
+    for (let li of ul.children) {
         li.style.display = "none";
-        for (el of li.children) {
+        for (let el of li.children) {
             if (el.nodeName == "UL") {
                 closeAll(el);
             }
@@ -341,11 +346,11 @@ function closeAll(ul) {
 }
 
 function* treeId() {
-var index = 0;
-while (true)
-    yield "tn_" + index++;
+    var index = 0;
+    while (true)
+        yield "tn_" + index++;
 }
-  
+
 const treeIdGenerator = treeId();
 
 function makeListItem(propertyName) {
@@ -394,28 +399,28 @@ function truncate(s) {
 }
 
 
-function selectCanvas(canvasId, fromOutline){
+function selectCanvas(canvasId, fromOutline) {
     const cp = $("#cp");
     cp.setCanvas(canvasId);
-    const ref = { id: canvasId, type:"Canvas"};
+    const ref = { id: canvasId, type: "Canvas" };
     app.canvas = ref;
     app.selectedResourceRef = ref;
     app.selectedPropertyValue = null;
     app.selectedPropertyName = null;
-    for(thumbDiv of $(".tc")){        
+    for (let thumbDiv of $(".tc")) {
         thumbDiv.classList.remove("selected-canvas");
         const thumbImg = thumbDiv.getElementsByTagName('img')[0];
         const id = thumbImg.getAttribute("data-iiif-id");
-        if(id == canvasId){     
+        if (id == canvasId) {
             thumbDiv.classList.add("selected-canvas");
-            if($$("canvasThumbnail")){
+            if ($$("canvasThumbnail")) {
                 $$("canvasThumbnail").src = thumbImg.src;
-                $$("canvasPaintingBody").src = thumbImg.src;     
-                $$("canvasPaintingTarget").src = thumbImg.src;                
+                $$("canvasPaintingBody").src = thumbImg.src;
+                $$("canvasPaintingTarget").src = thumbImg.src;
             }
         }
     }
-    if(!fromOutline){
+    if (!fromOutline) {
         // need to update the outline tree to select this canvas, because the selection came from something else
         // TODO: general purpose select tree node from ID and open parents and scrollIntoView
         // open the items list on Manifest, if not already
@@ -423,19 +428,19 @@ function selectCanvas(canvasId, fromOutline){
         app.canvas = ref;
         app.selectedResourceRef = ref;
         let canvasHeader = null;
-        for(cvUl of $("ul")){
-            if(cvUl.getAttribute("data-iiif-id") == canvasId){
+        for (let cvUl of $("ul")) {
+            if (cvUl.getAttribute("data-iiif-id") == canvasId) {
                 canvasHeader = cvUl.children[0];
                 break;
             }
         }
-        if(canvasHeader){
+        if (canvasHeader) {
             displayResourceInternal(shell.vault.get(ref), canvasHeader)
         }
     }
 }
 
-function displayProperty(objectWithProperty, propertyName, propertyValue, element){
+function displayProperty(objectWithProperty, propertyName, propertyValue, element) {
     app.selectedPropertyName = propertyName;
     app.selectedPropertyValue = propertyValue;
     app.selectedResourceRef = asRef(objectWithProperty);
@@ -443,13 +448,13 @@ function displayProperty(objectWithProperty, propertyName, propertyValue, elemen
 }
 
 
-function displayResource(resource, element){
+function displayResource(resource, element) {
     app.selectedResourceRef = asRef(resource);
     app.selectedPropertyValue = null;
     displayResourceInternal(resource, element);
 }
 
-function asRef(resource){
+function asRef(resource) {
     return {
         id: resource.id,
         type: resource.type
@@ -469,7 +474,7 @@ function displayResourceInternal(resource, element) {
     }
     highlightEl.classList.add(highlightClass);
 
-    makeBreadcrumbs(element);    
+    makeBreadcrumbs(element);
     updateResourceEditor();
 }
 
@@ -485,8 +490,8 @@ function makeBreadcrumbs(element) {
     const breadcrumbs = $("#breadcrumbs");
     breadcrumbs.innerHTML = "";
     app.path = [];
-    crumbSource = element;
-    prevElement = null;
+    let crumbSource = element;
+    let prevElement = null;
     while (crumbSource.id != "treeContainer") {
         if (crumbSource.tagName == "LI") {
             addBreadcrumb(crumbSource);
@@ -505,41 +510,41 @@ function makeBreadcrumbs(element) {
     }
 }
 
-function addBreadcrumb(treeElement, iiifType){
+function addBreadcrumb(treeElement, iiifType) {
     const breadcrumbs = $("#breadcrumbs");
     const text = getTextNodes(treeElement);
-    if(!text) return;
+    if (!text) return;
     const li = document.createElement("li");
     li.className = "breadcrumb-item";
     li.innerText = text;
-    if(!breadcrumbs.innerHTML){
+    if (!breadcrumbs.innerHTML) {
         li.classList.add("active");
     }
-    if(iiifType){
+    if (iiifType) {
         li.classList.add("resource-colour-" + iiifType);
     }
     li.setAttribute("data-tree-id", treeElement.id);
     li.addEventListener("click", handleBreadCrumbClick);
     breadcrumbs.prepend(li);
     const buttons = treeElement.getElementsByTagName("button");
-    if(buttons && buttons[0]){
+    if (buttons && buttons[0]) {
         toggleList(null, buttons[0], "open");
     }
 }
 
-function handleBreadCrumbClick(){
+function handleBreadCrumbClick() {
     treeElement = $$(this.getAttribute("data-tree-id"));
-    if(this.getAttribute("data-iiif-property")){
+    if (this.getAttribute("data-iiif-property")) {
         activateProperty(treeElement);
     } else {
         activateResource(treeElement);
     }
 }
 
-function getTextNodes(element){
+function getTextNodes(element) {
     let str = "";
-    for(const child of element.childNodes){
-        if(child.nodeType == Node.TEXT_NODE){
+    for (const child of element.childNodes) {
+        if (child.nodeType == Node.TEXT_NODE) {
             str += child.nodeValue;
         }
         // if(child.tagName == "I"){
@@ -549,7 +554,7 @@ function getTextNodes(element){
     return str;
 }
 
-function getParentPropertyAndType(fromEnd){
+function getParentPropertyAndType(fromEnd) {
     const offset = fromEnd || 1;
     const breadcrumbs = $("#breadcrumbs");
     const propertyAndType = {
@@ -559,21 +564,21 @@ function getParentPropertyAndType(fromEnd){
         offset: offset,
         totalItems: breadcrumbs.children.length
     };
-    for(i = breadcrumbs.children.length - (1 + offset); i >= 0; i--){
+    for (let i = breadcrumbs.children.length - (1 + offset); i >= 0; i--) {
         const treeId = breadcrumbs.children[i].getAttribute("data-tree-id");
         const treeEl = $$(treeId);
         const prop = treeEl.getAttribute("data-iiif-property");
-        if(prop){
+        if (prop) {
             propertyAndType.propertyName = prop;
-        }      
+        }
         const type = treeEl.getAttribute("data-iiif-type");
         const id = treeEl.getAttribute("data-iiif-id");
-        if(type && propertyAndType.propertyName){
+        if (type && propertyAndType.propertyName) {
             // we can't set the type until we have a property, because we want the type that has this property
             propertyAndType.type = type;
             propertyAndType.id = id;
         }
-        if(propertyAndType.type && propertyAndType.propertyName){
+        if (propertyAndType.type && propertyAndType.propertyName) {
             return propertyAndType;
         }
     }
@@ -588,52 +593,52 @@ function getParentPropertyAndType(fromEnd){
 
 
 
-function updateResourceEditor(){
+function updateResourceEditor() {
     // At this point, the tree is open and selected, the breadcrumb trail is updated.
     // canvas is highlighted in grid and strip.
-    if(!app.selectedResourceRef){
+    if (!app.selectedResourceRef) {
         return;
     }
     const vaultResource = shell.vault.get(app.selectedResourceRef)
-    // TODO - will need to go up and down to get the best resource as in the tree
+        // TODO - will need to go up and down to get the best resource as in the tree
     const bestResource = vaultResource || app.selectedResourceRef;
 
     let bestComponent = tryGetBestComponent(bestResource.type, app.selectedPropertyName);
-    if(bestComponent){
+    if (bestComponent) {
         renderRhsComponent(bestComponent);
         $("#rhsHeader").innerText = bestComponent.getAttribute("resource-editor-title") || bestResource.type + " properties";
     }
 }
 
 
-function tryGetBestComponent(type, propertyName){
-    
+function tryGetBestComponent(type, propertyName) {
+
     let bestComponent = null;
     let parentPropertyAndType = getParentPropertyAndType();
-    if(type == "AnnotationPage" || type == "Agent"){
+    if (type == "AnnotationPage" || type == "Agent") {
         // display within their parent type editor
         // AnnoPage depends on whether it's the .items property or the .annotation property.
         // Will this happen anyway?
-        
+
         type = parentPropertyAndType.type;
         propertyName = parentPropertyAndType.propertyName;
     }
     let offset = 0;
-    while(true){
-        for(rhs of $(".rhs-component")){
-            if(rhs.getAttribute("data-resource") == type){
-                if(bestComponent == null){
+    while (true) {
+        for (let rhs of $(".rhs-component")) {
+            if (rhs.getAttribute("data-resource") == type) {
+                if (bestComponent == null) {
                     bestComponent = rhs; // default to the first one
                 }
                 const props = rhs.getAttribute("data-props").split(",");
-                if(propertyName && props.includes(propertyName)){
+                if (propertyName && props.includes(propertyName)) {
                     bestComponent = rhs; // refine to the one with the property, if we can
                     break;
                 }
             }
         }
-        if(bestComponent) break;
-        if(offset >= parentPropertyAndType.totalItems) break;
+        if (bestComponent) break;
+        if (offset >= parentPropertyAndType.totalItems) break;
         offset += 2;
         parentPropertyAndType = getParentPropertyAndType(offset);
         console.log(parentPropertyAndType);
@@ -643,30 +648,30 @@ function tryGetBestComponent(type, propertyName){
     return bestComponent;
 }
 
-function getOtherTab(type, tab){
+function getOtherTab(type, tab) {
     let otherTab = null;
-    for(rhs of $(".rhs-component")){
-        if(rhs.getAttribute("data-resource") == type){
-            if(otherTab == null){
+    for (let rhs of $(".rhs-component")) {
+        if (rhs.getAttribute("data-resource") == type) {
+            if (otherTab == null) {
                 otherTab = rhs;
             }
             const tabs = rhs.getAttribute("data-tabs").split(",");
-            if(tabs.includes("-" + tab)){
-                otherTab = rhs; 
+            if (tabs.includes("-" + tab)) {
+                otherTab = rhs;
                 break;
             }
         }
     }
-    return otherTab;  
+    return otherTab;
 }
 
-function renderRhsComponent(rhsComponent){
+function renderRhsComponent(rhsComponent) {
     const type = rhsComponent.getAttribute("data-resource");
     const componentRef = rhsComponent.getAttribute("data-component-ref");
-    if(componentRef){
+    if (componentRef) {
         $("#resourceEditorInner").innerHTML = $$("data-component-" + componentRef).innerHTML;
-        if(componentRef == "annotationpage") {
-            if(type == "Canvas"){
+        if (componentRef == "annotationpage") {
+            if (type == "Canvas") {
                 makeAnnoPagingUI();
             } else {
                 alert("See annotations property on a canvas for demo");
@@ -679,13 +684,13 @@ function renderRhsComponent(rhsComponent){
     const tabs = rhsComponent.getAttribute("data-tabs").split(",");
     const ulTabs = $("#resourceTabs");
     ulTabs.innerHTML = "";
-    for(tab of tabs){
+    for (let tab of tabs) {
         const li = document.createElement("li");
         li.className = "nav-item";
         const a = document.createElement("a");
         li.append(a);
         a.className = "nav-link";
-        if(tab.startsWith("-")){
+        if (tab.startsWith("-")) {
             a.classList.add("active");
             a.innerHTML = "<small>" + tab.substring(1) + "</small>";
         } else {
@@ -693,7 +698,7 @@ function renderRhsComponent(rhsComponent){
             const ttab = tab;
             a.addEventListener("click", () => {
                 const clicked = getOtherTab(type, ttab);
-                if(clicked){
+                if (clicked) {
                     renderRhsComponent(clicked);
                 }
             });
@@ -721,9 +726,9 @@ function makeAnnoPagingUI() {
     showAnnoPage(0);
 }
 
-function setResourceEditorEventHandlers(){    
+function setResourceEditorEventHandlers() {
     const annoContainer = $$("hoistedAnnoContainer");
-    for(el of $(".annotation-full")){
+    for (let el of $(".annotation-full")) {
         const fullAnno = el;
         const miniAnno = el.previousElementSibling;
         fullAnno.style.display = "none";
@@ -746,22 +751,22 @@ function setResourceEditorEventHandlers(){
                 $$("resourceEditorExtra").style.display = "";
                 fullAnno.style.display = "none";
             });
-            for(el of $(".external-resource-mini")){
+            for (let el of $(".external-resource-mini")) {
                 el.addEventListener("click", window.showResourceEditor);
             }
         });
     }
-    for(el of $(".external-resource-mini")){
+    for (let el of $(".external-resource-mini")) {
         el.addEventListener("click", window.showResourceEditor);
     }
-    for(el of $(".add-another-resource")){
+    for (let el of $(".add-another-resource")) {
         el.addEventListener("click", window.showResourceEditor);
     }
-    for(el of $(".media-mini")){
+    for (let el of $(".media-mini")) {
         el.addEventListener("click", window.showMediaModal);
     }
     const changeTarget = $$("changeTarget");
-    if(changeTarget){
+    if (changeTarget) {
         $$("canvasPaintingTargetXywh").style.display = "none";
         changeTarget.addEventListener("click", () => {
             $$("canvasPaintingTargetXywh").style.display = "block";
@@ -769,10 +774,10 @@ function setResourceEditorEventHandlers(){
     }
 }
 
-function showAnnoPage(idx){
-    for(i = 0; i< window.annoPages.length; i++){
+function showAnnoPage(idx) {
+    for (let i = 0; i < window.annoPages.length; i++) {
         const annoPage = window.annoPages[i];
-        if(i == idx){
+        if (i == idx) {
             fetch(annoPage.html)
                 .then(resp => resp.text())
                 .then(text => $$("annoPageContainer").innerHTML = text);
@@ -785,28 +790,28 @@ function showAnnoPage(idx){
     }
 }
 
-function setupAnnoPage(idx){
+function setupAnnoPage(idx) {
     setResourceEditorEventHandlers();
-    if(app.canvas && app.selectedResourceRef && app.selectedResourceRef.type != "Manifest"){
+    if (app.canvas && app.selectedResourceRef && app.selectedResourceRef.type != "Manifest") {
         const canvas = shell.vault.get(app.canvas);
-        if(canvas.annotations.length > 0 && canvas.annotations[0].id.startsWith("https://iiif.wellcomecollection.org")){
+        if (canvas.annotations.length > 0 && canvas.annotations[0].id.startsWith("https://iiif.wellcomecollection.org")) {
             const annoPage = canvas.annotations[0];
             const label = IIIFVaultHelpers.getValue(annoPage.label); // This is empty!
-            if(idx == 1){
+            if (idx == 1) {
                 // This is our fake internal annotation page
                 // We'll make this work with Wellcome manifests for now
                 let embedded = annoPage.items && !shell.vault.requestStatus(annoPage);
-                if(!embedded){
+                if (!embedded) {
                     console.log("This needs to be loaded");
                     // As a resource external to the manifest, we load annotations specifically, from their id:
                     shell.vault.load(annoPage.id).then(loadedAnnoPage => {
                         const template = new String($$("textualBodyTemplate").innerHTML);
                         $$("textualBodyTemplate").style.display = "none";
                         const mediaAnnoPage = shell.vault.get(canvas.items[0]);
-                        const mediaAnno =  shell.vault.get(mediaAnnoPage.items[0]);
-                        const mediaBody =  shell.vault.get(mediaAnno.body[0]);
+                        const mediaAnno = shell.vault.get(mediaAnnoPage.items[0]);
+                        const mediaBody = shell.vault.get(mediaAnno.body[0]);
                         const imgServiceId = mediaBody.service[0].id || mediaBody.service[0]["@id"]; // AAARGG
-                        for(annoRef of loadedAnnoPage.items){
+                        for (let annoRef of loadedAnnoPage.items) {
                             const anno = shell.vault.get(annoRef);
                             let htmlAnno = template.replace("{anno-id}", anno.id);
                             const text = shell.vault.get(anno.body[0]).value;
@@ -828,25 +833,25 @@ function setupAnnoPage(idx){
                     }).then(() => setResourceEditorEventHandlers());
                 }
 
-            } else if (idx == 2){
+            } else if (idx == 2) {
                 // This is our annotation as external resource
                 $$("sampleExternalAnnoPageLabel").innerText = label;
                 $$("sampleExternalAnnoPageLink").href = canvas.annotations[0].id;
                 $$("sampleExternalAnnoPageLink").innerText = canvas.annotations[0].id;
             } else {
                 const tbt = $$("textualBodyTemplate");
-                if(tbt) tbt.style.display = "none";
+                if (tbt) tbt.style.display = "none";
             }
         }
     }
-    
+
 }
 
-function cycleAnnoPage(move){
+function cycleAnnoPage(move) {
     const current = window.annoPages.filter(ap => ap.selected)[0];
     let newIdx = current.index + move;
-    if(newIdx < 0) newIdx = 0;
-    if(newIdx >= window.annoPages.length) newIdx = window.annoPages.length - 1;
+    if (newIdx < 0) newIdx = 0;
+    if (newIdx >= window.annoPages.length) newIdx = window.annoPages.length - 1;
     showAnnoPage(newIdx);
 }
 
@@ -862,7 +867,7 @@ function propertyClick(e) {
     activateProperty(this);
 }
 
-function activateProperty(propertyTreeElement){
+function activateProperty(propertyTreeElement) {
     let objectWithProperty = getTypedResourceFromElement(propertyTreeElement.parentElement);
     const propertyName = propertyTreeElement.getAttribute("data-iiif-property");
     //console.log("Displaying " + objectWithProperty.type + "::" + propertyName);
@@ -880,7 +885,7 @@ function activateProperty(propertyTreeElement){
     displayProperty(objectWithProperty, propertyName, propertyValue, propertyTreeElement);
 }
 
-function activateResource(resourceTreeElement){
+function activateResource(resourceTreeElement) {
     let obj = getTypedResourceFromElement(resourceTreeElement);
     //console.log("Displaying resource of type " + obj.type);
     if (Object.keys(obj).length == 2) {
@@ -889,7 +894,7 @@ function activateResource(resourceTreeElement){
         obj = getObjectFromArrayViaParent(resourceTreeElement, obj);
     }
     displayResource(obj, resourceTreeElement);
-    if(obj.type == "Canvas"){
+    if (obj.type == "Canvas") {
         selectCanvas(obj.id, true);
     }
 }
@@ -937,16 +942,16 @@ function getObjectFromArrayViaParent(element, objRef) {
 
 // ***************** MODALS
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
     createNewCanvasModal();
     createResourceEditorModal();
     createMediaModal();
-  });
+});
 
-  function createNewCanvasModal(){
+function createNewCanvasModal() {
     const newCanvasModalEl = $("#newCanvasModal");
     const newCanvasModal = new bootstrap.Modal(newCanvasModalEl);
-    newCanvasModalEl.addEventListener('shown.bs.modal', function (event) {        
+    newCanvasModalEl.addEventListener('shown.bs.modal', function(event) {
         setMediaEventListeners("newCanvas");
         newCanvasModal.handleUpdate();
     })
@@ -954,12 +959,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         alert("This will create:\n\na new canvas\nwith an items property\nwith an anno page\nwith a painting annotation targeting the canvas\nwith a body that is a full static image\nwith an image service if supplied.")
     });
     $("#btnNewCanvas").addEventListener("click", () => newCanvasModal.show());
-  }
+}
 
-  function createMediaModal(){
+function createMediaModal() {
     const mediaModalEl = $("#mediaModal");
     const mediaModal = new bootstrap.Modal(mediaModalEl);
-    mediaModalEl.addEventListener('shown.bs.modal', function (event) {
+    mediaModalEl.addEventListener('shown.bs.modal', function(event) {
         setMediaEventListeners("media");
         mediaModal.handleUpdate();
     })
@@ -967,28 +972,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
         alert("This will return a media resource.\n\nIf an image service was supplied, it will be a media resource with that image service attached.")
     });
     window.showMediaModal = () => mediaModal.show();
-  }
+}
 
-  function setMediaEventListeners(prefix){
+function setMediaEventListeners(prefix) {
     $$(prefix + "MediaUrl").addEventListener("change", () => analyseUrl(prefix));
-    $$(prefix + "RefreshUrl").addEventListener("click", () => analyseUrl(prefix));        
-    $$(prefix + "ImgPreview").addEventListener("load", function(){
-        if($$(prefix + "StaticImg").style.display == "block"){
+    $$(prefix + "RefreshUrl").addEventListener("click", () => analyseUrl(prefix));
+    $$(prefix + "ImgPreview").addEventListener("load", function() {
+        if ($$(prefix + "StaticImg").style.display == "block") {
             setDimensions(prefix, this.naturalWidth, this.naturalHeight, (prefix == "newCanvas"));
         }
     });
-  }
+}
 
-  function createResourceEditorModal(){
+function createResourceEditorModal() {
     const resourceEditorModalEl = $("#externalResourceModal");
     const resourceEditorModal = new bootstrap.Modal(resourceEditorModalEl);
-    resourceEditorModalEl.addEventListener('shown.bs.modal', function (event) {
+    resourceEditorModalEl.addEventListener('shown.bs.modal', function(event) {
         resourceEditorModal.handleUpdate();
     })
     window.showResourceEditor = () => resourceEditorModal.show();
-  }
+}
 
-function analyseUrl(prefix){
+function analyseUrl(prefix) {
     // This is, quite obviously, not an implementation of
     // https://github.com/digirati-co-uk/iiif-manifest-editor/issues/45
     let url = $$(prefix + "MediaUrl").value.trim();
@@ -997,41 +1002,41 @@ function analyseUrl(prefix){
     $$(prefix + "StaticImg").style.display = "none";
     $$(prefix + "ImgService").style.display = "none";
     $$(prefix + "ManifestPreview").style.display = "none";
-    if(url){
+    if (url) {
         $$(prefix + "MediaInfo").style.display = "block";
         const ringerI = "https://iiif.wellcomecollection.org/image/";
         const ringerT = "https://iiif.wellcomecollection.org/thumbs/";
-        if(url.startsWith(ringerI) || url.startsWith(ringerT)){
+        if (url.startsWith(ringerI) || url.startsWith(ringerT)) {
             const idPart = url.split("/")[4];
             url = (url.startsWith(ringerI) ? ringerI : ringerT) + idPart;
-            fetch(url).then(response => response.json()).then(info => {                        
+            fetch(url).then(response => response.json()).then(info => {
                 $$(prefix + "ImgPreview").style.display = "block";
                 $$(prefix + "ImgService").style.display = "block";
                 setDimensions(prefix, info.width, info.height, false);
                 $$(prefix + "ImgPreview").src = url + "/full/!200,200/0/default.jpg";
             });
-        } else if (url.indexOf("wellcomecollection.org/presentation") != -1){
+        } else if (url.indexOf("wellcomecollection.org/presentation") != -1) {
             $$(prefix + "ManifestPreview").style.display = "block";
         } else {
             // assume this is a static image                                          
-            $$(prefix + "ImgPreview").style.display = "block";                              
+            $$(prefix + "ImgPreview").style.display = "block";
             $$(prefix + "StaticImg").style.display = "block";
             $$(prefix + "ImgPreview").src = url;
         }
-        if($$("mediaModalType")){
+        if ($$("mediaModalType")) {
             $$("mediaModalType").value = "Image";
         }
-        if($$("mediaModalFormat")){
+        if ($$("mediaModalFormat")) {
             $$("mediaModalFormat").value = "application/jpeg";
         }
     }
 }
 
-function setDimensions(prefix, width, height, enforceMinSize){
+function setDimensions(prefix, width, height, enforceMinSize) {
     // This is no longer in the spec for 3.0, but maybe we want to do it
     // can be a config flag
-    if(enforceMinSize){        
-        while(width < 1200 || height < 1200){
+    if (enforceMinSize) {
+        while (width < 1200 || height < 1200) {
             width = width * 2;
             height = height * 2;
         }
