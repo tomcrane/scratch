@@ -20,14 +20,5 @@ Annos
 Multiple bodies (make into a list)
 Choice of bodies (wrap in Choice)
 
-IIIF Auth
-Read notes for 29th March call and tweak PR
-Then do probe
 
-
-Understand BFI UV Auth stuff
-
-Born Digital
-Aim at TANC
-Aim at everyone (see )
 

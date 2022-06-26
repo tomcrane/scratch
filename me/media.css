@@ -1,0 +1,79 @@
+body {
+    padding: 2rem;
+}
+
+h1 {
+    margin-top: 3rem;
+    color: cadetblue;
+    font-size: 140%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.resource-editor {
+    margin: 2rem;
+}
+
+.annotation-page {
+    padding: 1rem;
+}
+
+.very-small {
+    font-size: 60%;
+    color: gray;
+}
+
+#newAnnoPageRefUrl, #case1Embedded, #case1Add, #case1AfterAnno{
+    display: none;
+}
+
+#case1Add {
+    padding-bottom: 0;
+}
+
+.external-resource-mini {
+    margin: 0.6rem 0 1.2rem 0;
+}
+
+.external-resource-mini h6 {
+    margin-bottom: 0!important;
+}
+
+
+.external-resource-mini h5 {
+    margin-top: 0!important;
+}
+
+.external-resource-mini .resource-id {
+    font-size: 75%;
+}
+
+#newAnnoPageRadios, #newAnnoPageCreate {
+    margin-top: 1.3rem;
+}
+
+.convert-to-internal {
+    margin-top:0.6rem;
+}
+
+.annotation {
+    margin-bottom: 0.8rem;
+}
+
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-button {
+    background-color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.accordion-button:not(.collapsed) {
+    color:black;
+    background-color: white;
+}
+
+.not-first {
+    display: none;
+}
