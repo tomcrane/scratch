@@ -13,6 +13,28 @@
 
 <body>
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="pencil" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+        </symbol>
+
+        
+        <symbol id="trash" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </symbol>
+          
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+      </svg>
+
     <h1>Generic add media starting point</h1>
 
     <div class="resource-editor p-1 col-4" id="case0Static">
@@ -43,6 +65,8 @@
 
 
     <h1>1. Static Image</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
 
 
     <div class="resource-editor p-1 col-4" id="case1Static">
@@ -68,7 +92,7 @@
                             </button>
                             </h2>
                             <div id="case1Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case1Accordion-headingOne">
-                                <div class="accordion-body media-information">
+                                <div class="accordion-body media-information" id="abmi-1">
 
                                 </div>
                             </div>
@@ -121,9 +145,11 @@
 
 
     <h1>2. Image from Image Service*</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
 
     <p>(Where the image service is undeclared).</p>
-    <p>Note that the Manifest Editor will never create this form.</p>
+    <p>Note that the Manifest Editor will never create this arrangement from a pasted image service, it will always create Case 3.</p>
 
     <div class="resource-editor p-1 col-4" id="case2FromImageService">
         <h4> ← Edit Media Item</h4>
@@ -134,12 +160,19 @@
                 <form id="case2Form">
 
                     <div class="input-group">
-                        <input type="text" id="mediaUrl" class="form-control" value="https://example.org/image1.jpg/full/791,1024/0/default.jpg" aria-label="URL of Media">
+                        <input type="text" id="mediaUrl" class="form-control" value="https://example.org/my-service/full/791,1024/0/default.jpg" aria-label="URL of Media">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
                         </div>
                     </div>
-                    <p>This image is from a IIIF Image Service. <a href="#Case3">Attach Image Service</a></p>
+
+                    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        This image is from a IIIF Image Service. <a href="#Case3">Attach</a>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+
+
 
                     <div class="accordion" id="case2Accordion" style="margin-top: 1rem;">
                         <div class="accordion-item">
@@ -149,7 +182,7 @@
                             </button>
                             </h2>
                             <div id="case2Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case2Accordion-headingOne">
-                                <div class="accordion-body media-information">
+                                <div class="accordion-body media-information" id="abmi-2">
 
                                 </div>
                             </div>
@@ -173,7 +206,8 @@
                             </h2>
                             <div id="case2Accordion-collapseThree" class="accordion-collapse collapse" aria-labelledby="case2Accordion-headingThree">
                                 <div class="accordion-body media-services">
-                                    <a href="#">Add an Image Service...</a>
+                                    <a href="#">Attach Image Service <b>example.org/my-service</b></a><br/>
+                                    <a href="#">Add a different Image Service...</a>
                                 </div>
                             </div>
                         </div>
@@ -202,11 +236,372 @@
 
     <a name="case3"></a>
     <h1>3. Image from Image Service</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
 
 
-    <!-- now add the image service card-->
+    <div class="resource-editor p-1 col-4" id="case3FromImageService">
+        <h4> ← Edit Media Item</h4>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+
+                <form id="case3Form">
+
+                    <div class="input-group">
+                        <input type="text" id="mediaUrl" class="form-control" value="https://example.org/my-service/full/791,1024/0/default.jpg" aria-label="URL of Media">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="case3Accordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case3Accordion-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case3Accordion-collapseOne" aria-expanded="true" aria-controls="case3Accordion-collapseOne">
+                                <div style="font-size:120%">Image service options</div>   
+                            </button>
+                            </h2>
+                            <div id="case3Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case3Accordion-headingOne">
+                                <div class="accordion-body imgservice-information" id="abmi-3">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case3Accordion-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case3Accordion-collapseTwo" aria-expanded="false" aria-controls="case3Accordion-collapseTwo">
+                              <div style="font-size:120%">Additional resource properties</div>
+                            </button>
+                            </h2>
+                            <div id="case3Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case3Accordion-headingTwo">
+                                <div class="accordion-body additional-information">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case3Accordion-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case3Accordion-collapseThree" aria-expanded="false" aria-controls="case3Accordion-collapseThree">
+                              <div style="font-size:120%">Services (1)</div>
+                            </button>
+                            </h2>
+                            <div id="case3Accordion-collapseThree" class="accordion-collapse collapse" aria-labelledby="case3Accordion-headingThree">
+                                <div class="accordion-body media-services"> 
 
 
+                                    <div class="alert border alert-dismissible fade show mt-3" role="alert">
+                                        <h5 class="card-title">ImageService2</h5>
+                                        <span>level1</span><br/>
+                                        <a class="card-link" href="https://example.org/my-service">https://example.org/my-service</a>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case3Accordion-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case3Accordion-collapseFour" aria-expanded="false" aria-controls="case3Accordion-collapseFour">
+                              <div style="font-size:120%">Target</div>
+                            </button>
+                            </h2>
+                            <div id="case3Accordion-collapseFour" class="accordion-collapse collapse" aria-labelledby="case3Accordion-headingFour">
+                                <div class="accordion-body anno-target">
+                                    <p class="target-description">This image fills the whole Canvas.</p>
+                                    <a href="#" class="change-target">Change...</a>
+                                    <div class="target-xywh"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <h1>4. Image with Image Service (not from)</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
+
+
+    <div class="resource-editor p-1 col-4" id="case4Static">
+        <h4> ← Edit Media Item</h4>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+
+                <form id="case4Form">
+
+                    <div class="input-group">
+                        <input type="text" id="mediaUrl" class="form-control" value="https:/example.org/images//my-large-image.jpg" aria-label="URL of Media">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="case4Accordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case4Accordion-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseOne" aria-expanded="true" aria-controls="case4Accordion-collapseOne">
+                                <div style="font-size:120%">Media information</div>   
+                            </button>
+                            </h2>
+                            <div id="case4Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case4Accordion-headingOne">
+                                <div class="accordion-body media-information" id="abmi-4">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case4Accordion-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseTwo" aria-expanded="false" aria-controls="case4Accordion-collapseTwo">
+                              <div style="font-size:120%">Additional resource properties</div>
+                            </button>
+                            </h2>
+                            <div id="case4Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case4Accordion-headingTwo">
+                                <div class="accordion-body additional-information">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case4Accordion-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseThree" aria-expanded="false" aria-controls="case4Accordion-collapseThree">
+                              <div style="font-size:120%">Services (1)</div>
+                            </button>
+                            </h2>
+                            <div id="case4Accordion-collapseThree" class="accordion-collapse collapse" aria-labelledby="case4Accordion-headingThree">
+                                <div class="accordion-body media-services">
+                                    
+                                    <div class="alert border alert-dismissible fade show mt-3" role="alert">
+                                        <h5 class="card-title">ImageService3</h5>
+                                        <span>level2</span><br/>
+                                        <a class="card-link" href="https:/example.org/images/service-12421">https:/example.org/images/service-12421</a>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case4Accordion-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case4Accordion-collapseFour" aria-expanded="false" aria-controls="case4Accordion-collapseFour">
+                              <div style="font-size:120%">Target</div>
+                            </button>
+                            </h2>
+                            <div id="case4Accordion-collapseFour" class="accordion-collapse collapse" aria-labelledby="case4Accordion-headingFour">
+                                <div class="accordion-body anno-target">
+                                    <p class="target-description">This image fills the whole Canvas.</p>
+                                    <a href="#" class="change-target">Change...</a>
+                                    <div class="target-xywh"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <h1>5. AV Resource</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## --> 
+
+
+    <div class="resource-editor p-1 col-4" id="case5Static">
+        <h4> ← Edit Media Item</h4>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+
+                <form id="case5Form">
+
+                    <div class="input-group">
+                        <input type="text" id="mediaUrl" class="form-control" value="https:/example.org/movies/rogue-one.mp4" aria-label="URL of Media">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="refreshUrl" type="button">⟳</button>
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="case5Accordion" style="margin-top: 1rem;">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case5Accordion-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseOne" aria-expanded="true" aria-controls="case5Accordion-collapseOne">
+                                <div style="font-size:120%">Media information</div>   
+                            </button>
+                            </h2>
+                            <div id="case5Accordion-collapseOne" class="accordion-collapse collapse show" aria-labelledby="case5Accordion-headingOne">
+                                <div class="accordion-body media-information" id="abmi-5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case5Accordion-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseTwo" aria-expanded="false" aria-controls="case5Accordion-collapseTwo">
+                              <div style="font-size:120%">Additional resource properties</div>
+                            </button>
+                            </h2>
+                            <div id="case5Accordion-collapseTwo" class="accordion-collapse collapse" aria-labelledby="case5Accordion-headingTwo">
+                                <div class="accordion-body additional-information">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case5Accordion-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseThree" aria-expanded="false" aria-controls="case5Accordion-collapseThree">
+                              <div style="font-size:120%">Services (0)</div>
+                            </button>
+                            </h2>
+                            <div id="case5Accordion-collapseThree" class="accordion-collapse collapse" aria-labelledby="case5Accordion-headingThree">
+                                <div class="accordion-body media-services">
+                                    <p><i>You can't add an image service here. But later we will support auth services.</i></p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="case5Accordion-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case5Accordion-collapseFour" aria-expanded="false" aria-controls="case5Accordion-collapseFour">
+                              <div style="font-size:120%">Target</div>
+                            </button>
+                            </h2>
+                            <div id="case5Accordion-collapseFour" class="accordion-collapse collapse" aria-labelledby="case5Accordion-headingFour">
+                                <div class="accordion-body anno-target">
+                                    <p class="target-description">This video fills the whole Canvas.</p>
+                                    <a href="#" class="change-target">Change...</a>
+                                    <div class="target-xywh"></div>
+                                    <div class="target-t"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <h1>6. Choice</h1>
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
+
+
+    <div class="resource-editor p-1 col-4" id="case6Static">
+        <h4> ← Edit Choice</h4>
+        <div class="resource-editor-inner">
+
+            <div class="annotation-page">
+                <div class="row">
+                    <div class="col-11">
+                        <h5>items</h5>         
+                    </div>   
+                    <div class="col-1">
+                        <h5>+</h5>
+                    </div>   
+                </div> 
+
+                <div class="row choice-item">
+                    <div class="col-1">                                 
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#trash"/></svg>
+                    </div>   
+                    <div class="col-1">                                 
+                        <img src="choice1.jpg" width="20" />
+                    </div> 
+                    <div class="col-8">                                 
+                        <strong>Image with Image Service</strong>
+                    </div>     
+                    <div class="col-1">
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#pencil"/></svg>      
+                    </div>  
+                    <div class="col-1">
+                        <strong>⋮</strong>
+                    </div>   
+                </div> 
+
+                <div class="row choice-item">
+                    <div class="col-1">                                 
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#trash"/></svg>
+                    </div>   
+                    <div class="col-1">                                 
+                        <img src="choice2.jpg" width="20" />
+                    </div> 
+                    <div class="col-8">                                 
+                        <strong>Image with Image Service</strong>
+                    </div>     
+                    <div class="col-1">
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#pencil"/></svg>      
+                    </div>  
+                    <div class="col-1">
+                        <strong>⋮</strong>
+                    </div>   
+                </div> 
+
+                <div class="row choice-item">
+                    <div class="col-1">                                 
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#trash"/></svg>
+                    </div>   
+                    <div class="col-1">                                 
+                        <img src="choice3.jpg" width="20" />
+                    </div> 
+                    <div class="col-8">                                 
+                        <strong>Image with Image Service</strong>
+                    </div>     
+                    <div class="col-1">
+                        <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img"><use xlink:href="#pencil"/></svg>      
+                    </div>  
+                    <div class="col-1">
+                        <strong>⋮</strong>
+                    </div>   
+                </div> 
+
+
+                <div class="accordion" id="case6Accordion" style="margin-top: 1rem;">
+ 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="case6Accordion-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case6Accordion-collapseFour" aria-expanded="false" aria-controls="case6Accordion-collapseFour">
+                          <div style="font-size:120%">Target</div>
+                        </button>
+                        </h2>
+                        <div id="case6Accordion-collapseFour" class="accordion-collapse collapse" aria-labelledby="case6Accordion-headingFour">
+                            <div class="accordion-body anno-target">
+                                <p class="target-description">This image fills the whole Canvas.</p>
+                                <a href="#" class="change-target">Change...</a>
+                                <div class="target-xywh"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
+    <!-- ########################################################## -->
 
 
 
@@ -216,25 +611,70 @@
         <div class="form-group row">
             <div class="col">
                 <label for="mediaWidth">Width</label>
-                <input type="text" class="form-control" id="mediaWidth" placeholder="n/a">
+                <input type="text" class="form-control media-width" placeholder="n/a">
             </div>
             <div class="col">
                 <label for="mediaHeight">Height</label>
-                <input type="text" class="form-control" id="mediaHeight" placeholder="n/a">
+                <input type="text" class="form-control media-height" placeholder="n/a">
             </div>
             <div class="col">
                 <label for="mediaDuration">Duration</label>
-                <input type="text" class="form-control" id="mediaDuration" placeholder="n/a">
+                <input type="text" class="form-control media-duration" placeholder="n/a">
             </div>
         </div>
 
         <h5>Type</h5>
-        <input type="text" class="form-control" id="mediaModalType">
+        <input type="text" class="form-control media-type">
 
         <h5>Format</h5>
-        <input type="text" class="form-control" id="mediaModalFormat">
+        <input type="text" class="form-control media-format">
 
         <h5>Etc.</h5>
+        <p><i>(Not all shown)</i></p>
+
+    </template>
+
+    <template id="imageFromImageService">
+        <h5 class="mt-3 mb-1">Size</h5>
+
+        <div class="form-group row">
+            <div class="col-6">
+                <label for="sizes">Sizes</label>
+                <select class="form-select">
+                    <option>Suggested sizes</option>
+                    <option>791 x 1024</option>
+                    <option>1582 x 2048</option>
+                    <option>2373 x 3072 (max)</option>
+                    <option>Custom</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="mediaWidth">Width</label>
+                <input type="text" class="form-control media-width" placeholder="n/a">
+            </div>
+            <div class="col-3">
+                <label for="mediaHeight">Height</label>
+                <input type="text" class="form-control media-height" placeholder="n/a">
+            </div>
+        </div>
+
+        <h5>Quality</h5>
+        <select class="form-select">
+            <option>default</option>
+            <option>gray</option>
+            <option>bitonal</option>
+            <option>fancy</option>
+        </select>
+
+        <h5>Format</h5>
+        <select class="form-select">
+            <option>jpg</option>
+            <option>png</option>
+            <option>webp</option>
+        </select>
+
+        <h5>Etc.</h5>
+        <i>Allow region, rotation, mirror to be set.</i>
 
     </template>
 
@@ -262,6 +702,7 @@
         </select>
         
         <h5>Etc.</h5>
+        <p><i>(Not all shown)</i></p>
         
     </template>
 
@@ -282,14 +723,23 @@
     </template>
 
 
+    <template id="canvasPaintingTargetT">
+        <div class="targetTContainer">
+            <div class="input-group mb-3">
+                <span class="input-group-text">start time</span>
+                <input type="text" class="form-control" value="">
+                <span class="input-group-text">end time</span>
+                <input type="text" class="form-control" value="">
+            </div>
+        </div>
+    </template>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="media.js"></script>
 
-
-    <div id="reHolder" style="visibility: hidden;">
-    </div>
 </body>
 
 </html>
