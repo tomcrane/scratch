@@ -1,0 +1,2800 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://dlcs.digirati.io/iiif-resource/2/manifest/38",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "Lambeth Road"
+        ]
+    },
+    "metadata": [{
+        "label": {
+            "none": [
+                "Title"
+            ]
+        },
+        "value": {
+            "none": [
+                "Created by DLCS"
+            ]
+        }
+    }],
+    "summary": {
+        "en": [
+            "housing\nold people's luncheon club\ngroup practice centre\nregistrar's office"
+        ]
+    },
+    "items": [{
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=1",
+            "type": "Canvas",
+            "height": 3489,
+            "width": 2478,
+            "label": {
+                "en": [
+                    "[cover]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/001-cover.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/001-cover.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=1/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/001-cover.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=1",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/001-cover.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3489,
+                        "width": 2478,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/001-cover.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3489,
+                            "width": 2478
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=2",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2528,
+            "label": {
+                "en": [
+                    "[title page]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/002-0.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/002-0.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 739,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 739,
+                            "height": 1024
+                        },
+                        {
+                            "width": 289,
+                            "height": 400
+                        },
+                        {
+                            "width": 144,
+                            "height": 200
+                        },
+                        {
+                            "width": 72,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=2/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/002-0.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=2",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/002-0.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2528,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/002-0.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2528
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=3",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2474,
+            "label": {
+                "en": [
+                    "Contents"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/003-0.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/003-0.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 723,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 723,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=3/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/003-0.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=3",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/003-0.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2474,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/003-0.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2474
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=4",
+            "type": "Canvas",
+            "height": 3501,
+            "width": 2490,
+            "label": {
+                "en": [
+                    "Introduction - the site - site layout"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/004-1.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/004-1.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=4/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/004-1.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=4",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/004-1.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3501,
+                        "width": 2490,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/004-1.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3501,
+                            "width": 2490
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=5",
+            "type": "Canvas",
+            "height": 3501,
+            "width": 2466,
+            "label": {
+                "en": [
+                    "housing generally - description of dwelling types"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/005-2.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/005-2.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 721,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 721,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 70,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=5/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/005-2.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=5",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/005-2.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3501,
+                        "width": 2466,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/005-2.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3501,
+                            "width": 2466
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=6",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2493,
+            "label": {
+                "en": [
+                    "Doctors group practice centre"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/006-3.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/006-3.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=6/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/006-3.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=6",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/006-3.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2493,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/006-3.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2493
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=7",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2505,
+            "label": {
+                "en": [
+                    "Registrars' office - old peoples luncheon club"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/007-4.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/007-4.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 732,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 732,
+                            "height": 1024
+                        },
+                        {
+                            "width": 286,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=7/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/007-4.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=7",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/007-4.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2505,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/007-4.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2505
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=8",
+            "type": "Canvas",
+            "height": 3454,
+            "width": 2475,
+            "label": {
+                "en": [
+                    "Car storage - construction"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/008-5.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/008-5.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 734,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 734,
+                            "height": 1024
+                        },
+                        {
+                            "width": 287,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 72,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=8/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/008-5.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=8",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/008-5.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3454,
+                        "width": 2475,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/008-5.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3454,
+                            "width": 2475
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=9",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Space and water heating - boiler house flue - landscaping"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/009-6.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/009-6.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=9/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/009-6.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=9",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/009-6.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/009-6.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=10",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2470,
+            "label": {
+                "en": [
+                    "[model]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/010.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/010.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 722,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 722,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 70,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=10/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/010.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=10",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/010.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2470,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/010.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2470
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=11",
+            "type": "Canvas",
+            "height": 3493,
+            "width": 2482,
+            "label": {
+                "en": [
+                    "[model]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/011.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/011.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=11/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/011.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=11",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/011.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3493,
+                        "width": 2482,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/011.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3493,
+                            "width": 2482
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=12",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2506,
+            "label": {
+                "en": [
+                    "Plan below access level - access level"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/012.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/012.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 732,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 732,
+                            "height": 1024
+                        },
+                        {
+                            "width": 286,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 72,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=12/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/012.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=12",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/012.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2506,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/012.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2506
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=13",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2494,
+            "label": {
+                "en": [
+                    "Access level below flats - flat plan"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/013.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/013.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=13/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/013.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=13",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/013.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2494,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/013.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2494
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=14",
+            "type": "Canvas",
+            "height": 3490,
+            "width": 2488,
+            "label": {
+                "en": [
+                    "[flat plans]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/014.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/014.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 730,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 730,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=14/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/014.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=14",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/014.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3490,
+                        "width": 2488,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/014.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3490,
+                            "width": 2488
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=15",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2478,
+            "label": {
+                "en": [
+                    "East elevation"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/015.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/015.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 724,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 724,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=15/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/015.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=15",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/015.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2478,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/015.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2478
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=16",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2501,
+            "label": {
+                "en": [
+                    "Site plan"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/016.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/016.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 731,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 731,
+                            "height": 1024
+                        },
+                        {
+                            "width": 286,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=16/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/016.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=16",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/016.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2501,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/016.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2501
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=17",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2474,
+            "label": {
+                "en": [
+                    "Basement plan"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/017.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/017.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 723,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 723,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=17/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/017.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=17",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/017.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2474,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/017.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2474
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=18",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2492,
+            "label": {
+                "en": [
+                    "Ground floor plan"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/018.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/018.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=18/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/018.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=18",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/018.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2492,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/018.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2492
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=19",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2490,
+            "label": {
+                "en": [
+                    "Plan at 20'6\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/019.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/019.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=19/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/019.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=19",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/019.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2490,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/019.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2490
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=20",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Plan at 29'3\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/020.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/020.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=20/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/020.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=20",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/020.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/020.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=21",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2494,
+            "label": {
+                "en": [
+                    "Plan at 38'0\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/021.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/021.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=21/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/021.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=21",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/021.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2494,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/021.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2494
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=22",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2494,
+            "label": {
+                "en": [
+                    "Plan at 46'9\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/022.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/022.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=22/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/022.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=22",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/022.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2494,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/022.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2494
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=23",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2482,
+            "label": {
+                "en": [
+                    "Plan at 55'6\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/023.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/023.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 725,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 725,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=23/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/023.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=23",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/023.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2482,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/023.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2482
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=24",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Plan at 64'3\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/024.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/024.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=24/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/024.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=24",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/024.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/024.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=25",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Plan at 73'0\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/025.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/025.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=25/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/025.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=25",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/025.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/025.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=26",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2490,
+            "label": {
+                "en": [
+                    "Plan at 81'9\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/026.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/026.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=26/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/026.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=26",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/026.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2490,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/026.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2490
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=27",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2501,
+            "label": {
+                "en": [
+                    "Plan at 89'6\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/027.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/027.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 731,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 731,
+                            "height": 1024
+                        },
+                        {
+                            "width": 286,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=27/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/027.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=27",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/027.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2501,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/027.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2501
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=28",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Plan at 96'3\""
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/028.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/028.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=28/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/028.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=28",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/028.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/028.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=29",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2478,
+            "label": {
+                "en": [
+                    "Sections looking North"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/029.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/029.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 724,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 724,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=29/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/029.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=29",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/029.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2478,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/029.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2478
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=30",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2482,
+            "label": {
+                "en": [
+                    "Section looking South"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/030.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/030.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 725,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 725,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=30/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/030.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=30",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/030.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2482,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/030.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2482
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=31",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2494,
+            "label": {
+                "en": [
+                    "Section looking North"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/031.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/031.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=31/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/031.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=31",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/031.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2494,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/031.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2494
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=32",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Section looking South"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/032.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/032.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=32/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/032.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=32",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/032.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/032.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=33",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2490,
+            "label": {
+                "en": [
+                    "Section looking North"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/033.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/033.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 728,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 728,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=33/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/033.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=33",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/033.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2490,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/033.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2490
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=34",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2489,
+            "label": {
+                "en": [
+                    "Section looking East"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/034.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/034.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=34/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/034.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=34",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/034.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2489,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/034.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2489
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=35",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2474,
+            "label": {
+                "en": [
+                    "[East elevation]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/035.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/035.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 723,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 723,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=35/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/035.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=35",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/035.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2474,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/035.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2474
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=36",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "View from the park"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/036.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/036.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=36/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/036.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=36",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/036.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/036.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=37",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2498,
+            "label": {
+                "en": [
+                    "Maisonette - living and dining room"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/037.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/037.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 730,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 730,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 143,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=37/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/037.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=37",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/037.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2498,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/037.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2498
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=38",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2474,
+            "label": {
+                "en": [
+                    "Public circulation [with overlay]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/038a.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/038a.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 723,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 723,
+                            "height": 1024
+                        },
+                        {
+                            "width": 282,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=38/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/038a.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=38",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/038a.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2474,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/038a.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2474
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=39",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2486,
+            "label": {
+                "en": [
+                    "Public circulation [without overlay]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/038b.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/038b.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 727,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 727,
+                            "height": 1024
+                        },
+                        {
+                            "width": 284,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=39/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/038b.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=39",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/038b.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2486,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/038b.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2486
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=40",
+            "type": "Canvas",
+            "height": 3147,
+            "width": 2736,
+            "label": {
+                "en": [
+                    "[overlay]"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/038c.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/038c.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 890,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 890,
+                            "height": 1024
+                        },
+                        {
+                            "width": 348,
+                            "height": 400
+                        },
+                        {
+                            "width": 174,
+                            "height": 200
+                        },
+                        {
+                            "width": 87,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=40/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/038c.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=40",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/038c.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3147,
+                        "width": 2736,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/038c.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3147,
+                            "width": 2736
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=41",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2515,
+            "label": {
+                "en": [
+                    "Interior of group practice waiting room"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/039.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/039.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 735,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 735,
+                            "height": 1024
+                        },
+                        {
+                            "width": 287,
+                            "height": 400
+                        },
+                        {
+                            "width": 144,
+                            "height": 200
+                        },
+                        {
+                            "width": 72,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=41/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/039.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=41",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/039.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2515,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/039.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2515
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=42",
+            "type": "Canvas",
+            "height": 3501,
+            "width": 2474,
+            "label": {
+                "en": [
+                    "Group practice centre - doctors' consulting room"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/040.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/040.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 724,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 724,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 141,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=42/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/040.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=42",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/040.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3501,
+                        "width": 2474,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/040.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3501,
+                            "width": 2474
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=43",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2482,
+            "label": {
+                "en": [
+                    "Interior of old peoples luncheon club"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/041.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/041.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 725,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 725,
+                            "height": 1024
+                        },
+                        {
+                            "width": 283,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=43/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/041.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=43",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/041.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2482,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/041.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2482
+                        }]
+                    }
+                }]
+            }]
+        },
+        {
+            "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=44",
+            "type": "Canvas",
+            "height": 3504,
+            "width": 2496,
+            "label": {
+                "en": [
+                    "Interior of registrars office waiting room"
+                ]
+            },
+            "thumbnail": [{
+                "id": "https://dlcs.digirati.io/thumbs/2/38/042.jpg/full/full/0/default.jpg",
+                "type": "Image",
+                "service": [{
+                    "@id": "https://dlcs.digirati.io/thumbs/2/38/042.jpg",
+                    "@type": "ImageService2",
+                    "profile": "level2",
+                    "width": 729,
+                    "height": 1024,
+                    "sizes": [{
+                            "width": 729,
+                            "height": 1024
+                        },
+                        {
+                            "width": 285,
+                            "height": 400
+                        },
+                        {
+                            "width": 142,
+                            "height": 200
+                        },
+                        {
+                            "width": 71,
+                            "height": 100
+                        }
+                    ]
+                }]
+            }],
+            "items": [{
+                "id": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=44/annotation-page",
+                "type": "AnnotationPage",
+                "items": [{
+                    "id": "https://dlcs.digirati.io/iiif-img/2/38/042.jpg/anno",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "target": "https://dlcs.digirati.io/iiif-query/2/?canvas=n2&manifest=s1&sequence=n1&s1=&n1=&n2=44",
+                    "body": {
+                        "id": "https://dlcs.digirati.io/iiif-img/2/38/042.jpg/full/!2000,2000/0/default.jpg",
+                        "type": "Image",
+                        "height": 3504,
+                        "width": 2496,
+                        "service": [{
+                            "@id": "https://dlcs.digirati.io/iiif-img/2/38/042.jpg",
+                            "@type": "ImageService2",
+                            "profile": "level2",
+                            "protocol": "http://iiif.io/api/image",
+                            "height": 3504,
+                            "width": 2496
+                        }]
+                    }
+                }]
+            }]
+        }
+    ]
+}

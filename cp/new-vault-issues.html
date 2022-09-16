@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        window.process = {
+            env: {
+                NODE_ENV: "production"
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://pkg.csb.dev/IIIF-Commons/vault/commit/b03112ea/@iiif/vault/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault-helpers@0.9.8/dist/index.umd.js"></script>
+    <script>
+        window.IIIFVaultHelpers = VaultHelpers;
+    </script>
+    <script>
+        const vault = new IIIFVault.Vault();
+        go();
+
+        async function go() {
+
+            const manifest = await vault.loadManifest("https://iiif.wellcomecollection.org/presentation/b28799495");
+
+            /*
+            "homepage": [
+            {
+                "id": "https://wellcomecollection.org/works/nqn33jv8",
+                "type": "Text",
+                "label": {
+                "en": [
+                    "[Report 1948] / Medical Officer of Health, Aldridge U.D.C."
+                ]
+                },
+                "format": "text/html",
+                "language": ["en"]
+            }
+            ],
+            */
+
+            console.log(manifest["homepage"]); // => [{id: "https://wellcomecollection.org/works/nqn33jv8", type: "ContentResource"}]
+
+            const homepageFromVaultUsingRef = vault.get(manifest["homepage"][0]);
+            console.log(homepageFromVaultUsingRef);
+
+            const homepageFromVaultUsingId = vault.get("https://wellcomecollection.org/works/nqn33jv8");
+            console.log(homepageFromVaultUsingId);
+
+
+            console.log(manifest["thumbnail"]);
+
+
+            const thumbnailFromVaultUsingRef = vault.get(manifest["thumbnail"][0]);
+            console.log(thumbnailFromVaultUsingRef);
+
+            const thumbnailFromVaultUsingId = vault.get(manifest["thumbnail"][0]["@id"]);
+            console.log(thumbnailFromVaultUsingId);
+
+        }
+    </script>
+
+</body>
+
+</html>
