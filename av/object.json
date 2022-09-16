@@ -1,0 +1,56 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://example.org/iiif/book1/manifest",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "Object Service"
+        ]
+    },
+    "items": [
+        {
+            "id": "https://example.org/iiif/book1/canvas/p1",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "example"
+                ]
+            },
+            "height": 1920,
+            "width": 1080,
+            "items": [
+                {
+                    "id": "https://example.org/iiif/book1/page/p1/1",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "https://example.org/iiif/book1/annotation/p0001-image",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://iiif.wellcomecollection.org/file/b17502792_Science and the Public.pdf",
+                                "type": "Text", // in this case a bit more OK - and some clients that don't understand the service might still render it anyway!
+                                "service": {
+                                    "profile": "http://example.com/objectifier",
+                                    "width": 800,
+                                    "height": 600,
+                                    "params": [
+                                        {
+                                            "id": "data",
+                                            "value": "https://iiif.wellcomecollection.org/file/b17502792_Science and the Public.pdf"
+                                        },
+                                        {
+                                            "id": "type",
+                                            "value": "application/pdf"
+                                        }
+                                    ]
+                                }
+                            },
+                            "target": "https://example.org/iiif/book1/canvas/p1"
+                        }
+                    ]
+                }
+            ]
+        },
+    ],
+}
