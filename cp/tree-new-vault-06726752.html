@@ -426,10 +426,17 @@
                 element = element.parentElement;
             } while (element && !type)
             if (id && type) {
-                return vault.get({
+                let obj = vault.get({
                     id: id,
                     type: type
                 });
+                if(!obj){
+                    obj = vault.get({
+                        id: id,
+                        type: "ContentResource"
+                    });
+                }
+                return obj;
             }
         }
 
