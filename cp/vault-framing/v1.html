@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vault Example</title>
+    <style>
+        .container { display: grid; grid-template-columns: auto auto; }
+        img { padding: 0.3em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="app"></div>
+        <pre id="data"></pre>  
+    </div>    
+    <script src="https://cdn.jsdelivr.net/npm/@iiif/vault@latest/dist/index.umd.js"></script>
+    <script>
+
+        let manifestUri = "https://digirati-co-uk.github.io/journal.json";        
+        const vault = new IIIFVault.Vault();
+
+        // a couple of helpers for displaying what we find
+        function show(obj, label){
+            const data = document.getElementById("data");
+            const sep = "\n\n\n" + (label || "") + " ==========================================\n\n"
+            data.innerHTML = sep + JSON.stringify(obj, null, 2) + data.innerHTML;
+        }
+        function append(element){
+            document.getElementById("app").appendChild(element);
+        }
+        
+        async function demo(){
+
+const manifest = await vault.loadManifest(manifestUri);
+show(manifest, "Vault loads a manifest from a URI");
+        }
+
+        demo();
+    </script>
+  </body>
+</html>
