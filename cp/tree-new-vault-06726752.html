@@ -403,16 +403,6 @@
             const propertyName = this.getAttribute("data-iiif-property");
             console.log("Displaying " + obj.type + "::" + propertyName);
             let prop = obj[propertyName];
-            if (typeof prop === "undefined") {
-                // We got here because a property that was traversed 
-                // when building the tree appears to be missing
-                // from the object when recovered using 
-                // vault.get(ref); 
-                console.log("WARNING: Could not find property '" + propertyName + "' of object:");
-                console.log(obj);
-                const reAcquiredObj = getObjectFromArrayViaParent(this.parentElement, obj);
-                prop = reAcquiredObj[propertyName];
-            }
             displayResource(prop, this);
         }
 
@@ -426,46 +416,10 @@
                 element = element.parentElement;
             } while (element && !type)
             if (id && type) {
-                let obj = vault.get({
-                    id: id,
-                    type: type
-                });
-                if(!obj){
-                    obj = vault.get({
-                        id: id,
-                        type: "ContentResource"
-                    });
-                }
-                return obj;
+                return vault.get(id);
             }
         }
 
-        // This should not be needed
-        function getObjectFromArrayViaParent(element, objRef) {
-            // Ideally this NEVER happens - and Vault has helpers to stop it.
-            // However we can mitigate it for the purposes of the tree demo by
-            // trying to go up further, obtaining the parent resource and walking back down
-
-            // I think this happens in arrays
-            // go up to the array property and come back down to this one.
-            let prevElement = null;
-            do {
-                prevElement = element;
-                element = element.parentElement;
-            } while (!element.classList.contains("iiif-array"));
-            // `element` is now the array UL, prevElement is the LI for the selected item
-            const propertyName = element.parentElement.getAttribute("data-iiif-property");
-            const objWithProperty = getTypedResourceFromElement(element);
-            const index = Array.prototype.indexOf.call(element.children, prevElement);
-            return objWithProperty[propertyName][index];
-
-
-            // The other way is to re-find the object in the array by its ID.
-            // But what if two entries in the array had the same ID, but were not identical in the orginal serialisation?
-            // This is probaly rare, and bad anyway, but I'd find the first of these.
-            // However Vault might be doing this internally too.
-
-        }
     </script>
 </body>
 

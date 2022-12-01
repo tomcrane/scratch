@@ -89,15 +89,25 @@ async function setManifest(manifest) {
     for (canvasRef of manifest.items) {
         const canvas = vault.get(canvasRef);
         const img = document.createElement("img");
+        let thumbUrl = await getThumbnail(canvas);
+        img.src = thumbUrl;
+        const canvasId = canvas.id;
+        img.addEventListener("click", () => showCanvasById(canvasId));
+        thumbDiv.append(img);
+    }
+}
+
+async function getThumbnail(canvas) {
+    try{
         const cvThumb = await thumbHelper.getBestThumbnailAtSize(canvas, { maxWidth: 100 });
         // hack to fix thumbnail bug - not a very safe hack but anyway...
         let thumbUrl = cvThumb.best.id;
         thumbUrl = thumbUrl.replace("/99,", "/100,");
         thumbUrl = thumbUrl.replace(",99/", ",100/");
-        img.src = thumbUrl;
-        const canvasId = canvas.id;
-        img.addEventListener("click", () => showCanvasById(canvasId));
-        thumbDiv.append(img);
+        return thumbUrl;
+    } catch {
+        // not very friendly
+        
     }
 }
 
