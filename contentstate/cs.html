@@ -97,7 +97,7 @@
                         </button>
                     </div>
                     <div class="grid-item grid-heading">
-                        <div class="form-check form-switch" style="margin-top: 0.9rem">
+                        <div id="selectionModeToggleContainer" class="form-check form-switch" style="margin-top: 0.9rem">
                             <input class="form-check-input" type="checkbox" role="switch" id="canvasSelectionMode">
                             <label class="form-check-label" for="canvasSelectionMode">Enable region selection</label>
                         </div>
@@ -112,8 +112,8 @@
 
                 <p id="selection"></p>
 
-                <button type="submit" class="btn btn-primary">Select</button>
-                <button type="submit" class="btn btn-primary">Cancel</button>
+                <button type="button" id="selectButton" class="btn btn-primary">Select</button>
+                <button type="button" id="cancelButton" class="btn btn-primary">Cancel</button>
             </form>
         </div>
     </div>

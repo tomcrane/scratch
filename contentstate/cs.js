@@ -13,19 +13,43 @@ const collectionPath = [];
 let currentManifestId = null;
 let currentCanvasId = null;
 let currentContentStateCapture = null;
-
+pickMode();
 
 clear();
 setRecents();
 
+document.querySelectorAll('input[name="btnMode"]').forEach(input => input.addEventListener("click", pickMode));
 $("#mediaUrl").addEventListener("change", loadIIIF);
 $("#refreshUrl").addEventListener("click", loadIIIF);
+$("#canvasSelectionMode").addEventListener("change", toggleCanvasSelectionMode);
+$("#selectButton").addEventListener("click", makeSelection);
+$("#cancelButton").addEventListener("click", () => alert("Cancelled!"));
+
+function pickMode(){
+    currentMode = document.querySelector('input[name="btnMode"]:checked').value;
+    if(currentMode == "manifest"){
+        $("#canvas").style.display = "none";
+        $("#selection").innerText = "";
+        currentCanvasId = null;
+        currentContentStateCapture = null;
+    } else if(currentMode == "canvas"){
+        $("#selectionModeToggleContainer").style.display = "none";
+        cp.disableContentStateSelection();
+        currentContentStateCapture = null;
+    } else if(currentMode == "region"){
+        if($("#selectionModeToggleContainer").style.display == ""){
+            $("#selectionModeToggleContainer").checked = false;
+        }
+        $("#selectionModeToggleContainer").style.display = "";
+    }
+}
 
 function clear() {
     $("#treeHolder").style.display = "none";
     $("#thumbnailsContainer").style.display = "none";
     $("#canvas").style.display = "none";
     $("#selection").innerText = "";
+    $("#selectionModeToggleContainer").style.display = "none";
 }
 
 function truncate(s) {
@@ -80,6 +104,20 @@ async function loadIIIF() {
     }
 }
 
+
+function toggleCanvasSelectionMode(){
+    if($("#canvasSelectionMode").checked){
+        cp.enableContentStateSelection(selection => {
+            console.log(selection);
+            currentContentStateCapture = selection;
+        });
+    } else {
+        cp.disableContentStateSelection();
+        currentContentStateCapture = null;
+    }
+
+}
+
 async function setManifest(manifest) {
     currentManifestId = manifest.id;
     const thumbDiv = $("#thumbnails");
@@ -107,7 +145,7 @@ async function getThumbnail(canvas) {
         return thumbUrl;
     } catch {
         // not very friendly
-        
+
     }
 }
 
@@ -168,7 +206,38 @@ async function renderInto(element, collection) {
 function showCanvasById(canvasId) {
     $("#canvas").style.display = "grid";
     cp.setCanvas(canvasId);
-    currentCanvasId = canvasId;
+    currentCanvasId = canvasId;       
 }
 
 $("#treeExpander").addEventListener("click", () => $("#treeHolderInner").classList.toggle("expanded"));
+
+function makeSelection(){
+    if(!currentManifestId){
+        alert("Nothing selected yet!");
+        return;
+    }
+    let contentState = null;
+    if(currentMode == "manifest"){
+        contentState = currentManifestId;
+    } else {
+        if(currentCanvasId){
+            contentState = {
+                id: currentCanvasId,
+                type: "Canvas",
+                partOf: [{
+                    id: currentManifestId,
+                    type: "Manifest"
+                }]
+            };
+            if(currentMode == "region" && currentContentStateCapture){
+                // The captured content state doesn't have a correct partOf (missing the Manifest ID)
+                contentState.id = currentContentStateCapture.contentState.id;
+            }
+            contentState = JSON.stringify(contentState, null, 2);
+        } else {
+            contentState = currentManifestId;
+        }
+    }
+
+    alert("Content State:\n\n\n" + contentState);
+}
