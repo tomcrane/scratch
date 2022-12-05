@@ -32,7 +32,7 @@ function pickMode(){
         $("#selection").innerText = "";
         currentCanvasId = null;
         currentContentStateCapture = null;
-    } else if(currentMode == "canvas"){
+    } else if(currentMode == "canvas" || currentMode == "media"){
         $("#selectionModeToggleContainer").style.display = "none";
         cp.disableContentStateSelection();
         currentContentStateCapture = null;
@@ -219,6 +219,25 @@ function makeSelection(){
     let contentState = null;
     if(currentMode == "manifest"){
         contentState = currentManifestId;
+    } else if (currentMode == "media"){
+        if(currentCanvasId){
+            const cv = vault.get(currentCanvasId);
+            const mediaList = [];
+            // vault.get(vault.get(vault.get(cv.items[0]).items[0]).body)[0]
+            for(const annoPage of cv.items){
+                const annos = vault.get(annoPage).items;
+                for(const anno of annos){
+                    const body = vault.get(anno).body;
+                    for(const media of body){
+                        mediaList.push(vault.get(media));
+                    }
+                }
+            }
+            contentState = JSON.stringify(mediaList, null, 2);;
+        } else {
+            alert("Select canvas first");
+            return;
+        }
     } else {
         if(currentCanvasId){
             contentState = {
