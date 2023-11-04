@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon latest</title>
+</head>
+<body>
+    
+<div id="osd1" style="width: 800px; height: 600px;"></div>
+<script src="https://cdn.jsdelivr.net/npm/openseadragon@4.1/build/openseadragon/openseadragon.min.js"></script>
+<script type="text/javascript">
+
+    var tileSource = 'https://iiif.wellcomecollection.org/image/b21707108_0001.jp2/info.json'
+  
+    var qs = /image=(.*)/g.exec(window.location.search);
+      if(qs && qs[1]){   
+          tileSource = qs[1];
+    }
+  
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/",
+        tileSources: [tileSource]
+    });
+ 
+</script>
+</body>
+</html>
