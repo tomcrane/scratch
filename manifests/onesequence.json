@@ -1,0 +1,161 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "http://89c5b865-4290-4828-8789-22b417b4e4f9",
+	"@type": "sc:Manifest",
+	"label": "[Click to edit label]",
+	"metadata": [],
+	"description": [
+		{
+			"@value": "[Click to edit description]",
+			"@language": "en"
+		}
+	],
+	"license": "https://creativecommons.org/licenses/by/3.0/",
+	"attribution": "[Click to edit attribution]",
+	"sequences": [
+		{
+			"@id": "http://b21e5de2-a7e2-481f-aa36-8d1a6fc46873",
+			"@type": "sc:Sequence",
+			"label": "Normal Sequence",
+			"canvases": [
+				{
+					"@id": "http://13380a02-48a3-4571-a29e-71ad64f50bfe",
+					"@type": "sc:Canvas",
+					"label": "Empty canvas",
+					"height": 1329,
+					"width": 1410,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://2f884f1d-f51f-46ef-a602-c5ad1ddd2f37",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://6fzwqjk2sg.execute-api.eu-west-2.amazonaws.com/latest/iiif/2/codex%2Ffm01/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://6fzwqjk2sg.execute-api.eu-west-2.amazonaws.com/latest/iiif/2/codex%2Ffm01",
+									"profile": [
+										"http://iiif.io/api/image/2/level2.json",
+										{
+											"formats": [
+												"jpg",
+												"tif",
+												"gif",
+												"png"
+											],
+											"qualities": [
+												"color",
+												"gray",
+												"bitonal",
+												"default"
+											],
+											"supports": [
+												"regionByPx",
+												"sizeByW",
+												"sizeByWhListed",
+												"cors",
+												"regionSquare",
+												"sizeByDistortedWh",
+												"sizeAboveFull",
+												"canonicalLinkHeader",
+												"sizeByConfinedWh",
+												"sizeByPct",
+												"jsonldMediaType",
+												"regionByPct",
+												"rotationArbitrary",
+												"sizeByH",
+												"baseUriRedirect",
+												"rotationBy90s",
+												"profileLinkHeader",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 1329,
+								"width": 1410
+							},
+							"on": "http://13380a02-48a3-4571-a29e-71ad64f50bfe"
+						}
+					],
+					"related": ""
+				},
+				{
+					"@id": "http://11b75a8a-43fd-4b38-b52a-c4555dc49a6a",
+					"@type": "sc:Canvas",
+					"label": "Empty canvas",
+					"height": 1314,
+					"width": 1398,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://06b9ba5f-a785-4658-aaa6-eb35b0435c4f",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://6fzwqjk2sg.execute-api.eu-west-2.amazonaws.com/latest/iiif/2/codex%2Ffm02/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://6fzwqjk2sg.execute-api.eu-west-2.amazonaws.com/latest/iiif/2/codex%2Ffm02",
+									"profile": [
+										"http://iiif.io/api/image/2/level2.json",
+										{
+											"formats": [
+												"jpg",
+												"tif",
+												"gif",
+												"png"
+											],
+											"qualities": [
+												"color",
+												"gray",
+												"bitonal",
+												"default"
+											],
+											"supports": [
+												"regionByPx",
+												"sizeByW",
+												"sizeByWhListed",
+												"cors",
+												"regionSquare",
+												"sizeByDistortedWh",
+												"sizeAboveFull",
+												"canonicalLinkHeader",
+												"sizeByConfinedWh",
+												"sizeByPct",
+												"jsonldMediaType",
+												"regionByPct",
+												"rotationArbitrary",
+												"sizeByH",
+												"baseUriRedirect",
+												"rotationBy90s",
+												"profileLinkHeader",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 1314,
+								"width": 1398
+							},
+							"on": "http://11b75a8a-43fd-4b38-b52a-c4555dc49a6a"
+						}
+					],
+					"related": ""
+				}
+			]
+		}
+	],
+    "viewingHint" : "continuous",
+    "viewingDirection": "left-to-right"
+
+}
