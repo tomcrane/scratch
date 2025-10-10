@@ -20,7 +20,7 @@
             {
               "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/a1",
               "type": "Annotation",
-              "motivation": ["painting "],
+              "motivation": ["painting"],
               "body": {
                 "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/full/max/0/default.jpg",
                 "type": "Image",
