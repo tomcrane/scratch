@@ -1,0 +1,29 @@
+{
+  "@context": "http://iiif.io/api/image/3/context.json",
+  "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover",
+  "type": "ImageService3",
+  "profile": "level0",
+  "protocol": "http://iiif.io/api/image",
+  "width": 1024,
+  "height": 1536,
+  "sizes": [
+    {"width":67,"height":100},
+    {"width":133,"height":200},
+    {"width":267,"height":400},
+    {"width":500,"height":750},
+    {"width":667,"height":1000},
+    {"width":1024,"height":1536}
+  ],
+  "tiles": [
+    {
+      "width": 512,
+      "scaleFactors": [
+        1,
+        2,
+        4
+      ]
+    }
+  ],
+  "preferredFormats": ["webp"],
+  "extraFormats": ["webp"]
+}

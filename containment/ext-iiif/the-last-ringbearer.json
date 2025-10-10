@@ -1,0 +1,57 @@
+{
+  "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer.json",
+  "type": "Manifest",
+  "label": { "en": ["The Last Ringbearer"] },
+  "metadata": [
+    {
+      "label": { "en": ["Author"] },
+      "value": { "en": [" Kirill Yeskov"] }
+    }
+  ],
+  "items": [
+    {
+      "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/c1",
+      "type": "Canvas",
+      "items": [
+        {
+          "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/ap1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/a1",
+              "type": "Annotation",
+              "motivation": ["painting "],
+              "body": {
+                "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/full/max/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpg",
+                "width": 1024,
+                "height": 1536,
+                "service": [
+                  {
+                    "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover",
+                    "type": "ImageService3",
+                    "profile": "level0",
+                    "protocol": "http://iiif.io/api/image",
+                    "width": 1024,
+                    "height": 1536,
+                    "sizes": [
+                      { "width": 67, "height": 100 },
+                      { "width": 133, "height": 200 },
+                      { "width": 267, "height": 400 },
+                      { "width": 500, "height": 750 },
+                      { "width": 667, "height": 1000 },
+                      { "width": 1024, "height": 1536 }
+                    ],
+                    "preferredFormats": ["webp"],
+                    "extraFormats": ["webp"]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

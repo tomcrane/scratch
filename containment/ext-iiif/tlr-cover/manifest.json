@@ -1,0 +1,94 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/manifest.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "C:\\git\\tomcrane\\scratch\\containment\\ext-iiif\\the-last-ringbearer.png"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/canvas",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "single canvas for C:\\git\\tomcrane\\scratch\\containment\\ext-iiif\\the-last-ringbearer.png"
+        ]
+      },
+      "width": 1024,
+      "height": 1536,
+      "rendering": [
+        {
+          "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/jpeg-p.tif",
+          "type": "Image",
+          "label": {"en":["Pyramidal tiff encoded with JPEG tiles"]},
+          "format": "image/tiff"
+        },
+        {
+          "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/webp-p.tif",
+          "type": "Image",
+          "label": {"en":["Pyramidal tiff encoded with WebP tiles"]},
+          "format": "image/tiff"
+        }
+      ],
+      "items": [
+        {
+          "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/page",
+          "type": "AnnotationPage",
+          "label": {
+            "en": [
+              "single anno page for C:\\git\\tomcrane\\scratch\\containment\\ext-iiif\\the-last-ringbearer.png"
+            ]
+          },
+          "items": [
+            {
+              "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/painting",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/full/1024,1536/0/default.jpg",
+                "type": "Image",
+                "width": 1024,
+                "height": 1536,
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "@context": "http://iiif.io/api/image/3/context.json",
+                    "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover",
+                    "type": "ImageService3",
+                    "profile": "level0",
+                    "protocol": "http://iiif.io/api/image",
+                    "width": 1024,
+                    "height": 1536,
+                    "sizes": [
+                      {"width":67,"height":100},
+                      {"width":133,"height":200},
+                      {"width":267,"height":400},
+                      {"width":500,"height":750},
+                      {"width":667,"height":1000},
+                      {"width":1024,"height":1536}
+                    ],
+                    "tiles": [
+                      {
+                        "width": 512,
+                        "scaleFactors": [
+                          1,
+                          2,
+                          4
+                        ]
+                      }
+                    ],
+                    "preferredFormats": ["webp"],
+                    "extraFormats": ["webp"]
+                  }
+                ]
+              },
+              "target": "https://tomcrane.github.io/scratch/containment/ext-iiif/tlr-cover/canvas"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
