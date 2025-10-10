@@ -47,7 +47,8 @@
                     "extraFormats": ["webp"]
                   }
                 ]
-              }
+              },
+              "target": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/c1"
             }
           ]
         }
