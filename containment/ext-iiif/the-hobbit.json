@@ -1,0 +1,40 @@
+{
+  "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-hobbit.json",
+  "type": "Manifest",
+  "label": { "en": ["The Hobbit"] },
+  "metadata": [
+    {
+      "label": { "en": ["Author"] },
+      "value": { "en": ["J.R.R. Tolkien"] }
+    }
+  ],
+  "items": [
+    {
+      "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-hobbit/c1",
+      "type": "Canvas",
+      "width": 717,
+      "height": 1024,
+      "items": [
+        {
+          "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-hobbit/ap1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-hobbit/a1",
+              "type": "Annotation",
+              "motivation": ["painting"],
+              "body": {
+                "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/hobbit.png",
+                "type": "Image",
+                "format": "image/jpg",
+                "width": 717,
+                "height": 1024
+              },
+              "target": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-hobbit/c1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
