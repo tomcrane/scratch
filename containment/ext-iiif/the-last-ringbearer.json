@@ -12,6 +12,8 @@
     {
       "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/c1",
       "type": "Canvas",
+      "width": 1024,
+      "height": 1536,
       "items": [
         {
           "id": "https://tomcrane.github.io/scratch/containment/ext-iiif/the-last-ringbearer/ap1",
